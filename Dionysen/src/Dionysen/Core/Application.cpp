@@ -69,9 +69,9 @@ void Application::Run()
 
 bool Application::OnWindowClose(WindowCloseEvent& e)
 {
-    // DION_CORE_WARN("Setting running is false ...");
+    DION_CORE_WARN("Setting running is false ...");
     m_Running = false;
-    // DION_CORE_WARN("Finished.");
+    DION_CORE_WARN("Finished.");
     return true;
 }
 
