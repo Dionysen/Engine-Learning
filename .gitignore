@@ -1,0 +1,4 @@
+/build/*
+/vsxmake2022/*
+/.xmake/*
+/.cache/*
