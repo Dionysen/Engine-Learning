@@ -1,4 +1,3 @@
-
 target("spdlog")
     set_kind("static")
     add_includedirs("./include", {public = true})

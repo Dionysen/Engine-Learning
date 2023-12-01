@@ -33,13 +33,13 @@ AllowShortBlocksOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: false
 
 # 允许短的函数放在同一行: None, InlineOnly(定义在类中), Empty(空函数), Inline(定义在类中，空函数), All
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: None
 
 # 允许短(只有一行时)的if语句保持在同一行
 AllowShortIfStatementsOnASingleLine: false
 
 # 允许短的循环保持在同一行
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
 
 # 总是在定义返回类型后换行(deprecated)
 AlwaysBreakAfterDefinitionReturnType: None
@@ -109,7 +109,7 @@ ColumnLimit: 150
 CommentPragmas: '^ IWYU pragma:'
 
 # 构造函数的初始化列表要么都在同一行，要么都各自一行
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
 
 # 构造函数的初始化列表的缩进宽度
 ConstructorInitializerIndentWidth: 4
@@ -151,10 +151,10 @@ KeepEmptyLinesAtTheStartOfBlocks: true
 # MacroBlockEnd: ''
 
 # 连续空行的最大数量
-MaxEmptyLinesToKeep: 1
+MaxEmptyLinesToKeep: 3
 
 # 命名空间的缩进: None, Inner(缩进嵌套的命名空间中的内容), All
-NamespaceIndentation: Inner
+NamespaceIndentation: All
 
 # 在call(后对函数调用换行的penalty
 # PenaltyBreakBeforeFirstCallParameter: 19
@@ -169,7 +169,7 @@ PointerAlignment: Left
 ReflowComments: true
 
 # 允许排序#include
-SortIncludes: true
+SortIncludes: false
 
 # 在赋值运算符之前添加空格
 SpaceBeforeAssignmentOperators: true
