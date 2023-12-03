@@ -63,7 +63,7 @@ namespace Dionysen
         glfwMakeContextCurrent(m_Window);
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
-        SetVSync(false);
+        SetVSync(true);
 
         // GLEW
         glewExperimental = GL_TRUE;

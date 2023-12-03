@@ -1,4 +1,7 @@
 #include "Dionysen.h"
+#include "GLFW/glfw3.h"
+#include "ImGuiLayer.h"
+
 #include "Layer.h"
 #include "Log.h"
 #include "imgui.h"
@@ -10,20 +13,31 @@ class ExampleLayer : public Dionysen::Layer
         : Layer("Example")
     {
     }
+
+    virtual void OnAttach() override{
+        // DION_WARN("On attach");
+    };
+    virtual void OnDetach() override{
+        // DION_WARN("On Detach");
+    };
+
     void OnEvent(Dionysen::Event& event) override
     {
-        // DION_TRACE("{0}", event.GetName());
     }
     void OnUpdate(Dionysen::Timestep st) override
     {
-        // DION_TRACE("ExampleLayer::Update");
     }
-    ~ExampleLayer()
-    {
-    }
+    ~ExampleLayer() = default;
 
-    void OnImGuiRender() override
+    virtual void OnImGuiRender() override
     {
+        ImGui::Begin("Dear ImGui");
+        // ...
+        ImGui::Text("Hello");
+
+        // Frame rate
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::End();
     }
 };
 
@@ -34,9 +48,9 @@ class Gobang : public Dionysen::Application
     {
         DION_INFO("Create Gobang");
         m_appName = "Gobang";
-
         PushLayer(new ExampleLayer());
     }
+
     ~Gobang()
     {
     }

@@ -5,6 +5,9 @@ target("Gobang")
     includes("../Dionysen")
     add_includedirs("../Dionysen")
 
+    includes("../Dionysen/vendor/imgui")
+    add_deps("imgui")
+
     add_files("*.cpp")
 
     if is_plat("windows") then

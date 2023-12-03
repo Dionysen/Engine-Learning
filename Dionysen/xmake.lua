@@ -1,6 +1,6 @@
 
 target("Dionysen")
-    set_kind("shared")
+    set_kind("static")
 
     -- MultiTheading DLL Debug
     -- if is_mode("debug") then
@@ -16,7 +16,7 @@ target("Dionysen")
     includes("./vendor/imgui-docking/xmake.lua")
     add_deps("imgui-docking")
 
-    add_packages("glfw", "glew")
+    add_packages("glfw", "glew", "glm")
 
     if is_plat("macosx") then
         add_linkdirs("/opt/local/lib")
@@ -38,14 +38,17 @@ target("Dionysen")
     add_files(
         "./src/Dionysen/Core/*.cpp",
         "./src/Dionysen/ImGui/*.cpp",
-        "./src/Platform/Windows/*.cpp",
-        "./src/Platform/OpenGL/*.cpp"
+        "./src/Platform/Windows/*.cpp"
+        -- "./src/Platform/OpenGL/*.cpp"
     )
 
     -- pch
     set_pcxxheader("./src/dspch.h")
     add_includedirs("./src")
     
+    -- system headers
+--     add_sysincludedirs("C:\\mingw64\\include", {public = true})
+
     -- macro
     if is_plat("windows") then
         add_defines(

@@ -7,13 +7,11 @@
 #include "Log.h"
 #include "PlatformUtils.h"
 #include "WindowsWindow.h"
-#include "dspch.h"
 #include "Event.h"
-#include "imgui.h"
+
 
 namespace Dionysen
 {
-
     Application* Application::s_Instance = nullptr;
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -26,8 +24,8 @@ namespace Dionysen
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));  // ###
 
-        m_ImGuiLayer = new ImGuiLayer();
-        PushOverlay(m_ImGuiLayer);
+         m_ImGuiLayer = new ImGuiLayer();
+        PushLayer(m_ImGuiLayer);
     }
 
     void Application::PushLayer(Layer* layer)
@@ -63,44 +61,31 @@ namespace Dionysen
     }
     void Application::Run()
     {
-        float    time     = Time::GetTime();
-        Timestep timestep = time - m_LastFrameTime;
-        m_LastFrameTime   = time;
-
         DION_CORE_INFO("Application::{0} is running!", m_appName);
-
         while (m_Running)
         {
+            float    time     = Time::GetTime();
+            Timestep timestep = time - m_LastFrameTime;
+            m_LastFrameTime   = time;
+
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (!m_Minimized)
             {
+                // Update
                 for (Layer* layer : m_LayerStack)
                 {
                     layer->OnUpdate(timestep);
                 }
 
-                // imgui
+                // Imgui
+                m_ImGuiLayer->Begin();
+                for (Layer* layer : m_LayerStack)
                 {
-                    m_ImGuiLayer->Begin();
-
-                    ImGui::Begin("App");
-                    ImGui::End();
-
-                    ImGui::Begin("Example");
-                    ImGui::ShowDemoWindow();
-                    ImGui::Text("Welcome to my Scene!");
-                    ImGui::Text("Press \"Alt + C\" to visiable cursor or not.");
-                    // Frame rate
-                    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-                    ImGui::End();
-
-                    for (Layer* layer : m_LayerStack)
-                        layer->OnImGuiRender();
-
-                    m_ImGuiLayer->End();
+                    layer->OnImGuiRender();
                 }
+                m_ImGuiLayer->End();
             }
 
             m_Window->OnUpdate();  // Poll event and swap buffer
@@ -109,9 +94,8 @@ namespace Dionysen
 
     bool Application::OnWindowClose(WindowCloseEvent& e)
     {
-        DION_CORE_WARN("Setting running is false ...");
+        DION_CORE_WARN("Closing Window...");
         m_Running = false;
-        DION_CORE_WARN("Finished.");
         return true;
     }
 

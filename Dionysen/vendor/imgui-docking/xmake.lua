@@ -3,5 +3,7 @@ target("imgui-docking")
 
 	add_packages("glfw")
 
-	add_includedirs(".", {public = true})
-	add_files("./*.cpp")
+	add_includedirs(".", "./impl_glfw", {public = true})
+	add_files("./*.cpp", "./impl_glfw/*.cpp")
+
+	add_defines("IMGUI_IMPL_OPENGL_LOADER_GLEW")

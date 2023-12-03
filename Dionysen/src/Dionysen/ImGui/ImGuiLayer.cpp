@@ -3,8 +3,9 @@
 #include "Log.h"
 #include "imgui.h"
 #include "GLFW/glfw3.h"
-#include "ImGuiOpenGLRenderer.h"
-#include "ImGuiGlfwRenderer.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_impl_opengl3_loader.h"
 #include "Application.h"
 #include <imgui_internal.h>
 
@@ -33,9 +34,9 @@ namespace Dionysen
 
         ImGui::StyleColorsDark();
 
-        float fontSize = 18.0f;  // *2.0f;
-        io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Bold.ttf", fontSize);
-        io.FontDefault = io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Bold.ttf", fontSize);
+        float fontSize = 21.0f;  // *2.0f;
+        io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf", fontSize);
+        io.FontDefault = io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf", fontSize);
 
         ImGuiStyle& style = ImGui::GetStyle();
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
@@ -133,8 +134,7 @@ namespace Dionysen
 
     uint32_t ImGuiLayer::GetActiveWidgetID() const
     {
-        // return GImGui->ActiveId;
-        return 0;
+        return GImGui->ActiveId;
     }
 
 }  // namespace Dionysen

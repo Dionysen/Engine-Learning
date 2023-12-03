@@ -1,6 +1,6 @@
 add_rules("mode.debug", "mode.release")
 
-add_requires("glfw", "glew")
+add_requires("glfw", "glew", "glm")
 
 set_languages("cxx23")
 

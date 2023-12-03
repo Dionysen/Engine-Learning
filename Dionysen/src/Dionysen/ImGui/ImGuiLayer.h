@@ -1,10 +1,12 @@
 #pragma once
 
 #include "Layer.h"
+#include "MouseEvent.h"
+#include "KeyEvent.h"
 
 namespace Dionysen
 {
-    class ImGuiLayer : public Layer
+    class DION_API ImGuiLayer : public Layer
     {
       public:
         ImGuiLayer();

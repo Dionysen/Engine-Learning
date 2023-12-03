@@ -1,8 +1,6 @@
-
 #pragma once
 
 #include "GLFW/glfw3.h"
-
 #include "Window.h"
 
 namespace Dionysen
@@ -16,24 +14,24 @@ namespace Dionysen
 
         void OnUpdate() override;
 
-        unsigned int GetWidth() const override
+        inline unsigned int GetWidth() const override
         {
             return m_Data.Width;
         }
-        unsigned int GetHeight() const override
+        inline unsigned int GetHeight() const override
         {
             return m_Data.Height;
         }
 
         // Window attributes
-        void SetEventCallback(const EventCallbackFn& callback) override
+        inline void SetEventCallback(const EventCallbackFn& callback) override
         {
             m_Data.EventCallback = callback;
         }
         void SetVSync(bool enabled) override;
         bool IsVSync() const override;
 
-        virtual void* GetNativeWindow() const override
+        inline void* GetNativeWindow() const override
         {
             return m_Window;
         }

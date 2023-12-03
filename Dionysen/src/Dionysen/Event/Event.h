@@ -2,7 +2,6 @@
 
 #include "Base.h"
 #include "dspch.h"
-#include <functional>
 
 namespace Dionysen
 {

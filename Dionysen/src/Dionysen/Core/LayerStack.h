@@ -52,10 +52,10 @@ namespace Dionysen
         {
             return m_Layers.rend();
         }
+        std::vector<Layer*> m_Layers;
 
       private:
-        std::vector<Layer*> m_Layers;
-        unsigned int        m_LayerInsertIndex = 0;
+        unsigned int m_LayerInsertIndex = 0;
     };
 
 }  // namespace Dionysen
