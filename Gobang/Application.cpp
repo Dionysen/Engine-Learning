@@ -1,7 +1,4 @@
 #include "Dionysen.h"
-#include "GLFW/glfw3.h"
-#include "ImGuiLayer.h"
-
 #include "Layer.h"
 #include "Log.h"
 #include "imgui.h"

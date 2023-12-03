@@ -37,7 +37,7 @@
 #endif
 
 // #ifdef DION_ENABLE_ASSERTS
-// // Alteratively we could use the same "default" message for both "WITH_MSG" and "NO_MSG" and
+// // Alternatively we could use the same "default" message for both "WITH_MSG" and "NO_MSG" and
 // // provide support for custom formatting by concatenating the formatting string instead of having the format inside the default message
 // #define DION_INTERNAL_ASSERT_IMPL(type, check, msg, ...) \
 //     {                                                    \

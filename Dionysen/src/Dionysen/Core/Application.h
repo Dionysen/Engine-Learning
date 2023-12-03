@@ -12,7 +12,6 @@
 
 namespace Dionysen
 {
-
     class DION_API Application
     {
       public:
