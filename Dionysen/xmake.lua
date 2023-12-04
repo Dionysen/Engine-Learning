@@ -48,7 +48,7 @@ target("Dionysen")
     
     -- system headers
 --     add_sysincludedirs("C:\\mingw64\\include", {public = true})
-
+    -- add_cxxflags("-isystem C:/mingw64/include", {force = true})
     -- macro
     if is_plat("windows") then
         add_defines(

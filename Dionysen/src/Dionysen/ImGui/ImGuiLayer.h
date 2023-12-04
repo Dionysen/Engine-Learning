@@ -10,11 +10,11 @@ namespace Dionysen
     {
       public:
         ImGuiLayer();
-        ~ImGuiLayer();
+        ~ImGuiLayer() override;
 
-        void OnAttach();
-        void OnDetach();
-        void OnEvent(Event& e);
+        void OnAttach() override;
+        void OnDetach() override;
+        void OnEvent(Event& e) override;
 
         void Begin();
         void End();

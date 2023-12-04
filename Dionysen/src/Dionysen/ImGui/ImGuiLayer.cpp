@@ -17,9 +17,7 @@ namespace Dionysen
     {
     }
 
-    ImGuiLayer::~ImGuiLayer()
-    {
-    }
+    ImGuiLayer::~ImGuiLayer() = default;
 
     void ImGuiLayer::OnAttach()
     {
@@ -48,7 +46,7 @@ namespace Dionysen
         SetDarkThemeColors();
 
         Application& app    = Application::Get();
-        GLFWwindow*  window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
+        auto*        window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);

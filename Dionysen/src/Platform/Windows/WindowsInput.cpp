@@ -3,7 +3,6 @@
 
 #include "Application.h"
 #include <GLFW/glfw3.h>
-#include <winsock.h>
 
 namespace Dionysen
 {
