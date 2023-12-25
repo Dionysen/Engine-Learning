@@ -4,7 +4,6 @@
 #include "TimerStep.h"
 #include <sstream>
 #include <string>
-#include <winreg.h>
 
 namespace Dionysen
 {

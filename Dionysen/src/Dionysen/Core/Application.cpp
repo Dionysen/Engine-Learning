@@ -64,7 +64,7 @@ namespace Dionysen
         DION_CORE_INFO("Application::{0} is running!", m_appName);
         while (m_Running)
         {
-            float    time     = Time::GetTime();
+            float    time     = glfwGetTime();
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime   = time;
 

@@ -31,7 +31,7 @@ target("Dionysen")
         "./src/Dionysen/ImGui",
         "./src/Dionysen/Utils",
         "./src/Platform/Windows",
-        "./src/Platform/OpenGL",
+        -- "./src/Platform/OpenGL",
         {public = true}
     )
 

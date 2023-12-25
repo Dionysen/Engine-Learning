@@ -1,10 +1,18 @@
 add_rules("mode.debug", "mode.release")
 
+-- requires
 add_requires("glfw", "glew", "glm")
 
+-- set c++
 set_languages("cxx23")
 
--- include子项目的xmake.lua
-
+-- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
 includes("Gobang/xmake.lua")
+
+-- for easyer
+set_rundir(".")
+set_policy("run.autobuild", true)
+
+-- if debug
+set_rules("mode.debug")

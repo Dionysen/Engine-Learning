@@ -3,7 +3,8 @@
 #include "dspch.h"
 
 #include <GLFW/glfw3.h>
-#include <commdlg.h>
+
+#ifdef __WIN32__
 
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
@@ -64,3 +65,5 @@ std::string FileDialogs::SaveFile(const char* filter)
 }
 
 }  // namespace Dionysen
+
+#endif
