@@ -8,6 +8,8 @@
 #include "PlatformUtils.h"
 #include "WindowsWindow.h"
 #include "Event.h"
+#include "glm/fwd.hpp"
+#include <glm/glm.hpp>
 
 
 namespace Dionysen
@@ -87,6 +89,9 @@ namespace Dionysen
                 }
                 m_ImGuiLayer->End();
             }
+
+            // glm::vec2 a = Input::GetMousePosition();
+            // DION_CORE_TRACE("{0}, {1}", a.x, a.y);
 
             m_Window->OnUpdate();  // Poll event and swap buffer
         }

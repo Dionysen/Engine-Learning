@@ -30,16 +30,17 @@ target("Dionysen")
         "./src/Dionysen/Event", 
         "./src/Dionysen/ImGui",
         "./src/Dionysen/Utils",
+        "./src/Dionysen/Renderer",
         "./src/Platform/Windows",
-        -- "./src/Platform/OpenGL",
+        "./src/Platform/OpenGL",
         {public = true}
     )
 
     add_files(
         "./src/Dionysen/Core/*.cpp",
         "./src/Dionysen/ImGui/*.cpp",
-        "./src/Platform/Windows/*.cpp"
-        -- "./src/Platform/OpenGL/*.cpp"
+        "./src/Platform/Windows/*.cpp",
+        "./src/Platform/OpenGL/*.cpp"
     )
 
     -- pch

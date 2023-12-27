@@ -1,5 +1,6 @@
 #pragma once
 
+// Define export library for different platforms
 #ifdef DION_PLATFORM_WINDOWS
 #ifdef DION_BUILD_DLL
 #define DION_API __declspec(dllexport)
@@ -10,8 +11,11 @@
 #define DION_API __attribute((visibility("default")))
 #endif
 
+// ?
 #define BIT(x) (1 << x)
 
+
+// Define ourself assert. If it's false, the console will print the information of errors
 #define DION_ENABLE_ASSERTS
 
 #ifdef DION_ENABLE_ASSERTS

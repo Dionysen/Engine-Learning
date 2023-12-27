@@ -6,6 +6,7 @@
 #include "KeyEvent.h"
 #include "Log.h"
 #include "MouseEvent.h"
+#include "OpenGLContext.h"
 #include "WindowsWindow.h"
 #include "dspch.h"
 #include <iostream>
@@ -61,6 +62,9 @@ namespace Dionysen
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
         glfwMakeContextCurrent(m_Window);
+
+        m_Context = new OpenGLContext(m_Window);
+        m_Context->Init();
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
@@ -177,6 +181,7 @@ namespace Dionysen
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
+        m_Context->SwapBuffers();
         glfwSwapBuffers(m_Window);
     }
 

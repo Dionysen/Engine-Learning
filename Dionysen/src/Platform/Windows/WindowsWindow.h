@@ -1,7 +1,9 @@
 #pragma once
 
 #include "GLFW/glfw3.h"
+#include "GraphicsContext.h"
 #include "Window.h"
+#include "GraphicsContext.h"
 
 namespace Dionysen
 {
@@ -41,7 +43,8 @@ namespace Dionysen
         virtual void Shutdown();
 
       private:
-        GLFWwindow* m_Window;
+        GLFWwindow*      m_Window;
+        GraphicsContext* m_Context;
 
         struct WindowData
         {

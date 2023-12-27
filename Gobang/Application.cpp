@@ -1,7 +1,9 @@
 #include "Dionysen.h"
+#include "KeyCodes.h"
 #include "Layer.h"
 #include "Log.h"
 #include "imgui.h"
+#include "Input.h"
 
 class ExampleLayer : public Dionysen::Layer
 {
@@ -23,6 +25,10 @@ class ExampleLayer : public Dionysen::Layer
     }
     void OnUpdate(Dionysen::Timestep st) override
     {
+        if (Dionysen::Input::IsKeyPressed(Dionysen::Key::Tab))
+        {
+            DION_INFO("TAB key is pressed!");
+        }
     }
     ~ExampleLayer() = default;
 
@@ -31,7 +37,7 @@ class ExampleLayer : public Dionysen::Layer
         ImGui::Begin("Dear ImGui");
         // ...
         ImGui::Text("Hello");
-
+        ImGui::ShowDemoWindow();
         // Frame rate
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         ImGui::End();

@@ -4,7 +4,7 @@ add_rules("mode.debug", "mode.release")
 add_requires("glfw", "glew", "glm")
 
 -- set c++
-set_languages("cxx23")
+set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")

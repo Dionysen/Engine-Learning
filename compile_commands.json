@@ -1,156 +1,161 @@
 [
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/LayerStack.cpp.o", "Dionysen/src/Dionysen/Core/LayerStack.cpp"],
-  "file": "Dionysen/src/Dionysen/Core/LayerStack.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Layer.cpp.o", "Dionysen/src/Dionysen/Core/Layer.cpp"],
-  "file": "Dionysen/src/Dionysen/Core/Layer.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Window.cpp.o", "Dionysen/src/Dionysen/Core/Window.cpp"],
-  "file": "Dionysen/src/Dionysen/Core/Window.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Application.cpp.o", "Dionysen/src/Dionysen/Core/Application.cpp"],
-  "file": "Dionysen/src/Dionysen/Core/Application.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Log.cpp.o", "Dionysen/src/Dionysen/Core/Log.cpp"],
-  "file": "Dionysen/src/Dionysen/Core/Log.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp.o", "Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp"],
-  "file": "Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsInput.cpp.o", "Dionysen/src/Platform/Windows/WindowsInput.cpp"],
-  "file": "Dionysen/src/Platform/Windows/WindowsInput.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp.o", "Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp"],
-  "file": "Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsWindow.cpp.o", "Dionysen/src/Platform/Windows/WindowsWindow.cpp"],
-  "file": "Dionysen/src/Platform/Windows/WindowsWindow.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Platform/Windows", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/Gobang/linux/x86_64/debug/Gobang/Application.cpp.o", "Gobang/Application.cpp"],
-  "file": "Gobang/Application.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/file_sinks.cpp.o", "Dionysen/vendor/spdlog/src/file_sinks.cpp"],
-  "file": "Dionysen/vendor/spdlog/src/file_sinks.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp.o", "Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp"],
-  "file": "Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/spdlog.cpp.o", "Dionysen/vendor/spdlog/src/spdlog.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/spdlog.cpp.o", "Dionysen/vendor/spdlog/src/spdlog.cpp"],
   "file": "Dionysen/vendor/spdlog/src/spdlog.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/async.cpp.o", "Dionysen/vendor/spdlog/src/async.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/async.cpp.o", "Dionysen/vendor/spdlog/src/async.cpp"],
   "file": "Dionysen/vendor/spdlog/src/async.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/stdout_sinks.cpp.o", "Dionysen/vendor/spdlog/src/stdout_sinks.cpp"],
-  "file": "Dionysen/vendor/spdlog/src/stdout_sinks.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp.o", "Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp"],
+  "file": "Dionysen/vendor/spdlog/src/bundled_fmtlib_format.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/cfg.cpp.o", "Dionysen/vendor/spdlog/src/cfg.cpp"],
-  "file": "Dionysen/vendor/spdlog/src/cfg.cpp"
-},
-{
-  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/color_sinks.cpp.o", "Dionysen/vendor/spdlog/src/color_sinks.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/color_sinks.cpp.o", "Dionysen/vendor/spdlog/src/color_sinks.cpp"],
   "file": "Dionysen/vendor/spdlog/src/color_sinks.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_demo.cpp.o", "Dionysen/vendor/imgui-docking/imgui_demo.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/imgui_demo.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/cfg.cpp.o", "Dionysen/vendor/spdlog/src/cfg.cpp"],
+  "file": "Dionysen/vendor/spdlog/src/cfg.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_draw.cpp.o", "Dionysen/vendor/imgui-docking/imgui_draw.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/imgui_draw.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/stdout_sinks.cpp.o", "Dionysen/vendor/spdlog/src/stdout_sinks.cpp"],
+  "file": "Dionysen/vendor/spdlog/src/stdout_sinks.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_tables.cpp.o", "Dionysen/vendor/imgui-docking/imgui_tables.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/imgui_tables.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/spdlog/include", "-DSPDLOG_COMPILED_LIB", "-o", "build/.objs/spdlog/linux/x86_64/debug/Dionysen/vendor/spdlog/src/file_sinks.cpp.o", "Dionysen/vendor/spdlog/src/file_sinks.cpp"],
+  "file": "Dionysen/vendor/spdlog/src/file_sinks.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_widgets.cpp.o", "Dionysen/vendor/imgui-docking/imgui_widgets.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/imgui_widgets.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Log.cpp.o", "Dionysen/src/Dionysen/Core/Log.cpp"],
+  "file": "Dionysen/src/Dionysen/Core/Log.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui.cpp.o", "Dionysen/vendor/imgui-docking/imgui.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/imgui.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/LayerStack.cpp.o", "Dionysen/src/Dionysen/Core/LayerStack.cpp"],
+  "file": "Dionysen/src/Dionysen/Core/LayerStack.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp.o", "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Window.cpp.o", "Dionysen/src/Dionysen/Core/Window.cpp"],
+  "file": "Dionysen/src/Dionysen/Core/Window.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp.o", "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp"],
-  "file": "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Layer.cpp.o", "Dionysen/src/Dionysen/Core/Layer.cpp"],
+  "file": "Dionysen/src/Dionysen/Core/Layer.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_demo.cpp.o", "Dionysen/vendor/imgui/imgui_demo.cpp"],
-  "file": "Dionysen/vendor/imgui/imgui_demo.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/Core/Application.cpp.o", "Dionysen/src/Dionysen/Core/Application.cpp"],
+  "file": "Dionysen/src/Dionysen/Core/Application.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_draw.cpp.o", "Dionysen/vendor/imgui/imgui_draw.cpp"],
-  "file": "Dionysen/vendor/imgui/imgui_draw.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp.o", "Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp"],
+  "file": "Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_tables.cpp.o", "Dionysen/vendor/imgui/imgui_tables.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsWindow.cpp.o", "Dionysen/src/Platform/Windows/WindowsWindow.cpp"],
+  "file": "Dionysen/src/Platform/Windows/WindowsWindow.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp.o", "Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp"],
+  "file": "Dionysen/src/Platform/Windows/WindowsPlatformUtils.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/Windows/WindowsInput.cpp.o", "Dionysen/src/Platform/Windows/WindowsInput.cpp"],
+  "file": "Dionysen/src/Platform/Windows/WindowsInput.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-DGLEW_NO_GLU", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/home/dionysen/.xmake/packages/g/glew/2.2.0/2ac0c6940a2140f7b6506fcd8240f406/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Dionysen/linux/x86_64/debug/Dionysen/src/Platform/OpenGL/OpneGLContext.cpp.o", "Dionysen/src/Platform/OpenGL/OpneGLContext.cpp"],
+  "file": "Dionysen/src/Platform/OpenGL/OpneGLContext.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_tables.cpp.o", "Dionysen/vendor/imgui/imgui_tables.cpp"],
   "file": "Dionysen/vendor/imgui/imgui_tables.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_widgets.cpp.o", "Dionysen/vendor/imgui/imgui_widgets.cpp"],
-  "file": "Dionysen/vendor/imgui/imgui_widgets.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_draw.cpp.o", "Dionysen/vendor/imgui/imgui_draw.cpp"],
+  "file": "Dionysen/vendor/imgui/imgui_draw.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui.cpp.o", "Dionysen/vendor/imgui/imgui.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui.cpp.o", "Dionysen/vendor/imgui/imgui.cpp"],
   "file": "Dionysen/vendor/imgui/imgui.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/impl_glfw/imgui_impl_opengl3.cpp.o", "Dionysen/vendor/imgui/impl_glfw/imgui_impl_opengl3.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_demo.cpp.o", "Dionysen/vendor/imgui/imgui_demo.cpp"],
+  "file": "Dionysen/vendor/imgui/imgui_demo.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/imgui_widgets.cpp.o", "Dionysen/vendor/imgui/imgui_widgets.cpp"],
+  "file": "Dionysen/vendor/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/impl_glfw/imgui_impl_opengl3.cpp.o", "Dionysen/vendor/imgui/impl_glfw/imgui_impl_opengl3.cpp"],
   "file": "Dionysen/vendor/imgui/impl_glfw/imgui_impl_opengl3.cpp"
 },
 {
   "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++23", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/impl_glfw/imgui_impl_glfw.cpp.o", "Dionysen/vendor/imgui/impl_glfw/imgui_impl_glfw.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui/linux/x86_64/debug/Dionysen/vendor/imgui/impl_glfw/imgui_impl_glfw.cpp.o", "Dionysen/vendor/imgui/impl_glfw/imgui_impl_glfw.cpp"],
   "file": "Dionysen/vendor/imgui/impl_glfw/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen", "-IDionysen/src", "-IDionysen/src/Dionysen/Core", "-IDionysen/src/Dionysen/Event", "-IDionysen/src/Dionysen/ImGui", "-IDionysen/src/Dionysen/Utils", "-IDionysen/src/Dionysen/Renderer", "-IDionysen/src/Platform/Windows", "-IDionysen/src/Platform/OpenGL", "-IDionysen/vendor/spdlog/include", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-IDionysen/vendor/imgui", "-IDionysen/vendor/imgui/impl_glfw", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-I", "/home/dionysen/.xmake/packages/g/glm/0.9.9+8/65b1ad153bda4a43b0454eba7969327f/include", "-o", "build/.objs/Gobang/linux/x86_64/debug/Gobang/Application.cpp.o", "Gobang/Application.cpp"],
+  "file": "Gobang/Application.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_tables.cpp.o", "Dionysen/vendor/imgui-docking/imgui_tables.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/imgui_tables.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_draw.cpp.o", "Dionysen/vendor/imgui-docking/imgui_draw.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/imgui_draw.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui.cpp.o", "Dionysen/vendor/imgui-docking/imgui.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/imgui.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_demo.cpp.o", "Dionysen/vendor/imgui-docking/imgui_demo.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/imgui_demo.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/imgui_widgets.cpp.o", "Dionysen/vendor/imgui-docking/imgui_widgets.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp.o", "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "/home/dionysen/Documents/GitHub/Engine-Learning",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++20", "-IDionysen/vendor/imgui-docking", "-IDionysen/vendor/imgui-docking/impl_glfw", "-DIMGUI_IMPL_OPENGL_LOADER_GLEW", "-D_GLFW_X11", "-DGLFW_INCLUDE_NONE", "-I", "/home/dionysen/.xmake/packages/g/glfw/3.3.8/aa037e96cc854680a09e144c4b5c8fe0/include", "-I", "/usr/include/python3.11", "-I", "/usr/include/X11/dri", "-o", "build/.objs/imgui-docking/linux/x86_64/debug/Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp.o", "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp"],
+  "file": "Dionysen/vendor/imgui-docking/impl_glfw/imgui_impl_glfw.cpp"
 }]
