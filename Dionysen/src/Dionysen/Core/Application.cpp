@@ -8,9 +8,6 @@
 #include "PlatformUtils.h"
 #include "WindowsWindow.h"
 #include "Event.h"
-#include "glm/fwd.hpp"
-#include <glm/glm.hpp>
-
 
 namespace Dionysen
 {
@@ -28,6 +25,37 @@ namespace Dionysen
 
         m_ImGuiLayer = new ImGuiLayer();
         PushLayer(m_ImGuiLayer);
+
+
+
+        float vertices[] = {
+            0.5f,  0.5f,  0.0f,  // top right
+            0.5f,  -0.5f, 0.0f,  // bottom right
+            -0.5f, -0.5f, 0.0f,  // bottom left
+            -0.5f, 0.5f,  0.0f   // top left
+        };
+        unsigned int indices[] = {
+            // note that we start from 0!
+            0, 1, 3,  // first Triangle
+            1, 2, 3   // second Triangle
+        };
+
+        glGenVertexArrays(1, &VAO);
+        glGenBuffers(1, &VBO);
+        glGenBuffers(1, &EBO);
+        glBindVertexArray(VAO);
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindVertexArray(0);
     }
 
     void Application::PushLayer(Layer* layer)
@@ -58,20 +86,22 @@ namespace Dionysen
         }
     }
 
-    Application::~Application()
-    {
-    }
+    Application::~Application() = default;
+
     void Application::Run()
     {
         DION_CORE_INFO("Application::{0} is running!", m_appName);
         while (m_Running)
         {
-            float    time     = glfwGetTime();
+            auto     time     = Time::GetTime();
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime   = time;
 
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+
+            glBindVertexArray(VAO);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
             if (!m_Minimized)
             {
@@ -89,10 +119,6 @@ namespace Dionysen
                 }
                 m_ImGuiLayer->End();
             }
-
-            // glm::vec2 a = Input::GetMousePosition();
-            // DION_CORE_TRACE("{0}, {1}", a.x, a.y);
-
             m_Window->OnUpdate();  // Poll event and swap buffer
         }
     }
@@ -111,7 +137,6 @@ namespace Dionysen
             m_Minimized = true;
             return false;
         }
-
         m_Minimized = false;
         return false;
     }

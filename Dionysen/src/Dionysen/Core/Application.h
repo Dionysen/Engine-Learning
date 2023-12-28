@@ -11,7 +11,7 @@
 #include <string>
 
 namespace Dionysen
-{ 
+{
     class DION_API Application
     {
       public:
@@ -49,6 +49,7 @@ namespace Dionysen
 
         static Application* s_Instance;
         ImGuiLayer*         m_ImGuiLayer;
+        unsigned int        VBO, VAO, EBO;
     };
 
     // To be defined in CLIENT

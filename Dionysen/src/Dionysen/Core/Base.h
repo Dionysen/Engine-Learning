@@ -15,7 +15,7 @@
 #define BIT(x) (1 << x)
 
 
-// Define ourself assert. If it's false, the console will print the information of errors
+// Define ourselves assert. If it's false, the console will print the information of errors
 #define DION_ENABLE_ASSERTS
 
 #ifdef DION_ENABLE_ASSERTS

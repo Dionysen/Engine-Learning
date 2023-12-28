@@ -8,8 +8,6 @@
 #include "MouseEvent.h"
 #include "OpenGLContext.h"
 #include "WindowsWindow.h"
-#include "dspch.h"
-#include <iostream>
 #include <string>
 
 namespace Dionysen
@@ -61,32 +59,17 @@ namespace Dionysen
 
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
-        glfwMakeContextCurrent(m_Window);
-
         m_Context = new OpenGLContext(m_Window);
         m_Context->Init();
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 
-        // GLEW
-        glewExperimental = GL_TRUE;
-        unsigned int err = glewInit();
-        DION_CORE_ASSERT(GLEW_OK == err, "Error initing Glew: ", err);
-        glGetError();
+        // opengl setting
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_DEBUG_OUTPUT);
 
-        const std::string glVersion = (char*)glGetString(GL_VERSION);
 
-        if (glVersion.size())
-        {
-            DION_CORE_INFO("OpenGL Version {0}", glVersion);
-        }
-        else
-        {
-            DION_CORE_ERROR("Failed to get OpenGL version.");
-        }
 
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
@@ -182,7 +165,6 @@ namespace Dionysen
     {
         glfwPollEvents();
         m_Context->SwapBuffers();
-        glfwSwapBuffers(m_Window);
     }
 
     void WindowsWindow::SetVSync(bool enabled)
