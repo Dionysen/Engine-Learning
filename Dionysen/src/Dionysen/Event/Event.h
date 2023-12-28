@@ -77,7 +77,7 @@ namespace Dionysen
             return GetCategoryFlags() & category;
         }
 
-        bool isHandled()
+        [[nodiscard]] bool isHandled() const
         {
             return m_Handled;
         }
@@ -93,7 +93,7 @@ namespace Dionysen
         template <typename T> using EventFn = std::function<bool(T&)>;
 
       public:
-        EventDispatcher(Event& event)
+        explicit EventDispatcher(Event& event)
             : m_Event(event)
         {
         }

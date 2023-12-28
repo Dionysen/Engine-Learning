@@ -1,3 +1,5 @@
+#pragma clang diagnostic push
+#pragma ide diagnostic   ignored "OCUnusedGlobalDeclarationInspection"
 #pragma once
 #include "Base.h"
 #include "KeyCodes.h"
@@ -19,3 +21,4 @@ namespace Dionysen
         static Input* s_Instance;
     };
 }  // namespace Dionysen
+#pragma clang diagnostic pop

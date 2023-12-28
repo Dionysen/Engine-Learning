@@ -11,8 +11,8 @@ namespace Dionysen
     class WindowsWindow : public Window
     {
       public:
-        WindowsWindow(const WindowProps& props);
-        virtual ~WindowsWindow();
+        explicit WindowsWindow(const WindowProps& props);
+        ~WindowsWindow() override;
 
         void OnUpdate() override;
 

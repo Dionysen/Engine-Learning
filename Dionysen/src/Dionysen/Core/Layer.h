@@ -10,7 +10,7 @@ namespace Dionysen
     class DION_API Layer
     {
       public:
-        Layer(const std::string& name = "Layer");
+        explicit Layer(std::string name = "Layer");
         virtual ~Layer() = default;
 
         virtual void OnAttach()
