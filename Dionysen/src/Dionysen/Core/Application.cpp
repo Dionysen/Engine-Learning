@@ -2,9 +2,8 @@
 #include "Application.h"
 #include "ApplicationEvent.h"
 #include "Base.h"
-#include "GL/glew.h"
+#include <GL/glew.h>
 #include "Layer.h"
-#include "Log.h"
 #include "PlatformUtils.h"
 #include "WindowsWindow.h"
 #include "Event.h"

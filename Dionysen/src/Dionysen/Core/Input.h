@@ -1,5 +1,6 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic   ignored "OCUnusedGlobalDeclarationInspection"
+
 #pragma once
 #include "Base.h"
 #include "KeyCodes.h"
@@ -8,7 +9,7 @@
 
 namespace Dionysen
 {
-    class DION_API Input
+    class  Input
     {
       public:
         static bool      IsKeyPressed(KeyCode key);

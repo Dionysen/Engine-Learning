@@ -22,7 +22,7 @@ includes("./vendor/msdf-atlas-gen/xmake.lua")
 add_deps("msdf-atlas-gen")
 
 
-add_packages("glfw", "glew", "glm")
+add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross")
 
 if is_plat("macosx") then
     add_linkdirs("/opt/local/lib")

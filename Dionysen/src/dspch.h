@@ -11,7 +11,7 @@
 #include <unordered_set>
 #include <vector>
 
-#include "Assert.h"
+#include "DionAssert.h"
 #include "Log.h"
 
 #ifdef DION_PLATFORM_WINDOWS

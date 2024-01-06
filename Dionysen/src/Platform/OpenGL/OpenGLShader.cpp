@@ -4,6 +4,8 @@
 
 #include <fstream>
 #include <GL/glew.h>
+#include <filesystem>
+#include "Timer.h"
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -23,7 +25,7 @@ namespace Dionysen
             if (type == "fragment" || type == "pixel")
                 return GL_FRAGMENT_SHADER;
 
-            HZ_CORE_ASSERT(false, "Unknown shader type!");
+            DION_CORE_ASSERT(false, "Unknown shader type!");
             return 0;
         }
 
@@ -36,7 +38,7 @@ namespace Dionysen
             case GL_FRAGMENT_SHADER:
                 return shaderc_glsl_fragment_shader;
             }
-            HZ_CORE_ASSERT(false);
+            DION_CORE_ASSERT(false);
             return (shaderc_shader_kind)0;
         }
 
@@ -49,7 +51,7 @@ namespace Dionysen
             case GL_FRAGMENT_SHADER:
                 return "GL_FRAGMENT_SHADER";
             }
-            HZ_CORE_ASSERT(false);
+            DION_CORE_ASSERT(false);
             return nullptr;
         }
 
@@ -75,7 +77,7 @@ namespace Dionysen
             case GL_FRAGMENT_SHADER:
                 return ".cached_opengl.frag";
             }
-            HZ_CORE_ASSERT(false);
+            DION_CORE_ASSERT(false);
             return "";
         }
 
@@ -88,7 +90,7 @@ namespace Dionysen
             case GL_FRAGMENT_SHADER:
                 return ".cached_vulkan.frag";
             }
-            HZ_CORE_ASSERT(false);
+            DION_CORE_ASSERT(false);
             return "";
         }
 
@@ -98,7 +100,7 @@ namespace Dionysen
     OpenGLShader::OpenGLShader(const std::string& filepath)
         : m_FilePath(filepath)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         Utils::CreateCacheDirectoryIfNeeded();
 
@@ -110,7 +112,7 @@ namespace Dionysen
             CompileOrGetVulkanBinaries(shaderSources);
             CompileOrGetOpenGLBinaries();
             CreateProgram();
-            HZ_CORE_WARN("Shader creation took {0} ms", timer.ElapsedMillis());
+            DION_CORE_WARN("Shader creation took {0} ms", timer.ElapsedMillis());
         }
 
         // Extract name from filepath
@@ -124,7 +126,7 @@ namespace Dionysen
     OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
         : m_Name(name)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         std::unordered_map<GLenum, std::string> sources;
         sources[GL_VERTEX_SHADER]   = vertexSrc;
@@ -137,14 +139,14 @@ namespace Dionysen
 
     OpenGLShader::~OpenGLShader()
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         glDeleteProgram(m_RendererID);
     }
 
     std::string OpenGLShader::ReadFile(const std::string& filepath)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         std::string   result;
         std::ifstream in(filepath, std::ios::in | std::ios::binary);  // ifstream closes itself due to RAII
@@ -160,12 +162,12 @@ namespace Dionysen
             }
             else
             {
-                HZ_CORE_ERROR("Could not read from file '{0}'", filepath);
+                DION_CORE_ERROR("Could not read from file '{0}'", filepath);
             }
         }
         else
         {
-            HZ_CORE_ERROR("Could not open file '{0}'", filepath);
+            DION_CORE_ERROR("Could not open file '{0}'", filepath);
         }
 
         return result;
@@ -173,7 +175,7 @@ namespace Dionysen
 
     std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         std::unordered_map<GLenum, std::string> shaderSources;
 
@@ -183,13 +185,13 @@ namespace Dionysen
         while (pos != std::string::npos)
         {
             size_t eol = source.find_first_of("\r\n", pos);  // End of shader type declaration line
-            HZ_CORE_ASSERT(eol != std::string::npos, "Syntax error");
+            DION_CORE_ASSERT(eol != std::string::npos, "Syntax error");
             size_t      begin = pos + typeTokenLength + 1;  // Start of shader type name (after "#type " keyword)
             std::string type  = source.substr(begin, eol - begin);
-            HZ_CORE_ASSERT(Utils::ShaderTypeFromString(type), "Invalid shader type specified");
+            DION_CORE_ASSERT(Utils::ShaderTypeFromString(type), "Invalid shader type specified");
 
             size_t nextLinePos = source.find_first_not_of("\r\n", eol);  // Start of shader code after shader type declaration line
-            HZ_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
+            DION_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
             pos = source.find(typeToken, nextLinePos);  // Start of next shader type declaration line
 
             shaderSources[Utils::ShaderTypeFromString(type)] =
@@ -237,8 +239,8 @@ namespace Dionysen
                     compiler.CompileGlslToSpv(source, Utils::GLShaderStageToShaderC(stage), m_FilePath.c_str(), options);
                 if (module.GetCompilationStatus() != shaderc_compilation_status_success)
                 {
-                    HZ_CORE_ERROR(module.GetErrorMessage());
-                    HZ_CORE_ASSERT(false);
+                    DION_CORE_ERROR(module.GetErrorMessage());
+                    DION_CORE_ASSERT(false);
                 }
 
                 shaderData[stage] = std::vector<uint32_t>(module.cbegin(), module.cend());
@@ -299,8 +301,8 @@ namespace Dionysen
                 shaderc::SpvCompilationResult module = compiler.CompileGlslToSpv(source, Utils::GLShaderStageToShaderC(stage), m_FilePath.c_str());
                 if (module.GetCompilationStatus() != shaderc_compilation_status_success)
                 {
-                    HZ_CORE_ERROR(module.GetErrorMessage());
-                    HZ_CORE_ASSERT(false);
+                    DION_CORE_ERROR(module.GetErrorMessage());
+                    DION_CORE_ASSERT(false);
                 }
 
                 shaderData[stage] = std::vector<uint32_t>(module.cbegin(), module.cend());
@@ -341,7 +343,7 @@ namespace Dionysen
 
             std::vector<GLchar> infoLog(maxLength);
             glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data());
-            HZ_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
+            DION_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
 
             glDeleteProgram(program);
 
@@ -363,11 +365,11 @@ namespace Dionysen
         spirv_cross::Compiler        compiler(shaderData);
         spirv_cross::ShaderResources resources = compiler.get_shader_resources();
 
-        HZ_CORE_TRACE("OpenGLShader::Reflect - {0} {1}", Utils::GLShaderStageToString(stage), m_FilePath);
-        HZ_CORE_TRACE("    {0} uniform buffers", resources.uniform_buffers.size());
-        HZ_CORE_TRACE("    {0} resources", resources.sampled_images.size());
+        DION_CORE_TRACE("OpenGLShader::Reflect - {0} {1}", Utils::GLShaderStageToString(stage), m_FilePath);
+        DION_CORE_TRACE("    {0} uniform buffers", resources.uniform_buffers.size());
+        DION_CORE_TRACE("    {0} resources", resources.sampled_images.size());
 
-        HZ_CORE_TRACE("Uniform buffers:");
+        DION_CORE_TRACE("Uniform buffers:");
         for (const auto& resource : resources.uniform_buffers)
         {
             const auto& bufferType  = compiler.get_type(resource.base_type_id);
@@ -375,30 +377,30 @@ namespace Dionysen
             uint32_t    binding     = compiler.get_decoration(resource.id, spv::DecorationBinding);
             int         memberCount = bufferType.member_types.size();
 
-            HZ_CORE_TRACE("  {0}", resource.name);
-            HZ_CORE_TRACE("    Size = {0}", bufferSize);
-            HZ_CORE_TRACE("    Binding = {0}", binding);
-            HZ_CORE_TRACE("    Members = {0}", memberCount);
+            DION_CORE_TRACE("  {0}", resource.name);
+            DION_CORE_TRACE("    Size = {0}", bufferSize);
+            DION_CORE_TRACE("    Binding = {0}", binding);
+            DION_CORE_TRACE("    Members = {0}", memberCount);
         }
     }
 
     void OpenGLShader::Bind() const
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         glUseProgram(m_RendererID);
     }
 
     void OpenGLShader::Unbind() const
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         glUseProgram(0);
     }
 
     void OpenGLShader::SetInt(const std::string& name, int value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformInt(name, value);
     }
@@ -410,35 +412,35 @@ namespace Dionysen
 
     void OpenGLShader::SetFloat(const std::string& name, float value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformFloat(name, value);
     }
 
     void OpenGLShader::SetFloat2(const std::string& name, const glm::vec2& value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformFloat2(name, value);
     }
 
     void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformFloat3(name, value);
     }
 
     void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformFloat4(name, value);
     }
 
     void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& value)
     {
-        HZ_PROFILE_FUNCTION();
+        
 
         UploadUniformMat4(name, value);
     }

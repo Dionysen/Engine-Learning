@@ -7,7 +7,7 @@
 #include "Log.h"
 #include "Renderer.h"
 #include "RendererAPI.h"
-
+#include "OpenGLShader.h"
 
 namespace Dionysen
 {

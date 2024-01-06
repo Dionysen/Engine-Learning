@@ -1,9 +1,8 @@
+#pragma once
 #include "Dionysen.h"
-#include "KeyCodes.h"
-#include "Layer.h"
-#include "Log.h"
+#include "dspch.h"
 #include "imgui.h"
-#include "Input.h"
+
 
 class ExampleLayer : public Dionysen::Layer
 {
@@ -22,12 +21,19 @@ class ExampleLayer : public Dionysen::Layer
 
     void OnEvent(Dionysen::Event& event) override
     {
+
     }
     void OnUpdate(Dionysen::Timestep st) override
     {
+
         if (Dionysen::Input::IsKeyPressed(Dionysen::Key::Tab))
         {
             DION_INFO("TAB key is pressed!");
+        }
+
+        if(Dionysen::Input::IsMouseButtonPressed(Dionysen::Mouse::ButtonLeft))
+        {
+            DION_INFO("Mouse Position: {0} {1}", Dionysen::Input::GetMouseX(), Dionysen::Input::GetMouseY());
         }
     }
     ~ExampleLayer() = default;
@@ -41,7 +47,6 @@ class ExampleLayer : public Dionysen::Layer
 
         // Frame rate
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
 
         ImGui::Checkbox("VSync", &isVSync);
         Dionysen::Application::Get().GetWindow().SetVSync(isVSync);

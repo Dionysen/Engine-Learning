@@ -6,7 +6,7 @@
 #define ENGINE_LEARNING_EDITORCAMERA_H
 
 #include "Camera.h"
-#include "TimerStep.h"
+#include "TimeStep.h"
 #include "Event.h"
 #include "MouseEvent.h"
 

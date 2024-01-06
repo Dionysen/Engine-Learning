@@ -9,6 +9,7 @@ namespace Dionysen
 
     class Timer
     {
+        public:
         Timer()
         {
             Reset();

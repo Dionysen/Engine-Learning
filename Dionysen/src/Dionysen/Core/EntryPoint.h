@@ -1,6 +1,6 @@
 #pragma once
 #include "Application.h"
-#include "Log.h"
+#include "dspch.h"
 
 extern Dionysen::Application* Dionysen::CreateApplication();
 

@@ -6,7 +6,6 @@
 
 namespace Dionysen
 {
-
     Input* Input::s_Instance = new Input();
 
     bool Input::IsKeyPressed(const KeyCode key)
