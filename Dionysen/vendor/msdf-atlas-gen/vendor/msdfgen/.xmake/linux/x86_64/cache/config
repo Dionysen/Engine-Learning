@@ -1,0 +1,9 @@
+{
+    mtimes = {
+        ["xmake.lua"] = 1704394279
+    },
+    recheck = false,
+    options = {
+        trybuild = "xrepo"
+    }
+}

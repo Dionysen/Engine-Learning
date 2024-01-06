@@ -2,6 +2,7 @@
 #include "Base.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "spdlog/spdlog.h"
+
 namespace Dionysen
 {
     class DION_API Log

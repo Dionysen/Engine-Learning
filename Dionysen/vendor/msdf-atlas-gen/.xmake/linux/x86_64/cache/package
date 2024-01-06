@@ -1,0 +1,18 @@
+{
+    freetype2 = {
+        version = "26.0.20",
+        envs = {
+            LD_LIBRARY_PATH = {
+                "/home/dionysen/.xmake/packages/f/freetype2/latest/4e0143c97b65425b855ad5fd03038b6a/lib"
+            }
+        },
+        linkdirs = "/usr/lib/x86_64-linux-gnu",
+        __requirestr = "freetype2",
+        links = "freetype",
+        sysincludedirs = {
+            "/usr/include/freetype2",
+            "/usr/include/libpng16"
+        },
+        __enabled = true
+    }
+}

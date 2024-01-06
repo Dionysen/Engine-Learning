@@ -38,10 +38,19 @@ class ExampleLayer : public Dionysen::Layer
         // ...
         ImGui::Text("Hello");
         ImGui::ShowDemoWindow();
+
         // Frame rate
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+
+        ImGui::Checkbox("VSync", &isVSync);
+        Dionysen::Application::Get().GetWindow().SetVSync(isVSync);
+
         ImGui::End();
     }
+
+  private:
+    bool isVSync = true;
 };
 
 class Gobang : public Dionysen::Application

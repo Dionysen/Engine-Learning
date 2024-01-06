@@ -66,10 +66,8 @@ namespace Dionysen
         SetVSync(true);
 
         // opengl setting
-        glEnable(GL_DEPTH_TEST);
-        glEnable(GL_DEBUG_OUTPUT);
-
-
+        //        glEnable(GL_DEPTH_TEST);
+        //        glEnable(GL_DEBUG_OUTPUT);
 
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {

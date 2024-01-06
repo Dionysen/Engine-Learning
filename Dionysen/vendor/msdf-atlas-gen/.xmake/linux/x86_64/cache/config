@@ -1,0 +1,10 @@
+{
+    recheck = false,
+    mtimes = {
+        ["xmake.lua"] = 1704394720,
+        ["artery-font/xmake.lua"] = 1704393079,
+        ["msdfgen/xmake.lua"] = 1704394436,
+        ["msdf-atlas-gen/xmake.lua"] = 1704394354
+    },
+    options = { }
+}

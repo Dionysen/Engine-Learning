@@ -15,6 +15,13 @@ add_deps("spdlog")
 includes("./vendor/imgui-docking/xmake.lua")
 add_deps("imgui-docking")
 
+includes("./vendor/stb_image/xmake.lua")
+add_deps("stb_image")
+
+includes("./vendor/msdf-atlas-gen/xmake.lua")
+add_deps("msdf-atlas-gen")
+
+
 add_packages("glfw", "glew", "glm")
 
 if is_plat("macosx") then
@@ -30,6 +37,7 @@ add_includedirs(
     "./src/Dionysen/ImGui",
     "./src/Dionysen/Utils",
     "./src/Dionysen/Renderer",
+    "./src/Dionysen/Scene",
     "./src/Platform/Windows",
     "./src/Platform/Linux",
     "./src/Platform/OpenGL",
@@ -39,9 +47,11 @@ add_includedirs(
 add_files(
     "./src/Dionysen/Core/*.cpp",
     "./src/Dionysen/ImGui/*.cpp",
-    "./src/Platform/Windows/*.cpp",
+    "./src/Dionysen/Renderer/*.cpp",
+    "./src/Dionysen/Scene/*.cpp",
+    "./src/Platform/OpenGL/*.cpp",
     "./src/Platform/Linux/*.cpp",
-    "./src/Platform/OpenGL/*.cpp"
+    "./src/Platform/Windows/*.cpp"
 )
 
 -- pch
