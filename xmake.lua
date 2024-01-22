@@ -12,7 +12,7 @@ includes("Gobang/xmake.lua")
 
 -- for easyer
 set_rundir(".")
-set_policy("run.autobuild", true)
+-- set_policy("run.autobuild", true)
 
 -- if debug
 set_rules("mode.debug")

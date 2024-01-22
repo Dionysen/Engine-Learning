@@ -36,8 +36,6 @@ namespace Dionysen
                                        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
                                        "}\n\0";
 
-
-
     Application::Application()
     {
         DION_CORE_ASSERT(!s_Instance, "Application already exists!")
@@ -155,9 +153,6 @@ namespace Dionysen
             auto     time     = Time::GetTime();
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime   = time;
-
-            // if (1.0 / 60 > timestep)
-            //     std::this_thread::sleep_for(std::chrono::duration_cast<std::chrono::miliseconds>((1.0 / 60 - timestep) * 1000.0));
 
             glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
