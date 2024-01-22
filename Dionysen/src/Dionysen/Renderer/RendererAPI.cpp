@@ -3,7 +3,7 @@
 //
 
 #include "RendererAPI.h"
-#include "Assert.h"
+#include "dspch.h"
 #include "OpenGLRendererAPI.h"
 
 namespace Dionysen

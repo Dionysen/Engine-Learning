@@ -9,7 +9,7 @@
 
 namespace Dionysen
 {
-    class  Input
+    class Input
     {
       public:
         static bool      IsKeyPressed(KeyCode key);
@@ -22,4 +22,4 @@ namespace Dionysen
         static Input* s_Instance;
     };
 }  // namespace Dionysen
-#pragma clang diagnostic pop
+   // #pragma clang diagnostic pop

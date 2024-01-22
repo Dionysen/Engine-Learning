@@ -21,20 +21,19 @@ class ExampleLayer : public Dionysen::Layer
 
     void OnEvent(Dionysen::Event& event) override
     {
-
     }
     void OnUpdate(Dionysen::Timestep st) override
     {
 
-        if (Dionysen::Input::IsKeyPressed(Dionysen::Key::Tab))
-        {
-            DION_INFO("TAB key is pressed!");
-        }
+        // if (Dionysen::Input::IsKeyPressed(Dionysen::Key::Tab))
+        // {
+        //     DION_INFO("TAB key is pressed!");
+        // }
 
-        if(Dionysen::Input::IsMouseButtonPressed(Dionysen::Mouse::ButtonLeft))
-        {
-            DION_INFO("Mouse Position: {0} {1}", Dionysen::Input::GetMouseX(), Dionysen::Input::GetMouseY());
-        }
+        // if (Dionysen::Input::IsMouseButtonPressed(Dionysen::Mouse::ButtonLeft))
+        // {
+        //     DION_INFO("Mouse Position: {0} {1}", Dionysen::Input::GetMouseX(), Dionysen::Input::GetMouseY());
+        // }
     }
     ~ExampleLayer() = default;
 

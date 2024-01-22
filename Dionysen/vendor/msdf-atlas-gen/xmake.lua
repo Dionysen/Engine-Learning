@@ -4,11 +4,11 @@ add_requires("lodepng")
 target("msdf-atlas-gen")
 
     -- artery-font
-    includes("./vendor/artery-font/xmake.lua")
+    includes("./artery-font/xmake.lua")
     add_deps("artery-font")
 
     -- msdfgen
-    includes("./vendor/msdfgen/xmake.lua")
+    includes("./msdfgen/xmake.lua")
     add_deps("msdfgen")
 
     set_kind("static")

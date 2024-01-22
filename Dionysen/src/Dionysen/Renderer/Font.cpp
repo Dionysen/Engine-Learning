@@ -7,7 +7,6 @@
 #include "Base.h"
 #include "Font.h"
 #include "Texture.h"
-#include "Assert.h"
 #include "Log.h"
 
 #undef INFINITE

@@ -1,6 +1,6 @@
 #include "OpenGLVertexArray.h"
 #include <GL/glew.h>
-#include "Assert.h"
+#include "dspch.h"
 
 namespace Dionysen
 {

@@ -1,15 +1,26 @@
 #pragma once
+
+#include <GL/glew.h>
+#include <iostream>
+#include <ostream>
+
 #include "Application.h"
 #include "ApplicationEvent.h"
 #include "Base.h"
-#include <GL/glew.h>
+#include "Input.h"
+#include "KeyCodes.h"
+#include "KeyEvent.h"
 #include "Layer.h"
+#include "Log.h"
 #include "PlatformUtils.h"
 #include "WindowsWindow.h"
 #include "Event.h"
 
 namespace Dionysen
 {
+
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
     Application* Application::s_Instance = nullptr;
 
     const char* vertexShaderSource   = "#version 330 core\n"
@@ -26,7 +37,6 @@ namespace Dionysen
                                        "}\n\0";
 
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
     Application::Application()
     {
@@ -38,7 +48,6 @@ namespace Dionysen
 
         m_ImGuiLayer = new ImGuiLayer();
         PushLayer(m_ImGuiLayer);
-
 
         unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -124,9 +133,9 @@ namespace Dionysen
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
         dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+        dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(OnKeyPressed));
 
-        // Print event for debug
-        // DION_CORE_TRACE("{0}", e.ToString());
+        // std::cout << e.ToString() << std::endl;
 
         for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
         {
@@ -146,6 +155,9 @@ namespace Dionysen
             auto     time     = Time::GetTime();
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime   = time;
+
+            // if (1.0 / 60 > timestep)
+            //     std::this_thread::sleep_for(std::chrono::duration_cast<std::chrono::miliseconds>((1.0 / 60 - timestep) * 1000.0));
 
             glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
@@ -176,7 +188,7 @@ namespace Dionysen
 
     bool Application::OnWindowClose(WindowCloseEvent& e)
     {
-        DION_CORE_WARN("Closing Window...");
+        DION_CORE_INFO("Closing Window...");
         m_Running = false;
         return true;
     }
@@ -190,5 +202,11 @@ namespace Dionysen
         }
         m_Minimized = false;
         return false;
+    }
+
+    bool Application::OnKeyPressed(KeyPressedEvent& e)
+    {
+
+        return true;
     }
 }  // namespace Dionysen

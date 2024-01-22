@@ -7,7 +7,6 @@
 
 #pragma once
 #include "dspch.h"
-#include "Assert.h"
 #include "Base.h"
 
 namespace Dionysen

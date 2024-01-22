@@ -3,6 +3,7 @@
 #include "ApplicationEvent.h"
 #include "Base.h"
 #include "Event.h"
+#include "KeyEvent.h"
 #include "Layer.h"
 #include "LayerStack.h"
 #include "WindowsWindow.h"
@@ -39,6 +40,7 @@ namespace Dionysen
       private:
         bool OnWindowClose(WindowCloseEvent& e);
         bool OnWindowResize(WindowResizeEvent& e);
+        bool OnKeyPressed(KeyPressedEvent& e);
 
         std::unique_ptr<Window> m_Window;
 

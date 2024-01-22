@@ -9,7 +9,6 @@
 #include "Application.h"
 #include "Layer.h"
 #include "Log.h"
-#include "Assert.h"
 
 #include "TimeStep.h"
 
