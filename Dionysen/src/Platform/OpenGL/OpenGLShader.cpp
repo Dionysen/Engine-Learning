@@ -100,7 +100,6 @@ namespace Dionysen
     OpenGLShader::OpenGLShader(const std::string& filepath)
         : m_FilePath(filepath)
     {
-        
 
         Utils::CreateCacheDirectoryIfNeeded();
 
@@ -126,8 +125,6 @@ namespace Dionysen
     OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
         : m_Name(name)
     {
-        
-
         std::unordered_map<GLenum, std::string> sources;
         sources[GL_VERTEX_SHADER]   = vertexSrc;
         sources[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -139,15 +136,13 @@ namespace Dionysen
 
     OpenGLShader::~OpenGLShader()
     {
-        
+
 
         glDeleteProgram(m_RendererID);
     }
 
     std::string OpenGLShader::ReadFile(const std::string& filepath)
     {
-        
-
         std::string   result;
         std::ifstream in(filepath, std::ios::in | std::ios::binary);  // ifstream closes itself due to RAII
         if (in)
@@ -175,8 +170,6 @@ namespace Dionysen
 
     std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
     {
-        
-
         std::unordered_map<GLenum, std::string> shaderSources;
 
         const char* typeToken       = "#type";
@@ -211,6 +204,7 @@ namespace Dionysen
         const bool optimize = true;
         if (optimize)
             options.SetOptimizationLevel(shaderc_optimization_level_performance);
+
 
         std::filesystem::path cacheDirectory = Utils::GetCacheDirectory();
 
@@ -362,6 +356,7 @@ namespace Dionysen
 
     void OpenGLShader::Reflect(GLenum stage, const std::vector<uint32_t>& shaderData)
     {
+        DION_CORE_WARN("reflect");
         spirv_cross::Compiler        compiler(shaderData);
         spirv_cross::ShaderResources resources = compiler.get_shader_resources();
 
@@ -386,21 +381,19 @@ namespace Dionysen
 
     void OpenGLShader::Bind() const
     {
-        
-
         glUseProgram(m_RendererID);
     }
 
     void OpenGLShader::Unbind() const
     {
-        
+
 
         glUseProgram(0);
     }
 
     void OpenGLShader::SetInt(const std::string& name, int value)
     {
-        
+
 
         UploadUniformInt(name, value);
     }
@@ -412,35 +405,35 @@ namespace Dionysen
 
     void OpenGLShader::SetFloat(const std::string& name, float value)
     {
-        
+
 
         UploadUniformFloat(name, value);
     }
 
     void OpenGLShader::SetFloat2(const std::string& name, const glm::vec2& value)
     {
-        
+
 
         UploadUniformFloat2(name, value);
     }
 
     void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& value)
     {
-        
+
 
         UploadUniformFloat3(name, value);
     }
 
     void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& value)
     {
-        
+
 
         UploadUniformFloat4(name, value);
     }
 
     void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& value)
     {
-        
+
 
         UploadUniformMat4(name, value);
     }

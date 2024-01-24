@@ -47,7 +47,6 @@ namespace Dionysen
 
         Application& app    = Application::Get();
         auto*        window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
-
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
     }

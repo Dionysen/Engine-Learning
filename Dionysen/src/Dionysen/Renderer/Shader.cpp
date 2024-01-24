@@ -25,9 +25,19 @@ namespace Dionysen
         DION_CORE_ASSERT(false, "Unknown RendererAPI!");
         return nullptr;
     }
-    Ref<Dionysen::Shader> Dionysen::Shader::Create(const std::string& vertexSrc, const std::string& fragmentSrc)
+    Ref<Dionysen::Shader> Dionysen::Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
     {
-        return Ref<Shader>();
+        switch (Renderer::GetAPI())
+        {
+        case RendererAPI::API::None:
+            DION_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
+            return nullptr;
+        case RendererAPI::API::OpenGL:
+            return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
+        }
+
+        DION_CORE_ASSERT(false, "Unknown RendererAPI!");
+        return nullptr;
     }
 
 

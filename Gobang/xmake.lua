@@ -21,4 +21,4 @@ target("Gobang")
         add_includedirs("/opt/local/include")
     end
     
-    add_packages("glfw", "glm")
+    add_packages("glfw", "glm", "glew")

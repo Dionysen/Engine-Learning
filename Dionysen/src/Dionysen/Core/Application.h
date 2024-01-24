@@ -34,6 +34,13 @@ namespace Dionysen
             return *m_Window;
         }
 
+        inline bool CloseWindow()
+        {
+            DION_CORE_INFO("Closing Window...");
+            m_Running = false;
+            return true;
+        }
+
       protected:
         std::string m_appName;
 
@@ -51,8 +58,6 @@ namespace Dionysen
 
         static Application* s_Instance;
         ImGuiLayer*         m_ImGuiLayer;
-        unsigned int        VBO, VAO, EBO;
-        unsigned int        shaderProgram;
     };
 
     // To be defined in CLIENT

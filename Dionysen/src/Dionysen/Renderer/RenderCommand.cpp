@@ -7,5 +7,4 @@
 namespace Dionysen
 {
     Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();
-
 }
