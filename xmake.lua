@@ -1,7 +1,7 @@
 add_rules("mode.debug", "mode.release")
 
 -- requires
-add_requires("glfw", "glew", "glm", "shaderc","spirv-cross", "canon::msdfgen")
+add_requires("glfw", "glew", "glm", "shaderc","spirv-cross")
 
 -- set c++
 set_languages("cxx20")
