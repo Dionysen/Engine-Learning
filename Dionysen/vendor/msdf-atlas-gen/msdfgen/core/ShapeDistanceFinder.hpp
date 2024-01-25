@@ -1,6 +1,8 @@
 
 #include "ShapeDistanceFinder.h"
 
+#include <cstddef>
+
 namespace msdfgen {
 
 template <class ContourCombiner>

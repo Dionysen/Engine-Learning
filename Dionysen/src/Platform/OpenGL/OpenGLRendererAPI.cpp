@@ -4,7 +4,7 @@
 
 #include "OpenGLRendererAPI.h"
 #include "dspch.h"
-#include "GL/glew.h"
+#include <GL/glew.h>
 #include "Log.h"
 
 namespace Dionysen

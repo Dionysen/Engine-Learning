@@ -45,7 +45,6 @@ class ExampleLayer : public Dionysen::Layer
         Dionysen::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
         Dionysen::RenderCommand::Clear();
 
-
         // Dionysen::Renderer::BeginScene(m_CameraController.GetCamera());
 
         m_VertexArray->Bind();
@@ -85,8 +84,7 @@ class ExampleLayer : public Dionysen::Layer
     {
         m_VertexArray = Dionysen::VertexArray::Create();
 
-        float vertices[3 * 7] = { -0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f, 0.5f, -0.5f, 0.0f, 0.2f,
-                                  0.3f,  0.8f,  1.0f, 0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f,  1.0f };
+        float vertices[] = { -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, -0.5f, 0.0f };
 
         Dionysen::Ref<Dionysen::VertexBuffer> vertexBuffer = Dionysen::VertexBuffer::Create(vertices, sizeof(vertices));
 

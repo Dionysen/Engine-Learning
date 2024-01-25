@@ -7,7 +7,6 @@
 
 namespace Dionysen
 {
-
     class OrthographicCameraController
     {
       public:

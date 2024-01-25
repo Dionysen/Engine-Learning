@@ -7,8 +7,6 @@
 #include "OpenGLBuffer.h"
 #include "Renderer.h"
 
-// #include "OpenGLBuffer.h"
-
 namespace Dionysen
 {
 

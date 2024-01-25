@@ -30,7 +30,6 @@ namespace Dionysen
 
     void Renderer::BeginScene(OrthographicCamera& camera)
     {
-        DION_CORE_WARN("Debug");
         s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
     }
 

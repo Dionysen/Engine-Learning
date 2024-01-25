@@ -3,14 +3,14 @@
 //
 
 #include "Font.h"
-// #include "dspch.h"
+#include "dspch.h"
 #include "Base.h"
 #include "Font.h"
 #include "Texture.h"
 #include "Log.h"
 
 #undef INFINITE
-// #include "msdf-atlas-gen.h"
+#include "msdf-atlas-gen.h"
 #include "FontGeometry.h"
 #include "GlyphGeometry.h"
 

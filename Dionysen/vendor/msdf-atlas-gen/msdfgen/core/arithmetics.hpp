@@ -2,7 +2,6 @@
 #pragma once
 
 #include <cmath>
-#include "base.h"
 
 namespace msdfgen {
 
