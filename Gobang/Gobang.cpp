@@ -45,11 +45,10 @@ class ExampleLayer : public Dionysen::Layer
         Dionysen::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
         Dionysen::RenderCommand::Clear();
 
-        // Dionysen::Renderer::BeginScene(m_CameraController.GetCamera());
+        Dionysen::Renderer::BeginScene(m_CameraController.GetCamera());
 
         m_VertexArray->Bind();
         Dionysen::RenderCommand::DrawIndexed(m_VertexArray);
-
 
         // glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
         // Dionysen::Renderer::EndScene();
@@ -96,6 +95,45 @@ class ExampleLayer : public Dionysen::Layer
 
         Dionysen::Ref<Dionysen::IndexBuffer> indexBuffer = Dionysen::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
         m_VertexArray->SetIndexBuffer(indexBuffer);
+
+        std::string vertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec4 a_Color;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec3 v_Position;
+			out vec4 v_Color;
+
+			void main()
+			{
+				v_Position = a_Position;
+				v_Color = a_Color;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+
+        std::string fragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+
+			in vec3 v_Position;
+			in vec4 v_Color;
+
+			void main()
+			{
+				color = vec4(v_Position * 0.5 + 0.5, 1.0);
+				color = v_Color;
+			}
+		)";
+
+        // m_Shader = Dionysen::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
+
+        m_Shader = Dionysen::Shader::Create("./Gobang/shader.glsl");
     }
 
   private:
