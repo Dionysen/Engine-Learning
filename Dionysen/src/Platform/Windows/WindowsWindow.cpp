@@ -20,9 +20,14 @@ namespace Dionysen
         DION_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
     }
 
-    Window* Window::Create(const WindowProps& props)
+    Scope<Window> Window::Create(const WindowProps& props)
     {
-        return new WindowsWindow(props);
+#ifdef DION_PLATFORM_WINDOWS
+        return CreateScope<WindowsWindow>(props);
+#else
+        DION_CORE_ASSERT(false, "Unknown platform!");
+        return nullptr;
+#endif
     }
 
     WindowsWindow::WindowsWindow(const WindowProps& props)

@@ -8,7 +8,8 @@ target("Gobang")
     includes("../Dionysen/vendor/imgui")
     add_deps("imgui")
 
-    add_files("*.cpp")
+    add_includedirs("./src")
+    add_files("./src/*.cpp")
 
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS")

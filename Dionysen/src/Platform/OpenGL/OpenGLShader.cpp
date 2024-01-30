@@ -203,7 +203,6 @@ namespace Dionysen
         if (optimize)
             options.SetOptimizationLevel(shaderc_optimization_level_performance);
 
-
         std::filesystem::path cacheDirectory = Utils::GetCacheDirectory();
 
         auto& shaderData = m_VulkanSPIRV;
@@ -211,7 +210,6 @@ namespace Dionysen
 
         for (auto&& [stage, source] : shaderSources)
         {
-
             std::filesystem::path shaderFilePath = m_FilePath;
             std::filesystem::path cachedPath =
                 cacheDirectory / (shaderFilePath.filename().string() + Utils::GLShaderStageCachedVulkanFileExtension(stage));
@@ -252,10 +250,6 @@ namespace Dionysen
 
         for (auto&& [stage, data] : shaderData)
         {
-            std::cout << "stage:" << stage << std::endl;
-
-            DION_CORE_WARN("data.size(): {0}", data.size());
-
             Reflect(stage, data);
         }
     }
@@ -362,19 +356,6 @@ namespace Dionysen
 
     void OpenGLShader::Reflect(GLenum stage, const std::vector<uint32_t>& shaderData)
     {
-        DION_CORE_WARN("In reflect");
-        {
-            // for (auto it = shaderData.begin(); it != shaderData.end(); ++it)
-            // {
-            //     std::cout << it << std::endl;
-            // }
-            for (auto& it : shaderData)
-            {
-                std::cout << it << std::endl;
-            }
-        }
-        DION_CORE_WARN("shaderData size: {0}", shaderData.size());
-
         spirv_cross::Compiler        compiler(shaderData);
         spirv_cross::ShaderResources resources = compiler.get_shader_resources();
 

@@ -1,7 +1,7 @@
 add_rules("mode.debug", "mode.release")
 
 -- requires
-add_requires("glfw", "glew", "glm", "shaderc","spirv-cross")
+add_requires("glfw", "glew", "glm", "vulkansdk", "shaderc", "spirv-cross")
 
 package("msdf-atlas-gen")
     add_deps("cmake")

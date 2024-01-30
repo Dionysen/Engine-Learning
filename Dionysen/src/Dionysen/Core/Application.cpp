@@ -16,7 +16,7 @@
 #include "WindowsWindow.h"
 #include "Event.h"
 #include "Renderer.h"
-
+#include <filesystem>
 namespace Dionysen
 {
 
@@ -24,12 +24,16 @@ namespace Dionysen
 
     Application* Application::s_Instance = nullptr;
 
-    Application::Application()
+    Application::Application(const ApplicationSpecification& specification)
     {
         DION_CORE_ASSERT(!s_Instance, "Application already exists!")
         s_Instance = this;
 
-        m_Window = std::unique_ptr<Window>(Window::Create());
+        // Set working directory here
+        // if (!m_Specification.WorkingDirectory.empty())
+        //     std::filesystem::current_path(m_Specification.WorkingDirectory);
+
+        m_Window = Window::Create(WindowProps(m_Specification.Name));
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));  // ###
 
         Renderer::Init();

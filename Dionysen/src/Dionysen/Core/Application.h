@@ -13,10 +13,28 @@
 
 namespace Dionysen
 {
+    struct ApplicationCommandLineArgs
+    {
+        int    Count = 0;
+        char** Args  = nullptr;
+
+        const char* operator[](int index) const
+        {
+            DION_CORE_ASSERT(index < Count);
+            return Args[index];
+        }
+    };
+
+    struct ApplicationSpecification
+    {
+        std::string                Name = "Dionysen Application";
+        std::string                WorkingDirectory;
+        ApplicationCommandLineArgs CommandLineArgs;
+    };
     class DION_API Application
     {
       public:
-        Application();
+        Application(const ApplicationSpecification& specification);
         virtual ~Application();
         virtual void Run();
 
@@ -49,17 +67,17 @@ namespace Dionysen
         bool OnWindowResize(WindowResizeEvent& e);
         bool OnKeyPressed(KeyPressedEvent& e);
 
-        std::unique_ptr<Window> m_Window;
-
-        bool       m_Running = true;
-        LayerStack m_LayerStack;
-        float      m_LastFrameTime = 0.0f;
-        bool       m_Minimized     = false;
+        Scope<Window>            m_Window;
+        ApplicationSpecification m_Specification;
+        bool                     m_Running = true;
+        LayerStack               m_LayerStack;
+        float                    m_LastFrameTime = 0.0f;
+        bool                     m_Minimized     = false;
 
         static Application* s_Instance;
         ImGuiLayer*         m_ImGuiLayer;
     };
 
     // To be defined in CLIENT
-    Application* CreateApplication();
+    Application* CreateApplication(ApplicationCommandLineArgs args);
 }  // namespace Dionysen

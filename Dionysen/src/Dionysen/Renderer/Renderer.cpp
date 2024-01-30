@@ -6,6 +6,7 @@
 #include "Base.h"
 #include "Renderer2D.h"
 #include "RenderCommand.h"
+#include "glm/gtx/string_cast.hpp"
 
 namespace Dionysen
 {

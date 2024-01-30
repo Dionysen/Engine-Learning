@@ -32,20 +32,20 @@ namespace Dionysen
 
         virtual void OnUpdate() = 0;
 
-        [[nodiscard]] virtual uint32_t GetWidth() const = 0;
+        virtual uint32_t GetWidth() const = 0;
 
-        [[nodiscard]] virtual uint32_t GetHeight() const = 0;
+        virtual uint32_t GetHeight() const = 0;
 
         // Window attributes
         virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 
         virtual void SetVSync(bool enabled) = 0;
 
-        [[nodiscard]] virtual bool IsVSync() const = 0;
+        virtual bool IsVSync() const = 0;
 
-        [[nodiscard]] virtual void* GetNativeWindow() const = 0;
+        virtual void* GetNativeWindow() const = 0;
 
-        static Window* Create(const WindowProps& props = WindowProps());
+        static Scope<Window> Create(const WindowProps& props = WindowProps());
     };
 
 }  // namespace Dionysen

@@ -5,8 +5,7 @@
 #pragma once
 
 #include "OpenGLTexture.h"
-#include "Base.h"
-#include "Log.h"
+#include "dspch.h"
 #include <stb_image.h>
 
 namespace Dionysen
