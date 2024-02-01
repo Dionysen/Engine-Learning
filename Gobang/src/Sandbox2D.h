@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Dionysen.h"
+// #include "GameController.h"
 
 class Sandbox2D : public Dionysen::Layer
 {
@@ -21,9 +22,12 @@ class Sandbox2D : public Dionysen::Layer
     // Temp
     Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
     Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
+    Dionysen::Ref<Dionysen::Texture2D>   m_CheckerboardTexture;
+    // Dionysen::Ref<Gobang::GameController> m_GameController;
 
-    Dionysen::Ref<Dionysen::Texture2D> m_CheckerboardTexture;
+    // Imgui keys
+    bool isVSync;
+    // bool status = false;
 
-    bool      isVSync;
     glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };

@@ -15,7 +15,7 @@ namespace Dionysen
         uint32_t    Width;
         uint32_t    Height;
 
-        explicit WindowProps(std::string title = "Dionysen", uint32_t width = 1600, uint32_t height = 1000)
+        explicit WindowProps(std::string title = "Dionysen", uint32_t width = 1200, uint32_t height = 800)
             : Title(std::move(title))
             , Width(width)
             , Height(height)

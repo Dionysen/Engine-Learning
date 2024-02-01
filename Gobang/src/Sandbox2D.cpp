@@ -13,8 +13,6 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
-
-
     m_CheckerboardTexture = Dionysen::Texture2D::Create("./Gobang/textures/Checkerboard.png");
 }
 
@@ -24,7 +22,6 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
 {
-
 
     // Update
     m_CameraController.OnUpdate(ts);
@@ -38,55 +35,60 @@ void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
     }
 
     {
-        static float rotation = 0.0f;
-        rotation += ts * 50.0f;
-
         Dionysen::Renderer2D::BeginScene(m_CameraController.GetCamera());
-        Dionysen::Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-        Dionysen::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-        Dionysen::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, m_SquareColor);
-        Dionysen::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
-        Dionysen::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
-        Dionysen::Renderer2D::EndScene();
 
-        Dionysen::Renderer2D::BeginScene(m_CameraController.GetCamera());
-        for (float y = -5.0f; y < 5.0f; y += 0.5f)
+        for (float x = -5.0f; x < 2.5f; x += 0.5f)
         {
-            for (float x = -5.0f; x < 5.0f; x += 0.5f)
-            {
-                glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.7f };
-                Dionysen::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
-            }
+            Dionysen::Renderer2D::DrawLine({ x, -5.0f, 0.0f }, { x, 5.0f, 0.0f }, m_SquareColor);
         }
+        Dionysen::Renderer2D::DrawLine({ 0.0f, -5.0f, 0.0f }, { 0.0f, 5.0f, 0.0f }, m_SquareColor);
+        Dionysen::Renderer2D::DrawLine({ 5.0f, 0.0f, 0.0f }, { -5.0f, 0.0f, 0.0f }, m_SquareColor);
+
         Dionysen::Renderer2D::EndScene();
     }
 }
 
 void Sandbox2D::OnImGuiRender()
 {
-    ImGui::Begin("Settings");
-    // ...
-    ImGui::Text("Hello");
-    ImGui::ShowDemoWindow();
+    Dionysen::Application& app = Dionysen::Application::Get();
 
-    // Frame rate
-    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    // Start SideBar
+    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 
-    ImGui::Checkbox("VSync", &isVSync);
-    Dionysen::Application::Get().GetWindow().SetVSync(isVSync);
+    // set window
+    ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });
+    ImGui::SetWindowPos({ float(app.GetWindow().GetWidth()) * 2.5f / 3.5f, 0.0f });
+
+    if (ImGui::CollapsingHeader("Developer Monitor"))
+    {
+        // Frame rate
+        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        // VSync
+        ImGui::Checkbox("VSync", &isVSync);
+        Dionysen::Application::Get().GetWindow().SetVSync(isVSync);
+        // Render Status
+        static bool status = false;
+        auto        stats  = Dionysen::Renderer2D::GetStats();
+        ImGui::Checkbox("status", &status);
+        if (status)
+        {
+            ImGui::Text("Renderer2D Stats:");
+            ImGui::Text("Draw Calls: %d", stats.DrawCalls);
+            ImGui::Text("Quads: %d", stats.QuadCount);
+            ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
+            ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
+            ImGui::Separator();
+            ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+            ImGui::Separator();
+        }
+    }
+
+
     if (ImGui::Button("Close Window"))
     {
-        Dionysen::Application& app = Dionysen::Application::Get();
         app.CloseWindow();
     }
-    auto stats = Dionysen::Renderer2D::GetStats();
-    ImGui::Text("Renderer2D Stats:");
-    ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-    ImGui::Text("Quads: %d", stats.QuadCount);
-    ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-    ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
-    ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
     ImGui::End();
 }
 

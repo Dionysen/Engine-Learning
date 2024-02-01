@@ -2,7 +2,7 @@
 #include <EntryPoint.h>
 
 #include "Sandbox2D.h"
-#include "ExampleLayer.h"
+#include "GameController.h"
 
 class Sandbox : public Dionysen::Application
 {

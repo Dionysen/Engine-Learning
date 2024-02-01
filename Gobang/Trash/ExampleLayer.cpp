@@ -110,8 +110,8 @@ ExampleLayer::ExampleLayer()
 
     auto textureShader = m_ShaderLibrary.Load("./Gobang/shaders/Texture.glsl");
 
-    m_Texture           = Dionysen::Texture2D::Create("textures/Checkerboard.png");
-    m_ChernoLogoTexture = Dionysen::Texture2D::Create("textures/ChernoLogo.png");
+    m_Texture           = Dionysen::Texture2D::Create("./Gobang/textures/Checkerboard.png");
+    m_ChernoLogoTexture = Dionysen::Texture2D::Create("./Gobang/textures/ChernoLogo.png");
 
     textureShader->Bind();
     textureShader->SetInt("u_Texture", 0);

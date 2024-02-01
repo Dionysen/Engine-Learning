@@ -246,14 +246,11 @@ namespace Dionysen
     {
         s_Data.CameraBuffer.ViewProjection = camera.GetViewProjection();
         s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
-
         StartBatch();
     }
 
     void Renderer2D::EndScene()
     {
-
-
         Flush();
     }
 
@@ -338,8 +335,6 @@ namespace Dionysen
 
     void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
     {
-
-
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
         DrawQuad(transform, color);
@@ -354,8 +349,6 @@ namespace Dionysen
     void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture, float tilingFactor,
                               const glm::vec4& tintColor)
     {
-
-
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
         DrawQuad(transform, texture, tilingFactor, tintColor);
@@ -363,8 +356,6 @@ namespace Dionysen
 
     void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color, int entityID)
     {
-
-
         constexpr size_t    quadVertexCount = 4;
         const float         textureIndex    = 0.0f;  // White Texture
         constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
@@ -391,8 +382,6 @@ namespace Dionysen
 
     void Renderer2D::DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor, const glm::vec4& tintColor, int entityID)
     {
-
-
         constexpr size_t    quadVertexCount = 4;
         constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 
@@ -470,8 +459,6 @@ namespace Dionysen
     void Renderer2D::DrawCircle(const glm::mat4& transform, const glm::vec4& color, float thickness /*= 1.0f*/, float fade /*= 0.005f*/,
                                 int entityID /*= -1*/)
     {
-
-
         // TODO: implement for circles
         // if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
         // 	NextBatch();
@@ -492,7 +479,7 @@ namespace Dionysen
         s_Data.Stats.QuadCount++;
     }
 
-    void Renderer2D::DrawLine(const glm::vec3& p0, glm::vec3& p1, const glm::vec4& color, int entityID)
+    void Renderer2D::DrawLine(const glm::vec3& p0, const glm::vec3& p1, const glm::vec4& color, int entityID)
     {
         s_Data.LineVertexBufferPtr->Position = p0;
         s_Data.LineVertexBufferPtr->Color    = color;
