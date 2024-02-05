@@ -61,36 +61,46 @@ void Sandbox2D::OnImGuiRender()
 
     if (ImGui::CollapsingHeader("Developer Monitor"))
     {
-        // Frame rate
-        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-        // VSync
-        ImGui::Checkbox("VSync", &isVSync);
-        Dionysen::Application::Get().GetWindow().SetVSync(isVSync);
-        // Render Status
-        static bool status = false;
-        auto        stats  = Dionysen::Renderer2D::GetStats();
-        ImGui::Checkbox("status", &status);
-        if (status)
+        if (ImGui::TreeNode("Frame Rate"))
         {
-            ImGui::Text("Renderer2D Stats:");
-            ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-            ImGui::Text("Quads: %d", stats.QuadCount);
-            ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-            ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
-            ImGui::Separator();
-            ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-            ImGui::Separator();
+            // Frame rate
+            ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+            ImGui::TreePop();
+            ImGui::Spacing();
+        }
+        if (ImGui::TreeNode("Renderer Settings"))
+        {
+            // VSync
+            ImGui::Checkbox("VSync", &isVSync);
+            Dionysen::Application::Get().GetWindow().SetVSync(isVSync);
+            ImGui::TreePop();
+            ImGui::Spacing();
+        }
+        if (ImGui::TreeNode("Renderer Status"))
+        {
+            // Render Status
+            auto stats = Dionysen::Renderer2D::GetStats();
+            {
+                ImGui::Text("Renderer2D Stats:");
+                ImGui::Text("Draw Calls: %d", stats.DrawCalls);
+                ImGui::Text("Quads: %d", stats.QuadCount);
+                ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
+                ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
+                ImGui::Separator();
+                ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+                ImGui::Separator();
+            }
+            ImGui::TreePop();
+            ImGui::Spacing();
         }
     }
 
-
     if (ImGui::Button("Close Window"))
-    {
         app.CloseWindow();
-    }
 
     ImGui::End();
 }
+
 
 void Sandbox2D::OnEvent(Dionysen::Event& e)
 {
