@@ -1,8 +1,0 @@
-{
-    recheck = false,
-    options = { },
-    mtimes = {
-        ["xmake.lua"] = 1704393316,
-        ["artery-font/xmake.lua"] = 1704393079
-    }
-}

@@ -3,13 +3,15 @@
 
 #include <cassert>
 
-bool IsInBoard(int x, int y) {
+bool IsInBoard(int x, int y)
+{
     if (x >= 0 && x < 15 && y >= 0 && y < 15)
         return true;
     return false;
 }
 
-PossiblePositionManager::PossiblePositionManager() {
+PossiblePositionManager::PossiblePositionManager()
+{
     directions.push_back(pair<int, int>(1, 1));
     directions.push_back(pair<int, int>(1, -1));
     directions.push_back(pair<int, int>(-1, 1));
@@ -20,24 +22,25 @@ PossiblePositionManager::PossiblePositionManager() {
     directions.push_back(pair<int, int>(0, -1));
 }
 
-PossiblePositionManager::~PossiblePositionManager() {}
+PossiblePositionManager::~PossiblePositionManager()
+{
+}
 
-void PossiblePositionManager::AddPossiblePositions(
-    char board[15][15], const ChessEngine::Position &p) {
-    unsigned int i;
+void PossiblePositionManager::AddPossiblePositions(char board[15][15], const ChessEngine::Position& p)
+{
+    unsigned int               i;
     set<ChessEngine::Position> addedPositions;
 
-    for (i = 0; i < directions.size(); i++) {
+    for (i = 0; i < directions.size(); i++)
+    {
         // �жϷ�Χ
         if (!IsInBoard(p.x + directions[i].first, p.y + directions[i].second))
             continue;
 
-        if (board[p.x + directions[i].first][p.y + directions[i].second] ==
-            ChessEngine::EMPTY) {
-            ChessEngine::Position pos(p.x + directions[i].first,
-                                      p.y + directions[i].second);
-            pair<set<ChessEngine::Position>::iterator, bool> insertResult =
-                currentPossiblePositions.insert(pos);
+        if (board[p.x + directions[i].first][p.y + directions[i].second] == ChessEngine::EMPTY)
+        {
+            ChessEngine::Position                            pos(p.x + directions[i].first, p.y + directions[i].second);
+            pair<set<ChessEngine::Position>::iterator, bool> insertResult = currentPossiblePositions.insert(pos);
 
             // �������ɹ�
             if (insertResult.second)
@@ -48,17 +51,21 @@ void PossiblePositionManager::AddPossiblePositions(
     HistoryItem hi;
     hi.addedPositions = addedPositions;
 
-    if (currentPossiblePositions.find(p) != currentPossiblePositions.end()) {
+    if (currentPossiblePositions.find(p) != currentPossiblePositions.end())
+    {
         currentPossiblePositions.erase(p);
         hi.removedPosition = p;
-    } else {
+    }
+    else
+    {
         hi.removedPosition.x = -1;
     }
 
     history.push_back(hi);
 }
 
-void PossiblePositionManager::Rollback() {
+void PossiblePositionManager::Rollback()
+{
     if (currentPossiblePositions.empty())
         return;
 
@@ -68,8 +75,8 @@ void PossiblePositionManager::Rollback() {
     set<ChessEngine::Position>::iterator iter;
 
     // �����ǰһ������ĵ�
-    for (iter = hi.addedPositions.begin(); iter != hi.addedPositions.end();
-         iter++) {
+    for (iter = hi.addedPositions.begin(); iter != hi.addedPositions.end(); iter++)
+    {
         currentPossiblePositions.erase(*iter);
     }
 
@@ -78,12 +85,13 @@ void PossiblePositionManager::Rollback() {
         currentPossiblePositions.insert(hi.removedPosition);
 }
 
-const set<ChessEngine::Position> &
-PossiblePositionManager::GetCurrentPossiblePositions() {
+const set<ChessEngine::Position>& PossiblePositionManager::GetCurrentPossiblePositions()
+{
     return currentPossiblePositions;
 }
 
-void PossiblePositionManager::RemoveAll() {
+void PossiblePositionManager::RemoveAll()
+{
     currentPossiblePositions.clear();
     history.clear();
 }

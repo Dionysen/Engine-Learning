@@ -1,6 +1,6 @@
 target("Dionysen")
     set_kind("static")
-
+    add_cxxflags("-EHsc")
     -- deps
     includes("./vendor/spdlog/xmake.lua")
     add_deps("spdlog")
@@ -11,14 +11,8 @@ target("Dionysen")
     includes("./vendor/stb_image/xmake.lua")
     add_deps("stb_image")
 
-    -- Vulkan
-    -- add_includedirs("C:/VulkanSDK/1.3.216.0/Include")
-    -- add_linkdirs("C:/VulkanSDK/1.3.216.0/Lib")
-    -- add_links("shaderc","shaderc_combined", "shaderc_util", "SPIRV", "spirv-cross-c", "spirv-cross-cpp", "spirv-cross-glsl", "spirv-cross-hlsl", "spirv-cross-reflect")
-
     add_packages("glfw", "glew", "glm", "msdf-atlas-gen"
-    ,"shaderc", "spirv-cross", "vulkansdk"
-    )
+    ,"shaderc", "spirv-cross")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",

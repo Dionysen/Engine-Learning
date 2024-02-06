@@ -12,7 +12,7 @@ target("Gobang")
     add_files("./src/*.cpp", "./src/Robot/*.cpp")
 
     if is_plat("windows") then
-        add_defines("DION_PLATFORM_WINDOWS")
+        add_defines("DION_PLATFORM_WINDOWS", "WIN32")
         add_links("opengl32")
     end
 
@@ -23,3 +23,5 @@ target("Gobang")
     end
     
     add_packages("glfw", "glm", "glew")
+
+    add_cxxflags("-EHsc", "/utf-8")

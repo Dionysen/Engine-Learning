@@ -7,25 +7,26 @@
 
 using namespace std;
 
-struct HistoryItem {
+struct HistoryItem
+{
     set<ChessEngine::Position> addedPositions;
-    ChessEngine::Position removedPosition;
+    ChessEngine::Position      removedPosition;
 };
 
 class PossiblePositionManager
 {
-public:
+  public:
     PossiblePositionManager();
     ~PossiblePositionManager();
-    void AddPossiblePositions(char board[15][15], const ChessEngine::Position& p);
-    void Rollback();
+    void                              AddPossiblePositions(char board[15][15], const ChessEngine::Position& p);
+    void                              Rollback();
     const set<ChessEngine::Position>& GetCurrentPossiblePositions();
-    void RemoveAll();
-    void SetEvaluateFunc(int(*evaluateFunc)(char board[15][15], ChessEngine::Position p));
-private:
+    void                              RemoveAll();
+    void                              SetEvaluateFunc(int (*evaluateFunc)(char board[15][15], ChessEngine::Position p));
+
+  private:
     set<ChessEngine::Position> currentPossiblePositions;
-    vector<HistoryItem> history;
-    vector<pair<int, int> > directions;
+    vector<HistoryItem>        history;
+    vector<pair<int, int>>     directions;
     int (*evaluateFunc)(char board[15][15], ChessEngine::Position p);
 };
-

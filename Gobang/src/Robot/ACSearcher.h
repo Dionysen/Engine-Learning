@@ -5,32 +5,39 @@
 #include <vector>
 using namespace std;
 
-// trie„1¤7„1¤7„1¤71’1„1¤7
-struct ACNode {
-    ACNode(int p, char c) : parent(p), ch(c), fail(-1) {}
+// trieï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½1ï¿½1ï¿½7
+struct ACNode
+{
+    ACNode(int p, char c)
+        : parent(p)
+        , ch(c)
+        , fail(-1)
+    {
+    }
 
-    char ch;
+    char           ch;
     map<char, int> sons;
-    int fail;
-    vector<int> output;
-    int parent;
+    int            fail;
+    vector<int>    output;
+    int            parent;
 };
 
-// AC„1¤7‚1ï1„1¤7„1¤7
-class ACSearcher {
+// ACï¿½1ï¿½7ï¿½1ï¿½1ï¿½1ï¿½7ï¿½1ï¿½7
+class ACSearcher
+{
   public:
     ACSearcher();
     ~ACSearcher();
 
-    void LoadPattern(const vector<string> &paterns);
+    void LoadPattern(const vector<string>& paterns);
     void BuildGotoTable();
     void BuildFailTable();
-    vector<int> ACSearch(const string &text); // „1¤7„1¤7„1¤7„1¤70›5„1¤7‚5‚3„1¤7„1¤7000¶4„1¤7„1¤7„1¤7„1¤7„1¤7„1¤7
+    vector<int> ACSearch(const string& text);  // ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½5ï¿½1ï¿½7ï¿½5ï¿½3ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½0ï¿½0ï¿½4ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7
 
   private:
-    int maxState;           // „1¤7„1¤7„1¤70ü80Á0„1¤7„1¤7
-    vector<ACNode> nodes;   // trie„1¤7„1¤7
-    vector<string> paterns; // „1¤7„1¤70Û80›5„1¤7„1¤7„1¤7000¶4
+    int            maxState;  // ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½8ï¿½0ï¿½0ï¿½1ï¿½7ï¿½1ï¿½7
+    vector<ACNode> nodes;     // trieï¿½1ï¿½7ï¿½1ï¿½7
+    vector<string> paterns;   // ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½8ï¿½0ï¿½5ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½0ï¿½0ï¿½4
 
-    void AddState(int parent, char ch); // „1¤7„1¤70¶3„1¤7„1¤7„1¤7„1¤70ü80Á0
+    void AddState(int parent, char ch);  // ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½3ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½1ï¿½7ï¿½0ï¿½8ï¿½0ï¿½0
 };

@@ -53,7 +53,7 @@ void Sandbox2D::OnImGuiRender()
     Dionysen::Application& app = Dionysen::Application::Get();
 
     // Start SideBar
-    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 
     // set window
     ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });

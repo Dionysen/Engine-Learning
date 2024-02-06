@@ -8,3 +8,4 @@ compile_commands.json
 /vs2022/*
 /.vs/*
 /assets/*
+/Dionysen/vendor/msdf-atlas-gen/build/*

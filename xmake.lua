@@ -1,11 +1,11 @@
 add_rules("mode.debug", "mode.release")
 
 -- requires
-add_requires("glfw", "glew", "glm", "vulkansdk", "shaderc", "spirv-cross")
+add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross")
 
 package("msdf-atlas-gen")
     add_deps("cmake")
-    set_sourcedir(path.join(os.scriptdir(), "./vendor/msdf-atlas-gen"))
+    set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/msdf-atlas-gen"))
     on_install(function (package)
         local configs = {}
         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))

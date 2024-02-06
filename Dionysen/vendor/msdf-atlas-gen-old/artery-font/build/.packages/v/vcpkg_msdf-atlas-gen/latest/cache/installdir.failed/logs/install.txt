@@ -1,3 +1,0 @@
-error: while looking for msdf-atlas-gen:x64-linux:
-/home/dionysen/vcpkg/ports/msdf-atlas-gen: error: msdf-atlas-gen does not exist
-
