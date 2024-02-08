@@ -16,15 +16,18 @@ class Sandbox2D : public Dionysen::Layer
     virtual void OnImGuiRender() override;
     void         OnEvent(Dionysen::Event& e) override;
 
+    void DrawChessboard();
+
   private:
     Dionysen::OrthographicCameraController m_CameraController;
+
 
     // Temp
     Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
     Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
     Dionysen::Ref<Dionysen::Texture2D>   m_CheckerboardTexture;
     // Dionysen::Ref<Gobang::GameController> m_GameController;
-
+    glm::vec3 CameraPostion;
     // Imgui keys
     bool isVSync;
     // bool status = false;

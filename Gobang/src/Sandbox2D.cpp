@@ -5,15 +5,15 @@
 
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D")
-    , m_CameraController(1280.0f / 720.0f)
+    , m_CameraController(1200.0f / 800.0f, false)
     , m_SquareColor({ 0.2f, 0.3f, 0.8f, 1.0f })
     , isVSync(true)
+    , CameraPostion(2.0f, 0.0f, 0.0f)
 {
 }
 
 void Sandbox2D::OnAttach()
 {
-    m_CheckerboardTexture = Dionysen::Texture2D::Create("./Gobang/textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()
@@ -22,27 +22,33 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
 {
-
     // Update
     m_CameraController.OnUpdate(ts);
 
+    m_CameraController.GetCamera().SetPosition(CameraPostion);
     // Render
     Dionysen::Renderer2D::ResetStats();
     {
-
         Dionysen::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
         Dionysen::RenderCommand::Clear();
     }
 
     {
         Dionysen::Renderer2D::BeginScene(m_CameraController.GetCamera());
+        static auto Circle = glm::mat4(1.0f);
+        Dionysen::Renderer2D::DrawCircle(Circle, m_SquareColor, 0.1f, 0.005f, -1);
 
-        for (float x = -5.0f; x < 2.5f; x += 0.5f)
+        for (float x = -5.0f; x < 2.5f; x += 1.0f)
         {
             Dionysen::Renderer2D::DrawLine({ x, -5.0f, 0.0f }, { x, 5.0f, 0.0f }, m_SquareColor);
         }
-        Dionysen::Renderer2D::DrawLine({ 0.0f, -5.0f, 0.0f }, { 0.0f, 5.0f, 0.0f }, m_SquareColor);
-        Dionysen::Renderer2D::DrawLine({ 5.0f, 0.0f, 0.0f }, { -5.0f, 0.0f, 0.0f }, m_SquareColor);
+
+
+        for (float y = -5.0f; y < 2.5f; y += 1.0f)
+        {
+            Dionysen::Renderer2D::DrawLine({ -5.0f, y, 0.0f }, { 5.0f, y, 0.0f }, m_SquareColor);
+        }
+
 
         Dionysen::Renderer2D::EndScene();
     }
@@ -53,7 +59,7 @@ void Sandbox2D::OnImGuiRender()
     Dionysen::Application& app = Dionysen::Application::Get();
 
     // Start SideBar
-    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 
     // set window
     ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });
@@ -98,6 +104,9 @@ void Sandbox2D::OnImGuiRender()
     if (ImGui::Button("Close Window"))
         app.CloseWindow();
 
+
+    ImGui::SliderFloat3("Position", glm::value_ptr(CameraPostion), -10.0f, 10.0f);
+
     ImGui::End();
 }
 
@@ -105,4 +114,8 @@ void Sandbox2D::OnImGuiRender()
 void Sandbox2D::OnEvent(Dionysen::Event& e)
 {
     m_CameraController.OnEvent(e);
+}
+
+void Sandbox2D::DrawChessboard()
+{
 }

@@ -38,11 +38,14 @@ namespace Dionysen
       private:
         bool OnMouseScrolled(MouseScrolledEvent& e);
         bool OnWindowResized(WindowResizeEvent& e);
+        bool OnMouseMoved(MouseMovedEvent& e);
 
       private:
         float              m_AspectRatio;
         float              m_ZoomLevel = 1.0f;
         OrthographicCamera m_Camera;
+
+        glm::vec2 m_MousePosition;
 
         bool m_Rotation;
 
