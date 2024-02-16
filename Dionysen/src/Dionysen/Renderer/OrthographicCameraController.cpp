@@ -90,7 +90,7 @@ namespace Dionysen
 
     bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
     {
-        DION_CORE_WARN("{0} {1}", (float)e.GetWidth(), (float)e.GetHeight());
+        // DION_CORE_WARN("{0} {1}", (float)e.GetWidth(), (float)e.GetHeight());
         OnResize((float)e.GetWidth(), (float)e.GetHeight());
         return false;
     }

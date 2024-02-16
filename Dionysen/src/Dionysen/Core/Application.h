@@ -31,6 +31,7 @@ namespace Dionysen
         std::string                WorkingDirectory;
         ApplicationCommandLineArgs CommandLineArgs;
     };
+
     class DION_API Application
     {
       public:

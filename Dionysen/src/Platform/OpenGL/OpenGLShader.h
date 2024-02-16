@@ -43,6 +43,11 @@ namespace Dionysen
         void UploadUniformMat3(const std::string& name, const glm::mat3& matrix);
         void UploadUniformMat4(const std::string& name, const glm::mat4& matrix);
 
+        static void SetLogShader(bool isLogShader)
+        {
+            m_IsLogShader = isLogShader;
+        }
+
       private:
         std::string                             ReadFile(const std::string& filepath);
         std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
@@ -56,6 +61,8 @@ namespace Dionysen
         uint32_t    m_RendererID;
         std::string m_FilePath;
         std::string m_Name;
+
+        static bool m_IsLogShader;
 
         std::unordered_map<GLenum, std::vector<uint32_t>> m_VulkanSPIRV;
         std::unordered_map<GLenum, std::vector<uint32_t>> m_OpenGLSPIRV;

@@ -21,8 +21,8 @@ class Sandbox2D : public Dionysen::Layer
   private:
     Dionysen::OrthographicCameraController m_CameraController;
 
-
     // Temp
+    Dionysen::Ref<Dionysen::Shader>      m_TriangleShader;
     Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
     Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
     Dionysen::Ref<Dionysen::Texture2D>   m_CheckerboardTexture;
@@ -32,5 +32,6 @@ class Sandbox2D : public Dionysen::Layer
     bool isVSync;
     // bool status = false;
 
-    glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+    glm::vec4 m_SquareColor     = { 0.2f, 0.3f, 0.8f, 1.0f };
+    glm::vec4 m_BackgroundColor = { 0.1f, 0.1f, 0.1f, 1.0f };
 };

@@ -97,6 +97,8 @@ namespace Dionysen
 
     }  // namespace Utils
 
+    bool OpenGLShader::m_IsLogShader = false;
+
     OpenGLShader::OpenGLShader(const std::string& filepath)
         : m_FilePath(filepath)
     {
@@ -111,7 +113,8 @@ namespace Dionysen
             CompileOrGetVulkanBinaries(shaderSources);
             CompileOrGetOpenGLBinaries();
             CreateProgram();
-            DION_CORE_WARN("Shader creation took {0} ms", timer.ElapsedMillis());
+            if (m_IsLogShader)
+                DION_CORE_WARN("Shader creation took {0} ms", timer.ElapsedMillis());
         }
 
         // Extract name from filepath
@@ -358,23 +361,25 @@ namespace Dionysen
     {
         spirv_cross::Compiler        compiler(shaderData);
         spirv_cross::ShaderResources resources = compiler.get_shader_resources();
-
-        DION_CORE_TRACE("OpenGLShader::Reflect - {0} {1}", Utils::GLShaderStageToString(stage), m_FilePath);
-        DION_CORE_TRACE("    {0} uniform buffers", resources.uniform_buffers.size());
-        DION_CORE_TRACE("    {0} resources", resources.sampled_images.size());
-
-        DION_CORE_TRACE("Uniform buffers:");
-        for (const auto& resource : resources.uniform_buffers)
+        if (m_IsLogShader)
         {
-            const auto& bufferType  = compiler.get_type(resource.base_type_id);
-            uint32_t    bufferSize  = compiler.get_declared_struct_size(bufferType);
-            uint32_t    binding     = compiler.get_decoration(resource.id, spv::DecorationBinding);
-            int         memberCount = bufferType.member_types.size();
+            DION_CORE_TRACE("OpenGLShader::Reflect - {0} {1}", Utils::GLShaderStageToString(stage), m_FilePath);
+            DION_CORE_TRACE("    {0} uniform buffers", resources.uniform_buffers.size());
+            DION_CORE_TRACE("    {0} resources", resources.sampled_images.size());
 
-            DION_CORE_TRACE("  {0}", resource.name);
-            DION_CORE_TRACE("    Size = {0}", bufferSize);
-            DION_CORE_TRACE("    Binding = {0}", binding);
-            DION_CORE_TRACE("    Members = {0}", memberCount);
+            DION_CORE_TRACE("Uniform buffers:");
+            for (const auto& resource : resources.uniform_buffers)
+            {
+                const auto& bufferType  = compiler.get_type(resource.base_type_id);
+                uint32_t    bufferSize  = compiler.get_declared_struct_size(bufferType);
+                uint32_t    binding     = compiler.get_decoration(resource.id, spv::DecorationBinding);
+                int         memberCount = bufferType.member_types.size();
+
+                DION_CORE_TRACE("  {0}", resource.name);
+                DION_CORE_TRACE("    Size = {0}", bufferSize);
+                DION_CORE_TRACE("    Binding = {0}", binding);
+                DION_CORE_TRACE("    Members = {0}", memberCount);
+            }
         }
     }
 

@@ -2,7 +2,6 @@
 
 #include <GL/glew.h>
 #include <iostream>
-#include <ostream>
 
 #include "Application.h"
 #include "ApplicationEvent.h"
@@ -16,6 +15,7 @@
 #include "WindowsWindow.h"
 #include "Event.h"
 #include "Renderer.h"
+#include "OpenGLShader.h"
 #include <filesystem>
 namespace Dionysen
 {
@@ -25,6 +25,7 @@ namespace Dionysen
     Application* Application::s_Instance = nullptr;
 
     Application::Application(const ApplicationSpecification& specification)
+        : m_Specification(specification)
     {
         DION_CORE_ASSERT(!s_Instance, "Application already exists!")
         s_Instance = this;
@@ -36,6 +37,7 @@ namespace Dionysen
         m_Window = Window::Create(WindowProps(m_Specification.Name));
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));  // ###
 
+        OpenGLShader::SetLogShader(false);
         Renderer::Init();
 
         m_ImGuiLayer = new ImGuiLayer();
@@ -74,15 +76,12 @@ namespace Dionysen
 
     void Application::Run()
     {
-        DION_CORE_INFO("Application::{0} is running!", m_appName);
+        DION_CORE_INFO("Application::{0} is running!", m_Specification.Name);
         while (m_Running)
         {
             auto     time     = Time::GetTime();
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime   = time;
-
-            glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
 
             if (!m_Minimized)
             {

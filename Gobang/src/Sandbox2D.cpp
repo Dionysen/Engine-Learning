@@ -2,6 +2,7 @@
 #include <imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "OpenGLShader.h"
 
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D")
@@ -10,6 +11,34 @@ Sandbox2D::Sandbox2D()
     , isVSync(true)
     , CameraPostion(2.0f, 0.0f, 0.0f)
 {
+    Dionysen::OpenGLShader::SetLogShader(true);
+
+    m_SquareVA = Dionysen::VertexArray::Create();
+
+    float vertices[4 * 3] = {
+        0.5f,  0.5f,  0.0f,  // top right
+        0.5f,  -0.5f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  // bottom left
+        -0.5f, 0.5f,  0.0f   // top left
+    };
+
+    Dionysen::Ref<Dionysen::VertexBuffer> vertexBuffer = Dionysen::VertexBuffer::Create(vertices, sizeof(vertices));
+
+    Dionysen::BufferLayout layout = { { Dionysen::ShaderDataType::Float3, "a_Position" } };
+    vertexBuffer->SetLayout(layout);
+    m_SquareVA->AddVertexBuffer(vertexBuffer);
+
+    unsigned int indices[2 * 3] = {
+        // note that we start from 0!
+        0, 1, 3,  // first Triangle
+        1, 2, 3   // second Triangle
+    };
+
+    Dionysen::Ref<Dionysen::IndexBuffer> indexBuffer = Dionysen::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
+    m_SquareVA->SetIndexBuffer(indexBuffer);
+
+    m_TriangleShader = Dionysen::Shader::Create("Gobang/shaders/Triangle.glsl");
+    m_TriangleShader->Bind();
 }
 
 void Sandbox2D::OnAttach()
@@ -24,34 +53,13 @@ void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
 {
     // Update
     m_CameraController.OnUpdate(ts);
-
     m_CameraController.GetCamera().SetPosition(CameraPostion);
-    // Render
-    Dionysen::Renderer2D::ResetStats();
-    {
-        Dionysen::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
-        Dionysen::RenderCommand::Clear();
-    }
 
-    {
-        Dionysen::Renderer2D::BeginScene(m_CameraController.GetCamera());
-        static auto Circle = glm::mat4(1.0f);
-        Dionysen::Renderer2D::DrawCircle(Circle, m_SquareColor, 0.1f, 0.005f, -1);
+    Dionysen::RenderCommand::SetClearColor(m_BackgroundColor);
+    Dionysen::RenderCommand::Clear();
 
-        for (float x = -5.0f; x < 2.5f; x += 1.0f)
-        {
-            Dionysen::Renderer2D::DrawLine({ x, -5.0f, 0.0f }, { x, 5.0f, 0.0f }, m_SquareColor);
-        }
-
-
-        for (float y = -5.0f; y < 2.5f; y += 1.0f)
-        {
-            Dionysen::Renderer2D::DrawLine({ -5.0f, y, 0.0f }, { 5.0f, y, 0.0f }, m_SquareColor);
-        }
-
-
-        Dionysen::Renderer2D::EndScene();
-    }
+    Dionysen::Renderer::BeginScene(m_CameraController.GetCamera());
+    Dionysen::Renderer::Submit(m_TriangleShader, m_SquareVA);
 }
 
 void Sandbox2D::OnImGuiRender()
@@ -94,6 +102,7 @@ void Sandbox2D::OnImGuiRender()
                 ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
                 ImGui::Separator();
                 ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+                ImGui::ColorEdit4("Background Color", glm::value_ptr(m_BackgroundColor));
                 ImGui::Separator();
             }
             ImGui::TreePop();
@@ -103,7 +112,6 @@ void Sandbox2D::OnImGuiRender()
 
     if (ImGui::Button("Close Window"))
         app.CloseWindow();
-
 
     ImGui::SliderFloat3("Position", glm::value_ptr(CameraPostion), -10.0f, 10.0f);
 
