@@ -12,6 +12,11 @@
 
 namespace Dionysen
 {
+    void APIENTRY GLDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message,
+                                  const void* userParam)
+    {
+        fprintf(stderr, "OpenGL Error: %s\n", message);
+    }
 
     static uint8_t s_GLFWWindowCount = 0;
 
@@ -70,10 +75,13 @@ namespace Dionysen
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 
-        // opengl setting
-        //        glEnable(GL_DEPTH_TEST);
-        //        glEnable(GL_DEBUG_OUTPUT);
-
+// opengl setting
+//        glEnable(GL_DEPTH_TEST);
+//        glEnable(GL_DEBUG_OUTPUT);
+#ifdef DEBUG
+        glDebugMessageCallback(GLDebugCallback, nullptr);
+        // glEnable(GL_DEBUG_OUTPUT);
+#endif
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -166,6 +174,7 @@ namespace Dionysen
 
     void WindowsWindow::OnUpdate()
     {
+        // glViewport(0, 0, this->GetWidth(), this->GetHeight());
         glfwPollEvents();
         m_Context->SwapBuffers();
     }
@@ -184,5 +193,6 @@ namespace Dionysen
     {
         return m_Data.VSync;
     }
+
 
 }  // namespace Dionysen

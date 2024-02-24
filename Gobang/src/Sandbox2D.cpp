@@ -3,6 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "OpenGLShader.h"
+#include <GL/glew.h>
 
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D")
@@ -39,6 +40,8 @@ Sandbox2D::Sandbox2D()
 
     m_TriangleShader = Dionysen::Shader::Create("Gobang/shaders/Triangle.glsl");
     m_TriangleShader->Bind();
+
+    m_FPSCamera = Dionysen::FPSCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 }
 
 void Sandbox2D::OnAttach()
@@ -51,15 +54,17 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
 {
-    // Update
-    m_CameraController.OnUpdate(ts);
-    m_CameraController.GetCamera().SetPosition(CameraPostion);
-
     Dionysen::RenderCommand::SetClearColor(m_BackgroundColor);
     Dionysen::RenderCommand::Clear();
 
-    Dionysen::Renderer::BeginScene(m_CameraController.GetCamera());
-    Dionysen::Renderer::Submit(m_TriangleShader, m_SquareVA);
+    m_TriangleShader->Bind();
+    m_TriangleShader->SetMat4("u_ViewProjection", glm::perspective(glm::radians(m_FPSCamera.Zoom), (float)1200 / (float)800, 0.1f, 1000.0f) *
+                                                      m_FPSCamera.GetViewMatrix());
+    glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
+    m_TriangleShader->SetMat4("u_Transform", model);
+
+    m_SquareVA->Bind();
+    Dionysen::RenderCommand::DrawIndexed(m_SquareVA);
 }
 
 void Sandbox2D::OnImGuiRender()

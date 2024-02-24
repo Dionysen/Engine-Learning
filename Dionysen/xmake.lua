@@ -59,7 +59,8 @@ target("Dionysen")
         add_defines(
             "DION_PLATFORM_WINDOWS",
             "DION_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
+            "GLFW_INCLUDE_NONE",
+            "DEBUG"
         )
         add_links("opengl32")
         add_links("comdlg32")

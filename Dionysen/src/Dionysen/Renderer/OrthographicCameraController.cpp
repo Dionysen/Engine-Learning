@@ -6,7 +6,6 @@
 
 namespace Dionysen
 {
-
     OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)
         : m_AspectRatio(aspectRatio)
         , m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel)
@@ -102,7 +101,7 @@ namespace Dionysen
         //     static glm::vec2 MousePositon = glm::vec2(e.GetX(), e.GetY());
         //     m_CameraPosition.x += Input::GetMouseX() - m_CameraPosition.x;
         //     m_CameraPosition.y += Input::GetMouseY() - m_CameraPosition.y;
-        //     // DION_CORE_WARN("Mouse event {0}", MousePositon.x);
+        //     DION_CORE_WARN("Mouse event {0}", MousePositon.x);
         // }
 
         return false;

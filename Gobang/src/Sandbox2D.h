@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Dionysen.h"
-// #include "GameController.h"
 
 class Sandbox2D : public Dionysen::Layer
 {
@@ -20,12 +19,15 @@ class Sandbox2D : public Dionysen::Layer
 
   private:
     Dionysen::OrthographicCameraController m_CameraController;
+    Dionysen::FPSCamera                    m_FPSCamera;
 
     // Temp
     Dionysen::Ref<Dionysen::Shader>      m_TriangleShader;
     Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
     Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
     Dionysen::Ref<Dionysen::Texture2D>   m_CheckerboardTexture;
+
+
     // Dionysen::Ref<Gobang::GameController> m_GameController;
     glm::vec3 CameraPostion;
     // Imgui keys
