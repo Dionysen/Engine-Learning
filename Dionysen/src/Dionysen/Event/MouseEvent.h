@@ -2,6 +2,7 @@
 
 #include "Event.h"
 #include "MouseCodes.h"
+#include <glm/glm.hpp>
 
 namespace Dionysen
 {
@@ -22,6 +23,10 @@ namespace Dionysen
         float GetY() const
         {
             return m_MouseY;
+        }
+        glm::vec2 GetMousePosition() const
+        {
+            return { m_MouseX, m_MouseY };
         }
 
         std::string ToString() const override

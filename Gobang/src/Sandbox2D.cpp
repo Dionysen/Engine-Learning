@@ -8,9 +8,11 @@
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D")
     , m_CameraController(1200.0f / 800.0f, false)
-    , m_SquareColor({ 0.2f, 0.3f, 0.8f, 1.0f })
+    , m_SquareColor({ 1.0f, 0.5f, 0.2f, 1.0f })
     , isVSync(true)
     , CameraPostion(2.0f, 0.0f, 0.0f)
+    , m_EditorCamera(glm::radians(45.0), 1200.0f / 800.0f, 0.01f, 1000.0f)
+    , m_FPSCamera(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f)
 {
     Dionysen::OpenGLShader::SetLogShader(true);
 
@@ -39,9 +41,6 @@ Sandbox2D::Sandbox2D()
     m_SquareVA->SetIndexBuffer(indexBuffer);
 
     m_TriangleShader = Dionysen::Shader::Create("Gobang/shaders/Triangle.glsl");
-    m_TriangleShader->Bind();
-
-    m_FPSCamera = Dionysen::FPSCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 }
 
 void Sandbox2D::OnAttach()
@@ -54,14 +53,15 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
 {
+    m_FPSCamera.OnUpdate(ts);
     Dionysen::RenderCommand::SetClearColor(m_BackgroundColor);
     Dionysen::RenderCommand::Clear();
 
     m_TriangleShader->Bind();
-    m_TriangleShader->SetMat4("u_ViewProjection", glm::perspective(glm::radians(m_FPSCamera.Zoom), (float)1200 / (float)800, 0.1f, 1000.0f) *
-                                                      m_FPSCamera.GetViewMatrix());
+    m_TriangleShader->SetMat4("u_ViewProjection", m_FPSCamera.GetViewProjection());
     glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
     m_TriangleShader->SetMat4("u_Transform", model);
+    m_TriangleShader->SetFloat4("u_Color", m_SquareColor);
 
     m_SquareVA->Bind();
     Dionysen::RenderCommand::DrawIndexed(m_SquareVA);
@@ -72,15 +72,15 @@ void Sandbox2D::OnImGuiRender()
     Dionysen::Application& app = Dionysen::Application::Get();
 
     // Start SideBar
-    ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-
+    // ImGui::Begin("Gobang", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("Gobang", nullptr);
     // set window
-    ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });
-    ImGui::SetWindowPos({ float(app.GetWindow().GetWidth()) * 2.5f / 3.5f, 0.0f });
+    // ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });
+    // ImGui::SetWindowPos({ float(app.GetWindow().GetWidth()) * 2.5f / 3.5f, 0.0f });
 
     if (ImGui::CollapsingHeader("Developer Monitor"))
     {
-        if (ImGui::TreeNode("Frame Rate"))
+        if (ImGui::TreeNodeEx("Frame Rate", ImGuiTreeNodeFlags_DefaultOpen))
         {
             // Frame rate
             ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
@@ -127,6 +127,8 @@ void Sandbox2D::OnImGuiRender()
 void Sandbox2D::OnEvent(Dionysen::Event& e)
 {
     m_CameraController.OnEvent(e);
+    m_EditorCamera.OnEvent(e);
+    m_FPSCamera.OnEvent(e);
 }
 
 void Sandbox2D::DrawChessboard()

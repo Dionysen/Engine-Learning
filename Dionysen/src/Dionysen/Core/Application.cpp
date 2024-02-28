@@ -19,9 +19,6 @@
 #include <filesystem>
 namespace Dionysen
 {
-
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-
     Application* Application::s_Instance = nullptr;
 
     Application::Application(const ApplicationSpecification& specification)
@@ -35,7 +32,7 @@ namespace Dionysen
         //     std::filesystem::current_path(m_Specification.WorkingDirectory);
 
         m_Window = Window::Create(WindowProps(m_Specification.Name));
-        m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));  // ###
+        m_Window->SetEventCallback(DION_BIND_EVENT_FN(OnEvent));  // ###
 
         OpenGLShader::SetLogShader(false);
         Renderer::Init();
@@ -58,9 +55,9 @@ namespace Dionysen
     void Application::OnEvent(Event& e)
     {
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-        dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
-        dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(OnKeyPressed));
+        dispatcher.Dispatch<WindowCloseEvent>(DION_BIND_EVENT_FN(OnWindowClose));
+        dispatcher.Dispatch<WindowResizeEvent>(DION_BIND_EVENT_FN(OnWindowResize));
+        dispatcher.Dispatch<KeyPressedEvent>(DION_BIND_EVENT_FN(OnKeyPressed));
 
         // std::cout << e.ToString() << std::endl;
 
@@ -123,6 +120,7 @@ namespace Dionysen
 
     bool Application::OnKeyPressed(KeyPressedEvent& e)
     {
+
         return true;
     }
 }  // namespace Dionysen

@@ -10,10 +10,9 @@
 ExampleLayer::ExampleLayer()
     : Layer("ExampleLayer")
     , m_CameraController(1280.0f / 720.0f)
-    , m_FPSCamera(glm::vec3(0.0, 0.0, 3.0))
 {
-    // Dionysen::OpenGLShader::SetLogShader(true);
-
+    Dionysen::OpenGLShader::SetLogShader(true);
+    // Dionysen::OpenGLShader::SetEnableVulkan(false);
     // vertex
     m_VertexArray         = Dionysen::VertexArray::Create();
     float vertices[3 * 7] = { -0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f, 0.5f, -0.5f, 0.0f, 0.2f,
@@ -28,6 +27,7 @@ ExampleLayer::ExampleLayer()
     Dionysen::Ref<Dionysen::IndexBuffer> indexBuffer = Dionysen::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
     m_VertexArray->SetIndexBuffer(indexBuffer);
 
+
     m_Shader = Dionysen::Shader::Create("./Gobang/shaders/VertexPosColor.glsl");
 }
 
@@ -41,6 +41,7 @@ void ExampleLayer::OnDetach()
 
 void ExampleLayer::OnUpdate(Dionysen::Timestep ts)
 {
+    m_CameraController.OnUpdate(ts);
 
     Dionysen::RenderCommand::Clear();
     Dionysen::RenderCommand::SetClearColor(glm::vec4(0.1f, 0.1f, 0.1f, 1.0f));
@@ -49,13 +50,9 @@ void ExampleLayer::OnUpdate(Dionysen::Timestep ts)
     processInput((GLFWwindow*)app.GetWindow().GetNativeWindow());
 
     m_Shader->Bind();
-    // glm::mat4 projection = glm::perspective(glm::radians(m_FPSCamera.Zoom), 1280.0f / 720.0f, 0.1f, 100.0f);
-    // m_Shader->SetMat4("u_ViewProjection", projection * m_FPSCamera.GetViewMatrix());
-    // m_Shader->SetMat4("u_Transform", glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-    glEnable(GL_DEBUG_OUTPUT);
-    m_Shader->SetFloat4("u_Color", glm::vec4(0.3, 0.3, 0.3, 1.0));
+    m_Shader->SetFloat3("u_Color", m_SquareColor);
+    m_Shader->SetMat4("u_viewProjection", m_CameraController.GetCamera().GetViewProjectionMatrix());
     Dionysen::RenderCommand::DrawIndexed(m_VertexArray);
-    glDisable(GL_DEBUG_OUTPUT);
 }
 
 void ExampleLayer::OnImGuiRender()

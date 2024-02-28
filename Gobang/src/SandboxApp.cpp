@@ -4,6 +4,7 @@
 #include "Test2.h"
 #include "GameController.h"
 #include "Test.h"
+#include "Sandbox2D.h"
 
 class Sandbox : public Dionysen::Application
 {
@@ -12,7 +13,7 @@ class Sandbox : public Dionysen::Application
         : Dionysen::Application(specification)
     {
         // PushLayer(new Test2());
-        PushLayer(new ExampleLayer());
+        PushLayer(new Sandbox2D());
     }
 
     ~Sandbox()

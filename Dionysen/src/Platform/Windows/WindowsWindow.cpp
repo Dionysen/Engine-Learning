@@ -75,12 +75,11 @@ namespace Dionysen
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 
-// opengl setting
-//        glEnable(GL_DEPTH_TEST);
-//        glEnable(GL_DEBUG_OUTPUT);
-#ifdef DEBUG
+        // opengl setting
+        glEnable(GL_DEPTH_TEST);
+#ifdef DION_DEBUG
         glDebugMessageCallback(GLDebugCallback, nullptr);
-        // glEnable(GL_DEBUG_OUTPUT);
+        glEnable(GL_DEBUG_OUTPUT);
 #endif
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
@@ -100,7 +99,6 @@ namespace Dionysen
 
         glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
             switch (action)
             {
             case GLFW_PRESS: {
@@ -174,7 +172,8 @@ namespace Dionysen
 
     void WindowsWindow::OnUpdate()
     {
-        // glViewport(0, 0, this->GetWidth(), this->GetHeight());
+        glViewport(0, 0, this->GetWidth(), this->GetHeight());
+
         glfwPollEvents();
         m_Context->SwapBuffers();
     }

@@ -17,13 +17,13 @@ class ExampleLayer : public Dionysen::Layer
     void         processInput(GLFWwindow* window);
 
   private:
-    Dionysen::FPSCamera                  m_FPSCamera;
     Dionysen::ShaderLibrary              m_ShaderLibrary;
     Dionysen::Ref<Dionysen::Shader>      m_Shader;
     Dionysen::Ref<Dionysen::VertexArray> m_VertexArray;
 
-    Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
-    Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
+    Dionysen::Ref<Dionysen::UniformBuffer> m_UBO;
+    Dionysen::Ref<Dionysen::Shader>        m_FlatColorShader;
+    Dionysen::Ref<Dionysen::VertexArray>   m_SquareVA;
 
     Dionysen::Ref<Dionysen::Texture2D> m_Texture, m_ChernoLogoTexture;
 

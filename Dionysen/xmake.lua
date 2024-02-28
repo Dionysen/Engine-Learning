@@ -38,6 +38,18 @@ target("Dionysen")
         "./src/Platform/OpenGL",
         { public = true }
     )
+    -- for vs solution
+    add_headerfiles(  
+        "./src/*.h",
+        "./src/Dionysen/Core/*.h",
+        "./src/Dionysen/Event/*.h",
+        "./src/Dionysen/ImGui/*.h",
+        "./src/Dionysen/Utils/*.h",
+        "./src/Dionysen/Renderer/*.h",
+        "./src/Dionysen/Scene/*.h",
+        "./src/Platform/Windows/*.h",
+        "./src/Platform/Linux/*.h",
+        "./src/Platform/OpenGL/*.h")
 
     add_files(
         "./src/Dionysen/Core/*.cpp",
@@ -59,8 +71,7 @@ target("Dionysen")
         add_defines(
             "DION_PLATFORM_WINDOWS",
             "DION_BUILD_DLL",
-            "GLFW_INCLUDE_NONE",
-            "DEBUG"
+            "GLFW_INCLUDE_NONE"
         )
         add_links("opengl32")
         add_links("comdlg32")

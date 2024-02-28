@@ -77,7 +77,7 @@ namespace Dionysen
             return GetCategoryFlags() & category;
         }
 
-        [[nodiscard]] bool isHandled() const
+        bool isHandled() const
         {
             return m_Handled;
         }
@@ -98,26 +98,16 @@ namespace Dionysen
         {
         }
 
-        template <typename T> bool Dispatch(EventFn<T> func)
+        // F will be deduced by the compiler
+        template <typename T, typename F> bool Dispatch(const F& func)
         {
             if (m_Event.GetEventType() == T::GetStaticType())
             {
-                m_Event.m_Handled = func(*(T*)&m_Event);
+                m_Event.m_Handled = func(static_cast<T&>(m_Event));
                 return true;
             }
             return false;
         }
-
-        // F will be deduced by the compiler
-        // template <typename T, typename F> bool Dispatch(const F& func)
-        // {
-        //     if (m_Event.GetEventType() == T::GetStaticType())
-        //     {
-        //         m_Event.isHandled() |= func(static_cast<T&>(m_Event));
-        //         return true;
-        //     }
-        //     return false;
-        // }
 
       private:
         Event& m_Event;

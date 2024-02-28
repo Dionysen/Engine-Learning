@@ -14,7 +14,6 @@
 
 namespace Dionysen
 {
-
     class EditorCamera : public Camera
     {
       public:

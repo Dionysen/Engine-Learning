@@ -30,6 +30,7 @@ namespace Dionysen
         {
             m_Data.EventCallback = callback;
         }
+
         void SetVSync(bool enabled) override;
         bool IsVSync() const override;
 

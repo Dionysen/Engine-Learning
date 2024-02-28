@@ -1,5 +1,5 @@
 add_rules("mode.debug", "mode.release")
-
+add_rules("plugin.vsxmake.autoupdate")
 -- requires
 add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross")
 

@@ -97,7 +97,8 @@ namespace Dionysen
 
     }  // namespace Utils
 
-    bool OpenGLShader::m_IsLogShader = false;
+    bool OpenGLShader::m_IsLogShader  = false;
+    bool OpenGLShader::m_EnableVulkan = false;
 
     OpenGLShader::OpenGLShader(const std::string& filepath)
         : m_FilePath(filepath)
@@ -107,14 +108,20 @@ namespace Dionysen
 
         std::string source        = ReadFile(filepath);
         auto        shaderSources = PreProcess(source);
-
+        Timer       timer;
+        if (m_EnableVulkan)
         {
-            Timer timer;
             CompileOrGetVulkanBinaries(shaderSources);
             CompileOrGetOpenGLBinaries();
             CreateProgram();
             if (m_IsLogShader)
-                DION_CORE_WARN("Shader creation took {0} ms", timer.ElapsedMillis());
+                DION_CORE_WARN("SPIR-V Shader creation took {0} ms", timer.ElapsedMillis());
+        }
+        else
+        {
+            CompileGLSL(shaderSources);
+            if (m_IsLogShader)
+                DION_CORE_WARN("OpenGL Shader creation took {0} ms", timer.ElapsedMillis());
         }
 
         // Extract name from filepath
@@ -131,10 +138,21 @@ namespace Dionysen
         std::unordered_map<GLenum, std::string> sources;
         sources[GL_VERTEX_SHADER]   = vertexSrc;
         sources[GL_FRAGMENT_SHADER] = fragmentSrc;
-
-        CompileOrGetVulkanBinaries(sources);
-        CompileOrGetOpenGLBinaries();
-        CreateProgram();
+        Timer timer;
+        if (m_EnableVulkan)
+        {
+            CompileOrGetVulkanBinaries(sources);
+            CompileOrGetOpenGLBinaries();
+            CreateProgram();
+            if (m_IsLogShader)
+                DION_CORE_WARN("SPIR-V Shader creation took {0} ms", timer.ElapsedMillis());
+        }
+        else
+        {
+            CompileGLSL(sources);
+            if (m_IsLogShader)
+                DION_CORE_WARN("OpenGL Shader creation took {0} ms", timer.ElapsedMillis());
+        }
     }
 
     OpenGLShader::~OpenGLShader()
@@ -357,7 +375,7 @@ namespace Dionysen
         m_RendererID = program;
     }
 
-    void OpenGLShader::Reflect(GLenum stage, const std::vector<uint32_t>& shaderData)
+    void OpenGLShader::Reflect(GLenum stage, const std::vector<uint32_t>& shaderData) const
     {
         spirv_cross::Compiler        compiler(shaderData);
         spirv_cross::ShaderResources resources = compiler.get_shader_resources();
@@ -379,6 +397,63 @@ namespace Dionysen
                 DION_CORE_TRACE("    Size = {0}", bufferSize);
                 DION_CORE_TRACE("    Binding = {0}", binding);
                 DION_CORE_TRACE("    Members = {0}", memberCount);
+            }
+        }
+    }
+
+    void OpenGLShader::CompileGLSL(const std::unordered_map<GLenum, std::string>& shaderSources)
+    {
+        m_RendererID = glCreateProgram();
+
+        for (auto&& [stage, source] : shaderSources)
+        {
+            m_OpenGLShader[stage]        = glCreateShader(stage);
+            const char* TempShaderSource = source.c_str();
+            glShaderSource(m_OpenGLShader[stage], 1, &TempShaderSource, NULL);
+            glCompileShader(m_OpenGLShader[stage]);
+            CheckCompileErrors(m_OpenGLShader[stage], Utils::GLShaderStageToString(stage));
+
+            glAttachShader(m_RendererID, m_OpenGLShader[stage]);
+        }
+
+        glLinkProgram(m_RendererID);
+        CheckCompileErrors(m_RendererID, "PROGRAM");
+
+        for (auto&& [stage, source] : m_OpenGLShader)
+        {
+            glDeleteShader(stage);
+        }
+    }
+
+
+    void OpenGLShader::CheckCompileErrors(uint32_t shader, std::string type)
+    {
+        GLint  success;
+        GLchar infoLog[1024];
+        if (type != "PROGRAM")
+        {
+            glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+            if (!success)
+            {
+                glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+                std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n"
+                          << infoLog
+                          << "\n -- "
+                             "--------------------------------------------------- -- "
+                          << std::endl;
+            }
+        }
+        else
+        {
+            glGetProgramiv(shader, GL_LINK_STATUS, &success);
+            if (!success)
+            {
+                glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+                std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n"
+                          << infoLog
+                          << "\n -- "
+                             "--------------------------------------------------- -- "
+                          << std::endl;
             }
         }
     }

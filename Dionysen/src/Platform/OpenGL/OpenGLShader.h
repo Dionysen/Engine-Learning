@@ -47,6 +47,10 @@ namespace Dionysen
         {
             m_IsLogShader = isLogShader;
         }
+        static void SetEnableVulkan(bool isEnableVulkan)
+        {
+            m_EnableVulkan = isEnableVulkan;
+        }
 
       private:
         std::string                             ReadFile(const std::string& filepath);
@@ -55,19 +59,24 @@ namespace Dionysen
         void CompileOrGetVulkanBinaries(const std::unordered_map<GLenum, std::string>& shaderSources);
         void CompileOrGetOpenGLBinaries();
         void CreateProgram();
-        void Reflect(GLenum stage, const std::vector<uint32_t>& shaderData);
+        void Reflect(GLenum stage, const std::vector<uint32_t>& shaderData) const;
+
+        void CompileGLSL(const std::unordered_map<GLenum, std::string>& shaderSources);
+        void CheckCompileErrors(uint32_t shader, std::string type);
 
       private:
         uint32_t    m_RendererID;
         std::string m_FilePath;
         std::string m_Name;
 
+        static bool m_EnableVulkan;  // spirv
         static bool m_IsLogShader;
 
         std::unordered_map<GLenum, std::vector<uint32_t>> m_VulkanSPIRV;
         std::unordered_map<GLenum, std::vector<uint32_t>> m_OpenGLSPIRV;
 
         std::unordered_map<GLenum, std::string> m_OpenGLSourceCode;
+        std::unordered_map<GLenum, uint32_t>    m_OpenGLShader;
     };
 
 }  // namespace Dionysen
