@@ -38,6 +38,7 @@ namespace Dionysen
             s_RendererAPI->DrawIndexed(vertexArray, indexCount);
         }
 
+
         static void DrawLines(const Ref<VertexArray>& vertexArray, uint32_t vertexCount)
         {
             s_RendererAPI->DrawLines(vertexArray, vertexCount);

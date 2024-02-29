@@ -18,16 +18,16 @@ Sandbox2D::Sandbox2D()
 
     m_SquareVA = Dionysen::VertexArray::Create();
 
-    float vertices[4 * 3] = {
-        0.5f,  0.5f,  0.0f,  // top right
-        0.5f,  -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f, 0.5f,  0.0f   // top left
+    float vertices[4 * 5] = {
+        0.5f,  0.5f,  0.0f, 1.0f, 1.0f,  // top right
+        0.5f,  -0.5f, 0.0f, 1.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,  // bottom left
+        -0.5f, 0.5f,  0.0f, 0.0f, 1.0f   // top left
     };
 
     Dionysen::Ref<Dionysen::VertexBuffer> vertexBuffer = Dionysen::VertexBuffer::Create(vertices, sizeof(vertices));
 
-    Dionysen::BufferLayout layout = { { Dionysen::ShaderDataType::Float3, "a_Position" } };
+    Dionysen::BufferLayout layout = { { Dionysen::ShaderDataType::Float3, "a_Position" }, { Dionysen::ShaderDataType::Float2, "a_TexCoord" } };
     vertexBuffer->SetLayout(layout);
     m_SquareVA->AddVertexBuffer(vertexBuffer);
 
@@ -41,6 +41,13 @@ Sandbox2D::Sandbox2D()
     m_SquareVA->SetIndexBuffer(indexBuffer);
 
     m_TriangleShader = Dionysen::Shader::Create("Gobang/shaders/Triangle.glsl");
+
+    m_Texture = Dionysen::Texture2D::Create("Gobang/textures/wallhaven-85pz2y.png");
+
+
+    std::vector<std::string> path{ "Gobang/textures/skybox/right.jpg",  "Gobang/textures/skybox/left.jpg",  "Gobang/textures/skybox/top.jpg",
+                                   "Gobang/textures/skybox/bottom.jpg", "Gobang/textures/skybox/front.jpg", "Gobang/textures/skybox/back.jpg" };
+    m_CubemapTexture = Dionysen::TextureCubemap::Create(path);
 }
 
 void Sandbox2D::OnAttach()
@@ -56,15 +63,19 @@ void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
     m_FPSCamera.OnUpdate(ts);
     Dionysen::RenderCommand::SetClearColor(m_BackgroundColor);
     Dionysen::RenderCommand::Clear();
-
-    m_TriangleShader->Bind();
-    m_TriangleShader->SetMat4("u_ViewProjection", m_FPSCamera.GetViewProjection());
     glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
-    m_TriangleShader->SetMat4("u_Transform", model);
+
+    Dionysen::Renderer::BeginScene(m_FPSCamera);
+    m_TriangleShader->Bind();
     m_TriangleShader->SetFloat4("u_Color", m_SquareColor);
 
-    m_SquareVA->Bind();
-    Dionysen::RenderCommand::DrawIndexed(m_SquareVA);
+    m_Texture->Bind();
+    m_TriangleShader->SetInt("u_Texture", 0);
+    Dionysen::Renderer::Submit(m_TriangleShader, m_SquareVA, model);
+
+    m_CubemapTexture->Submit(m_FPSCamera);
+
+    Dionysen::Renderer2D::BeginScene();
 }
 
 void Sandbox2D::OnImGuiRender()
@@ -78,7 +89,7 @@ void Sandbox2D::OnImGuiRender()
     // ImGui::SetWindowSize({ float(app.GetWindow().GetWidth()) / 3.5f, float(app.GetWindow().GetHeight()) });
     // ImGui::SetWindowPos({ float(app.GetWindow().GetWidth()) * 2.5f / 3.5f, 0.0f });
 
-    if (ImGui::CollapsingHeader("Developer Monitor"))
+    if (ImGui::CollapsingHeader("Developer Monitor", ImGuiTreeNodeFlags_DefaultOpen))
     {
         if (ImGui::TreeNodeEx("Frame Rate", ImGuiTreeNodeFlags_DefaultOpen))
         {
@@ -87,7 +98,7 @@ void Sandbox2D::OnImGuiRender()
             ImGui::TreePop();
             ImGui::Spacing();
         }
-        if (ImGui::TreeNode("Renderer Settings"))
+        if (ImGui::TreeNodeEx("Renderer Settings", ImGuiTreeNodeFlags_DefaultOpen))
         {
             // VSync
             ImGui::Checkbox("VSync", &isVSync);
@@ -95,7 +106,7 @@ void Sandbox2D::OnImGuiRender()
             ImGui::TreePop();
             ImGui::Spacing();
         }
-        if (ImGui::TreeNode("Renderer Status"))
+        if (ImGui::TreeNodeEx("Renderer Status", ImGuiTreeNodeFlags_DefaultOpen))
         {
             // Render Status
             auto stats = Dionysen::Renderer2D::GetStats();

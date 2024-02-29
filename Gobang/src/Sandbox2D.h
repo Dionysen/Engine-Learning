@@ -25,8 +25,12 @@ class Sandbox2D : public Dionysen::Layer
     Dionysen::Ref<Dionysen::Shader>      m_TriangleShader;
     Dionysen::Ref<Dionysen::VertexArray> m_SquareVA;
     Dionysen::Ref<Dionysen::Shader>      m_FlatColorShader;
-    Dionysen::Ref<Dionysen::Texture2D>   m_CheckerboardTexture;
+    Dionysen::Ref<Dionysen::Texture2D>   m_Texture;
 
+
+    Dionysen::Ref<Dionysen::TextureCubemap> m_CubemapTexture;
+    Dionysen::Ref<Dionysen::Shader>         m_CubemapShader;
+    Dionysen::Ref<Dionysen::VertexArray>    m_CubemapVA;
 
     // Dionysen::Ref<Gobang::GameController> m_GameController;
     glm::vec3 CameraPostion;

@@ -12,7 +12,7 @@ target("Dionysen")
     add_deps("stb_image")
 
     add_packages("glfw", "glew", "glm", "msdf-atlas-gen"
-    ,"shaderc", "spirv-cross")
+    ,"shaderc", "spirv-cross", "vcpkg::devil")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",

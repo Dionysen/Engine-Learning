@@ -48,7 +48,7 @@ namespace Dionysen
         // returns the view matrix calculated using Euler Angles and the LookAt Matrix
         glm::mat4 GetViewMatrix() const;
         glm::mat4 GetProjectionMatrix();
-        glm::mat4 GetViewProjection();
+        glm::mat4 GetViewProjectionMatrix();
 
         void OnUpdate(Timestep ts);
         void OnEvent(Event& e);

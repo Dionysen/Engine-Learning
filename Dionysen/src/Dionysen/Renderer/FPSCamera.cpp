@@ -44,7 +44,7 @@ namespace Dionysen
         return glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearClip, m_FarClip);
     }
 
-    glm::mat4 FPSCamera::GetViewProjection()
+    glm::mat4 FPSCamera::GetViewProjectionMatrix()
     {
         return GetProjectionMatrix() * GetViewMatrix();
     }
@@ -130,6 +130,7 @@ namespace Dionysen
     {
         if (m_IsControlEnabled)
         {
+            // Move
             if (Input::IsKeyPressed(Key::W))
                 m_Position += m_Front * velocity;
             if (Input::IsKeyPressed(Key::S))
@@ -138,6 +139,13 @@ namespace Dionysen
                 m_Position -= m_Right * velocity;
             if (Input::IsKeyPressed(Key::D))
                 m_Position += m_Right * velocity;
+
+            // Up and Down
+            if (Input::IsKeyPressed(Key::Space))
+                m_Position += m_Up * velocity;
+            if (Input::IsKeyPressed(Key::LeftControl))
+                m_Position -= m_Up * velocity;
+
             // Faster
             if (Input::IsKeyPressed(Key::LeftShift) && Input::IsKeyPressed(Key::W))
                 m_Position += m_Front * (10 * velocity);
@@ -147,12 +155,10 @@ namespace Dionysen
                 m_Position -= m_Right * (10 * velocity);
             if (Input::IsKeyPressed(Key::LeftShift) && Input::IsKeyPressed(Key::D))
                 m_Position += m_Right * (10 * velocity);
-
-            // Up and Down
-            if (Input::IsKeyPressed(Key::Space))
-                m_Position += m_Up * velocity;
-            if (Input::IsKeyPressed(Key::LeftControl))
-                m_Position -= m_Up * velocity;
+            if (Input::IsKeyPressed(Key::LeftShift) && Input::IsKeyPressed(Key::Space))
+                m_Position += m_Up * (10 * velocity);
+            if (Input::IsKeyPressed(Key::LeftShift) && Input::IsKeyPressed(Key::LeftControl))
+                m_Position -= m_Up * (10 * velocity);
         }
     }
 

@@ -9,6 +9,8 @@
 
 #include "Base.h"
 #include <string>
+#include "FPSCamera.h"
+#include "Shader.h"
 
 namespace Dionysen
 {
@@ -59,6 +61,14 @@ namespace Dionysen
         static Ref<Texture2D> Create(const std::string& path);
     };
 
+    class TextureCubemap
+    {
+      public:
+        virtual void Bind()                    = 0;
+        virtual void Submit(FPSCamera& camera) = 0;
+
+        static Ref<TextureCubemap> Create(const std::vector<std::string>& path);
+    };
 }  // namespace Dionysen
 
 

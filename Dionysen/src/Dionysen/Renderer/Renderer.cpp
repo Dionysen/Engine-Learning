@@ -33,6 +33,10 @@ namespace Dionysen
     {
         s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
     }
+    void Renderer::BeginScene(FPSCamera& camera)
+    {
+        s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
+    }
 
     void Renderer::EndScene()
     {

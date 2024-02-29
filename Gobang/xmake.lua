@@ -3,16 +3,16 @@ target("Gobang")
     add_deps("Dionysen")
 
     -- Delete shader cache
-    before_build(function (target)
-        local dir_to_delete = path.join(target:scriptdir(), "../assets")
-        -- if exist, delete directory
-         if os.isdir(dir_to_delete) then
-            print("Deleting shader cache directory: " .. dir_to_delete)
-            os.rmdir(dir_to_delete)
-        else
-            print("Shader cache does not exist: " .. dir_to_delete)
-        end
-    end)
+    -- before_build(function (target)
+    --     local dir_to_delete = path.join(target:scriptdir(), "../assets")
+    --     -- if exist, delete directory
+    --      if os.isdir(dir_to_delete) then
+    --         print("Deleting shader cache directory: " .. dir_to_delete)
+    --         os.rmdir(dir_to_delete)
+    --     else
+    --         print("Shader cache does not exist: " .. dir_to_delete)
+    --     end
+    -- end)
 
     includes("../Dionysen")
     add_includedirs("../Dionysen")
@@ -20,9 +20,9 @@ target("Gobang")
     includes("../Dionysen/vendor/imgui")
     add_deps("imgui")
 
-    add_includedirs("./src", "./src/Robot")
-    add_headerfiles("./src/*.h", "./src/Robot/*.h", "./shaders/*")
-    add_files("./src/*.cpp", "./src/Robot/*.cpp")
+    add_includedirs("./src")
+    add_headerfiles("./src/*.h", "./shaders/*")
+    add_files("./src/*.cpp")
 
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS", "WIN32")
