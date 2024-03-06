@@ -64,10 +64,16 @@ namespace Dionysen
     class TextureCubemap
     {
       public:
-        virtual void Bind()                    = 0;
-        virtual void Submit(FPSCamera& camera) = 0;
+        virtual void Bind() = 0;
 
         static Ref<TextureCubemap> Create(const std::vector<std::string>& path);
+    };
+
+    class Skybox
+    {
+      public:
+        static Ref<Skybox> Create(const std::vector<std::string>& path);
+        virtual void       Submit(FPSCamera& camera) = 0;
     };
 }  // namespace Dionysen
 

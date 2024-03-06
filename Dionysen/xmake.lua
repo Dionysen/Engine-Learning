@@ -11,8 +11,11 @@ target("Dionysen")
     includes("./vendor/stb_image/xmake.lua")
     add_deps("stb_image")
 
+    includes("./vendor/imguizmo/xmake.lua")
+    add_deps("imguizmo")
+
     add_packages("glfw", "glew", "glm", "msdf-atlas-gen"
-    ,"shaderc", "spirv-cross", "vcpkg::devil")
+    ,"shaderc", "spirv-cross")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",

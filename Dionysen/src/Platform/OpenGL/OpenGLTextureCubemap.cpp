@@ -7,11 +7,6 @@ namespace Dionysen
 {
     OpenGLTextureCubemap::OpenGLTextureCubemap(const std::vector<std::string>& path)
     {
-        m_CubemapVA                           = VertexArray::Create();
-        Ref<VertexBuffer> cubemapVertexBuffer = VertexBuffer::Create(m_SkyboxVertices, sizeof(m_SkyboxVertices));
-        BufferLayout      cubemapLayout       = { { ShaderDataType::Float3, "a_Position" } };
-        cubemapVertexBuffer->SetLayout(cubemapLayout);
-        m_CubemapVA->AddVertexBuffer(cubemapVertexBuffer);
 
         glGenTextures(1, &m_RendererID);
         glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
@@ -38,9 +33,6 @@ namespace Dionysen
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-        m_CubemapShader = Shader::Create("Dionysen/assets/shaders/Cubemap.glsl");
-        m_CubemapShader->Bind();
-        m_CubemapShader->SetInt("skybox", 0);
     }
     OpenGLTextureCubemap::~OpenGLTextureCubemap()
     {
@@ -50,13 +42,34 @@ namespace Dionysen
     {
         glBindTexture(GL_TEXTURE_CUBE_MAP, m_RendererID);
     }
-    void OpenGLTextureCubemap::Submit(FPSCamera& camera)
+
+    // OpenGLSkybox
+    OpenGLSkybox::OpenGLSkybox(const std::vector<std::string>& path)
+    {
+        m_CubemapVA                           = VertexArray::Create();
+        Ref<VertexBuffer> cubemapVertexBuffer = VertexBuffer::Create(m_SkyboxVertices, sizeof(m_SkyboxVertices));
+        BufferLayout      cubemapLayout       = { { ShaderDataType::Float3, "a_Position" } };
+        cubemapVertexBuffer->SetLayout(cubemapLayout);
+        m_CubemapVA->AddVertexBuffer(cubemapVertexBuffer);
+
+        m_TextureCubemap = TextureCubemap::Create(path);
+
+        m_CubemapShader = Shader::Create("Dionysen/assets/shaders/Cubemap.glsl");
+        m_CubemapShader->Bind();
+        m_CubemapShader->SetInt("skybox", 0);
+
+        m_TextureCubemap->Bind();
+    }
+    OpenGLSkybox::~OpenGLSkybox()
+    {
+    }
+    void OpenGLSkybox::Submit(FPSCamera& camera)
     {
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
         m_CubemapShader->Bind();
         m_CubemapShader->SetMat4("u_ViewProjection", camera.GetProjectionMatrix() * glm::mat4(glm::mat3(camera.GetViewMatrix())));
         // skybox
-        this->Bind();
+        m_TextureCubemap->Bind();
         m_CubemapVA->Bind();
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);

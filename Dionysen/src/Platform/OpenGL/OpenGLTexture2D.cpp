@@ -7,7 +7,7 @@
 #include "OpenGLTexture2D.h"
 #include "dspch.h"
 #include <stb_image.h>
-#include <IL/il.h>
+
 
 namespace Dionysen
 {

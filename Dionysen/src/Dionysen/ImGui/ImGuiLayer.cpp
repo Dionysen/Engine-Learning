@@ -8,6 +8,7 @@
 #include "imgui_impl_opengl3_loader.h"
 #include "Application.h"
 #include <imgui_internal.h>
+#include "ImGuizmo.h"
 
 namespace Dionysen
 {
@@ -63,12 +64,11 @@ namespace Dionysen
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        // ImGuizmo::BeginFrame();
+        ImGuizmo::BeginFrame();
     }
 
     void ImGuiLayer::End()
     {
-
         ImGuiIO&     io  = ImGui::GetIO();
         Application& app = Application::Get();
         io.DisplaySize   = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());

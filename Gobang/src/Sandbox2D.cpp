@@ -47,7 +47,7 @@ Sandbox2D::Sandbox2D()
 
     std::vector<std::string> path{ "Gobang/textures/skybox/right.jpg",  "Gobang/textures/skybox/left.jpg",  "Gobang/textures/skybox/top.jpg",
                                    "Gobang/textures/skybox/bottom.jpg", "Gobang/textures/skybox/front.jpg", "Gobang/textures/skybox/back.jpg" };
-    m_CubemapTexture = Dionysen::TextureCubemap::Create(path);
+    m_Skybox = Dionysen::Skybox::Create(path);
 }
 
 void Sandbox2D::OnAttach()
@@ -73,9 +73,9 @@ void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
     m_TriangleShader->SetInt("u_Texture", 0);
     Dionysen::Renderer::Submit(m_TriangleShader, m_SquareVA, model);
 
-    m_CubemapTexture->Submit(m_FPSCamera);
+    m_Skybox->Submit(m_FPSCamera);
 
-    Dionysen::Renderer2D::BeginScene();
+    // Dionysen::Renderer2D::BeginScene();
 }
 
 void Sandbox2D::OnImGuiRender()
