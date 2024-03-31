@@ -6,10 +6,12 @@
 #include <memory>
 #include <utility>
 #include <sstream>
+#include <fstream>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <filesystem>
 
 #include "DionAssert.h"
 #include "Log.h"

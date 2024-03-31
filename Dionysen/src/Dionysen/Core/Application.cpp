@@ -100,6 +100,22 @@ namespace Dionysen
         }
     }
 
+    void Application::SubmitToMainThread(const std::function<void()>& function)
+    {
+        std::scoped_lock<std::mutex> lock(m_MainThreadQueueMutex);
+        m_MainThreadQueue.emplace_back(function);
+    }
+
+    void Application::ExecuteMainThreadQueue()
+    {
+        std::scoped_lock<std::mutex> lock(m_MainThreadQueueMutex);
+
+        for (auto& func : m_MainThreadQueue)
+            func();
+
+        m_MainThreadQueue.clear();
+    }
+
     bool Application::OnWindowClose(WindowCloseEvent& e)
     {
         DION_CORE_INFO("Closing Window...");

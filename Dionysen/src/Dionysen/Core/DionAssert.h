@@ -13,7 +13,7 @@
     {                                                    \
         if (!(check))                                    \
         {                                                \
-            HZ##type##ERROR(msg, __VA_ARGS__);           \
+            DION##type##ERROR(msg, __VA_ARGS__);           \
             DION_DEBUGBREAK();                           \
         }                                                \
     }

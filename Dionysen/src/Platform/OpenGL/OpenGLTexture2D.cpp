@@ -15,7 +15,7 @@ namespace Dionysen
     namespace Utils
     {
 
-        static GLenum HazelImageFormatToGLDataFormat(ImageFormat format)
+        static GLenum DionysenImageFormatToGLDataFormat(ImageFormat format)
         {
             switch (format)
             {
@@ -28,7 +28,7 @@ namespace Dionysen
             return 0;
         }
 
-        static GLenum HazelImageFormatToGLInternalFormat(ImageFormat format)
+        static GLenum DionysenImageFormatToGLInternalFormat(ImageFormat format)
         {
             switch (format)
             {
@@ -48,8 +48,8 @@ namespace Dionysen
         , m_Width(m_Specification.Width)
         , m_Height(m_Specification.Height)
     {
-        m_InternalFormat = Utils::HazelImageFormatToGLInternalFormat(m_Specification.Format);
-        m_DataFormat     = Utils::HazelImageFormatToGLDataFormat(m_Specification.Format);
+        m_InternalFormat = Utils::DionysenImageFormatToGLInternalFormat(m_Specification.Format);
+        m_DataFormat     = Utils::DionysenImageFormatToGLDataFormat(m_Specification.Format);
 
         glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
         glTextureStorage2D(m_RendererID, 1, m_InternalFormat, m_Width, m_Height);

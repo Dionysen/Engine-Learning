@@ -79,7 +79,7 @@ namespace Dionysen
             return false;
         }
 
-        static GLenum HazelFBTextureFormatToGL(FramebufferTextureFormat format)
+        static GLenum DionysenFBTextureFormatToGL(FramebufferTextureFormat format)
         {
             switch (format)
             {
@@ -225,7 +225,7 @@ namespace Dionysen
         DION_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
 
         auto& spec = m_ColorAttachmentSpecifications[attachmentIndex];
-        glClearTexImage(m_ColorAttachments[attachmentIndex], 0, Utils::HazelFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value);
+        glClearTexImage(m_ColorAttachments[attachmentIndex], 0, Utils::DionysenFBTextureFormatToGL(spec.TextureFormat), GL_INT, &value);
     }
 
 }  // namespace Dionysen

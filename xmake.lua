@@ -1,7 +1,7 @@
 add_rules("mode.debug", "mode.release")
 add_rules("plugin.vsxmake.autoupdate")
 -- requires
-add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross")
+add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
 
 package("msdf-atlas-gen")
     add_deps("cmake")
@@ -15,9 +15,9 @@ package("msdf-atlas-gen")
 package_end()
 add_requires("msdf-atlas-gen")
 
--- package("devil")
+-- package("entt")
 --     add_deps("cmake")
---     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/DevIL"))
+--     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/entt"))
 --     on_install(function (package)
 --         local configs = {}
 --         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
@@ -25,9 +25,7 @@ add_requires("msdf-atlas-gen")
 --         import("package.tools.cmake").install(package, configs)
 --     end)
 -- package_end()
-
-add_requires("vcpkg::devil")
-
+-- add_requires("entt")
 
 -- set c++
 set_languages("cxx20")

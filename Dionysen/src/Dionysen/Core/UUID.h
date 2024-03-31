@@ -3,7 +3,6 @@
 #include <cstdint>
 namespace Dionysen
 {
-
     class UUID
     {
       public:

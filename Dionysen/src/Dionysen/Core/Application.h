@@ -59,6 +59,7 @@ namespace Dionysen
             m_Running = false;
             return true;
         }
+        void SubmitToMainThread(const std::function<void()>& function);
 
       protected:
         std::string m_appName;
@@ -68,12 +69,17 @@ namespace Dionysen
         bool OnWindowResize(WindowResizeEvent& e);
         bool OnKeyPressed(KeyPressedEvent& e);
 
+        void ExecuteMainThreadQueue();
+
         Scope<Window>            m_Window;
         ApplicationSpecification m_Specification;
         bool                     m_Running = true;
         LayerStack               m_LayerStack;
         float                    m_LastFrameTime = 0.0f;
         bool                     m_Minimized     = false;
+
+        std::vector<std::function<void()>> m_MainThreadQueue;
+        std::mutex                         m_MainThreadQueueMutex;
 
         static Application* s_Instance;
         ImGuiLayer*         m_ImGuiLayer;

@@ -14,8 +14,11 @@ target("Dionysen")
     includes("./vendor/imguizmo/xmake.lua")
     add_deps("imguizmo")
 
+    includes("./vendor/entt/xmake.lua")
+    add_deps("entt")
+
     add_packages("glfw", "glew", "glm", "msdf-atlas-gen"
-    ,"shaderc", "spirv-cross")
+    ,"shaderc", "spirv-cross", "box2d", "yaml-cpp")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",
@@ -36,9 +39,15 @@ target("Dionysen")
         "./src/Dionysen/Utils",
         "./src/Dionysen/Renderer",
         "./src/Dionysen/Scene",
+        "./src/Dionysen/Scripting",
+        "./src/Dionysen/Physics",
+        "./src/Dionysen/Project",
+        "./src/Dionysen/UI",
+        "./src/Dionysen/Debug",
         "./src/Platform/Windows",
         "./src/Platform/Linux",
         "./src/Platform/OpenGL",
+        "./vendor/mono/include",
         { public = true }
     )
     -- for vs solution
@@ -50,6 +59,11 @@ target("Dionysen")
         "./src/Dionysen/Utils/*.h",
         "./src/Dionysen/Renderer/*.h",
         "./src/Dionysen/Scene/*.h",
+        "./src/Dionysen/Scripting/*.h",
+        "./src/Dionysen/Physics/*.h",
+        "./src/Dionysen/Project/*.h",
+        "./src/Dionysen/UI/*.h",
+        "./src/Dionysen/Debug/*.h",
         "./src/Platform/Windows/*.h",
         "./src/Platform/Linux/*.h",
         "./src/Platform/OpenGL/*.h")
@@ -59,15 +73,19 @@ target("Dionysen")
         "./src/Dionysen/ImGui/*.cpp",
         "./src/Dionysen/Renderer/*.cpp",
         "./src/Dionysen/Scene/*.cpp",
+        "./src/Dionysen/Scripting/*.cpp",
+        "./src/Dionysen/Project/*.cpp",
         "./src/Platform/OpenGL/*.cpp",
         "./src/Platform/Linux/*.cpp",
         "./src/Platform/Windows/*.cpp"
     )
 
+    add_linkdirs("./vendor/mono/lib")
+    add_links("z")
+
     -- pch
     set_pcxxheader("./src/dspch.h")
     add_includedirs("./src")
-
 
     -- macro
     if is_plat("windows") then

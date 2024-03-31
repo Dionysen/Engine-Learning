@@ -4,7 +4,6 @@
 
 namespace Dionysen
 {
-
     class OpenGLVertexBuffer : public VertexBuffer
     {
       public:

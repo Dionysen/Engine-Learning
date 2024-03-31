@@ -74,7 +74,7 @@ void Sandbox2D::OnUpdate(Dionysen::Timestep ts)
     Dionysen::Renderer::Submit(m_TriangleShader, m_SquareVA, model);
 
     m_Skybox->Submit(m_FPSCamera);
-
+ 
     // Dionysen::Renderer2D::BeginScene();
 }
 
