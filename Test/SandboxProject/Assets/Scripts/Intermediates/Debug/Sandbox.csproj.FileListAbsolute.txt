@@ -1,0 +1,2 @@
+D:\Documents\Engine-Learning\Test\SandboxProject\Assets\Scripts\Intermediates\Debug\Sandbox.csproj.AssemblyReference.cache
+D:\Documents\Engine-Learning\Test\SandboxProject\Assets\Scripts\Intermediates\Debug\Sandbox.csproj.CoreCompileInputs.cache

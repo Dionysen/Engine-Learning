@@ -2,7 +2,7 @@
 #include "SceneSerializer.h"
 
 #include "Entity.h"
-#include "entt/entity/registry.hpp"
+// #include "entt/entity/registry.hpp"
 #include "Components.h"
 #include "ScriptEngine.h"
 #include "UUID.h"

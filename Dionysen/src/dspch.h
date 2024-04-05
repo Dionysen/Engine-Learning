@@ -12,6 +12,7 @@
 #include <unordered_set>
 #include <vector>
 #include <filesystem>
+#include <cmath>
 
 #include "DionAssert.h"
 #include "Log.h"

@@ -53,6 +53,21 @@ namespace Dionysen
             return *m_Window;
         }
 
+        void Close()
+        {
+            m_Running = false;
+        }
+
+        ImGuiLayer* GetImGuiLayer()
+        {
+            return m_ImGuiLayer;
+        }
+
+        const ApplicationSpecification& GetSpecification() const
+        {
+            return m_Specification;
+        }
+
         inline bool CloseWindow()
         {
             DION_CORE_INFO("Closing Window...");

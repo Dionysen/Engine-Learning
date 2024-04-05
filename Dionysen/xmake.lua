@@ -22,7 +22,8 @@ target("Dionysen")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",
-                    "./vendor/msdf-atlas-gen/artery-font-format"
+                    "./vendor/msdf-atlas-gen/artery-font-format",
+                    "./vendor/mono/include"
                 )
 
     if is_plat("macosx") then
@@ -39,6 +40,7 @@ target("Dionysen")
         "./src/Dionysen/Utils",
         "./src/Dionysen/Renderer",
         "./src/Dionysen/Scene",
+        "./src/Dionysen/Math",
         "./src/Dionysen/Scripting",
         "./src/Dionysen/Physics",
         "./src/Dionysen/Project",
@@ -59,6 +61,7 @@ target("Dionysen")
         "./src/Dionysen/Utils/*.h",
         "./src/Dionysen/Renderer/*.h",
         "./src/Dionysen/Scene/*.h",
+        "./src/Dionysen/Math/*.h",
         "./src/Dionysen/Scripting/*.h",
         "./src/Dionysen/Physics/*.h",
         "./src/Dionysen/Project/*.h",
@@ -73,15 +76,13 @@ target("Dionysen")
         "./src/Dionysen/ImGui/*.cpp",
         "./src/Dionysen/Renderer/*.cpp",
         "./src/Dionysen/Scene/*.cpp",
+        "./src/Dionysen/Math/*.cpp",
         "./src/Dionysen/Scripting/*.cpp",
         "./src/Dionysen/Project/*.cpp",
         "./src/Platform/OpenGL/*.cpp",
         "./src/Platform/Linux/*.cpp",
         "./src/Platform/Windows/*.cpp"
     )
-
-    add_linkdirs("./vendor/mono/lib")
-    add_links("z")
 
     -- pch
     set_pcxxheader("./src/dspch.h")
@@ -101,7 +102,10 @@ target("Dionysen")
             "DION_PLATFORM_LINUX"
         )
     end
-
+    add_cxxflags("-EHsc", "/utf-8")
+    
+    add_linkdirs("./vendor/mono/lib/Debug")
+    add_links("mono-2.0-sgen")
 
 -- MultiTheading DLL Debug
 -- if is_mode("debug") then
@@ -109,11 +113,3 @@ target("Dionysen")
 -- else
 --     add_cxflags("-MD")
 -- end
-
--- system headers
---     add_sysincludedirs("C:\\mingw64\\include", {public = true})
--- add_cxxflags("-isystem C:/mingw64/include", {force = true})
-
-
--- includes("./vendor/msdf-atlas-gen-old/xmake.lua")
--- add_deps("msdf-atlas-gen")

@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documents\\Engine-Learning\\Test\\Resources\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\scene\\components.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\scene\\components.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\vector4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\vector4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\keycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\keycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\internalcalls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\internalcalls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|d:\\documents\\engine-learning\\test\\resources\\source\\dion\\scene\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59C80D86-C529-EB93-4E97-3146BAF72153}|Dionysen-ScriptCore.csproj|solutionrelative:source\\dion\\scene\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Vector4.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector4.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Vector4.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector4.cs",
+              "RelativeToolTip": "Source\\Dion\\Vector4.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:04:26.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Vector3.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector3.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Vector3.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector3.cs",
+              "RelativeToolTip": "Source\\Dion\\Vector3.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:04:22.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Vector2.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector2.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Vector2.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Vector2.cs",
+              "RelativeToolTip": "Source\\Dion\\Vector2.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:04:18.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KeyCode.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\KeyCode.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\KeyCode.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\KeyCode.cs",
+              "RelativeToolTip": "Source\\Dion\\KeyCode.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:04:14.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InternalCalls.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\InternalCalls.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\InternalCalls.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\InternalCalls.cs",
+              "RelativeToolTip": "Source\\Dion\\InternalCalls.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:04:09.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Components.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Scene\\Components.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Scene\\Components.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Scene\\Components.cs",
+              "RelativeToolTip": "Source\\Dion\\Scene\\Components.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAA1wAIAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:03:48.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Input.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Input.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Input.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Input.cs",
+              "RelativeToolTip": "Source\\Dion\\Input.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:03:45.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Scene\\Entity.cs",
+              "RelativeDocumentMoniker": "Source\\Dion\\Scene\\Entity.cs",
+              "ToolTip": "D:\\Documents\\Engine-Learning\\Test\\Resources\\Source\\Dion\\Scene\\Entity.cs",
+              "RelativeToolTip": "Source\\Dion\\Scene\\Entity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T06:03:41.88Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

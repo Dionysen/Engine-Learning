@@ -410,7 +410,7 @@ namespace Dionysen
                     if (texture->IsLoaded())
                         component.Texture = texture;
                     else
-                        HZ_WARN("Could not load texture {0}", texturePath.filename().string());
+                        DION_WARN("Could not load texture {0}", texturePath.filename().string());
                 }
                 ImGui::EndDragDropTarget();
             }
@@ -467,7 +467,7 @@ namespace Dionysen
         });
 
         DrawComponent<TextComponent>("Text Renderer", entity, [](auto& component) {
-            ImGui::InputTextMultiline("Text String", &component.TextString);
+            // ImGui::InputTextMultiline("Text String", &component.TextString);
             ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
             ImGui::DragFloat("Kerning", &component.Kerning, 0.025f);
             ImGui::DragFloat("Line Spacing", &component.LineSpacing, 0.025f);

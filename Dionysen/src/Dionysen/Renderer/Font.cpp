@@ -160,7 +160,7 @@ namespace Dionysen
     {
         static Ref<Font> DefaultFont;
         if (!DefaultFont)
-            DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
+            DefaultFont = CreateRef<Font>("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf");
 
         return DefaultFont;
     }

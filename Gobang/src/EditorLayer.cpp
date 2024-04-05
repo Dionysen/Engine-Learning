@@ -1,10 +1,11 @@
 #include "EditorLayer.h"
 #include "SceneSerializer.h"
 #include "PlatformUtils.h"
-#include "Math.h"
+#include "DMath.h"
 #include "ScriptEngine.h"
 #include "Font.h"
 
+#include "Project.h"
 #include <imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
@@ -326,7 +327,7 @@ namespace Dionysen
             if (ImGuizmo::IsUsing())
             {
                 glm::vec3 translation, rotation, scale;
-                Math::DecomposeTransform(transform, translation, rotation, scale);
+                DMath::DecomposeTransform(transform, translation, rotation, scale);
 
                 glm::vec3 deltaRotation = rotation - tc.Rotation;
                 tc.Translation          = translation;
@@ -444,8 +445,8 @@ namespace Dionysen
         }
 
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<KeyPressedEvent>(HZ_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
-        dispatcher.Dispatch<MouseButtonPressedEvent>(HZ_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
+        dispatcher.Dispatch<KeyPressedEvent>(DION_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+        dispatcher.Dispatch<MouseButtonPressedEvent>(DION_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
     }
 
     bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
@@ -662,7 +663,7 @@ namespace Dionysen
 
         if (path.extension().string() != ".hazel")
         {
-            HZ_WARN("Could not load {0} - not a scene file", path.filename().string());
+            DION_WARN("Could not load {0} - not a scene file", path.filename().string());
             return;
         }
 
@@ -730,7 +731,7 @@ namespace Dionysen
 
     void EditorLayer::OnSceneStop()
     {
-        HZ_CORE_ASSERT(m_SceneState == SceneState::Play || m_SceneState == SceneState::Simulate);
+        DION_CORE_ASSERT(m_SceneState == SceneState::Play || m_SceneState == SceneState::Simulate);
 
         if (m_SceneState == SceneState::Play)
             m_ActiveScene->OnRuntimeStop();

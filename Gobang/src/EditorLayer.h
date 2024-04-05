@@ -52,7 +52,7 @@ namespace Dionysen
         void UI_Toolbar();
 
       private:
-        Hazel::OrthographicCameraController m_CameraController;
+        Dionysen::OrthographicCameraController m_CameraController;
 
         // Temp
         Ref<VertexArray> m_SquareVA;

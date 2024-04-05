@@ -15,9 +15,10 @@ package("msdf-atlas-gen")
 package_end()
 add_requires("msdf-atlas-gen")
 
--- package("entt")
+
+-- package("mono")
 --     add_deps("cmake")
---     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/entt"))
+--     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/mono"))
 --     on_install(function (package)
 --         local configs = {}
 --         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
@@ -25,14 +26,14 @@ add_requires("msdf-atlas-gen")
 --         import("package.tools.cmake").install(package, configs)
 --     end)
 -- package_end()
--- add_requires("entt")
+-- add_requires("mono")
 
 -- set c++
 set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
-includes("Gobang/xmake.lua")
+includes("Test/xmake.lua")
 
 -- for easyer
 set_rundir(".")

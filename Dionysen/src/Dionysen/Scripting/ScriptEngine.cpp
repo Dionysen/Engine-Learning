@@ -162,15 +162,16 @@ namespace Dionysen
         InitMono();
         ScriptGlue::RegisterFunctions();
 
-        bool status = LoadAssembly("Resources/Scripts/Dionysen-ScriptCore.dll");
+        bool status = LoadAssembly("Test/Resources/Scripts/Dionysen-ScriptCore.dll");
         if (!status)
         {
             DION_CORE_ERROR("[ScriptEngine] Could not load Dionysen-ScriptCore assembly.");
             return;
         }
-
+        // DION_CORE_TRACE("Load Dionysen-ScriptCore successfully");
         auto scriptModulePath = Project::GetAssetDirectory() / Project::GetActive()->GetConfig().ScriptModulePath;
-        status                = LoadAppAssembly(scriptModulePath);
+
+        status = LoadAppAssembly(scriptModulePath);
         if (!status)
         {
             DION_CORE_ERROR("[ScriptEngine] Could not load app assembly.");
@@ -193,7 +194,7 @@ namespace Dionysen
 
     void ScriptEngine::InitMono()
     {
-        mono_set_assemblies_path("mono/lib");
+        mono_set_assemblies_path("Test/mono/lib");
 
         if (s_Data->EnableDebugging)
         {

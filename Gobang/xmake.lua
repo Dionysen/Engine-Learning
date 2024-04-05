@@ -20,9 +20,21 @@ target("Gobang")
     includes("../Dionysen/vendor/imgui")
     add_deps("imgui")
 
-    add_includedirs("./src", "./src/Panel")
-    add_headerfiles("./src/*.h", "./shaders/*", "./src/Panel/*.h")
-    add_files("./src/*.cpp", "./src/Panel/*.cpp")
+    add_includedirs(
+        "./src", 
+        "./src/Panel"
+    )
+
+    add_headerfiles(
+        "./src/*.h", 
+        "./shaders/*", 
+        "./src/Panel/*.h"
+    )
+
+    add_files(
+        "./src/*.cpp", 
+        "./src/Panel/*.cpp"
+    )
 
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS", "WIN32")

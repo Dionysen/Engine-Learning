@@ -1,0 +1,6 @@
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Intermediates\Debug\Dionysen-ScriptCore.csproj.AssemblyReference.cache
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Intermediates\Debug\Dionysen-ScriptCore.csproj.CoreCompileInputs.cache
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Intermediates\Debug\Dionysen-ScriptCore.dll
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Intermediates\Debug\Dionysen-ScriptCore.pdb
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Dionysen-ScriptCore.dll
+D:\Documents\Engine-Learning\Test\Resources\Scripts\Dionysen-ScriptCore.pdb
