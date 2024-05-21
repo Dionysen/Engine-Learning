@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdint>
+#include <cstdlib>
 namespace Dionysen
 {
     class UUID
@@ -23,7 +23,7 @@ namespace Dionysen
 
 namespace std
 {
-    template <typename T> struct hash;
+    // template <typename T> struct hash;
 
     template <> struct hash<Dionysen::UUID>
     {

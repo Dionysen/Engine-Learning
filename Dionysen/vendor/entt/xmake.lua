@@ -1,4 +1,5 @@
 target("entt")
     set_kind("static")
     add_includedirs("./include", {public = true})
+    add_files("./*.cpp")
     add_cxxflags("-EHsc")

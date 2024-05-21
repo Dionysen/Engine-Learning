@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 #include <vector>
 #include "Camera.h"
-#include "Timestep.h"
+#include "TimeStep.h"
 #include "ApplicationEvent.h"
 #include "MouseEvent.h"
 #include "KeyEvent.h"
@@ -41,7 +41,8 @@ namespace Dionysen
     {
       public:
         // constructor with vectors
-        FPSCamera(glm::vec3 position, glm::vec3 up, float yaw, float pitch);
+
+        FPSCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH);
         // constructor with scalar values
         FPSCamera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch);
 

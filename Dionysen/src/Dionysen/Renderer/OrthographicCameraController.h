@@ -1,7 +1,7 @@
 #pragma once
 
 #include "OrthographicCamera.h"
-#include "Timestep.h"
+#include "TimeStep.h"
 #include "ApplicationEvent.h"
 #include "MouseEvent.h"
 
