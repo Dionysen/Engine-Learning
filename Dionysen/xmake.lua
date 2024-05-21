@@ -104,8 +104,14 @@ target("Dionysen")
     end
     add_cxxflags("-EHsc", "/utf-8")
     
+    if is_plat("windows") then
     add_linkdirs("./vendor/mono/lib/Debug")
     add_links("mono-2.0-sgen")
+    else
+        add_linkdirs("/usr/local/opt/mono/lib") 
+        add_links("monosgen-2.0")   
+    end
+
 
 -- MultiTheading DLL Debug
 -- if is_mode("debug") then

@@ -96,7 +96,7 @@ namespace Dionysen
         if (opened)
         {
             ImGuiTreeNodeFlags flags  = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
-            bool               opened = ImGui::TreeNodeEx((void*)9817239, flags, tag.c_str());
+            bool               opened = ImGui::TreeNodeEx((void*)9817239, flags, "%s", tag.c_str());
             if (opened)
                 ImGui::TreePop();
             ImGui::TreePop();
@@ -224,7 +224,12 @@ namespace Dionysen
 
             char buffer[256];
             memset(buffer, 0, sizeof(buffer));
+#ifdef _WIN32
             strncpy_s(buffer, sizeof(buffer), tag.c_str(), sizeof(buffer));
+#else
+            std::strncpy(buffer, tag.c_str(), sizeof(buffer));
+            buffer[sizeof(buffer) - 1] = '\0';  // 确保以 '\0' 终止
+#endif
             if (ImGui::InputText("##Tag", buffer, sizeof(buffer)))
             {
                 tag = std::string(buffer);
@@ -323,8 +328,12 @@ namespace Dionysen
             bool scriptClassExists = ScriptEngine::EntityClassExists(component.ClassName);
 
             static char buffer[64];
+#ifdef _WIN32
             strcpy_s(buffer, sizeof(buffer), component.ClassName.c_str());
-
+#else
+    std::strncpy(buffer, component.ClassName.c_str(), sizeof(buffer));
+    buffer[sizeof(buffer) - 1] = '\0'; // 确保以 '\0' 终止
+#endif
             UI::ScopedStyleColor textColor(ImGuiCol_Text, ImVec4(0.9f, 0.2f, 0.3f, 1.0f), !scriptClassExists);
 
             if (ImGui::InputText("Class", buffer, sizeof(buffer)))

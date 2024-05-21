@@ -36,7 +36,7 @@ namespace Dionysen
 
     static std::unordered_map<MonoType*, std::function<bool(Entity)>> s_EntityHasComponentFuncs;
 
-#define DION_ADD_INTERNAL_CALL(Name) mono_add_internal_call("Dionysen.InternalCalls::" #Name, Name)
+#define DION_ADD_INTERNAL_CALL(Name) mono_add_internal_call("Dionysen.InternalCalls::" #Name, (const void*)Name)
 
     static void NativeLog(MonoString* string, int parameter)
     {
@@ -46,13 +46,13 @@ namespace Dionysen
 
     static void NativeLog_Vector(glm::vec3* parameter, glm::vec3* outResult)
     {
-        DION_CORE_WARN("Value: {0}", *parameter);
+        // DION_CORE_WARN("Value: {0} {1} {2}", *parameter);
         *outResult = glm::normalize(*parameter);
     }
 
     static float NativeLog_VectorDot(glm::vec3* parameter)
     {
-        DION_CORE_WARN("Value: {0}", *parameter);
+        // DION_CORE_WARN("Value: {0} {1} {2}", *parameter);
         return glm::dot(*parameter, *parameter);
     }
 

@@ -52,8 +52,9 @@ namespace Dionysen
 
             if (ImGui::BeginDragDropSource())
             {
-                std::filesybstem::path relativePath(path);
-                const wchar_t*         itemPath = relativePath.c_str();
+                std::filesystem::path relativePath(path);
+                std::wstring          wideString = relativePath.wstring();
+                const wchar_t*        itemPath   = wideString.c_str();
                 ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, (wcslen(itemPath) + 1) * sizeof(wchar_t));
                 ImGui::EndDragDropSource();
             }
@@ -64,7 +65,7 @@ namespace Dionysen
                 if (directoryEntry.is_directory())
                     m_CurrentDirectory /= path.filename();
             }
-            ImGui::TextWrapped(filenameString.c_str());
+            ImGui::TextWrapped("%s", filenameString.c_str());
 
             ImGui::NextColumn();
 
