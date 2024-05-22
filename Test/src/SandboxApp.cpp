@@ -1,6 +1,5 @@
 #include <Dionysen.h>
 #include <EntryPoint.h>
-#include "EditorLayer.h"
 
 class Sandbox : public Dionysen::Application
 {
@@ -9,7 +8,6 @@ class Sandbox : public Dionysen::Application
         : Dionysen::Application(specification)
     {
         // PushLayer(new Sandbox2D());
-        PushLayer(new Dionysen::EditorLayer());
     }
 
     ~Sandbox()

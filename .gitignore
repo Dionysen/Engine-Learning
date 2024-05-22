@@ -9,3 +9,6 @@ compile_commands.json
 /.vs/*
 /assets/*
 /Dionysen/vendor/msdf-atlas-gen/build/*
+
+*/.DS_Store
+**/.DS_Store

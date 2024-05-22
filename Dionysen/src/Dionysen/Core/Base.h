@@ -10,7 +10,7 @@
 #define DION_API __declspec(dllimport)
 #endif
 #else
-#define DION_API __attribute((visibility("default")))
+#define DION_API __attribute__((visibility("default")))
 #endif
 
 // ?

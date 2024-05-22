@@ -3,22 +3,9 @@ add_rules("plugin.vsxmake.autoupdate")
 -- requires
 add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
 
-package("msdf-atlas-gen")
-    add_deps("cmake")
-    set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/msdf-atlas-gen"))
-    on_install(function (package)
-        local configs = {}
-        table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
-        table.insert(configs, "-DBUILD_SHARED_LIBS=" .. (package:config("shared") and "ON" or "OFF"))
-        import("package.tools.cmake").install(package, configs)
-    end)
-package_end()
-add_requires("msdf-atlas-gen")
-
-
--- package("mono")
+-- package("msdf-atlas-gen")
 --     add_deps("cmake")
---     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/mono"))
+--     set_sourcedir(path.join(os.scriptdir(), "Dionysen/vendor/msdf-atlas-gen"))
 --     on_install(function (package)
 --         local configs = {}
 --         table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
@@ -26,14 +13,14 @@ add_requires("msdf-atlas-gen")
 --         import("package.tools.cmake").install(package, configs)
 --     end)
 -- package_end()
--- add_requires("mono")
+-- add_requires("msdf-atlas-gen")
 
 -- set c++
 set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
-includes("Test/xmake.lua")
+includes("Gobang/xmake.lua")
 
 -- for easyer
 set_rundir(".")

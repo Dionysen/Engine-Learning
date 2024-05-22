@@ -102,4 +102,5 @@ namespace Dionysen
 
     // To be defined in CLIENT
     Application* CreateApplication(ApplicationCommandLineArgs args);
+
 }  // namespace Dionysen

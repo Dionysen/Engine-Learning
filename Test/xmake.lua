@@ -47,6 +47,6 @@ target("Lnut")
         add_includedirs("/opt/local/include")
     end
     
-    add_packages("glfw", "glm", "glew")
+    add_packages("glfw", "glm", "glew", "msdf-atlas-gen")
 
     add_cxxflags("-EHsc", "/utf-8")

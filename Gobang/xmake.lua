@@ -1,6 +1,38 @@
 target("Gobang")
     set_kind("binary")
     add_deps("Dionysen")
+    set_languages("cxx20")
+
+    includes("../Dionysen")
+    add_includedirs("../Dionysen")
+
+    includes("../Dionysen/vendor/imgui")
+    add_deps("imgui")
+
+    add_includedirs(
+        "./src"
+    )
+
+    add_headerfiles(
+        "./src/*.h", 
+        "./shaders/*"
+    )
+
+    add_files(
+        "./src/*.cpp"
+    )
+
+    if is_plat("windows") then
+        add_defines("DION_PLATFORM_WINDOWS", "WIN32")
+        add_links("opengl32")
+        add_cxxflags("-EHsc", "/utf-8")
+    elseif is_plat("macosx") then
+        add_linkdirs("/opt/local/lib")
+        add_defines("DION_PLATFORM_MACOSX")
+        add_includedirs("/opt/local/include")
+    end
+    
+    add_packages("glfw", "glm", "glew")
 
     -- Delete shader cache
     -- before_build(function (target)
@@ -12,41 +44,3 @@ target("Gobang")
     --     else
     --         print("Shader cache does not exist: " .. dir_to_delete)
     --     end
-    -- end)
-
-    includes("../Dionysen")
-    add_includedirs("../Dionysen")
-
-    includes("../Dionysen/vendor/imgui")
-    add_deps("imgui")
-
-    add_includedirs(
-        "./src", 
-        "./src/Panel"
-    )
-
-    add_headerfiles(
-        "./src/*.h", 
-        "./shaders/*", 
-        "./src/Panel/*.h"
-    )
-
-    add_files(
-        "./src/*.cpp", 
-        "./src/Panel/*.cpp"
-    )
-
-    if is_plat("windows") then
-        add_defines("DION_PLATFORM_WINDOWS", "WIN32")
-        add_links("opengl32")
-    end
-
-    -- libraries
-    if is_plat("macosx") then
-        add_linkdirs("/opt/local/lib")
-        add_includedirs("/opt/local/include")
-    end
-    
-    add_packages("glfw", "glm", "glew")
-
-    add_cxxflags("-EHsc", "/utf-8")

@@ -1,6 +1,5 @@
 target("Dionysen")
-    set_kind("static")
-    add_cxxflags("-EHsc")
+    set_kind("shared")
     -- deps
     includes("./vendor/spdlog/xmake.lua")
     add_deps("spdlog")
@@ -17,14 +16,16 @@ target("Dionysen")
     includes("./vendor/entt/xmake.lua")
     add_deps("entt")
 
-    add_packages("glfw", "glew", "glm", "msdf-atlas-gen"
-    ,"shaderc", "spirv-cross", "box2d", "yaml-cpp")
+    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",
                     "./vendor/msdf-atlas-gen/artery-font-format",
                     "./vendor/mono/include"
                 )
+
+    add_linkdirs("./vendor/msdf-atlas-gen")
+    add_links("msdf-atlas-gen", "msdfgen-core", "msdfgen-ext")
 
     if is_plat("macosx") then
         add_linkdirs("/opt/local/lib")
@@ -81,7 +82,8 @@ target("Dionysen")
         "./src/Dionysen/Project/*.cpp",
         "./src/Platform/OpenGL/*.cpp",
         "./src/Platform/Linux/*.cpp",
-        "./src/Platform/Windows/*.cpp"
+        "./src/Platform/Windows/*.cpp",
+        "./src/Platform/MacOS/*.cpp"
     )
 
     -- pch
@@ -95,27 +97,24 @@ target("Dionysen")
             "DION_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         )
-        add_links("opengl32")
-        add_links("comdlg32")
+        add_links("opengl32","comdlg32")
+        add_cxxflags("-EHsc", "/utf-8")
     elseif is_plat("linux") then
         add_defines(
             "DION_PLATFORM_LINUX"
         )
+    elseif is_plat("macosx") then
+        add_defines(
+            "DION_PLATFORM_MACOSX"
+        )
     end
-    add_cxxflags("-EHsc", "/utf-8")
+
     
     if is_plat("windows") then
-    add_linkdirs("./vendor/mono/lib/Debug")
-    add_links("mono-2.0-sgen")
+        add_linkdirs("./vendor/mono/lib/Debug")
+        add_links("mono-2.0-sgen")
     else
         add_linkdirs("/usr/local/opt/mono/lib") 
         add_links("monosgen-2.0")   
     end
 
-
--- MultiTheading DLL Debug
--- if is_mode("debug") then
---     add_cxflags("-MDd")
--- else
---     add_cxflags("-MD")
--- end
