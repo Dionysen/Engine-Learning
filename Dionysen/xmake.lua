@@ -1,5 +1,5 @@
 target("Dionysen")
-    set_kind("shared")
+    set_kind("static")
     -- deps
     includes("./vendor/spdlog/xmake.lua")
     add_deps("spdlog")
@@ -13,10 +13,10 @@ target("Dionysen")
     includes("./vendor/imguizmo/xmake.lua")
     add_deps("imguizmo")
 
-    includes("./vendor/entt/xmake.lua")
-    add_deps("entt")
+    -- includes("./vendor/entt/xmake.lua")
+    -- add_deps("entt")
 
-    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
+    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "msdf-atlas-gen")
 
     add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
                     "./vendor/msdf-atlas-gen/msdfgen",
@@ -35,6 +35,7 @@ target("Dionysen")
     -- src
     add_includedirs(
         "./src",
+        "./vendor/entt/include",
         "./src/Dionysen/Core",
         "./src/Dionysen/Event",
         "./src/Dionysen/ImGui",

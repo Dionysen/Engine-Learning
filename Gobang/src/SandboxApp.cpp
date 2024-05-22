@@ -2,7 +2,6 @@
 #include <EntryPoint.h>
 #include "Sandbox2D.h"
 
-
 class Sandbox : public Dionysen::Application
 {
   public:
