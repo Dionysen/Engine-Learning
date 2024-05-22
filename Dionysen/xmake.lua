@@ -13,19 +13,19 @@ target("Dionysen")
     includes("./vendor/imguizmo/xmake.lua")
     add_deps("imguizmo")
 
-    -- includes("./vendor/entt/xmake.lua")
-    -- add_deps("entt")
+    includes("./vendor/msdf-atlas-gen/xmake.lua")
+    add_deps("msdf-atlas-gen")
 
-    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "msdf-atlas-gen")
+    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
 
-    add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
-                    "./vendor/msdf-atlas-gen/msdfgen",
-                    "./vendor/msdf-atlas-gen/artery-font-format",
-                    "./vendor/mono/include"
-                )
+    -- add_includedirs("./vendor/msdf-atlas-gen/msdf-atlas-gen",
+    --                 "./vendor/msdf-atlas-gen/msdfgen",
+    --                 "./vendor/msdf-atlas-gen/artery-font-format",
+    --                 "./vendor/mono/include"
+    --             )
 
-    add_linkdirs("./vendor/msdf-atlas-gen")
-    add_links("msdf-atlas-gen", "msdfgen-core", "msdfgen-ext")
+    -- add_linkdirs("./vendor/msdf-atlas-gen")
+    -- add_links("msdf-atlas-gen", "msdfgen-core", "msdfgen-ext")
 
     if is_plat("macosx") then
         add_linkdirs("/opt/local/lib")

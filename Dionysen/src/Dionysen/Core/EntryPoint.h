@@ -1,6 +1,8 @@
 #pragma once
 #include "Application.h"
+#include "Log.h"
 #include "dspch.h"
+#include <iostream>
 
 extern Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandLineArgs args);
 
