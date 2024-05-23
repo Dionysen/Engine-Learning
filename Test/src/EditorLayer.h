@@ -1,5 +1,6 @@
 #include "Dionysen.h"
-
+#include "SceneHierarchyPanel.h"
+#include "ContentBrowserPanel.h"
 #include "EditorCamera.h"
 
 namespace Dionysen

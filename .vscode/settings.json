@@ -88,5 +88,6 @@
         "future": "cpp",
         "memory_resource": "cpp",
         "regex": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
