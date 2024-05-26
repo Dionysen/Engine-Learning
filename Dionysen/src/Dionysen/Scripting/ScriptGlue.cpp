@@ -46,13 +46,13 @@ namespace Dionysen
 
     static void NativeLog_Vector(glm::vec3* parameter, glm::vec3* outResult)
     {
-         DION_CORE_WARN("Value: {0}", *parameter);
+        //  DION_CORE_WARN("Value: {0}", *parameter);
         *outResult = glm::normalize(*parameter);
     }
 
     static float NativeLog_VectorDot(glm::vec3* parameter)
     {
-         DION_CORE_WARN("Value: {0}", *parameter);
+        //  DION_CORE_WARN("Value: {0}", *parameter);
         return glm::dot(*parameter, *parameter);
     }
 

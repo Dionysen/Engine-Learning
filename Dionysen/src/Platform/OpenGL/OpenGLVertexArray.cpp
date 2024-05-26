@@ -40,7 +40,11 @@ namespace Dionysen
 
     OpenGLVertexArray::OpenGLVertexArray()
     {
+#ifdef DION_PLATFORM_MACOSX  // MacOS only supports OpenGL4.1
+        glGenVertexArrays(1, &m_RendererID);
+#else
         glCreateVertexArrays(1, &m_RendererID);
+#endif
     }
 
     OpenGLVertexArray::~OpenGLVertexArray()
