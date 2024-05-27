@@ -15,18 +15,13 @@ layout(std140) uniform Camera
     mat4 u_ViewProjection;
 };
 
-struct VertexOutput
-{
-    vec4 Color;
-};
-
-layout(location = 0) out VertexOutput Output;
-layout(location = 1) flat out int v_EntityID;
+out vec4     v_Color;
+flat out int v_EntityID;
 
 void main()
 {
-    Output.Color = a_Color;
-    v_EntityID   = a_EntityID;
+    v_Color    = a_Color;
+    v_EntityID = a_EntityID;
 
     gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 }
@@ -37,16 +32,11 @@ void main()
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
 
-struct VertexOutput
-{
-    vec4 Color;
-};
-
-layout(location = 0) in VertexOutput Input;
-layout(location = 1) flat in int v_EntityID;
+in vec4     v_Color;
+flat in int v_EntityID;
 
 void main()
 {
-    o_Color    = Input.Color;
+    o_Color    = v_Color;
     o_EntityID = v_EntityID;
 }

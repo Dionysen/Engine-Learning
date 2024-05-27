@@ -172,7 +172,12 @@ namespace Dionysen
 
     void WindowsWindow::OnUpdate()
     {
+
+#ifdef DION_PLATFORM_MACOSX
+        glViewport(0, 0, this->GetWidth() * 2, this->GetHeight() * 2);
+#else
         glViewport(0, 0, this->GetWidth(), this->GetHeight());
+#endif
 
         glfwPollEvents();
         m_Context->SwapBuffers();

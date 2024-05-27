@@ -55,6 +55,8 @@ namespace Dionysen
         glGenTextures(1, &m_RendererID);
         glBindTexture(GL_TEXTURE_2D, m_RendererID);
 
+        glTexStorage2D(m_RendererID, 1, m_InternalFormat, m_Width, m_Height);
+
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
@@ -75,7 +77,6 @@ namespace Dionysen
     OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
         : m_Path(path)
     {
-
         int width, height, channels;
         stbi_set_flip_vertically_on_load(1);
         stbi_uc* data = nullptr;
@@ -126,14 +127,12 @@ namespace Dionysen
             glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 #endif
 
-
 #ifdef DION_PLATFORM_MACOSX
             glTexSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
+            glGenerateMipmap(GL_TEXTURE_2D);
 #else
             glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
 #endif
-
-
             stbi_image_free(data);
         }
     }
