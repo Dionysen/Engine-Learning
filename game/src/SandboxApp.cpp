@@ -1,6 +1,6 @@
 #include <Dionysen.h>
 #include <EntryPoint.h>
-#include "Sandbox2D.h"
+#include "GameLayer.h"
 
 class Sandbox : public Dionysen::Application
 {
@@ -8,7 +8,7 @@ class Sandbox : public Dionysen::Application
     Sandbox(const Dionysen::ApplicationSpecification& specification)
         : Dionysen::Application(specification)
     {
-        PushLayer(new Sandbox2D());
+        PushLayer(new GameLayer());
         // PushLayer(new Dionysen::EditorLayer());
     }
 

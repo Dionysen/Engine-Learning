@@ -14,8 +14,7 @@ target("Game")
     )
 
     add_headerfiles(
-        "./src/*.h", 
-        "./shaders/*"
+        "./src/*.h"
     )
 
     add_files(
