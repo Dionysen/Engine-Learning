@@ -1,5 +1,7 @@
 #include <Dionysen.h>
 #include <EntryPoint.h>
+#include <cwchar>
+#include "Base.h"
 #include "GameLayer.h"
 
 class Sandbox : public Dionysen::Application
@@ -9,7 +11,6 @@ class Sandbox : public Dionysen::Application
         : Dionysen::Application(specification)
     {
         PushLayer(new GameLayer());
-        // PushLayer(new Dionysen::EditorLayer());
     }
 
     ~Sandbox()
