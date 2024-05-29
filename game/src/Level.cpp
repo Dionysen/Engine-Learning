@@ -11,7 +11,7 @@ static glm::vec4 HSVtoRGB(const glm::vec3& hsv)
     double V = hsv.z;
 
     double C = S * V;
-    double X = C * (1 - abs(fmod(H / 60.0, 2) - 1));
+    double X = C * (1 - std::abs(fmod(H / 60.0, 2) - 1));
     double m = V - C;
     double Rs, Gs, Bs;
 

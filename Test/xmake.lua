@@ -39,6 +39,7 @@ target("Lnut")
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS", "WIN32")
         add_links("opengl32")
+        add_cxxflags("-EHsc", "/utf-8")
     end
 
     -- libraries
@@ -48,5 +49,3 @@ target("Lnut")
     end
     
     add_packages("glfw", "glm", "glew", "msdf-atlas-gen")
-
-    add_cxxflags("-EHsc", "/utf-8")

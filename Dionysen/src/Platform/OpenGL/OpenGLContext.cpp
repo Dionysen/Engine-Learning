@@ -1,4 +1,3 @@
-#pragma once
 #include <GL/glew.h>
 #include "OpenGLContext.h"
 #include "Base.h"

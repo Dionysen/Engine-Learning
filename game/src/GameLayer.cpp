@@ -8,16 +8,20 @@ using namespace Dionysen;
 GameLayer::GameLayer()
     : Layer("GameLayer")
 {
+    // create a window
     auto& window = Application::Get().GetWindow();
     CreateCamera(window.GetWidth(), window.GetHeight());
 
+    // init Random Generator
     Random::Init();
 }
 
 void GameLayer::OnAttach()
 {
+    // ?
     m_Level.Init();
 
+    // Setting font
     ImGuiIO io = ImGui::GetIO();
     m_Font     = io.Fonts->AddFontFromFileTTF("game/assets/OpenSans-Regular.ttf", 120.0f);
 }
@@ -26,22 +30,33 @@ void GameLayer::OnDetach()
 {
 }
 
-void GameLayer::OnUpdate(Dionysen::Timestep ts)
+void GameLayer::OnUpdate(Dionysen::Timestep ts)  // Every frame
 {
+    // Blink according to the time
     m_Time += ts;
     if ((int)(m_Time * 10.0f) % 8 > 4)
         m_Blink = !m_Blink;
 
+    // Judge is the game over
     if (m_Level.IsGameOver())
         m_State = GameState::GameOver;
 
+    // Set the camera's position according to player's position
     const auto& playerPos = m_Level.GetPlayer().GetPosition();
     m_Camera->SetPosition({ playerPos.x, playerPos.y, 0.0f });
 
+
+    // If the game state is "play", the level is updating
     switch (m_State)
     {
     case GameState::Play: {
         m_Level.OnUpdate(ts);
+        break;
+    }
+    case GameState::GameOver: {
+        break;
+    }
+    case GameState::MainMenu: {
         break;
     }
     }
@@ -57,9 +72,9 @@ void GameLayer::OnUpdate(Dionysen::Timestep ts)
 
 void GameLayer::OnImGuiRender()
 {
-    // ImGui::Begin("Settings");
-    // m_Level.OnImGuiRender();
-    // ImGui::End();
+    ImGui::Begin("Settings");
+    m_Level.OnImGuiRender();
+    ImGui::End();
 
     // UI?
 

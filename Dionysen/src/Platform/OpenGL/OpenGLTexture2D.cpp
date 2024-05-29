@@ -2,7 +2,6 @@
 // Created by dionysen on 24-1-2.
 //
 
-#pragma once
 
 #include "OpenGLTexture2D.h"
 #include "dspch.h"

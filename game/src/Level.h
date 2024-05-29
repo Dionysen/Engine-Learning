@@ -2,6 +2,8 @@
 
 #include "Player.h"
 
+
+// Pillar
 struct Pillar
 {
     glm::vec3 TopPosition = { 0.0f, 10.0f, 0.0f };
