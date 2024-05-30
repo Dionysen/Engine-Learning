@@ -3,7 +3,6 @@
 #include "KeyCodes.h"
 #include "Renderer2D.h"
 #include "imgui.h"
-#include <shaderc/shaderc.h>
 
 using namespace Dionysen;
 
