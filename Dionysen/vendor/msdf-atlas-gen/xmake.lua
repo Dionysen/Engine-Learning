@@ -1,4 +1,7 @@
 add_requires("freetype", "tinyxml2")
+if is_plat("linux") then
+    add_requires("freetype2")
+end
 target("msdf-atlas-gen")
 set_kind("static")
 add_packages("freetype", "tinyxml2")
@@ -14,7 +17,6 @@ add_includedirs(
 )
 
 if is_plat("linux") then
-    add_requires("freetype2")
     add_packages("freetype2")
     add_includedirs("/usr/include/freetype2")
 end

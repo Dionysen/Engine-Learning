@@ -1,11 +1,8 @@
 #pragma once
 
-#include "Base.h"
-#include "BaseBuffer.h"
 #include "Dionysen.h"
-#include "OrthographicCamera.h"
-#include "TimeStep.h"
-#include <imgui.h>
+#include "Level.h"
+
 using namespace Dionysen;
 
 class GameLayer : public Dionysen::Layer
@@ -16,11 +13,16 @@ class GameLayer : public Dionysen::Layer
 
     virtual void OnAttach() override;
     virtual void OnDetach() override;
-
+    void         OnEvent(Event& e) override;
     void         OnUpdate(Timestep st) override;
     virtual void OnImGuiRender() override;
-    void         OnWindowsResize(Event& e);
+
+    bool OnWindowsResize(WindowResizeEvent& e);
+
+  private:
+    void CreateCamera(uint32_t width, uint32_t height);
 
   private:
     Scope<OrthographicCamera> m_Camera;
+    Level                     m_Level;
 };

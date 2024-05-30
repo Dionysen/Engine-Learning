@@ -12,7 +12,6 @@ class Sandbox : public Dionysen::Application
     {
         PushLayer(new GameLayer());
     }
-
     ~Sandbox()
     {
     }

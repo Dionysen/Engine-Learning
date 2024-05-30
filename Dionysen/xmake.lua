@@ -41,7 +41,7 @@ target("Dionysen")
         { public = true }
     )
     -- for vs solution
-    add_headerfiles(  
+    add_headerfiles(
         "./src/*.h",
         "./src/Dionysen/Core/*.h",
         "./src/Dionysen/Event/*.h",
@@ -95,7 +95,7 @@ target("Dionysen")
         add_defines(
             "DION_PLATFORM_LINUX"
         )
-        add_packages("mono","qt5widgets", "qt5core", "qt5gui")
+        add_packages("mono", "qt5widgets", "qt5core", "qt5gui")
         add_includedirs(
             "/usr/include/qt/QtWidgets",
             "/usr/include/qt",
@@ -106,10 +106,9 @@ target("Dionysen")
         add_defines(
             "DION_PLATFORM_MACOSX"
         )
-        add_linkdirs("/usr/local/opt/mono/lib") 
-        add_links("monosgen-2.0")   
+        add_linkdirs("/usr/local/opt/mono/lib")
+        add_links("monosgen-2.0")
 
         add_linkdirs("/opt/local/lib")
         add_includedirs("/opt/local/include")
     end
-
