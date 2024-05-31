@@ -1,4 +1,5 @@
 #include <Dionysen.h>
+#include <cstdint>
 class Player
 {
   public:
@@ -13,6 +14,16 @@ class Player
     inline glm::vec2 GetPosition()
     {
         return m_Position;
+    }
+    inline float GetRotation()
+    {
+        return m_Velocity.y * 4.0f - 90.0f;
+    }
+    void Reset();
+
+    uint32_t GetScore()
+    {
+        return (uint32_t)(m_Position.x + 10.0f) / 10.0f;
     }
 
   private:

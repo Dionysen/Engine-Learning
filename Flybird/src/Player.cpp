@@ -38,3 +38,10 @@ void Player::OnImGuiRender()
     ImGui::DragFloat("EnginePower", &m_EnginePower, 0.1f);
     ImGui::DragFloat("Gravity", &m_Gravity, 0.1f);
 }
+
+
+void Player::Reset()
+{
+    m_Position = { -10.0f, 0.0f };
+    m_Velocity = { 5.0f, 0.0f };
+}

@@ -4,13 +4,17 @@
 #include "Base.h"
 #include "Event.h"
 #include "Level.h"
+#include "Log.h"
 #include "OrthographicCamera.h"
 #include "RenderCommand.h"
 #include "Renderer2D.h"
 #include "TimeStep.h"
+#include "glm/gtx/string_cast.hpp"
 #include "imgui.h"
 #include <cmath>
 #include <cstdint>
+#include <string>
+#include "Random.h"
 
 
 GameLayer::GameLayer()
@@ -28,11 +32,17 @@ void GameLayer::OnImGuiRender()
     ImGui::Begin("Settings");
     m_Level.OnImGuiRender();
     ImGui::End();
+
+    uint32_t    score       = m_Level.GetPlayer().GetScore();
+    std::string playerScore = std::string("Score: ") + std::to_string(score);
+    ImGui::GetForegroundDrawList()->AddText(ImGui::GetWindowPos(), 0xffffffff, playerScore.c_str());
 }
 
 void GameLayer::OnUpdate(Timestep ts)
 {
     m_Level.OnUpdate(ts);
+
+    // DION_WARN("Random {0}", Random::Float());
 
     const auto& playerPos = m_Level.GetPlayer().GetPosition();
     m_Camera->SetPosition({ playerPos.x, playerPos.y, 0.0f });

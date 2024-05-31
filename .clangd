@@ -4,7 +4,7 @@ Hover:
   ShowAKA: Yes
 
 Diagnostics:
-  UnusedIncludes: None
+  UnusedIncludes: Strict
 
 InlayHints:
   Designators: Yes
