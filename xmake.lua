@@ -9,7 +9,7 @@ set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
-includes("Flybird/xmake.lua")
+includes("Test/xmake.lua")
 
 -- for easyer
 set_rundir(".")

@@ -1,5 +1,4 @@
 #include "ParticleSystem.h"
-
 #include "Random.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
@@ -68,6 +67,6 @@ void ParticleSystem::OnRender()
         color.a         = color.a * life;
 
         float size = glm::lerp(particle.SizeEnd, particle.SizeBegin, life);
-        Dionysen::Renderer2D::DrawQuad(particle.Position, { size, size }, particle.Rotation, color);
+        Dionysen::Renderer2D::DrawRotatedQuad(particle.Position, { size, size }, particle.Rotation, color);
     }
 }

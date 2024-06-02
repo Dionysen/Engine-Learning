@@ -1,5 +1,4 @@
 #pragma once
-
 #include <Dionysen.h>
 
 struct ParticleProps

@@ -1,4 +1,4 @@
-target("Lnut")
+target("Nut")
     set_kind("binary")
     add_deps("Dionysen")
 

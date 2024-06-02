@@ -1,5 +1,6 @@
 #include <Dionysen.h>
 #include <cstdint>
+#include "ParticleSystem.h"
 class Player
 {
   public:
@@ -34,4 +35,12 @@ class Player
     float m_Gravity     = 0.4f;
 
     Dionysen::Ref<Dionysen::Texture2D> m_ShipTexture;
+
+    // particle
+    float m_Time              = 0.0f;
+    float m_SmokeEmitInterval = 0.4f;
+    float m_SmokeNextEmitTime = m_SmokeEmitInterval;
+
+    ParticleProps  m_SmokeParticle, m_EngineParticle;
+    ParticleSystem m_ParticleSystem;
 };

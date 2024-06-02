@@ -26,23 +26,32 @@ class Level
 
     Player& GetPlayer()
     {
-       return m_Player;
+        return m_Player;
     }
+    bool IsGameOver() const
+    {
+        return m_GameOver;
+    }
+    void Reset();
 
   private:
     void CreatePillar(int index, float offset);
-
     bool CollisionTest();
     void GameOver();
 
+
   private:
+    bool m_GameOver = false;
+
     float m_PillarTarget = 30.0f;
     int   m_PillarIndex  = 0;
 
-    Player m_Player;
+    Player    m_Player;
+    glm::vec3 m_PillarHSV = { 0.0f, 0.8f, 0.8f };
 
-    std::vector<Pillar>    m_Pillars;
-    std::vector<glm::vec2> m_Points;
-
+    std::vector<Pillar>                m_Pillars;
     Dionysen::Ref<Dionysen::Texture2D> m_TriangleTexture;
+
+    float m_GameLevel  = 0.0f;
+    float m_LevelSpeed = 0.05f;
 };
