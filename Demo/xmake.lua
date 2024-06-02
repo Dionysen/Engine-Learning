@@ -1,6 +1,5 @@
-target("Gobang")
+target("Demo")
     set_kind("binary")
-
     add_deps("Dionysen")
     set_languages("cxx20")
 
@@ -15,7 +14,8 @@ target("Gobang")
     )
 
     add_headerfiles(
-        "./src/*.h"
+        "./src/*.h", 
+        "./shaders/*"
     )
 
     add_files(
@@ -31,5 +31,16 @@ target("Gobang")
         add_defines("DION_PLATFORM_MACOSX")
         add_includedirs("/opt/local/include")
     end
-
+    
     add_packages("glfw", "glm", "glew")
+
+    -- Delete shader cache
+    -- before_build(function (target)
+    --     local dir_to_delete = path.join(target:scriptdir(), "../assets")
+    --     -- if exist, delete directory
+    --      if os.isdir(dir_to_delete) then
+    --         print("Deleting shader cache directory: " .. dir_to_delete)
+    --         os.rmdir(dir_to_delete)
+    --     else
+    --         print("Shader cache does not exist: " .. dir_to_delete)
+    --     end
