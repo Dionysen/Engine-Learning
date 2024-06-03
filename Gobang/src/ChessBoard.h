@@ -7,6 +7,9 @@ class ChessBoard
   public:
     ChessBoard();
     ~ChessBoard() = default;
+
+    void Init();
+
     void OnRender();
     void OnImGuiRender();
 
@@ -20,7 +23,7 @@ class ChessBoard
     bool Drop(uint32_t x, uint32_t y, ChessColor chess);
 
   private:
-    ChessColor CheckIsWin(uint32_t x, uint32_t y);
+    ChessColor CheckIsWin(uint32_t x, uint32_t y, ChessColor color);
 
   private:
     glm::vec2 m_Position = { 0.0f, 0.0f };

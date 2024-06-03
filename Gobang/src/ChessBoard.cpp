@@ -2,8 +2,13 @@
 #include "Chess.h"
 #include "Log.h"
 #include "Renderer2D.h"
+#include "imgui.h"
+#include <algorithm>
+#include <iostream>
+#include <string>
 
-ChessBoard::ChessBoard()
+
+void ChessBoard::Init()
 {
     for (int i = 0; i < 15; ++i)
     {
@@ -12,11 +17,21 @@ ChessBoard::ChessBoard()
             m_Chesses[i][j] = ChessColor::None;
         }
     }
+    m_ChessVector.clear();
+}
+
+ChessBoard::ChessBoard()
+{
+    Init();
 }
 
 
 void ChessBoard::OnImGuiRender()
 {
+    if (ImGui::Button("Init", { 30.0f, 30.0f }))
+    {
+        Init();
+    }
 }
 
 void ChessBoard::OnRender()
@@ -62,18 +77,18 @@ bool ChessBoard::Drop(uint32_t x, uint32_t y, ChessColor chess)
 {
     if (m_Chesses[x + 7][y + 7] == ChessColor::None)
     {
-        switch (CheckIsWin(x + 7, y + 7))
-        {
-        case ChessColor::None:
-            break;
-        case ChessColor::Black:
-            DION_WARN("Black win");
-            break;
-        case ChessColor::White:
-            DION_WARN("White win");
-            break;
-        }
+
         m_Chesses[x + 7][y + 7] = chess;
+
+        if (CheckIsWin(x + 7, y + 7, chess) == ChessColor::Black)
+        {
+            DION_WARN("Black win");
+        }
+        else if (CheckIsWin(x + 7, y + 7, chess) == ChessColor::White)
+        {
+            DION_WARN("White win");
+        }
+
         if (m_ChessVector.empty())
         {
             m_ChessVector.push_back(Chess(x + 7, y + 7, chess, 0));
@@ -82,6 +97,7 @@ bool ChessBoard::Drop(uint32_t x, uint32_t y, ChessColor chess)
         {
             m_ChessVector.push_back(Chess(x + 7, y + 7, chess, m_ChessVector.back().GetStep() + 1));
         }
+
         return true;
     }
     else
@@ -90,42 +106,38 @@ bool ChessBoard::Drop(uint32_t x, uint32_t y, ChessColor chess)
     }
 }
 
-ChessColor ChessBoard::CheckIsWin(uint32_t x, uint32_t y)
+ChessColor ChessBoard::CheckIsWin(uint32_t x, uint32_t y, ChessColor color)
 {
-    for (int i = -4; i <= 0; i++)
+    for (int i = x < 4 ? -x : -4; i <= 0; i++)
     {
-        if (m_Chesses[x + i][y] == m_ChessVector.back().GetColor() && m_Chesses[x + i + 1][y] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x + i + 2][y] == m_ChessVector.back().GetColor() && m_Chesses[x + i + 3][y] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x + i + 4][y] == m_ChessVector.back().GetColor())
+        if (m_Chesses[x + i][y] == color && m_Chesses[x + i + 1][y] == color && m_Chesses[x + i + 2][y] == color &&
+            m_Chesses[x + i + 3][y] == color && m_Chesses[x + i + 4][y] == color)
         {
-            return m_ChessVector.back().GetColor();
+            return color;
         }
     }
-    for (int i = -4; i <= 0; i++)
+    for (int i = y < 4 ? -y : -4; i <= 0; i++)
     {
-        if (m_Chesses[x][y + i] == m_ChessVector.back().GetColor() && m_Chesses[x][y + i + 1] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x][y + i + 2] == m_ChessVector.back().GetColor() && m_Chesses[x][y + i + 3] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x][y + i + 4] == m_ChessVector.back().GetColor())
+        if (m_Chesses[x][y + i] == color && m_Chesses[x][y + i + 1] == color && m_Chesses[x][y + i + 2] == color &&
+            m_Chesses[x][y + i + 3] == color && m_Chesses[x][y + i + 4] == color)
         {
-            return m_ChessVector.back().GetColor();
+            return color;
         }
     }
-    for (int i = -4; i <= 0; i++)
+    for (int i = std::min(x, y) < 4 ? -std::min(x, y) : -4; i <= 0; i++)
     {
-        if (m_Chesses[x + i][y + i] == m_ChessVector.back().GetColor() && m_Chesses[x + i + 1][y + i + 1] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x + i + 2][y + i + 2] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x + i + 3][y + i + 3] == m_ChessVector.back().GetColor() && m_Chesses[x + i + 4][y + i + 4] == m_ChessVector.back().GetColor())
+        if (m_Chesses[x + i][y + i] == color && m_Chesses[x + i + 1][y + i + 1] == color && m_Chesses[x + i + 2][y + i + 2] == color &&
+            m_Chesses[x + i + 3][y + i + 3] == color && m_Chesses[x + i + 4][y + i + 4] == color)
         {
-            return m_ChessVector.back().GetColor();
+            return color;
         }
     }
-    for (int i = -4; i <= 0; i++)
+    for (int i = y < 4 ? -y : -4; i <= 0; i++)
     {
-        if (m_Chesses[x - i][y + i] == m_ChessVector.back().GetColor() && m_Chesses[x - i - 1][y + i + 1] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x - i - 2][y + i + 2] == m_ChessVector.back().GetColor() &&
-            m_Chesses[x - i - 3][y + i + 3] == m_ChessVector.back().GetColor() && m_Chesses[x - i - 4][y + i + 4] == m_ChessVector.back().GetColor())
+        if (m_Chesses[x - i][y + i] == color && m_Chesses[x - i - 1][y + i + 1] == color && m_Chesses[x - i - 2][y + i + 2] == color &&
+            m_Chesses[x - i - 3][y + i + 3] == color && m_Chesses[x - i - 4][y + i + 4] == color)
         {
-            return m_ChessVector.back().GetColor();
+            return color;
         }
     }
     return ChessColor::None;

@@ -1,12 +1,11 @@
 #pragma once
-#include "artery-font/types.h"
 #include <Dionysen.h>
 
 enum class ChessColor
 {
     None  = 0,
     Black = 1,
-    White = 2
+    White = 2,
 };
 
 class Chess

@@ -10,16 +10,21 @@ target("Gobang")
     includes("../Dionysen/vendor/imgui")
     add_deps("imgui")
 
+    add_files("app.rc")
+
     add_includedirs(
-        "./src"
+        "src",
+        "src/Robot"
     )
 
     add_headerfiles(
-        "./src/*.h"
+        "src/*.h",
+        "src/Robot/*.h"
     )
 
     add_files(
-        "./src/*.cpp"
+        "src/*.cpp",
+        "src/Robot/*.cpp"
     )
 
     if is_plat("windows") then

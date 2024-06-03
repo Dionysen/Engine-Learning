@@ -1,13 +1,16 @@
 #include "GameLayer.h"
 #include "Application.h"
 #include "ChessBoard.h"
+#include "ChessEngine.h"
 #include "Layer.h"
 #include "Log.h"
 #include "Renderer2D.h"
 #include "TimeStep.h"
 #include "glm/gtx/dual_quaternion.hpp"
+#include "imgui.h"
 #include "spdlog/fmt/bundled/core.h"
 #include <stdint.h>
+
 
 using namespace Dionysen;
 
@@ -18,6 +21,7 @@ GameLayer::GameLayer()
     auto& window = Application::Get().GetWindow();
     window.ResizeWindow(800, 800);
     CreateCamera(window.GetWidth(), window.GetHeight());
+    ChessEngine::beforeStart();
 }
 
 void GameLayer::OnAttach()
@@ -47,6 +51,9 @@ void GameLayer::OnUpdate(Timestep ts)
 
 void GameLayer::OnImGuiRender()
 {
+    ImGui::Begin("Debug");
+    m_ChessBoard.OnImGuiRender();
+    ImGui::End();
 }
 
 
