@@ -38,6 +38,7 @@ void ChessBoard::OnRender()
 {
     DrawChessBoard(m_Size, { 0.0f, 0.0f, 0.0f });
     DrawChesses();
+    DrawHoverChess(m_HoveredChess.GetX(), m_HoveredChess.GetY(), m_HoveredChess.GetColor());
 }
 
 void ChessBoard::DrawChessBoard(float size, glm::vec3 pos)
@@ -71,6 +72,17 @@ void ChessBoard::DrawChesses()
                 Dionysen::Renderer2D::DrawCircle({ i * gap, j * gap, 0.0f }, 0.35, { 0.0f, 0.0f, 0.0f, 1.0f });
         }
     }
+}
+
+void ChessBoard::DrawHoverChess(int x, int y, ChessColor color)
+{
+    float gap = m_Size / 14;
+    if (color == ChessColor::Black)
+        Dionysen::Renderer2D::DrawCircle({ x * gap, y * gap, 0.0f }, 0.35, { 0.0f, 0.0f, 0.0f, 0.3f });
+    else if (color == ChessColor::White)
+        Dionysen::Renderer2D::DrawCircle({ x * gap, y * gap, 0.0f }, 0.35, { 1.0f, 1.0f, 1.0f, 0.3f });
+    else
+        ;
 }
 
 bool ChessBoard::Drop(uint32_t x, uint32_t y, ChessColor chess)

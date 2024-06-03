@@ -4,6 +4,7 @@
 #include "Layer.h"
 #include <Dionysen.h>
 #include "ChessBoard.h"
+#include "MouseEvent.h"
 #include "OrthographicCamera.h"
 
 using namespace Dionysen;
@@ -21,7 +22,11 @@ class GameLayer : public Dionysen::Layer
     virtual void OnImGuiRender() override;
 
     bool OnWindowsResize(WindowResizeEvent& e);
+    bool OnMouseMoved(MouseMovedEvent& e);
     bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
+
+  private:
+    glm::vec4 MouseToWorldPosition();
 
   private:
     ChessColor m_Turn = ChessColor::Black;

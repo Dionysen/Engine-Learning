@@ -11,7 +11,7 @@ enum class ChessColor
 class Chess
 {
   public:
-    Chess(uint32_t x, uint32_t y, ChessColor color, uint32_t step)
+    Chess(uint32_t x = 0, uint32_t y = 0, ChessColor color = ChessColor::None, uint32_t step = 0)
         : m_Color(color)
         , m_X(x)
         , m_Y(y)
@@ -30,6 +30,15 @@ class Chess
     ChessColor GetColor()
     {
         return m_Color;
+    }
+
+    uint32_t GetX()
+    {
+        return m_X;
+    }
+    uint32_t GetY()
+    {
+        return m_Y;
     }
 
   private:

@@ -7,6 +7,9 @@ target("Gobang")
     includes("../Dionysen")
     add_includedirs("../Dionysen")
 
+    includes("../Dionysen/vendor/stb_image/xmake.lua")
+    add_deps("stb_image")
+
     includes("../Dionysen/vendor/imgui")
     add_deps("imgui")
 

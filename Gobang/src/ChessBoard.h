@@ -19,8 +19,11 @@ class ChessBoard
     }
     void DrawChessBoard(float size, glm::vec3 pos);
     void DrawChesses();
+    void DrawHoverChess(int x, int y, ChessColor color);
 
     bool Drop(uint32_t x, uint32_t y, ChessColor chess);
+
+    Chess m_HoveredChess;
 
   private:
     ChessColor CheckIsWin(uint32_t x, uint32_t y, ChessColor color);

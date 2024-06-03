@@ -1,16 +1,20 @@
 #include "GameLayer.h"
 #include "Application.h"
+#include "Base.h"
+#include "Chess.h"
 #include "ChessBoard.h"
 #include "ChessEngine.h"
 #include "Layer.h"
 #include "Log.h"
+#include "MouseEvent.h"
 #include "Renderer2D.h"
 #include "TimeStep.h"
 #include "glm/gtx/dual_quaternion.hpp"
 #include "imgui.h"
 #include "spdlog/fmt/bundled/core.h"
+#include <fstream>
 #include <stdint.h>
-
+#include "stb_image.h"
 
 using namespace Dionysen;
 
@@ -18,10 +22,33 @@ using namespace Dionysen;
 GameLayer::GameLayer()
     : Layer("GameLayer")
 {
+
     auto& window = Application::Get().GetWindow();
     window.ResizeWindow(800, 800);
     CreateCamera(window.GetWidth(), window.GetHeight());
+
+    // Icon
+    int            width, height, channels;
+    unsigned char* image = stbi_load("./Gobang/assets/gobang.png", &width, &height, &channels, 4);
+    if (image)
+    {
+        GLFWimage images[1];
+        images[0].width  = width;
+        images[0].height = height;
+        images[0].pixels = image;
+        glfwSetWindowIcon((GLFWwindow*)window.GetNativeWindow(), 1, images);
+        stbi_image_free(image);
+    }
+    else
+    {
+        std::cerr << "Failed to load icon image" << std::endl;
+    }
+
+
+    // ChessEngine
     ChessEngine::beforeStart();
+    ChessEngine::setLevel(4);
+    ChessEngine::reset(ChessEngine::HUMAN);
 }
 
 void GameLayer::OnAttach()
@@ -36,6 +63,7 @@ void GameLayer::OnEvent(Event& e)
     EventDispatcher dispatcher(e);
     dispatcher.Dispatch<WindowResizeEvent>(DION_BIND_EVENT_FN(GameLayer::OnWindowsResize));
     dispatcher.Dispatch<MouseButtonPressedEvent>(DION_BIND_EVENT_FN(GameLayer::OnMouseButtonPressed));
+    dispatcher.Dispatch<MouseMovedEvent>(DION_BIND_EVENT_FN(GameLayer::OnMouseMoved));
 }
 
 void GameLayer::OnUpdate(Timestep ts)
@@ -59,7 +87,6 @@ void GameLayer::OnImGuiRender()
 
 bool GameLayer::OnWindowsResize(WindowResizeEvent& e)
 {
-
     if (e.GetWidth() < e.GetHeight())
     {
         auto& window = Application::Get().GetWindow();
@@ -70,7 +97,50 @@ bool GameLayer::OnWindowsResize(WindowResizeEvent& e)
         CreateCamera(e.GetWidth(), e.GetHeight());
     return false;
 }
+
+bool GameLayer::OnMouseMoved(MouseMovedEvent& e)
+{
+    int chessX = static_cast<int>(std::round(MouseToWorldPosition().x));
+    int chessY = static_cast<int>(std::round(MouseToWorldPosition().y));
+
+    if (chessX >= -7 && chessX <= 7 && chessY >= -7 && chessY <= 7)
+    {
+        m_ChessBoard.m_HoveredChess = Chess(chessX, chessY, m_Turn, 0);
+    }
+    else
+    {
+        m_ChessBoard.m_HoveredChess = Chess(chessX, chessY, ChessColor::None, 0);
+    }
+
+    return false;
+}
+
 bool GameLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
+{
+    int chessX = static_cast<int>(std::round(MouseToWorldPosition().x));
+    int chessY = static_cast<int>(std::round(MouseToWorldPosition().y));
+
+    if (chessX >= -7 && chessX <= 7 && chessY >= -7 && chessY <= 7)
+    {
+        if (m_ChessBoard.Drop(chessX, chessY, m_Turn))
+        {
+            if (m_Turn == ChessColor::Black)
+            {
+                // ChessEngine::nextStep(chessX + 7, chessY + 7);
+                // m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::White);
+                m_Turn = ChessColor::White;
+            }
+            else
+            {
+                m_Turn = ChessColor::Black;
+            }
+        }
+    }
+
+    return false;
+}
+
+glm::vec4 GameLayer::MouseToWorldPosition()
 {
     auto& app = Application::Get();
 
@@ -85,25 +155,9 @@ bool GameLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
     // normalize, devide w
     worldPos /= worldPos.w;
 
-    // DION_WARN("x = {0}, y = {1}", Input::GetMouseX(), Input::GetMouseY());
-    // DION_WARN("Postion = {0} {1}", worldPos.x, worldPos.y);
-
-    int chessX = static_cast<int>(std::round(worldPos.x));
-    int chessY = static_cast<int>(std::round(worldPos.y));
-
-    if (chessX >= -7 && chessX <= 7 && chessY >= -7 && chessY <= 7)
-    {
-        if (m_ChessBoard.Drop(chessX, chessY, m_Turn))
-        {
-            if (m_Turn == ChessColor::Black)
-                m_Turn = ChessColor::White;
-            else
-                m_Turn = ChessColor::Black;
-        }
-    }
-
-    return false;
+    return worldPos;
 }
+
 
 void GameLayer::CreateCamera(uint32_t width, uint32_t height)
 {
