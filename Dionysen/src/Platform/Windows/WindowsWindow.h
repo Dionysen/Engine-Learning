@@ -25,6 +25,8 @@ namespace Dionysen
             return m_Data.Height;
         }
 
+        inline void ResizeWindow(uint32_t width, uint32_t height) override;
+
         // Window attributes
         inline void SetEventCallback(const EventCallbackFn& callback) override
         {

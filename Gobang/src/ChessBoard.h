@@ -1,5 +1,7 @@
 #pragma once
 #include <Dionysen.h>
+#include "Chess.h"
+
 class ChessBoard
 {
   public:
@@ -8,9 +10,24 @@ class ChessBoard
     void OnRender();
     void OnImGuiRender();
 
+    void SetChessBoardSize(float size)
+    {
+        m_Size = size;
+    }
     void DrawChessBoard(float size, glm::vec3 pos);
+    void DrawChesses();
+
+    bool Drop(uint32_t x, uint32_t y, ChessColor chess);
+
+  private:
+    ChessColor CheckIsWin(uint32_t x, uint32_t y);
 
   private:
     glm::vec2 m_Position = { 0.0f, 0.0f };
-    glm::vec2 m_Size     = { 50.0f, 50.0f };
+    float     m_Size     = 14.0;
+
+
+    ChessColor m_Chesses[15][15];
+
+    std::vector<Chess> m_ChessVector;
 };

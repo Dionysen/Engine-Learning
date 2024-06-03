@@ -198,5 +198,11 @@ namespace Dionysen
         return m_Data.VSync;
     }
 
+    void WindowsWindow::ResizeWindow(uint32_t width, uint32_t height)
+    {
+        m_Data.Width  = width;
+        m_Data.Height = height;
+        glfwSetWindowSize(m_Window, width, height);
+    }
 
 }  // namespace Dionysen

@@ -103,7 +103,6 @@ namespace Dionysen
         //     m_CameraPosition.y += Input::GetMouseY() - m_CameraPosition.y;
         //     DION_CORE_WARN("Mouse event {0}", MousePositon.x);
         // }
-
         return false;
     }
 

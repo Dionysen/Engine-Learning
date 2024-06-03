@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Buffer.h"
 #include "Layer.h"
 #include <Dionysen.h>
 #include "ChessBoard.h"
@@ -23,6 +24,8 @@ class GameLayer : public Dionysen::Layer
     bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
   private:
+    ChessColor m_Turn = ChessColor::Black;
+
     void CreateCamera(uint32_t width, uint32_t height);
 
     ChessBoard m_ChessBoard;

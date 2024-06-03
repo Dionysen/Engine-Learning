@@ -36,6 +36,8 @@ namespace Dionysen
 
         virtual uint32_t GetHeight() const = 0;
 
+        virtual void ResizeWindow(uint32_t width, uint32_t height) = 0;
+
         // Window attributes
         virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 

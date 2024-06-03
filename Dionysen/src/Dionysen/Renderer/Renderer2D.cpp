@@ -460,8 +460,8 @@ namespace Dionysen
                                 int entityID /*= -1*/)
     {
         // TODO: implement for circles
-        // if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-        // 	NextBatch();
+        if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
+            NextBatch();
 
         for (size_t i = 0; i < 4; i++)
         {
@@ -477,6 +477,18 @@ namespace Dionysen
         s_Data.CircleIndexCount += 6;
 
         s_Data.Stats.QuadCount++;
+    }
+
+    void Renderer2D::DrawCircle(const glm::vec3& position, const glm::vec4& color, float thickness, float fade, int entityID)
+    {
+        DrawCircle(glm::translate(glm::mat4(1.0f), position), color, thickness, fade, entityID);
+    }
+
+
+    void Renderer2D::DrawCircle(const glm::vec3& position, float radius, const glm::vec4& color, float thickness, float fade, int entityID)
+    {
+        DrawCircle(glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { radius * 2, radius * 2, 1.0f }), color, thickness, fade,
+                   entityID);
     }
 
     void Renderer2D::DrawLine(const glm::vec3& p0, const glm::vec3& p1, const glm::vec4& color, int entityID)
