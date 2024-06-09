@@ -1,0 +1,2578 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"doc",
+				"dockspace_flags"
+			],
+			[
+				"dock",
+				"dockspace_id"
+			],
+			[
+				"IMGui",
+				"ImGuiID"
+			],
+			[
+				"set",
+				"SetProjection"
+			],
+			[
+				"Pushs",
+				"PushStyleVar"
+			],
+			[
+				"vi",
+				"viewportPanelSize"
+			],
+			[
+				"vec",
+				"vec2"
+			],
+			[
+				"x6",
+				"x64"
+			],
+			[
+				"get",
+				"GetWindow"
+			],
+			[
+				"m_",
+				"m_CheckboardTexture"
+			],
+			[
+				"tex",
+				"textureID"
+			],
+			[
+				"base",
+				"Base.h>"
+			],
+			[
+				"imguiwind",
+				"ImGuiWindowFlags"
+			],
+			[
+				"begin",
+				"Begin"
+			],
+			[
+				"end",
+				"EndMenuBar"
+			],
+			[
+				"BeginM",
+				"BeginMenuBar"
+			],
+			[
+				"Push",
+				"PushStyleVar"
+			],
+			[
+				"imguiwindo",
+				"ImGuiWindowFlags"
+			],
+			[
+				"ImGuiWindowFlags_Non",
+				"ImGuiWindowFlags_NoNavFocus"
+			],
+			[
+				"ImGuiWindowFlags_Nob",
+				"ImGuiWindowFlags_NoBringToFrontOnFocus"
+			],
+			[
+				"Imguiwinf",
+				"ImGuiWindowFlags_"
+			],
+			[
+				"ImGuiStyleVar_win",
+				"ImGuiStyleVar_WindowBorderSize"
+			],
+			[
+				"imguisty",
+				"ImGuiStyleVar_"
+			],
+			[
+				"Imguistyle",
+				"ImGuiStyleVar_"
+			],
+			[
+				"PushSty",
+				"PushStyleVar"
+			],
+			[
+				"s",
+				"Size"
+			],
+			[
+				"setnextwindo",
+				"SetNextWindowPos"
+			],
+			[
+				"i",
+				"ID"
+			],
+			[
+				"ImGuiWindowFlags_No",
+				"ImGuiWindowFlags_NoDocking"
+			],
+			[
+				"Imguiwindwo",
+				"ImGuiWindowFlags"
+			],
+			[
+				"Imguiwindw",
+				"ImGuiWindowFlags"
+			],
+			[
+				"ImguiDockNode",
+				"ImGuiDockNodeFlags_"
+			],
+			[
+				"ImGUIDocnod",
+				"ImGuiDockNodeFlags"
+			],
+			[
+				"draw",
+				"DrawQuad"
+			],
+			[
+				"Draw",
+				"DrawQuad"
+			],
+			[
+				"Render",
+				"Renderer2D"
+			],
+			[
+				"Rend",
+				"RenderCommand"
+			],
+			[
+				"Set",
+				"SetClearColor"
+			],
+			[
+				"Re",
+				"ResetStats"
+			],
+			[
+				"Ren",
+				"Renderer2D"
+			],
+			[
+				"Fr",
+				"FramebufferSpecification"
+			],
+			[
+				"Tex",
+				"Texture2D"
+			],
+			[
+				"Edi",
+				"EditorLayer"
+			],
+			[
+				"Editor",
+				"EditorLayer"
+			],
+			[
+				"name",
+				"namespace"
+			],
+			[
+				"Edit",
+				"EditorLayer.h\""
+			],
+			[
+				"Ver",
+				"VertexArray"
+			],
+			[
+				"Or",
+				"OrthographicCameraController"
+			],
+			[
+				"Time",
+				"Timestep"
+			],
+			[
+				"Ed",
+				"EditorLayer"
+			],
+			[
+				"DIon",
+				"Dionysen.h>"
+			],
+			[
+				"Dion",
+				"DionEditor"
+			],
+			[
+				"En",
+				"EntryPoint.h>"
+			],
+			[
+				"gam",
+				"Gaming"
+			],
+			[
+				"Ga",
+				"GameOver"
+			],
+			[
+				"Gam",
+				"GameOver"
+			],
+			[
+				"Chess",
+				"ChessColor"
+			],
+			[
+				"zero",
+				"ZeroMemory"
+			],
+			[
+				"String",
+				"string"
+			],
+			[
+				"Dionysen",
+				"Dionysen.h>"
+			],
+			[
+				"sep",
+				"SeparatorText"
+			],
+			[
+				"Min",
+				"MainMenu"
+			],
+			[
+				"m",
+				"m_Status"
+			],
+			[
+				"Swi",
+				"switch"
+			],
+			[
+				"Imgui",
+				"ImGuiWindow"
+			],
+			[
+				"ImGuiWin",
+				"ImGuiWindowFlags"
+			],
+			[
+				"IMgui",
+				"ImGuiWindowFlags"
+			],
+			[
+				"Setwindw",
+				"SetWindowPos"
+			],
+			[
+				"SetWin",
+				"SetWindowSize"
+			],
+			[
+				"m_Ca",
+				"m_CameraPosition"
+			],
+			[
+				"Fl",
+				"DragFloat3"
+			],
+			[
+				"colo",
+				"color"
+			],
+			[
+				"ches",
+				"chessY"
+			],
+			[
+				"che",
+				"chessX"
+			],
+			[
+				"MouseMove",
+				"MouseMovedEvent"
+			],
+			[
+				"Mouse",
+				"MouseMoved"
+			],
+			[
+				"Ch",
+				"ChessBoard"
+			],
+			[
+				"ch",
+				"chessY"
+			],
+			[
+				"To",
+				"ToWorldPosition"
+			],
+			[
+				"Mousemove",
+				"MouseMovedEvent"
+			],
+			[
+				"GLFW",
+				"GLFWwindow"
+			],
+			[
+				"Ches",
+				"ChessEngine"
+			],
+			[
+				"Check",
+				"CheckIsWin"
+			],
+			[
+				"tostr",
+				"to_string"
+			],
+			[
+				"Che",
+				"CheckIsWin"
+			],
+			[
+				"DION_",
+				"DION_WARN"
+			],
+			[
+				"CHess",
+				"ChessColor"
+			],
+			[
+				"uint",
+				"uint32"
+			],
+			[
+				"CHes",
+				"ChessColor"
+			],
+			[
+				"gett",
+				"GetHeight"
+			],
+			[
+				"glfwsetwin",
+				"glfwSetWindowSize"
+			],
+			[
+				"re",
+				"ResizeWindow"
+			],
+			[
+				"D",
+				"DrawCircle"
+			],
+			[
+				"render",
+				"Renderer2D"
+			],
+			[
+				"worl",
+				"worldPos"
+			],
+			[
+				"scr",
+				"screenPos"
+			],
+			[
+				"Get",
+				"GetWindow"
+			],
+			[
+				"App",
+				"Application"
+			],
+			[
+				"Cre",
+				"CreateCamera"
+			],
+			[
+				"c",
+				"ChessBoard"
+			],
+			[
+				"Layer",
+				"Dionysen::Layer"
+			],
+			[
+				"On",
+				"OnDetach"
+			],
+			[
+				"dra",
+				"DrawLine"
+			],
+			[
+				"In",
+				"OnImGuiRender"
+			],
+			[
+				"label",
+				"LabelText"
+			],
+			[
+				"Text",
+				"Text"
+			],
+			[
+				"m_gam",
+				"m_GameLevel"
+			],
+			[
+				"Getwind",
+				"GetWindowPos"
+			],
+			[
+				"add",
+				"AddText"
+			],
+			[
+				"Getfore",
+				"GetForegroundDrawList"
+			],
+			[
+				"tostring",
+				"to_string"
+			],
+			[
+				"tost",
+				"to_string"
+			],
+			[
+				"string",
+				"string"
+			],
+			[
+				"m_P",
+				"m_PillarTargets"
+			],
+			[
+				"RET",
+				"Return"
+			],
+			[
+				"Poin",
+				"PointInTri"
+			],
+			[
+				"Point",
+				"PointInTri"
+			],
+			[
+				"play",
+				"playerTransformedVerts"
+			],
+			[
+				"Coll",
+				"CollisionTest"
+			],
+			[
+				"pl",
+				"playerTransformedVerts"
+			],
+			[
+				"empla",
+				"emplace_back"
+			],
+			[
+				"player",
+				"playerTransformedVerts"
+			],
+			[
+				"pill",
+				"pillarVertices"
+			],
+			[
+				"Top",
+				"TopScale"
+			],
+			[
+				"pla",
+				"playerTranformedVerts"
+			],
+			[
+				"uin",
+				"uint32"
+			],
+			[
+				"num",
+				"numeric_limits"
+			],
+			[
+				"s_",
+				"s_RandomEngine"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Editor/src/EditorLayer.h",
+			"settings":
+			{
+				"buffer_size": 940,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " ="
+					},
+					"AgAAAHkDAAAAAAAAegMAAAAAAAAAAAAAegMAAAAAAAB7AwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB5AwAAAAAAAHkDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": " {0.0"
+					},
+					"BQAAAHsDAAAAAAAAfAMAAAAAAAAAAAAAfAMAAAAAAAB9AwAAAAAAAAAAAAB9AwAAAAAAAH4DAAAAAAAAAAAAAH4DAAAAAAAAfwMAAAAAAAAAAAAAfwMAAAAAAACAAwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB7AwAAAAAAAHsDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "f,0.0f)"
+					},
+					"BwAAAIADAAAAAAAAgQMAAAAAAAAAAAAAgQMAAAAAAACCAwAAAAAAAAAAAACCAwAAAAAAAIMDAAAAAAAAAAAAAIMDAAAAAAAAhAMAAAAAAAAAAAAAhAMAAAAAAACFAwAAAAAAAAAAAACFAwAAAAAAAIYDAAAAAAAAAAAAAIYDAAAAAAAAhwMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACAAwAAAAAAAIADAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIYDAAAAAAAAhgMAAAAAAAABAAAAKQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHAwAAAAAAAIcDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "}"
+					},
+					"AQAAAIYDAAAAAAAAhwMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACGAwAAAAAAAIYDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"lsp_apply_document_edit",
+					{
+						"changes":
+						[
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 36,
+										"line": 38
+									},
+									"start":
+									{
+										"character": 36,
+										"line": 38
+									}
+								}
+							},
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 41,
+										"line": 38
+									},
+									"start":
+									{
+										"character": 41,
+										"line": 38
+									}
+								}
+							},
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 45,
+										"line": 38
+									},
+									"start":
+									{
+										"character": 45,
+										"line": 38
+									}
+								}
+							}
+						],
+						"process_placeholders": false,
+						"required_view_version": null
+					},
+					"AwAAAIYDAAAAAAAAhwMAAAAAAAAAAAAAggMAAAAAAACDAwAAAAAAAAAAAAB9AwAAAAAAAH4DAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHAwAAAAAAAIcDAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "Editor/src/EditorLayer.cpp",
+			"settings":
+			{
+				"buffer_size": 6886,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "\n,"
+					},
+					"AwAAAPUUAAAAAAAA9hQAAAAAAAAAAAAA9hQAAAAAAAAGFQAAAAAAAAAAAAAGFQAAAAAAAAcVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD1FAAAAAAAAPUUAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAYVAAAAAAAABhUAAAAAAAABAAAALA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAHFQAAAAAAAAcVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "m_"
+					},
+					"AgAAAAYVAAAAAAAABxUAAAAAAAAAAAAABxUAAAAAAAAIFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAGFQAAAAAAAAYVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "Cma"
+					},
+					"AwAAAAgVAAAAAAAACRUAAAAAAAAAAAAACRUAAAAAAAAKFQAAAAAAAAAAAAAKFQAAAAAAAAsVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAIFQAAAAAAAAgVAAAAAAAAAAAAAACAZkA"
+				],
+				[
+					16,
+					2,
+					"left_delete",
+					null,
+					"AgAAAAoVAAAAAAAAChUAAAAAAAABAAAAYQkVAAAAAAAACRUAAAAAAAABAAAAbQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAALFQAAAAAAAAsVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAAAkVAAAAAAAAChUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJFQAAAAAAAAkVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					18,
+					4,
+					"left_delete",
+					null,
+					"BAAAAAkVAAAAAAAACRUAAAAAAAABAAAAYQgVAAAAAAAACBUAAAAAAAABAAAAQwcVAAAAAAAABxUAAAAAAAABAAAAXwYVAAAAAAAABhUAAAAAAAABAAAAbQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAKFQAAAAAAAAoVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "m_Ca"
+					},
+					"BAAAAAYVAAAAAAAABxUAAAAAAAAAAAAABxUAAAAAAAAIFQAAAAAAAAAAAAAIFQAAAAAAAAkVAAAAAAAAAAAAAAkVAAAAAAAAChUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAGFQAAAAAAAAYVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					20,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							15,
+							19,
+							4
+						],
+						"trigger": "m_CameraController"
+					},
+					"AgAAAAYVAAAAAAAABhUAAAAAAAAEAAAAbV9DYQYVAAAAAAAAGBUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAKFQAAAAAAAAoVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": ".get"
+					},
+					"BAAAABgVAAAAAAAAGRUAAAAAAAAAAAAAGRUAAAAAAAAaFQAAAAAAAAAAAAAaFQAAAAAAABsVAAAAAAAAAAAAABsVAAAAAAAAHBUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAYFQAAAAAAABgVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					22,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":1,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							17,
+							21,
+							1
+						],
+						"trigger": "GetCamera"
+					},
+					"BAAAABsVAAAAAAAAGxUAAAAAAAABAAAAdBoVAAAAAAAAGhUAAAAAAAABAAAAZRkVAAAAAAAAGRUAAAAAAAABAAAAZxkVAAAAAAAAJBUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAcFQAAAAAAABwVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": ".d"
+					},
+					"AgAAACQVAAAAAAAAJRUAAAAAAAAAAAAAJRUAAAAAAAAmFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAkFQAAAAAAACQVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					24,
+					1,
+					"left_delete",
+					null,
+					"AQAAACUVAAAAAAAAJRUAAAAAAAABAAAAZA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAmFQAAAAAAACYVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "set"
+					},
+					"AwAAACUVAAAAAAAAJhUAAAAAAAAAAAAAJhUAAAAAAAAnFQAAAAAAAAAAAAAnFQAAAAAAACgVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAlFQAAAAAAACUVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					29,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":1,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							21,
+							25,
+							2
+						],
+						"trigger": "SetProjection"
+					},
+					"AwAAACcVAAAAAAAAJxUAAAAAAAABAAAAdCUVAAAAAAAAJRUAAAAAAAACAAAAc2UlFQAAAAAAAGQVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAoFQAAAAAAACgVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					30,
+					2,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AgAAADMVAAAAAAAAMxUAAAAAAAAKAAAAZmxvYXQgbGVmdDIVAAAAAAAAMhUAAAAAAAABAAAAKA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzFQAAAAAAAD0VAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					32,
+					11,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"CwAAAFgVAAAAAAAAWBUAAAAAAAABAAAAKVUVAAAAAAAAVRUAAAAAAAADAAAAdG9wTxUAAAAAAABPFQAAAAAAAAYAAABmbG9hdCBNFQAAAAAAAE0VAAAAAAAAAgAAACwgRxUAAAAAAABHFQAAAAAAAAYAAABib3R0b21BFQAAAAAAAEEVAAAAAAAABgAAAGZsb2F0ID8VAAAAAAAAPxUAAAAAAAACAAAALCA6FQAAAAAAADoVAAAAAAAABQAAAHJpZ2h0NBUAAAAAAAA0FQAAAAAAAAYAAABmbG9hdCAyFQAAAAAAADIVAAAAAAAAAgAAACwgJRUAAAAAAAAlFQAAAAAAAA0AAABTZXRQcm9qZWN0aW9u",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABZFQAAAAAAAFkVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					33,
+					1,
+					"left_delete",
+					null,
+					"AQAAACQVAAAAAAAAJBUAAAAAAAABAAAALg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAlFQAAAAAAACUVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": ".On"
+					},
+					"AwAAACQVAAAAAAAAJRUAAAAAAAAAAAAAJRUAAAAAAAAmFQAAAAAAAAAAAAAmFQAAAAAAACcVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAkFQAAAAAAACQVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AQAAACUVAAAAAAAAJRUAAAAAAAACAAAAT24",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAnFQAAAAAAACcVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					52,
+					2,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AgAAACIVAAAAAAAAIhUAAAAAAAADAAAAKCkuGRUAAAAAAAAZFQAAAAAAAAkAAABHZXRDYW1lcmE",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAlFQAAAAAAACUVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": "On"
+					},
+					"AgAAABkVAAAAAAAAGhUAAAAAAAAAAAAAGhUAAAAAAAAbFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAZFQAAAAAAABkVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					57,
+					1,
+					"insert",
+					{
+						"characters": "Re"
+					},
+					"AgAAABsVAAAAAAAAHBUAAAAAAAAAAAAAHBUAAAAAAAAdFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAbFQAAAAAAABsVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					58,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							33,
+							57,
+							1
+						],
+						"trigger": "OnResize"
+					},
+					"AwAAABwVAAAAAAAAHBUAAAAAAAABAAAAZRkVAAAAAAAAGRUAAAAAAAADAAAAT25SGRUAAAAAAAA8FQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAdFQAAAAAAAB0VAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					59,
+					1,
+					"insert",
+					{
+						"characters": "m_V"
+					},
+					"BAAAACIVAAAAAAAAIxUAAAAAAAAAAAAAIxUAAAAAAAAjFQAAAAAAAAsAAABmbG9hdCB3aWR0aCMVAAAAAAAAJBUAAAAAAAAAAAAAJBUAAAAAAAAlFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAiFQAAAAAAAC0VAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					60,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							35,
+							59,
+							4
+						],
+						"trigger": "m_ViewportSize"
+					},
+					"AgAAACIVAAAAAAAAIhUAAAAAAAADAAAAbV9WIhUAAAAAAAAwFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAlFQAAAAAAACUVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": ".x"
+					},
+					"AgAAADAVAAAAAAAAMRUAAAAAAAAAAAAAMRUAAAAAAAAyFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAwFQAAAAAAADAVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					62,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":5,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							37,
+							61,
+							1
+						],
+						"trigger": "x"
+					},
+					"AgAAADEVAAAAAAAAMRUAAAAAAAABAAAAeDEVAAAAAAAAMhUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyFQAAAAAAADIVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					64,
+					1,
+					"left_delete",
+					null,
+					"AQAAADQVAAAAAAAANBUAAAAAAAAMAAAAZmxvYXQgaGVpZ2h0",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA0FQAAAAAAAEAVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": "m_v"
+					},
+					"AwAAADQVAAAAAAAANRUAAAAAAAAAAAAANRUAAAAAAAA2FQAAAAAAAAAAAAA2FQAAAAAAADcVAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA0FQAAAAAAADQVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					66,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							41,
+							65,
+							3
+						],
+						"trigger": "m_ViewportSize"
+					},
+					"AgAAADQVAAAAAAAANBUAAAAAAAADAAAAbV92NBUAAAAAAABCFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA3FQAAAAAAADcVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					67,
+					1,
+					"insert",
+					{
+						"characters": ".y"
+					},
+					"AgAAAEIVAAAAAAAAQxUAAAAAAAAAAAAAQxUAAAAAAABEFQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCFQAAAAAAAEIVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					68,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":6,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							43,
+							67,
+							1
+						],
+						"trigger": "y"
+					},
+					"AgAAAEMVAAAAAAAAQxUAAAAAAAABAAAAeUMVAAAAAAAARBUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABEFQAAAAAAAEQVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					70,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAEUVAAAAAAAARhUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFFQAAAAAAAEUVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					80,
+					1,
+					"left_delete",
+					null,
+					"AQAAACsJAAAAAAAAKwkAAAAAAAABAAAACg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAsCQAAAAAAACwJAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					149,
+					1,
+					"left_delete",
+					null,
+					"AQAAAKEOAAAAAAAAoQ4AAAAAAAABAAAACg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACiDgAAAAAAAKIOAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					161,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFUPAAAAAAAAVQ8AAAAAAAABAAAACg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWDwAAAAAAAFYPAAAAAAAAAAAAAAAQiEA"
+				],
+				[
+					172,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAAFYPAAAAAAAAVw8AAAAAAAAAAAAAVw8AAAAAAABYDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWDwAAAAAAAFYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					174,
+					1,
+					"reindent",
+					null,
+					"AQAAAFcPAAAAAAAAYw8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABXDwAAAAAAAFcPAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					175,
+					1,
+					"insert",
+					{
+						"characters": "IMgui"
+					},
+					"BQAAAGMPAAAAAAAAZA8AAAAAAAAAAAAAZA8AAAAAAABlDwAAAAAAAAAAAABlDwAAAAAAAGYPAAAAAAAAAAAAAGYPAAAAAAAAZw8AAAAAAAAAAAAAZw8AAAAAAABoDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABjDwAAAAAAAGMPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					176,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							100,
+							175,
+							5
+						],
+						"trigger": "ImGui"
+					},
+					"AgAAAGMPAAAAAAAAYw8AAAAAAAAFAAAASU1ndWljDwAAAAAAAGgPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABoDwAAAAAAAGgPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					177,
+					1,
+					"insert",
+					{
+						"characters": "IO&"
+					},
+					"AwAAAGgPAAAAAAAAaQ8AAAAAAAAAAAAAaQ8AAAAAAABqDwAAAAAAAAAAAABqDwAAAAAAAGsPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABoDwAAAAAAAGgPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					178,
+					1,
+					"insert",
+					{
+						"characters": " io"
+					},
+					"AwAAAGsPAAAAAAAAbA8AAAAAAAAAAAAAbA8AAAAAAABtDwAAAAAAAAAAAABtDwAAAAAAAG4PAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrDwAAAAAAAGsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					179,
+					1,
+					"insert",
+					{
+						"characters": " ="
+					},
+					"AgAAAG4PAAAAAAAAbw8AAAAAAAAAAAAAbw8AAAAAAABwDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABuDwAAAAAAAG4PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					180,
+					1,
+					"insert",
+					{
+						"characters": " Im"
+					},
+					"AwAAAHAPAAAAAAAAcQ8AAAAAAAAAAAAAcQ8AAAAAAAByDwAAAAAAAAAAAAByDwAAAAAAAHMPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwDwAAAAAAAHAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					181,
+					1,
+					"insert",
+					{
+						"characters": "gu"
+					},
+					"AgAAAHMPAAAAAAAAdA8AAAAAAAAAAAAAdA8AAAAAAAB1DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABzDwAAAAAAAHMPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					182,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							106,
+							181,
+							2
+						],
+						"trigger": "ImGui"
+					},
+					"AgAAAHEPAAAAAAAAcQ8AAAAAAAAEAAAASW1ndXEPAAAAAAAAdg8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB1DwAAAAAAAHUPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					183,
+					1,
+					"insert",
+					{
+						"characters": "::Get"
+					},
+					"BQAAAHYPAAAAAAAAdw8AAAAAAAAAAAAAdw8AAAAAAAB4DwAAAAAAAAAAAAB4DwAAAAAAAHkPAAAAAAAAAAAAAHkPAAAAAAAAeg8AAAAAAAAAAAAAeg8AAAAAAAB7DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB2DwAAAAAAAHYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					184,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							108,
+							183,
+							5
+						],
+						"trigger": "GetIO"
+					},
+					"AgAAAHgPAAAAAAAAeA8AAAAAAAADAAAAR2V0eA8AAAAAAAB/DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB7DwAAAAAAAHsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					185,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAH8PAAAAAAAAgA8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB/DwAAAAAAAH8PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					186,
+					1,
+					"insert",
+					{
+						"characters": "\ni"
+					},
+					"AwAAAIAPAAAAAAAAgQ8AAAAAAAAAAAAAgQ8AAAAAAACNDwAAAAAAAAAAAACNDwAAAAAAAI4PAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACADwAAAAAAAIAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					187,
+					1,
+					"insert",
+					{
+						"characters": "f"
+					},
+					"AQAAAI4PAAAAAAAAjw8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACODwAAAAAAAI4PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					188,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAI8PAAAAAAAAkQ8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACPDwAAAAAAAI8PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					189,
+					1,
+					"insert",
+					{
+						"characters": "io."
+					},
+					"AwAAAJAPAAAAAAAAkQ8AAAAAAAAAAAAAkQ8AAAAAAACSDwAAAAAAAAAAAACSDwAAAAAAAJMPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACQDwAAAAAAAJAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					190,
+					1,
+					"insert",
+					{
+						"characters": "COnfi"
+					},
+					"BQAAAJMPAAAAAAAAlA8AAAAAAAAAAAAAlA8AAAAAAACVDwAAAAAAAAAAAACVDwAAAAAAAJYPAAAAAAAAAAAAAJYPAAAAAAAAlw8AAAAAAAAAAAAAlw8AAAAAAACYDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACTDwAAAAAAAJMPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					191,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":20,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							115,
+							190,
+							1
+						],
+						"trigger": "ConfigFlags"
+					},
+					"BgAAAJcPAAAAAAAAlw8AAAAAAAABAAAAaZYPAAAAAAAAlg8AAAAAAAABAAAAZpUPAAAAAAAAlQ8AAAAAAAABAAAAbpQPAAAAAAAAlA8AAAAAAAABAAAAT5MPAAAAAAAAkw8AAAAAAAABAAAAQ5MPAAAAAAAAng8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACYDwAAAAAAAJgPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					192,
+					1,
+					"insert",
+					{
+						"characters": " &"
+					},
+					"AgAAAJ4PAAAAAAAAnw8AAAAAAAAAAAAAnw8AAAAAAACgDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACeDwAAAAAAAJ4PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					193,
+					1,
+					"insert",
+					{
+						"characters": " I"
+					},
+					"AgAAAKAPAAAAAAAAoQ8AAAAAAAAAAAAAoQ8AAAAAAACiDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACgDwAAAAAAAKAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					194,
+					1,
+					"insert",
+					{
+						"characters": "MGUICONfig"
+					},
+					"CgAAAKIPAAAAAAAAow8AAAAAAAAAAAAAow8AAAAAAACkDwAAAAAAAAAAAACkDwAAAAAAAKUPAAAAAAAAAAAAAKUPAAAAAAAApg8AAAAAAAAAAAAApg8AAAAAAACnDwAAAAAAAAAAAACnDwAAAAAAAKgPAAAAAAAAAAAAAKgPAAAAAAAAqQ8AAAAAAAAAAAAAqQ8AAAAAAACqDwAAAAAAAAAAAACqDwAAAAAAAKsPAAAAAAAAAAAAAKsPAAAAAAAArA8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACiDwAAAAAAAKIPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					195,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							119,
+							194,
+							7
+						],
+						"trigger": "ImGuiConfigFlags"
+					},
+					"BQAAAKsPAAAAAAAAqw8AAAAAAAABAAAAZ6oPAAAAAAAAqg8AAAAAAAABAAAAaakPAAAAAAAAqQ8AAAAAAAABAAAAZqEPAAAAAAAAoQ8AAAAAAAAIAAAASU1HVUlDT06hDwAAAAAAALEPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACsDwAAAAAAAKwPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					196,
+					1,
+					"insert",
+					{
+						"characters": "_NoDO"
+					},
+					"BQAAALEPAAAAAAAAsg8AAAAAAAAAAAAAsg8AAAAAAACzDwAAAAAAAAAAAACzDwAAAAAAALQPAAAAAAAAAAAAALQPAAAAAAAAtQ8AAAAAAAAAAAAAtQ8AAAAAAAC2DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACxDwAAAAAAALEPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					197,
+					3,
+					"left_delete",
+					null,
+					"AwAAALUPAAAAAAAAtQ8AAAAAAAABAAAAT7QPAAAAAAAAtA8AAAAAAAABAAAARLMPAAAAAAAAsw8AAAAAAAABAAAAbw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC2DwAAAAAAALYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					198,
+					1,
+					"insert",
+					{
+						"characters": "ock"
+					},
+					"AwAAALMPAAAAAAAAtA8AAAAAAAAAAAAAtA8AAAAAAAC1DwAAAAAAAAAAAAC1DwAAAAAAALYPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACzDwAAAAAAALMPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					199,
+					1,
+					"insert",
+					{
+						"characters": "ing"
+					},
+					"AwAAALYPAAAAAAAAtw8AAAAAAAAAAAAAtw8AAAAAAAC4DwAAAAAAAAAAAAC4DwAAAAAAALkPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC2DwAAAAAAALYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					200,
+					7,
+					"left_delete",
+					null,
+					"BwAAALgPAAAAAAAAuA8AAAAAAAABAAAAZ7cPAAAAAAAAtw8AAAAAAAABAAAAbrYPAAAAAAAAtg8AAAAAAAABAAAAabUPAAAAAAAAtQ8AAAAAAAABAAAAa7QPAAAAAAAAtA8AAAAAAAABAAAAY7MPAAAAAAAAsw8AAAAAAAABAAAAb7IPAAAAAAAAsg8AAAAAAAABAAAATg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC5DwAAAAAAALkPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					201,
+					1,
+					"insert",
+					{
+						"characters": "Dock"
+					},
+					"BAAAALIPAAAAAAAAsw8AAAAAAAAAAAAAsw8AAAAAAAC0DwAAAAAAAAAAAAC0DwAAAAAAALUPAAAAAAAAAAAAALUPAAAAAAAAtg8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACyDwAAAAAAALIPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					202,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							126,
+							201,
+							1
+						],
+						"trigger": "ImGuiConfigFlags_DockingEnable"
+					},
+					"BQAAALUPAAAAAAAAtQ8AAAAAAAABAAAAa7QPAAAAAAAAtA8AAAAAAAABAAAAY7MPAAAAAAAAsw8AAAAAAAABAAAAb6EPAAAAAAAAoQ8AAAAAAAASAAAASW1HdWlDb25maWdGbGFnc19EoQ8AAAAAAAC/DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC2DwAAAAAAALYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					204,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"BAAAAMAPAAAAAAAAwQ8AAAAAAAAAAAAAwQ8AAAAAAADNDwAAAAAAAAAAAADBDwAAAAAAAMEPAAAAAAAADAAAACAgICAgICAgICAgIMEPAAAAAAAA0Q8AAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADADwAAAAAAAMAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					205,
+					1,
+					"insert_snippet",
+					{
+						"contents": "{$0}"
+					},
+					"AwAAANEPAAAAAAAA0w8AAAAAAAAAAAAAwQ8AAAAAAADBDwAAAAAAABAAAAAgICAgICAgICAgICAgICAgwQ8AAAAAAADNDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADRDwAAAAAAANEPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					206,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+					},
+					"BgAAAM4PAAAAAAAAzw8AAAAAAAAAAAAAzw8AAAAAAADbDwAAAAAAAAAAAADbDwAAAAAAANwPAAAAAAAAAAAAANwPAAAAAAAA6A8AAAAAAAAAAAAAzw8AAAAAAADPDwAAAAAAAAwAAAAgICAgICAgICAgICDPDwAAAAAAAN8PAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADODwAAAAAAAM4PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					207,
+					1,
+					"insert",
+					{
+						"characters": "IMGui"
+					},
+					"BQAAAN8PAAAAAAAA4A8AAAAAAAAAAAAA4A8AAAAAAADhDwAAAAAAAAAAAADhDwAAAAAAAOIPAAAAAAAAAAAAAOIPAAAAAAAA4w8AAAAAAAAAAAAA4w8AAAAAAADkDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADfDwAAAAAAAN8PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					209,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":5,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							132,
+							207,
+							5
+						],
+						"trigger": "ImGuiID"
+					},
+					"AgAAAN8PAAAAAAAA3w8AAAAAAAAFAAAASU1HdWnfDwAAAAAAAOYPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADkDwAAAAAAAOQPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					210,
+					1,
+					"insert",
+					{
+						"characters": " dock"
+					},
+					"BQAAAOYPAAAAAAAA5w8AAAAAAAAAAAAA5w8AAAAAAADoDwAAAAAAAAAAAADoDwAAAAAAAOkPAAAAAAAAAAAAAOkPAAAAAAAA6g8AAAAAAAAAAAAA6g8AAAAAAADrDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADmDwAAAAAAAOYPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					214,
+					1,
+					"insert",
+					{
+						"characters": "cs"
+					},
+					"AgAAAOsPAAAAAAAA7A8AAAAAAAAAAAAA7A8AAAAAAADtDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADrDwAAAAAAAOsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					215,
+					2,
+					"left_delete",
+					null,
+					"AgAAAOwPAAAAAAAA7A8AAAAAAAABAAAAc+sPAAAAAAAA6w8AAAAAAAABAAAAYw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADtDwAAAAAAAO0PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					216,
+					1,
+					"insert",
+					{
+						"characters": "space"
+					},
+					"BQAAAOsPAAAAAAAA7A8AAAAAAAAAAAAA7A8AAAAAAADtDwAAAAAAAAAAAADtDwAAAAAAAO4PAAAAAAAAAAAAAO4PAAAAAAAA7w8AAAAAAAAAAAAA7w8AAAAAAADwDwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADrDwAAAAAAAOsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					217,
+					1,
+					"insert",
+					{
+						"characters": "_id"
+					},
+					"AwAAAPAPAAAAAAAA8Q8AAAAAAAAAAAAA8Q8AAAAAAADyDwAAAAAAAAAAAADyDwAAAAAAAPMPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADwDwAAAAAAAPAPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					218,
+					1,
+					"insert",
+					{
+						"characters": " ="
+					},
+					"AgAAAPMPAAAAAAAA9A8AAAAAAAAAAAAA9A8AAAAAAAD1DwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADzDwAAAAAAAPMPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					219,
+					1,
+					"insert",
+					{
+						"characters": " Imgui"
+					},
+					"BgAAAPUPAAAAAAAA9g8AAAAAAAAAAAAA9g8AAAAAAAD3DwAAAAAAAAAAAAD3DwAAAAAAAPgPAAAAAAAAAAAAAPgPAAAAAAAA+Q8AAAAAAAAAAAAA+Q8AAAAAAAD6DwAAAAAAAAAAAAD6DwAAAAAAAPsPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD1DwAAAAAAAPUPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					220,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							140,
+							219,
+							6
+						],
+						"trigger": "ImGui"
+					},
+					"AgAAAPYPAAAAAAAA9g8AAAAAAAAFAAAASW1ndWn2DwAAAAAAAPsPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD7DwAAAAAAAPsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					221,
+					1,
+					"insert",
+					{
+						"characters": "::Get"
+					},
+					"BQAAAPsPAAAAAAAA/A8AAAAAAAAAAAAA/A8AAAAAAAD9DwAAAAAAAAAAAAD9DwAAAAAAAP4PAAAAAAAAAAAAAP4PAAAAAAAA/w8AAAAAAAAAAAAA/w8AAAAAAAAAEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD7DwAAAAAAAPsPAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					222,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":1,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							142,
+							221,
+							5
+						],
+						"trigger": "GetID"
+					},
+					"AgAAAP0PAAAAAAAA/Q8AAAAAAAADAAAAR2V0/Q8AAAAAAAAEEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					223,
+					2,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AgAAAAIQAAAAAAAAAhAAAAAAAAABAAAAKP0PAAAAAAAA/Q8AAAAAAAAFAAAAR2V0SUQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADEAAAAAAAAAMQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					225,
+					1,
+					"left_delete",
+					null,
+					"AQAAAP0PAAAAAAAA/Q8AAAAAAAABAAAAKQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD+DwAAAAAAAP4PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					226,
+					1,
+					"insert",
+					{
+						"characters": "GetIo"
+					},
+					"BQAAAP0PAAAAAAAA/g8AAAAAAAAAAAAA/g8AAAAAAAD/DwAAAAAAAAAAAAD/DwAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAARAAAAAAAAAAAAAAARAAAAAAAAACEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD9DwAAAAAAAP0PAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					227,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":1,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							147,
+							226,
+							4
+						],
+						"trigger": "GetIO"
+					},
+					"AwAAAAEQAAAAAAAAARAAAAAAAAABAAAAb/0PAAAAAAAA/Q8AAAAAAAAEAAAAR2V0Sf0PAAAAAAAABBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAACEAAAAAAAAAIQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					229,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAAMQAAAAAAAABRAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADEAAAAAAAAAMQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					230,
+					1,
+					"insert",
+					{
+						"characters": "MyDoc"
+					},
+					"BQAAAAQQAAAAAAAABRAAAAAAAAAAAAAABRAAAAAAAAAGEAAAAAAAAAAAAAAGEAAAAAAAAAcQAAAAAAAAAAAAAAcQAAAAAAAACBAAAAAAAAAAAAAACBAAAAAAAAAJEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEEAAAAAAAAAQQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					231,
+					1,
+					"insert",
+					{
+						"characters": "kSpace"
+					},
+					"BgAAAAkQAAAAAAAAChAAAAAAAAAAAAAAChAAAAAAAAALEAAAAAAAAAAAAAALEAAAAAAAAAwQAAAAAAAAAAAAAAwQAAAAAAAADRAAAAAAAAAAAAAADRAAAAAAAAAOEAAAAAAAAAAAAAAOEAAAAAAAAA8QAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAJEAAAAAAAAAkQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					233,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAABEQAAAAAAAAEhAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAREAAAAAAAABEQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					234,
+					1,
+					"insert",
+					{
+						"characters": "\nIM"
+					},
+					"BAAAABIQAAAAAAAAExAAAAAAAAAAAAAAExAAAAAAAAAjEAAAAAAAAAAAAAAjEAAAAAAAACQQAAAAAAAAAAAAACQQAAAAAAAAJRAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAASEAAAAAAAABIQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					235,
+					1,
+					"insert",
+					{
+						"characters": "gui"
+					},
+					"AwAAACUQAAAAAAAAJhAAAAAAAAAAAAAAJhAAAAAAAAAnEAAAAAAAAAAAAAAnEAAAAAAAACgQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAlEAAAAAAAACUQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					236,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":4,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							156,
+							235,
+							1
+						],
+						"trigger": "ImGui"
+					},
+					"BAAAACcQAAAAAAAAJxAAAAAAAAABAAAAaSYQAAAAAAAAJhAAAAAAAAABAAAAdSMQAAAAAAAAIxAAAAAAAAADAAAASU1nIxAAAAAAAAAoEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAoEAAAAAAAACgQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					237,
+					1,
+					"insert",
+					{
+						"characters": "::DOck"
+					},
+					"BgAAACgQAAAAAAAAKRAAAAAAAAAAAAAAKRAAAAAAAAAqEAAAAAAAAAAAAAAqEAAAAAAAACsQAAAAAAAAAAAAACsQAAAAAAAALBAAAAAAAAAAAAAALBAAAAAAAAAtEAAAAAAAAAAAAAAtEAAAAAAAAC4QAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAoEAAAAAAAACgQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					238,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							158,
+							237,
+							5
+						],
+						"trigger": "DockSpace"
+					},
+					"AwAAAC0QAAAAAAAALRAAAAAAAAABAAAAayoQAAAAAAAAKhAAAAAAAAADAAAARE9jKhAAAAAAAAA/EAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAuEAAAAAAAAC4QAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					239,
+					1,
+					"left_delete",
+					null,
+					"AQAAADQQAAAAAAAANBAAAAAAAAAKAAAASW1HdWlJRCBpZA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA0EAAAAAAAAD4QAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					240,
+					1,
+					"insert",
+					{
+						"characters": "dock"
+					},
+					"BAAAADQQAAAAAAAANRAAAAAAAAAAAAAANRAAAAAAAAA2EAAAAAAAAAAAAAA2EAAAAAAAADcQAAAAAAAAAAAAADcQAAAAAAAAOBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA0EAAAAAAAADQQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					242,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":1,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							161,
+							240,
+							4
+						],
+						"trigger": "dockspace_id"
+					},
+					"AgAAADQQAAAAAAAANBAAAAAAAAAEAAAAZG9jazQQAAAAAAAAQBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4EAAAAAAAADgQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					243,
+					1,
+					"insert",
+					{
+						"characters": ",Im"
+					},
+					"AwAAAEAQAAAAAAAAQRAAAAAAAAAAAAAAQRAAAAAAAABCEAAAAAAAAAAAAABCEAAAAAAAAEMQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABAEAAAAAAAAEAQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					244,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							163,
+							243,
+							3
+						],
+						"trigger": "ImVec2"
+					},
+					"AgAAAEEQAAAAAAAAQRAAAAAAAAACAAAASW1BEAAAAAAAAEcQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABDEAAAAAAAAEMQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					245,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAEcQAAAAAAAASRAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABHEAAAAAAAAEcQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					246,
+					1,
+					"insert",
+					{
+						"characters": "0.0f,0.0,f"
+					},
+					"CgAAAEgQAAAAAAAASRAAAAAAAAAAAAAASRAAAAAAAABKEAAAAAAAAAAAAABKEAAAAAAAAEsQAAAAAAAAAAAAAEsQAAAAAAAATBAAAAAAAAAAAAAATBAAAAAAAABNEAAAAAAAAAAAAABNEAAAAAAAAE4QAAAAAAAAAAAAAE4QAAAAAAAATxAAAAAAAAAAAAAATxAAAAAAAABQEAAAAAAAAAAAAABQEAAAAAAAAFEQAAAAAAAAAAAAAFEQAAAAAAAAUhAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIEAAAAAAAAEgQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					247,
+					2,
+					"left_delete",
+					null,
+					"AgAAAFEQAAAAAAAAURAAAAAAAAABAAAAZlAQAAAAAAAAUBAAAAAAAAABAAAALA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABSEAAAAAAAAFIQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					248,
+					1,
+					"insert",
+					{
+						"characters": "f"
+					},
+					"AQAAAFAQAAAAAAAAURAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABQEAAAAAAAAFAQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					250,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAFIQAAAAAAAAUxAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABSEAAAAAAAAFIQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					251,
+					1,
+					"insert",
+					{
+						"characters": " doc"
+					},
+					"BAAAAFMQAAAAAAAAVBAAAAAAAAAAAAAAVBAAAAAAAABVEAAAAAAAAAAAAABVEAAAAAAAAFYQAAAAAAAAAAAAAFYQAAAAAAAAVxAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABTEAAAAAAAAFMQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					254,
+					1,
+					"insert_completion",
+					{
+						"completion": "lsp_select_completion {\"index\":0,\"session_name\":\"clangd\"}",
+						"format": "command",
+						"keep_prefix": true,
+						"must_insert": false,
+						"query_change_id":
+						[
+							171,
+							251,
+							4
+						],
+						"trigger": "dockspace_flags"
+					},
+					"AgAAAFQQAAAAAAAAVBAAAAAAAAADAAAAZG9jVBAAAAAAAABjEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABXEAAAAAAAAFcQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					256,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAGQQAAAAAAAAZRAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABkEAAAAAAAAGQQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					258,
+					1,
+					"lsp_apply_document_edit",
+					{
+						"changes":
+						[
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 14,
+										"line": 106
+									},
+									"start":
+									{
+										"character": 14,
+										"line": 106
+									}
+								}
+							},
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 46,
+										"line": 109
+									},
+									"start":
+									{
+										"character": 46,
+										"line": 109
+									}
+								}
+							},
+							{
+								"newText": " ",
+								"range":
+								{
+									"end":
+									{
+										"character": 58,
+										"line": 109
+									},
+									"start":
+									{
+										"character": 58,
+										"line": 109
+									}
+								}
+							}
+						],
+						"process_placeholders": false,
+						"required_view_version": null
+					},
+					"AwAAAE0QAAAAAAAAThAAAAAAAAAAAAAAQRAAAAAAAABCEAAAAAAAAAAAAACPDwAAAAAAAJAPAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABlEAAAAAAAAGUQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					263,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAIQAAAAAAAAAhAAAAAAAAABAAAATw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAADEAAAAAAAAAMQAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					264,
+					1,
+					"insert",
+					{
+						"characters": "D"
+					},
+					"AQAAAAIQAAAAAAAAAxAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAACEAAAAAAAAAIQAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"COLOR",
+				"UI: Select Color Scheme"
+			],
+			[
+				"THEME",
+				"UI: Select Theme"
+			],
+			[
+				"debug",
+				"Debugger: Run Task"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"them",
+				"UI: Select Theme"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sele sc",
+				"UI: Select Color Scheme"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"PACK",
+				"Package Control: Remove Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"setting",
+				"Preferences: Settings"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"ls",
+				"Preferences: LSP Settings"
+			],
+			[
+				"clangd",
+				"Preferences: LSP-clangd Settings"
+			],
+			[
+				"lspset",
+				"Preferences: LSP Settings"
+			],
+			[
+				"LSP setting",
+				"Preferences: LSP Settings"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/Engine-Learning",
+		"/E/Engine-Learning/Dionysen",
+		"/E/Engine-Learning/Dionysen/src",
+		"/E/Engine-Learning/Dionysen/src/Dionysen",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/ImGui",
+		"/E/Engine-Learning/Dionysen/src/Platform",
+		"/E/Engine-Learning/Dionysen/src/Platform/OpenGL",
+		"/E/Engine-Learning/Editor",
+		"/E/Engine-Learning/Editor/src"
+	],
+	"file_history":
+	[
+		"/E/Engine-Learning/Editor/src/EditorLayer.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/OrthographicCameraController.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/OrthographicCameraController.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/ImGui/ImGuiLayer.cpp",
+		"/E/Engine-Learning/Editor/src/EditorLayer.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Core/Application.cpp",
+		"/E/Engine-Learning/Editor/src/EditorApp.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Core/EntryPoint.h",
+		"/E/Engine-Learning/Engine-Learning/Editor/src/EditorApp.cpp",
+		"/E/Engine-Learning/Engine-Learning/Dionysen/src/Dionysen/Renderer/Renderer2D.h",
+		"/E/Engine-Learning/Engine-Learning/Editor/src/EditorLayer.cpp",
+		"/E/Engine-Learning/Engine-Learning/Editor/src/EditorLayer.h",
+		"/E/Engine-Learning/Engine-Learning/test.sublime-project",
+		"/E/test.sublime-project",
+		"/E/Engine-Learning/Dionysen/src/Platform/OpenGL/OpenGLFramebuffer.cpp",
+		"/E/Engine-Learning/Editor/xmake.lua",
+		"/E/Engine-Learning/Dionysen/xmake.lua",
+		"/E/Engine-Learning/xmake.lua",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/Framebuffer.h",
+		"/E/Engine-Learning/Dionysen/src/Platform/OpenGL/OpenGLFramebuffer.h",
+		"/E/Engine-Learning/Dionysen/src/Platform/Windows/WindowsWindow.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Core/DionAssert.h",
+		"/E/Engine-Learning/Archives/Flybird/src/SandboxApp.cpp",
+		"/C/Users/dionysen/Hazel/Sandbox/src/ExampleLayer.cpp",
+		"/C/Users/dionysen/Hazel/Sandbox/src/ExampleLayer.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Scripting/ScriptGlue.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Scripting/ScriptEngine.cpp",
+		"/E/Engine-Learning/Editor/EditorApp.cpp",
+		"/C/Users/dionysen/Downloads/mono-main/winconfig.h",
+		"/E/Engine-Learning/Archives/Gobang/src/Chess.h",
+		"/E/Engine-Learning/Archives/Flybird/xmake.lua",
+		"/E/Engine-Learning/Archives/Gobang/xmake.lua",
+		"/E/Engine-Learning/Gobang/src/Player.cpp",
+		"/E/Engine-Learning/Archives/Flybird/src/Level.cpp",
+		"/E/Engine-Learning/Archives/Flybird/src/Player.cpp",
+		"/E/Engine-Learning/Archives/Flybird/src/GameLayer.cpp",
+		"/E/Engine-Learning/Gobang/src/Player.h",
+		"/E/Engine-Learning/Gobang/src/ChessBoard.cpp",
+		"/E/Engine-Learning/Gobang/src/GameLayer.cpp",
+		"/E/Engine-Learning/Gobang/src/ChessBoard.h",
+		"/E/Engine-Learning/Gobang/src/GameLayer.h",
+		"/E/Engine-Learning/Gobang/src/Online/TcpServer.cpp",
+		"/E/Engine-Learning/Gobang/src/Online/TcpServer.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Core/Application.h",
+		"/E/Engine-Learning/Gobang/src/Chess.h",
+		"/E/Engine-Learning/Gobang/xmake.lua",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/Renderer2D.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/Renderer.cpp",
+		"/E/Engine-Learning/Gobang/app.rc",
+		"/E/Engine-Learning/Demo/Trash/GameController.cpp",
+		"/E/Engine-Learning/Gobang/src/Chess.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/OrthographicCamera.cpp",
+		"/E/Engine-Learning/Gobang/src/SanboxApp.cpp",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/Renderer2D.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Event/MouseEvent.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Renderer/OrthographicCamera.h",
+		"/E/Engine-Learning/Dionysen/src/Platform/Windows/WindowsWindow.h",
+		"/E/Engine-Learning/Dionysen/src/Dionysen/Core/Window.h",
+		"/E/Engine-Learning/Dionysen/vendor/imgui/imgui.cpp",
+		"/E/Engine-Learning/Flybird/src/SandboxApp.cpp",
+		"/E/Engine-Learning/Flybird/xmake.lua",
+		"/E/Engine-Learning/Gobang/src/Sandbox2D.h",
+		"/E/Engine-Learning/Test/src/EditorLayer.cpp",
+		"/E/Engine-Learning/Flybird/src/Level.h",
+		"/E/Engine-Learning/Flybird/src/GameLayer.cpp",
+		"/E/Engine-Learning/Flybird/src/Player.cpp",
+		"/E/Engine-Learning/Flybird/src/Level.cpp",
+		"/E/Engine-Learning/Test/xmake.lua",
+		"/E/Engine-Learning/Dionysen/assets/shaders/Renderer2D_Quad.glsl",
+		"/E/Hazel1HourGame-master/Sandbox/src/ParticleSystem.cpp",
+		"/E/Engine-Learning/Flybird/src/Random.cpp",
+		"/E/Engine-Learning/Flybird/src/Random.h",
+		"/E/Engine-Learning/Flybird/src/Player.h",
+		"/E/Engine-Learning/.clangd",
+		"/E/Engine-Learning/Flybird/src/Color.h",
+		"/C/Users/dionysen/AppData/Roaming/Sublime Text/Packages/User/Terminal.sublime-settings",
+		"/C/Users/dionysen/AppData/Roaming/Sublime Text/Packages/User/TerminalinPackages/Default.sublime-keymap",
+		"/C/Users/dionysen/AppData/Roaming/Sublime Text/Packages/Terminal in Packages/terminalinpackages.sublime-settings",
+		"/C/Users/dionysen/AppData/Roaming/Sublime Text/Packages/TerminalinPackages/Default.sublime-keymap",
+		"/E/Engine-Learning/game/src/Level.cpp",
+		"/C/Users/dionysen/AppData/Roaming/Sublime Text/Packages/LSP/LSP.sublime-settings",
+		"/D/cpp/Hazel-master/Hazel/src/Hazel/Core/Application.cpp",
+		"/D/Engine-Learning/Dionysen/xmake.lua",
+		"/D/Engine-Learning/Dionysen/vendor/entt/xmake.lua",
+		"/D/cpp/Hazel-master/Hazel/src/Hazel/Scene/SceneSerializer.cpp",
+		"/D/Engine-Learning/Dionysen/vendor/entt/include/entt/entt.hpp",
+		"/D/Engine-Learning/xmake.lua",
+		"/D/cpp/Hazel-master/Hazel/src/Hazel/Core/Application.h",
+		"/D/cpp/Hazel-master/Hazel/vendor/filewatch/FileWatch.h",
+		"/D/cpp/Hazel-master/Hazel/src/Hazel/Core/Buffer.h",
+		"/D/cpp/Hazel-master/Hazel/src/Hazel/Core/FileSystem.cpp",
+		"/C/Users/dionysen/AppData/Roaming/Typora/themes/lapis-dark.css",
+		"/C/Users/dionysen/AppData/Roaming/Typora/themes/lapis.css",
+		"/C/Users/dionysen/Desktop/a.cpp",
+		"/D/Engine-Learning/Gobang/xmake.lua",
+		"/D/cpp/gobang/gobang-client/local/game.cpp",
+		"/D/cpp/Hazel-master/Sandbox/src/ExampleLayer.cpp",
+		"/D/cpp/Hazel-master/Sandbox/assets/shaders/Texture.glsl",
+		"/D/cpp/Hazel-master/Sandbox/src/Sandbox2D.cpp",
+		"/D/opengl_public/LearnOpenGL/src/3.model_loading/1.model_loading/1.model_loading.vs",
+		"/D/opengl_public/LearnOpenGL/includes/learnopengl/camera.h",
+		"/D/opengl_public/LearnOpenGL/src/3.model_loading/1.model_loading/1.model_loading.fs",
+		"/D/opengl_public/LearnOpenGL/includes/learnopengl/shader_c.h",
+		"/D/Test/text/xmake.lua",
+		"/C/Users/dionysen/vcpkg/README_zh_CN.md",
+		"/F/Planet/xmake.lua",
+		"/D/cpp/Hazel-master/Hazel/src/Platform/Windows/WindowsPlatformUtils.cpp",
+		"/C/Disks/scrcpy-win64-v2.3.1/scrcpy-console.bat",
+		"/C/Disks/scrcpy-win64-v2.3.1/scrcpy-no-mirror.bat",
+		"/C/Disks/scrcpy-win64-v2.3.1/scrcpy-otg.bat",
+		"/D/blog-source/source/_posts/note/Hexo/Keep_custom.md",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/Core/Timer.h",
+		"/C/Disks/Engine-Learning/Dionysen/xmake.lua",
+		"/C/Disks/Engine-Learning/Dionysen/src/dspch.h",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/Core/Application.h",
+		"/C/Disks/Engine-Learning/xmake.lua",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/Core/Log.h",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/Core/Application.cpp",
+		"/C/Disks/Engine-Learning/Dionysen/vendor/spdlog/include/spdlog/logger-inl.h",
+		"/C/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/algorithm",
+		"/C/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/cstdlib",
+		"/C/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/include/cstdint",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/Event/Event.h",
+		"/C/Disks/Engine-Learning/compile_commands.json",
+		"/C/Disks/Engine-Learning/Dionysen/src/Dionysen/ImGui/ImGuiLayer.h",
+		"/C/Disks/OpenGLFramework/Hazel-master/Sandbox/src/ExampleLayer.cpp",
+		"/C/Disks/OpenGLFramework/Hazel-master/Hazel/src/Hazel/ImGui/ImGuiLayer.cpp",
+		"/C/Disks/OpenGLFramework/Hazel-master/Hazel/src/Hazel/ImGui/ImGuiBuild.cpp"
+	],
+	"find":
+	{
+		"height": 39.2
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"m_ChessVector.back().GetColor()",
+			"positionStatus",
+			"currentChess.getColor()"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"color",
+			"m_Chesses",
+			"m_ChessVector.back().GetColor()"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Editor/src/EditorLayer.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 940,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								302,
+								302
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html, text.xml"
+								},
+								{
+									"rhs_empty": true,
+									"selector": "punctuation.accessor"
+								},
+								{
+									"characters": ".<>:\"/*",
+									"selector": "punctuation.accessor | (meta.preprocessor.include string - punctuation.definition.string.end)",
+									"server": "clangd"
+								}
+							],
+							"lsp_active": true,
+							"lsp_uri": "file:///E:/Engine-Learning/Editor/src/EditorLayer.h",
+							"show_definitions": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 186.4,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Editor/src/EditorLayer.cpp",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5317,
+								5317
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html, text.xml"
+								},
+								{
+									"rhs_empty": true,
+									"selector": "punctuation.accessor"
+								},
+								{
+									"characters": ".<>:\"/*",
+									"selector": "punctuation.accessor | (meta.preprocessor.include string - punctuation.definition.string.end)",
+									"server": "clangd"
+								}
+							],
+							"lsp_active": true,
+							"lsp_uri": "file:///E:/Engine-Learning/Editor/src/EditorLayer.cpp",
+							"show_definitions": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3993.2,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.2
+	},
+	"input":
+	{
+		"height": 59.2
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.Debugger":
+	{
+		"height": 228.0
+	},
+	"output.Debugger Console":
+	{
+		"height": 204.0
+	},
+	"output.Debugger Console(1)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)(5)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)(5)(6)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)(5)(6)(7)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)(5)(6)(7)(8)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Console(1)(2)(3)(4)(5)(6)(7)(8)(9)":
+	{
+		"height": 0.0
+	},
+	"output.Debugger Terminal":
+	{
+		"height": 342.399993896
+	},
+	"output.LSP Log Panel":
+	{
+		"height": 0.0
+	},
+	"output.Terminus":
+	{
+		"height": 218.0
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "test.sublime-project",
+	"replace":
+	{
+		"height": 75.2
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"lsp_show_inlay_hints": false
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

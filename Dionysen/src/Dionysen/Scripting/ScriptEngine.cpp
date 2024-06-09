@@ -162,7 +162,7 @@ namespace Dionysen
         InitMono();
         ScriptGlue::RegisterFunctions();
 
-        bool status = LoadAssembly("Test/Resources/Scripts/Dionysen-ScriptCore.dll");
+        bool status = LoadAssembly("Nut/Resources/Scripts/Dionysen-ScriptCore.dll");
         if (!status)
         {
             DION_CORE_ERROR("[ScriptEngine] Could not load Dionysen-ScriptCore assembly.");
@@ -194,7 +194,7 @@ namespace Dionysen
 
     void ScriptEngine::InitMono()
     {
-        mono_set_assemblies_path("Test/mono/lib");
+        mono_set_assemblies_path("Nut/mono/lib");
 
         if (s_Data->EnableDebugging)
         {
