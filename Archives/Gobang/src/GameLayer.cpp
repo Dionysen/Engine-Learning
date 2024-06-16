@@ -12,6 +12,7 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "imgui.h"
 #include "stb_image.h"
+#include <thread>
 
 using namespace Dionysen;
 
@@ -23,9 +24,10 @@ GameLayer::GameLayer()
     CreateCamera(window.GetHeight() * 1.5f, window.GetHeight());
     CalculateCameraPosition();
 
+
     // Icon
     int            width, height, channels;
-    unsigned char* image = stbi_load("./Gobang/assets/gobang.png", &width, &height, &channels, 4);
+    unsigned char* image = stbi_load("./Archives/Gobang/assets/gobang.png", &width, &height, &channels, 4);
     if (image)
     {
         GLFWimage images[1];
@@ -43,8 +45,8 @@ GameLayer::GameLayer()
 
     // ChessEngine
     ChessEngine::beforeStart();
-    ChessEngine::setLevel(4);
-    ChessEngine::reset(ChessEngine::HUMAN);
+    ChessEngine::setLevel(1);
+    // ChessEngine::reset(ChessEngine::HUMAN);
 }
 
 void GameLayer::OnAttach()
@@ -106,18 +108,66 @@ void GameLayer::OnImGuiRender()
         {
             m_Status = Status::Gaming;
             m_ChessBoard.Init();
+            InitGameEngine();
         }
+
+        ImGui::Separator();
+        ImGui::Text("Setting");
+        ImGui::SetNextItemWidth(120.0f);
+        if (ImGui::Combo("Diffculty", &m_Diffculty, m_Diffculties, IM_ARRAYSIZE(m_Diffculties)))
+        {
+            ChessEngine::setLevel(m_Diffculty + 1);
+        }
+
+        ImGui::SetNextItemWidth(120.0f);
+        ImGui::Combo("First", &m_CurrentFirst, m_First, IM_ARRAYSIZE(m_First));
+
         break;
     case Status::Gaming:
+        if (ImGui::Button("Replay", { 120.0f, 50.0f }))
+        {
+            if (m_ComputerDroped)
+            {
+                m_ChessBoard.Init();
+                m_Turn = ChessColor::Black;
+                InitGameEngine();
+            }
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Withdraw", { 120.0f, 50.0f }))
+        {
+            if (m_ComputerDroped)
+            {
+                ChessEngine::takeBack();
+                m_ChessBoard.Withdraw();
+            }
+        }
+
+        if (ImGui::Button("Concede", { 120.0f, 50.0f }))
+        {
+            if (m_Turn == ChessColor::Black)
+                m_ChessBoard.m_Winner = ChessColor::White;
+            else
+                m_ChessBoard.m_Winner = ChessColor::Black;
+        }
+
+        ImGui::SameLine();
         if (ImGui::Button("MainMenu", { 120.0f, 50.0f }))
         {
             m_Status = Status::MainMenu;
         }
-        if (ImGui::Button("Replay", { 120.0f, 50.0f }))
+
+        ImGui::Separator();
+        ImGui::Text("Setting");
+        ImGui::SetNextItemWidth(120.0f);
+        if (ImGui::Combo("Diffculty", &m_Diffculty, m_Diffculties, IM_ARRAYSIZE(m_Diffculties)))
         {
-            m_ChessBoard.Init();
-            m_Turn = ChessColor::Black;
+            ChessEngine::setLevel(m_Diffculty + 1);
         }
+
+        ImGui::SetNextItemWidth(120.0f);
+        ImGui::Combo("First", &m_CurrentFirst, m_First, IM_ARRAYSIZE(m_First));
+
         break;
     case Status::GameOver:
         if (ImGui::Button("Replay", { 120.0f, 50.0f }))
@@ -125,22 +175,43 @@ void GameLayer::OnImGuiRender()
             m_ChessBoard.Init();
             m_Status = Status::Gaming;
             m_Turn   = ChessColor::Black;
+            InitGameEngine();
         }
+
+        ImGui::Separator();
+        ImGui::Text("Setting");
+        ImGui::SetNextItemWidth(120.0f);
+        if (ImGui::Combo("Diffculty", &m_Diffculty, m_Diffculties, IM_ARRAYSIZE(m_Diffculties)))
+        {
+            ChessEngine::setLevel(m_Diffculty + 1);
+        }
+
+        ImGui::SetNextItemWidth(120.0f);
+        ImGui::Combo("First", &m_CurrentFirst, m_First, IM_ARRAYSIZE(m_First));
+
         break;
     }
 
+    m_ChessBoard.OnImGuiRender();
 
-    if (ImGui::Button("Exit Game"))
+
+    ImGui::Separator();
+    if (ImGui::Button("Exit Game", { 120.0f, 50.0f }))
     {
         auto& app = Application::Get();
         app.Close();
     }
-
+    ImGui::Spacing();
     // =========== Debug =============
     ImGui::SeparatorText("Debug (Player Don't Touch)");
-    ImGui::DragFloat3("Camera Position", glm::value_ptr(m_CameraPosition));
-    m_Camera->SetPosition(m_CameraPosition);
 
+    if (ImGui::TreeNodeEx("Camera", ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        ImGui::DragFloat3("Camera Position", glm::value_ptr(m_CameraPosition));
+        m_Camera->SetPosition(m_CameraPosition);
+        ImGui::TreePop();
+        ImGui::Spacing();
+    }
     if (ImGui::TreeNodeEx("Renderer Status", ImGuiTreeNodeFlags_DefaultOpen))
     {
         // Render Status
@@ -182,6 +253,7 @@ void GameLayer::OnImGuiRender()
                 m_Status = Status::Gaming;
                 m_ChessBoard.Init();
                 m_Turn = ChessColor::Black;
+                InitGameEngine();
             }
             ImGui::SameLine();
             if (ImGui::Button("No"))
@@ -193,6 +265,14 @@ void GameLayer::OnImGuiRender()
 
             ImGui::End();
         }
+    }
+
+    if (!m_ComputerDroped)
+    {
+        ImGui::Begin("HINT");
+        ImGui::Text("Computer is thinking ... ");
+        ImGui::Text("Please wait a moment.");
+        ImGui::End();
     }
 }
 
@@ -221,6 +301,9 @@ bool GameLayer::OnMouseMoved(MouseMovedEvent& e)
         return false;
     }
 
+    if (!m_ComputerDroped)
+        return false;
+
     int chessX = static_cast<int>(std::round(MouseToWorldPosition().x));
     int chessY = static_cast<int>(std::round(MouseToWorldPosition().y));
 
@@ -244,27 +327,88 @@ bool GameLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
         return false;
     }
 
+    if (!m_ComputerDroped)
+        return false;
+
     int chessX = static_cast<int>(std::round(MouseToWorldPosition().x));
     int chessY = static_cast<int>(std::round(MouseToWorldPosition().y));
 
     if (chessX >= -7 && chessX <= 7 && chessY >= -7 && chessY <= 7)
     {
-        if (m_ChessBoard.Drop(chessX, chessY, m_Turn))
+
+        if (m_CurrentFirst == 0)
         {
-            if (m_Turn == ChessColor::Black)
+            if (m_ChessBoard.Drop(chessX, chessY, m_Turn))
             {
-                // ChessEngine::nextStep(chessX + 7, chessY + 7);
-                // m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::White);
-                m_Turn = ChessColor::White;
+                if (m_Turn == ChessColor::Black)
+                {
+                    if (!m_ComputerThread.joinable())
+                    {
+                        m_ComputerThread = std::thread(&GameLayer::ComputerDrop, this, chessX, chessY);
+                        m_ComputerDroped = false;
+                        m_ComputerThread.detach();
+                    }
+                    // m_Turn = ChessColor::White;
+                }
+                else
+                {
+                    m_Turn = ChessColor::Black;
+                }
             }
-            else
+        }
+        else
+        {
+            if (m_ChessBoard.Drop(chessX, chessY, m_Turn))
             {
-                m_Turn = ChessColor::Black;
+                if (m_Turn == ChessColor::White)
+                {
+                    if (!m_ComputerThread.joinable())
+                    {
+                        m_ComputerThread = std::thread(&GameLayer::ComputerDrop, this, chessX, chessY);
+                        m_ComputerDroped = false;
+                        m_ComputerThread.detach();
+                    }
+                    // m_Turn = ChessColor::White;
+                }
+                else
+                {
+                    m_Turn = ChessColor::White;
+                }
             }
         }
     }
 
     return false;
+}
+
+void GameLayer::InitGameEngine()
+{
+    if (m_CurrentFirst == 1)
+    {
+        ChessEngine::reset(1);
+        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
+        m_Turn = ChessColor::White;
+    }
+    else
+    {
+        ChessEngine::reset(0);
+    }
+    ChessEngine::setLevel(m_Diffculty + 1);
+}
+
+void GameLayer::ComputerDrop(int x, int y)
+{
+    ChessEngine::nextStep(x + 7, y + 7);
+    if (m_Turn == ChessColor::Black)
+    {
+        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::White);
+    }
+    else if (m_Turn == ChessColor::White)
+    {
+        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
+    }
+
+    m_ComputerDroped = true;
 }
 
 glm::vec4 GameLayer::MouseToWorldPosition()
@@ -298,6 +442,7 @@ void GameLayer::CreateCamera(uint32_t width, uint32_t height)
     m_Camera = CreateScope<OrthographicCamera>(left, right, bottom, top);
 }
 
+// Recalculate the camera positon after creating a camera
 void GameLayer::CalculateCameraPosition()
 {
     auto& window = Application::Get().GetWindow();
@@ -311,5 +456,8 @@ void GameLayer::CalculateCameraPosition()
 
     // normalize, devide w
     worldPos /= worldPos.w;
-    m_CameraPosition = worldPos;
+    m_CameraPosition   = worldPos;
+    m_CameraPosition.z = 0.5f;
+
+    m_Camera->SetPosition(m_CameraPosition);
 }

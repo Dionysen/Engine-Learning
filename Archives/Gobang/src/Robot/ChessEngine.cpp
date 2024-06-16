@@ -38,6 +38,7 @@ namespace ChessEngine
 #define HASH_ITEM_INDEX_MASK (0xffff)
 #define MAX_SCORE (10000000)
 #define MIN_SCORE (-10000000)
+
     int DEPTH = 7;
 
     struct Pattern
@@ -46,14 +47,14 @@ namespace ChessEngine
         int    score;
     };
 
-    // ģʽ
+
     vector<Pattern> patterns = {
         { "11111", 50000 }, { "011110", 4320 }, { "011100", 720 }, { "001110", 720 }, { "011010", 720 }, { "010110", 720 },
         { "11110", 720 },   { "01111", 720 },   { "11011", 720 },  { "10111", 720 },  { "11101", 720 },  { "001100", 120 },
         { "001010", 120 },  { "010100", 120 },  { "000100", 20 },  { "001000", 20 },
     };
 
-    // ������ֵĹ�ϣ����Ŀ
+
     struct HashItem
     {
         long long checksum;
@@ -72,18 +73,17 @@ namespace ChessEngine
     long long currentZobristValue;
     HashItem  hashItems[HASH_ITEM_INDEX_MASK + 1];
     char      board[BOARD_WIDTH][BOARD_WIDTH];
-    int       winner;  // ʤ����
+    int       winner;
 
     stack<Position> moves;
-    int             scores[2][72];  // ������ַ�����2����ɫ72�У���������Ʋ�ࣩ
-    int             allScore[2];    // ���������֣�2����ɫ��
+    int             scores[2][72];
+    int             allScore[2];
 
-    // ac�㷨ʵ�ֵ�ģʽƥ����
+
     ACSearcher acs;
 
     PossiblePositionManager ppm;
 
-    // ��¼�������ڹ�ϣ����
     void recordHashItem(int depth, int score, HashItem::Flag flag)
     {
         int       index     = (int)(currentZobristValue & HASH_ITEM_INDEX_MASK);
@@ -100,7 +100,6 @@ namespace ChessEngine
         phashItem->depth    = depth;
     }
 
-    // �ڹ�ϣ����ȡ�ü���õľ���ķ���
     int getHashItemScore(int depth, int alpha, int beta)
     {
         int       index     = (int)(currentZobristValue & HASH_ITEM_INDEX_MASK);
@@ -131,13 +130,12 @@ namespace ChessEngine
         return UNKNOWN_SCORE;
     }
 
-    // ����64λ�����
+
     long long random64()
     {
         return (long long)rand() | ((long long)rand() << 15) | ((long long)rand() << 30) | ((long long)rand() << 45) | ((long long)rand() << 60);
     }
 
-    // ����zobrist��ֵ
     void randomBoardZobristValue()
     {
         int i, j, k;
@@ -153,16 +151,15 @@ namespace ChessEngine
         }
     }
 
-    // ��ʼ����ʼ�����zobristֵ
+
     void initCurrentZobristValue()
     {
         currentZobristValue = random64();
     }
 
-    // �洢�������������һ�����ӵ�λ��
+
     Position searchResult;
 
-    // ����λ�����֣�����board�ǵ�ǰ���̣�p��λ�ã�role�����ֽ�ɫ������role��Human��������������֣�����role��computer���Ƕ��ڵ�������
     int evaluatePoint(char board[BOARD_WIDTH][BOARD_WIDTH], Position p)
     {
         int          result;
@@ -247,7 +244,6 @@ namespace ChessEngine
         return result;
     }
 
-    // ����������������һ����������
     int evaluate(char board[BOARD_WIDTH][BOARD_WIDTH], Role role)
     {
 
@@ -273,28 +269,27 @@ namespace ChessEngine
         unsigned int i, j;
         int          role = HUMAN;
 
-        // ��
         for (i = 0; i < BOARD_WIDTH; i++)
         {
 
             lines[0].push_back(board[i][p.y] == role ? '1' : board[i][p.y] == 0 ? '0' : '2');
             lines1[0].push_back(board[i][p.y] == role ? '2' : board[i][p.y] == 0 ? '0' : '1');
         }
-        // ��
+
         for (i = 0; i < BOARD_WIDTH; i++)
         {
 
             lines[1].push_back(board[p.x][i] == role ? '1' : board[p.x][i] == 0 ? '0' : '2');
             lines1[1].push_back(board[p.x][i] == role ? '2' : board[p.x][i] == 0 ? '0' : '1');
         }
-        // ��б��
+
         for (i = p.x - min(p.x, p.y), j = p.y - min(p.x, p.y); i < BOARD_WIDTH && j < BOARD_WIDTH; i++, j++)
         {
 
             lines[2].push_back(board[i][j] == role ? '1' : board[i][j] == 0 ? '0' : '2');
             lines1[2].push_back(board[i][j] == role ? '2' : board[i][j] == 0 ? '0' : '1');
         }
-        // б��
+
         for (i = p.x + min(p.y, BOARD_WIDTH - 1 - p.x), j = p.y - min(p.y, BOARD_WIDTH - 1 - p.x); i < BOARD_WIDTH && j < BOARD_WIDTH; i--, j++)
         {
 
@@ -307,7 +302,6 @@ namespace ChessEngine
         memset(lineScore, 0, sizeof(lineScore));
         memset(line1Score, 0, sizeof(line1Score));
 
-        // �������
         for (i = 0; i < 4; i++)
         {
             vector<int> result = acs.ACSearch(lines[i]);
@@ -327,20 +321,18 @@ namespace ChessEngine
         int b = BOARD_WIDTH + p.x;
         int c = 2 * BOARD_WIDTH + (p.y - p.x + 10);
         int d = 2 * BOARD_WIDTH + 21 + (p.x + p.y - 4);
-        // ��ȥ��ǰ�ļ�¼
+
         for (i = 0; i < 2; i++)
         {
             allScore[i] -= scores[i][a];
             allScore[i] -= scores[i][b];
         }
 
-        // scores˳�� �����ᡢ\��/
         scores[0][a] = lineScore[0];
         scores[1][a] = line1Score[0];
         scores[0][b] = lineScore[1];
         scores[1][b] = line1Score[1];
 
-        // �����µļ�¼
         for (i = 0; i < 2; i++)
         {
             allScore[i] += scores[i][a];
@@ -374,7 +366,6 @@ namespace ChessEngine
         }
     }
 
-    // alpha-beta��֦
     int abSearch(char board[BOARD_WIDTH][BOARD_WIDTH], int depth, int alpha, int beta, Role currentSearchRole)
     {
         HashItem::Flag flag  = HashItem::ALPHA;
@@ -408,7 +399,6 @@ namespace ChessEngine
         set<Position>        possiblePositions;
         const set<Position>& tmpPossiblePositions = ppm.GetCurrentPossiblePositions();
 
-        // �Ե�ǰ���ܳ��ֵ�λ�ý��д�������
         set<Position>::iterator iter;
         for (iter = tmpPossiblePositions.begin(); iter != tmpPossiblePositions.end(); iter++)
         {
@@ -421,12 +411,10 @@ namespace ChessEngine
 
             possiblePositions.erase(possiblePositions.begin());
 
-            // ��������
             board[p.x][p.y] = currentSearchRole;
             currentZobristValue ^= boardZobristValue[currentSearchRole - 1][p.x][p.y];
             updateScore(board, p);
 
-            // ���ӿ��ܳ��ֵ�λ��
             p.score = 0;
             ppm.AddPossiblePositions(board, p);
 
@@ -436,10 +424,8 @@ namespace ChessEngine
                 // cout << "score(" << p.x << "," << p.y << "):" << val << endl;
             }
 
-            // ȡ����һ�����ӵĿ��ܳ��ֵ�λ��
             ppm.Rollback();
 
-            // ȡ������
             board[p.x][p.y] = 0;
             currentZobristValue ^= boardZobristValue[currentSearchRole - 1][p.x][p.y];
             updateScore(board, p);
@@ -470,7 +456,6 @@ namespace ChessEngine
         return alpha;
     }
 
-    // �����һ�����߷�
     Position getAGoodMove(char board[BOARD_WIDTH][BOARD_WIDTH])
     {
         int score = abSearch(board, DEPTH, MIN_SCORE, MAX_SCORE, COMPUTOR);
@@ -485,7 +470,6 @@ namespace ChessEngine
         return searchResult;
     }
 
-    // ��ʼ�����������������ͷ�ֵ
     void init()
     {
         vector<string> patternStrs;
@@ -494,7 +478,6 @@ namespace ChessEngine
             patternStrs.push_back(patterns[i].pattern);
         }
 
-        // ��ʼ��ACSearcher
         acs.LoadPattern(patternStrs);
         acs.BuildGotoTable();
         acs.BuildFailTable();
@@ -503,7 +486,6 @@ namespace ChessEngine
         currentZobristValue = random64();
     }
 
-    // �������
     void printBoard(char board[BOARD_WIDTH][BOARD_WIDTH])
     {
         int i, j;
@@ -517,9 +499,6 @@ namespace ChessEngine
         }
     }
 
-    ////�����Ƕ���ӿڵ�ʵ��
-
-    // �ڿ�ʼ֮ǰ��һЩ��ʼ������
     void beforeStart()
     {
         memset(board, EMPTY, BOARD_WIDTH * BOARD_WIDTH * sizeof(char));
@@ -527,7 +506,6 @@ namespace ChessEngine
         init();
     }
 
-    // �ж��Ƿ���ĳһ��Ӯ��
     int isSomeOneWin()
     {
         if (winner == HUMAN)
@@ -538,7 +516,6 @@ namespace ChessEngine
         return -1;
     }
 
-    // ����
     string takeBack()
     {
         if (moves.size() < 2)
@@ -592,7 +569,6 @@ namespace ChessEngine
         return resultStr;
     }
 
-    // ���֮ǰ�ļ�¼�����¿���
     string reset(int role)
     {
         char chs[15 * 15 + 1];
@@ -601,7 +577,6 @@ namespace ChessEngine
         memset(allScore, 0, sizeof(allScore));
 
         winner = -1;
-        // ��ʼ�������ܷ���Ϊ0
 
         while (!moves.empty())
         {
@@ -614,18 +589,15 @@ namespace ChessEngine
             hashItems[i].flag = HashItem::EMPTY;
         }
 
-        // ��ʼ������
         memset(board, EMPTY, BOARD_WIDTH * BOARD_WIDTH * sizeof(char));
 
-        // �����һ�ֿ��ܳ��ֵ�λ��
         ppm.RemoveAll();
 
-        // �û�����
         if (role == 0)
         {
             // do nothing
         }
-        // ��������
+
         else if (role == 1)
         {
             currentZobristValue ^= boardZobristValue[COMPUTOR - 1][7][7];
@@ -637,7 +609,6 @@ namespace ChessEngine
 
             ppm.AddPossiblePositions(board, Position(7, 7));
 
-            // ��һ��Ĭ����7��7��λ��
             chs[7 + 7 * 15] = '2';
         }
 
@@ -646,19 +617,17 @@ namespace ChessEngine
         return string(chs);
     }
 
-    // �������ò���
+
     void setLevel(int level)
     {
         DEPTH = level;
     }
 
-    // ȡ�øղŵ����µ���һ�����ӵ�λ��
     Position getLastPosition()
     {
         return searchResult;
     }
 
-    // �������壬�������̣���������
     string nextStep(int x, int y)
     {
 
@@ -668,7 +637,6 @@ namespace ChessEngine
         currentZobristValue ^= boardZobristValue[HUMAN - 1][x][y];
         updateScore(board, Position(x, y));
 
-        // ���ӿ��ܳ��ֵ�λ��
         ppm.AddPossiblePositions(board, Position(x, y));
 
         Position result = getAGoodMove(board);
@@ -677,10 +645,9 @@ namespace ChessEngine
         currentZobristValue ^= boardZobristValue[COMPUTOR - 1][result.x][result.y];
         updateScore(board, result);
 
-        // ���ӿ��ܳ��ֵ�λ��
+
         ppm.AddPossiblePositions(board, result);
 
-        // ��˫����δ����ʤ�����������λ�ü��뵽��ʷ��¼��
         if (winner == -1)
             moves.push(Position(result.x, result.y));
 
@@ -699,7 +666,6 @@ namespace ChessEngine
         return resultStr;
     }
 
-    // ��ȡ����
     vector<Position> getChessManual()
     {
         vector<Position> result;

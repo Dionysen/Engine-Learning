@@ -26,6 +26,9 @@ class GameLayer : public Dionysen::Layer
     bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
   private:
+    void InitGameEngine();
+    void ComputerDrop(int x, int y);
+
     glm::vec4 MouseToWorldPosition();
 
     void CalculateCameraPosition();
@@ -38,15 +41,25 @@ class GameLayer : public Dionysen::Layer
         GameOver = 2,
     };
 
-    glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
+    glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.5f };
 
     Status m_Status = Status::MainMenu;
 
     ChessColor m_Turn = ChessColor::Black;
+
+    int         m_Diffculty      = 0;
+    const char* m_Diffculties[7] = { "Very Easy", "Easy", "Normal", "Hard", "Very Hard", "Expert", "Nightmare" };
+
+    const char* m_First[2]     = { "You", "Computer" };
+    int         m_CurrentFirst = 0;
+
 
     void CreateCamera(uint32_t width, uint32_t height);
 
     ChessBoard m_ChessBoard;
 
     Scope<OrthographicCamera> m_Camera;
+
+    std::thread m_ComputerThread;
+    bool        m_ComputerDroped = true;
 };

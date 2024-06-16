@@ -15,6 +15,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/glm.hpp>
 
 #include "MSDFData.h"
 
@@ -506,6 +507,12 @@ namespace Dionysen
         s_Data.LineVertexCount += 2;
     }
 
+    void Renderer2D::DrawLine(const glm::vec3& p0, const glm::vec3& p1, const float width, const glm::vec4& color, int entityID)
+    {
+        glm::vec3 direction = p1 - p0;
+        DrawRotatedQuad({ (p0 + p1) / 2.0f }, { glm::distance(p0, p1), width * 0.5f }, glm::degrees(std::atan2(direction.y, direction.x)), color);
+    }
+
     void Renderer2D::DrawRect(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color, int entityID)
     {
         glm::vec3 p0 = glm::vec3(position.x - size.x * 0.5f, position.y - size.y * 0.5f, position.z);
@@ -650,6 +657,14 @@ namespace Dionysen
                 x += fsScale * advance + textParams.Kerning;
             }
         }
+    }
+
+    void Renderer2D::DrawString(const std::string& string, Ref<Font> font, const glm::vec3& position, const glm::vec2& size,
+                                const TextParams& textParams, int entityID)
+    {
+        glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+
+        DrawString(string, font, transform, textParams);
     }
 
     void Renderer2D::DrawString(const std::string& string, const glm::mat4& transform, const TextComponent& component, int entityID)

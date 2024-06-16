@@ -32,6 +32,17 @@ class Chess
         return m_Color;
     }
 
+    // For displaying step
+    glm::vec4 GetRealReverseColor()
+    {
+        if (m_Color == ChessColor::White)
+            return { 0.0f, 0.0f, 0.0f, 1.0f };
+        else if (m_Color == ChessColor::Black)
+            return { 1.0f, 1.0f, 1.0f, 1.0f };
+        else
+            return { 0.0f, 0.0f, 0.0f, 0.0f };
+    }
+
     uint32_t GetX()
     {
         return m_X;
