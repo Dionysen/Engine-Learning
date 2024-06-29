@@ -6,6 +6,7 @@
 #include "ChessBoard.h"
 #include "MouseEvent.h"
 #include "OrthographicCamera.h"
+#include "ComputerPlayer.h"
 
 using namespace Dionysen;
 
@@ -62,4 +63,6 @@ class GameLayer : public Dionysen::Layer
 
     std::thread m_ComputerThread;
     bool        m_ComputerDroped = true;
+
+    ComputerPlayer m_Computer;
 };

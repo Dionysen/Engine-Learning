@@ -2,6 +2,7 @@
 #include "PossiblePositionManager.h"
 
 #include <cassert>
+#include "PossiblePosition.h"
 
 bool IsInBoard(int x, int y)
 {

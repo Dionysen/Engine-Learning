@@ -160,7 +160,7 @@ namespace ChessEngine
 
     Position searchResult;
 
-    int evaluatePoint(char board[BOARD_WIDTH][BOARD_WIDTH], Position p)
+    int EvaluatePoint(char board[BOARD_WIDTH][BOARD_WIDTH], Position p)
     {
         int          result;
         unsigned int i, j;
@@ -402,7 +402,7 @@ namespace ChessEngine
         set<Position>::iterator iter;
         for (iter = tmpPossiblePositions.begin(); iter != tmpPossiblePositions.end(); iter++)
         {
-            possiblePositions.insert(Position(iter->x, iter->y, evaluatePoint(board, *iter)));
+            possiblePositions.insert(Position(iter->x, iter->y, EvaluatePoint(board, *iter)));
         }
 
         while (!possiblePositions.empty())

@@ -3,9 +3,9 @@
 
 enum class ChessColor
 {
-    None  = 0,
-    Black = 1,
-    White = 2,
+    Black = 0,
+    White = 1,
+    None  = 2,
 };
 
 class Chess

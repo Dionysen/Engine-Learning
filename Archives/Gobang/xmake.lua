@@ -17,17 +17,20 @@ target("Gobang")
 
     add_includedirs(
         "src",
-        "src/Robot"
+        "src/Robot",
+        "src/Computer"
     )
 
     add_headerfiles(
         "src/*.h",
-        "src/Robot/*.h"
+        "src/Robot/*.h",
+        "src/computer/*.h"
     )
 
     add_files(
         "src/*.cpp",
-        "src/Robot/*.cpp"
+        "src/Robot/*.cpp",
+        "src/Computer/*.cpp"
     )
 
     if is_plat("windows") then

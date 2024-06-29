@@ -24,6 +24,9 @@ GameLayer::GameLayer()
     CreateCamera(window.GetHeight() * 1.5f, window.GetHeight());
     CalculateCameraPosition();
 
+    window.SetVSync(false);
+
+    m_Computer.Init();
 
     // Icon
     int            width, height, channels;
@@ -116,7 +119,8 @@ void GameLayer::OnImGuiRender()
         ImGui::SetNextItemWidth(120.0f);
         if (ImGui::Combo("Diffculty", &m_Diffculty, m_Diffculties, IM_ARRAYSIZE(m_Diffculties)))
         {
-            ChessEngine::setLevel(m_Diffculty + 1);
+            // ChessEngine::setLevel(m_Diffculty + 1);
+            m_Computer.SetLevel(m_Diffculty + 1);
         }
 
         ImGui::SetNextItemWidth(120.0f);
@@ -162,7 +166,8 @@ void GameLayer::OnImGuiRender()
         ImGui::SetNextItemWidth(120.0f);
         if (ImGui::Combo("Diffculty", &m_Diffculty, m_Diffculties, IM_ARRAYSIZE(m_Diffculties)))
         {
-            ChessEngine::setLevel(m_Diffculty + 1);
+            // ChessEngine::setLevel(m_Diffculty + 1);
+            m_Computer.SetLevel(m_Diffculty + 1);
         }
 
         ImGui::SetNextItemWidth(120.0f);
@@ -383,29 +388,41 @@ bool GameLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
 
 void GameLayer::InitGameEngine()
 {
-    if (m_CurrentFirst == 1)
-    {
-        ChessEngine::reset(1);
-        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
-        m_Turn = ChessColor::White;
-    }
-    else
-    {
-        ChessEngine::reset(0);
-    }
-    ChessEngine::setLevel(m_Diffculty + 1);
+    // if (m_CurrentFirst == 1)
+    // {
+    //     ChessEngine::reset(1);
+    //     m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
+    //     m_Turn = ChessColor::White;
+    // }
+    // else
+    // {
+    //     ChessEngine::reset(0);
+    // }
+    // ChessEngine::setLevel(m_Diffculty + 1);
+
+    m_Computer.Init();
 }
 
 void GameLayer::ComputerDrop(int x, int y)
 {
-    ChessEngine::nextStep(x + 7, y + 7);
+    // ChessEngine::nextStep(x + 7, y + 7);
+    // if (m_Turn == ChessColor::Black)
+    // {
+    //     m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::White);
+    // }
+    // else if (m_Turn == ChessColor::White)
+    // {
+    //     m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
+    // }
+
+    m_Computer.NextStep(x + 7, y + 7);
     if (m_Turn == ChessColor::Black)
     {
-        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::White);
+        m_ChessBoard.Drop(m_Computer.GetLastChess().GetX() - 7, m_Computer.GetLastChess().GetY() - 7, ChessColor::White);
     }
     else if (m_Turn == ChessColor::White)
     {
-        m_ChessBoard.Drop(ChessEngine::getLastPosition().x - 7, ChessEngine::getLastPosition().y - 7, ChessColor::Black);
+        m_ChessBoard.Drop(m_Computer.GetLastChess().GetX() - 7, m_Computer.GetLastChess().GetY() - 7, ChessColor::Black);
     }
 
     m_ComputerDroped = true;
