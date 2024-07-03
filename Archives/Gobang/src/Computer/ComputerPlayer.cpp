@@ -36,10 +36,12 @@ namespace Computer
     void ComputerPlayer::Withdraw()
     {
     }
+
     Chess ComputerPlayer::NextStep(Position pos)
     {
         return Chess(0, 0, ChessColor::None, 0);
     }
+
     Chess ComputerPlayer::NextStep(int x, int y)
     {
         m_ChessBoard[x][y] = ChessColor::Black;
@@ -51,13 +53,13 @@ namespace Computer
         std::vector<Chess> moves = GenerateMoves(ChessColor::White);
         for (auto& move : moves)
         {
-            // 执行走法
+
             m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::White;
             UpdateHash(move);
 
             int score = AlphaBetaSearch(m_MaxDepth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), ChessColor::Black);
 
-            // 撤销走法
+
             m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::None;
             UpdateHash(move);
 
@@ -73,9 +75,11 @@ namespace Computer
 
         return bestChess;
     }
+
     void ComputerPlayer::RePlay(First fisrt)
     {
     }
+
     Chess ComputerPlayer::GetLastChess()
     {
         return m_ChessVector.back();
@@ -216,7 +220,7 @@ namespace Computer
             for (int j = 0; j < BOARD_WIDTH; ++j)
             {
                 if (m_ChessBoard[i][j] != ChessColor::None)
-                {                                           // 如果该位置不是空的
+                {
                     ChessColor piece = m_ChessBoard[i][j];  // 0 = empty, 1 = black, 2 = white
                     m_ZobristValue ^= m_ZobristTable[i][j][(uint64_t)piece];
                 }
@@ -244,14 +248,14 @@ namespace Computer
             int maxEval = std::numeric_limits<int>::min();
             for (auto& move : moves)
             {
-                // 执行走法
+
                 m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::White;
                 UpdateHash(move);
 
                 int eval = AlphaBetaSearch(depth - 1, alpha, beta, ChessColor::Black);
                 maxEval  = std::max(maxEval, eval);
 
-                // 撤销走法
+
                 m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::None;
                 UpdateHash(move);
             }
@@ -262,7 +266,7 @@ namespace Computer
             int minEval = std::numeric_limits<int>::max();
             for (auto& move : moves)
             {
-                // 执行走法
+
                 m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::Black;
                 UpdateHash(move);
 
@@ -270,7 +274,7 @@ namespace Computer
                 minEval  = std::min(minEval, eval);
                 beta     = std::min(beta, eval);
 
-                // 撤销走法
+
                 m_ChessBoard[move.GetX()][move.GetY()] = ChessColor::None;
                 UpdateHash(move);
             }
@@ -280,13 +284,12 @@ namespace Computer
 
     bool ComputerPlayer::IsTerminalState(int depth)
     {
-        // 如果达到最大搜索深度
+
         if (depth == 0)
         {
             return true;
         }
 
-        // 检查是否有一方获胜
         ChessColor winner = CheckWinner();
         if (winner != ChessColor::None)
         {

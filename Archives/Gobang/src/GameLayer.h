@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Buffer.h"
 #include "Layer.h"
 #include <Dionysen.h>
+#include <sysinfoapi.h>
 #include "ChessBoard.h"
 #include "MouseEvent.h"
 #include "OrthographicCamera.h"
@@ -64,5 +64,5 @@ class GameLayer : public Dionysen::Layer
     std::thread m_ComputerThread;
     bool        m_ComputerDroped = true;
 
-    ComputerPlayer m_Computer;
+    Computer::ComputerPlayer m_Computer;
 };

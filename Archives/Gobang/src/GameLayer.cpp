@@ -5,7 +5,6 @@
 #include "ChessBoard.h"
 #include "ChessEngine.h"
 #include "Layer.h"
-#include "Log.h"
 #include "MouseEvent.h"
 #include "Renderer2D.h"
 #include "TimeStep.h"
@@ -24,7 +23,7 @@ GameLayer::GameLayer()
     CreateCamera(window.GetHeight() * 1.5f, window.GetHeight());
     CalculateCameraPosition();
 
-    window.SetVSync(false);
+    window.SetVSync(true);
 
     m_Computer.Init();
 
@@ -33,7 +32,7 @@ GameLayer::GameLayer()
     unsigned char* image = stbi_load("./Archives/Gobang/assets/gobang.png", &width, &height, &channels, 4);
     if (image)
     {
-        GLFWimage images[1];
+        GLFWimage images[1]{};
         images[0].width  = width;
         images[0].height = height;
         images[0].pixels = image;
