@@ -27,7 +27,7 @@ target("Nut")
 
     add_headerfiles(
         "./src/*.h", 
-        "./shaders/*", 
+        "./assets/shaders/*", 
         "./src/Panel/*.h"
     )
 

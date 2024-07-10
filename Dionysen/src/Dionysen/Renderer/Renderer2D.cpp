@@ -206,10 +206,18 @@ namespace Dionysen
         for (uint32_t i = 0; i < s_Data.MaxTextureSlots; i++)
             samplers[i] = i;
 
+#ifdef DION_PLATFORM_MACOSX
+        s_Data.QuadShader   = Shader::Create("Dionysen/assets/shaders_mac/Renderer2D_Quad.glsl");
+        s_Data.CircleShader = Shader::Create("Dionysen/assets/shaders_mac/Renderer2D_Circle.glsl");
+        s_Data.LineShader   = Shader::Create("Dionysen/assets/shaders_mac/Renderer2D_Line.glsl");
+        s_Data.TextShader   = Shader::Create("Dionysen/assets/shaders_mac/Renderer2D_Text.glsl");
+#elif DION_PLATFORM_WINDOWS
         s_Data.QuadShader   = Shader::Create("Dionysen/assets/shaders/Renderer2D_Quad.glsl");
         s_Data.CircleShader = Shader::Create("Dionysen/assets/shaders/Renderer2D_Circle.glsl");
         s_Data.LineShader   = Shader::Create("Dionysen/assets/shaders/Renderer2D_Line.glsl");
         s_Data.TextShader   = Shader::Create("Dionysen/assets/shaders/Renderer2D_Text.glsl");
+#endif
+
 
         // Set first texture slot to 0
         s_Data.TextureSlots[0] = s_Data.WhiteTexture;

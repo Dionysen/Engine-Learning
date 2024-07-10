@@ -35,7 +35,7 @@ add_includedirs(
     "./src/Dionysen/UI",
     "./src/Dionysen/Debug",
     "./src/Platform/Windows",
-    "./src/Platform/OpenGL",
+    "./src/GraphicAPI/OpenGL",
     "./vendor/mono/include",
     { public = true }
 )
@@ -55,7 +55,7 @@ add_headerfiles(
     "./src/Dionysen/UI/*.h",
     "./src/Dionysen/Debug/*.h",
     "./src/Platform/Windows/*.h",
-    "./src/Platform/OpenGL/*.h")
+    "./src/GraphicAPI/OpenGL/*.h")
 
 add_files(
     "./src/Dionysen/Core/*.cpp",
@@ -65,7 +65,7 @@ add_files(
     "./src/Dionysen/Math/*.cpp",
     "./src/Dionysen/Scripting/*.cpp",
     "./src/Dionysen/Project/*.cpp",
-    "./src/Platform/OpenGL/*.cpp",
+    "./src/GraphicAPI/OpenGL/*.cpp",
     "./src/Platform/Linux/*.cpp",
     "./src/Platform/Windows/*.cpp",
     "./src/Platform/MacOS/*.cpp"

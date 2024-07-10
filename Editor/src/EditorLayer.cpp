@@ -7,7 +7,6 @@
 #include "glm/fwd.hpp"
 #include "glm/gtc/type_ptr.hpp"
 #include "imgui.h"
-#include "spdlog/fmt/fmt.h"
 
 
 namespace Dionysen
@@ -150,7 +149,6 @@ namespace Dionysen
             // uint32_t textureID = m_CheckboardTexture->GetRendererID();
             uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
             ImGui::Image((void*)textureID, ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-            ;
             ImGui::End();
         }
         else

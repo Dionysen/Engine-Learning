@@ -11,7 +11,6 @@
 
 namespace Dionysen
 {
-
     float Time::GetTime()
     {
         return glfwGetTime();
