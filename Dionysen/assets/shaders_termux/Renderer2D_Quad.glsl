@@ -1,7 +1,7 @@
 // Basic Texture Shader
 
 #type vertex
-#version 450 core
+#version 430 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -25,7 +25,7 @@ struct VertexOutput
 layout (location = 0) out VertexOutput Output;
 layout (location = 3) out flat float v_TexIndex;
 layout (location = 4) out flat int v_EntityID;
-out vec2 v_ScreenPos;
+
 void main()
 {
 	Output.Color = a_Color;
@@ -35,11 +35,11 @@ void main()
 	v_EntityID = a_EntityID;
 
 	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
-	v_ScreenPos = gl_Position.xy;
+
 }
 
 #type fragment
-#version 450 core
+#version 430 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
@@ -54,7 +54,6 @@ struct VertexOutput
 layout (location = 0) in VertexOutput Input;
 layout (location = 3) in flat float v_TexIndex;
 layout (location = 4) in flat int v_EntityID;
-in vec2 v_ScreenPos;
 
 layout (binding = 0) uniform sampler2D u_Textures[32];
 
@@ -100,11 +99,7 @@ void main()
 
 	if (texColor.a == 0.0)
 		discard;
-
-	float dist = 1.0f - distance(v_ScreenPos * 0.8f, vec2(0.0f));
-	dist = clamp(dist, 0.0f, 1.0f);
-	dist = sqrt(dist);
-
-	o_Color = texColor * dist;
+		
+	o_Color = texColor;
 	o_EntityID = v_EntityID;
 }
