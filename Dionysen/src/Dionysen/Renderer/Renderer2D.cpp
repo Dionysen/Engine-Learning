@@ -251,6 +251,14 @@ namespace Dionysen
         StartBatch();
     }
 
+    void Renderer2D::BeginScene(FPSCamera& camera)
+    {
+        s_Data.CameraBuffer.ViewProjection = camera.GetViewProjectionMatrix();
+        s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
+
+        StartBatch();
+    }
+
     void Renderer2D::BeginScene(const EditorCamera& camera)
     {
         s_Data.CameraBuffer.ViewProjection = camera.GetViewProjection();

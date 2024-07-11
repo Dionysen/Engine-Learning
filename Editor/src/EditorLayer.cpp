@@ -8,13 +8,13 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "imgui.h"
 
-
 namespace Dionysen
 {
     EditorLayer::EditorLayer()
         : Layer("Editor")
         , m_CameraController(1280.0f / 720.0f)
     {
+        Application::Get().GetWindow().SetVSync(false);
     }
 
     EditorLayer::~EditorLayer()
