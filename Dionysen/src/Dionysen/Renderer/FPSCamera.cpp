@@ -61,10 +61,13 @@ namespace Dionysen
         dispatcher.Dispatch<KeyReleasedEvent>(DION_BIND_EVENT_FN(FPSCamera::OnKeyReleased));
         dispatcher.Dispatch<MouseMovedEvent>(DION_BIND_EVENT_FN(FPSCamera::OnMouseMoved));
         dispatcher.Dispatch<MouseScrolledEvent>(DION_BIND_EVENT_FN(FPSCamera::OnMouseScrolled));
+        dispatcher.Dispatch<WindowResizeEvent>(DION_BIND_EVENT_FN(FPSCamera::OnWindowResized));
     }
 
     void FPSCamera::OnResize(float width, float height)
     {
+        m_ViewportWidth  = width;
+        m_ViewportHeight = height;
     }
 
     bool FPSCamera::OnKeyReleased(KeyReleasedEvent& e)
@@ -123,6 +126,12 @@ namespace Dionysen
                 m_FOV = 45.0f;
         }
         return true;
+    }
+
+    bool FPSCamera::OnWindowResized(WindowResizeEvent& e)
+    {
+        OnResize(e.GetWidth(), e.GetHeight());
+        return false;
     }
 
     void FPSCamera::MovePosition(float velocity)

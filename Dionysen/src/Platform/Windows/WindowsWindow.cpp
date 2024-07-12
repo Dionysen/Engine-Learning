@@ -157,6 +157,13 @@ namespace Dionysen
             MouseMovedEvent event((float)xPos, (float)yPos);
             data.EventCallback(event);
         });
+
+        // glfwSetFramebufferSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
+        //     WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+        //    FramebufferResizeEvent event((float)width, (float)height);
+        //    data.EventCallback(event);
+        //});
     }
 
     void WindowsWindow::Shutdown()

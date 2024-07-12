@@ -62,10 +62,16 @@ namespace Dionysen
             updateCameraVectors();
         }
 
+        inline glm::vec3 GetPosition() const
+        {
+            return m_Position;
+        }
+
       protected:
         bool OnKeyReleased(KeyReleasedEvent& e);
         bool OnMouseMoved(MouseMovedEvent& e);
         bool OnMouseScrolled(MouseScrolledEvent& e);
+        bool OnWindowResized(WindowResizeEvent& e);
         void MovePosition(float velocity);
 
       private:
@@ -84,7 +90,7 @@ namespace Dionysen
         float     m_MovementSpeed;
         float     m_MouseSensitivity     = 0.2f;
         glm::vec2 m_InitialMousePosition = { 0.0f, 0.0f };
-        bool      m_IsControlEnabled     = false;
+        bool      m_IsControlEnabled     = true;
         // euler Angles
         float m_Pitch = 0.0f, m_Yaw = 0.0f;
 

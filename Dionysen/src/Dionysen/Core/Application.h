@@ -74,6 +74,7 @@ namespace Dionysen
             m_Running = false;
             return true;
         }
+
         void SubmitToMainThread(const std::function<void()>& function);
 
       protected:

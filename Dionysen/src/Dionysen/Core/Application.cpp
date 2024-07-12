@@ -15,7 +15,8 @@
 #include "Renderer.h"
 #include "OpenGLShader.h"
 #include <filesystem>
-namespace Dionysen {
+namespace Dionysen
+{
     Application* Application::s_Instance = nullptr;
 
     Application::Application(const ApplicationSpecification& specification)
@@ -133,7 +134,8 @@ namespace Dionysen {
 
     bool Application::OnKeyPressed(KeyPressedEvent& e)
     {
-
+        if (e.GetKeyCode() == Key::Escape)
+            this->Close();
         return true;
     }
 }  // namespace Dionysen

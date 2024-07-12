@@ -24,20 +24,19 @@ namespace Dionysen
         void OnEvent(Event& e) override;
 
       private:
-        OrthographicCameraController m_CameraController;
-
         FPSCamera m_Camera;
 
-        // Temp
+        Ref<VertexArray> m_CubeVA;
+        Ref<IndexBuffer> m_IndexTriangle;
+        Ref<Texture2D>   m_WallTexture;
+        Ref<Texture2D>   m_FaceTexture;
 
-        Ref<VertexArray> m_SquareVA;
-        Ref<Shader>      m_FlatColorShader;
-        Ref<Framebuffer> m_Framebuffer;
+        Ref<Shader> m_CubeShader;
+        Ref<Shader> m_LightShader;
 
-        Ref<Texture2D> m_CheckboardTexture;
+        Ref<VertexArray> m_LightVA;
 
         glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
-
-        glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
+        glm::vec3 m_LightPos    = { 1.2f, 1.0f, 2.0f };
     };
 }  // namespace Dionysen
