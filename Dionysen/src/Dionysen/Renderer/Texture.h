@@ -32,6 +32,15 @@ namespace Dionysen
         bool        GenerateMips = true;
     };
 
+
+    enum class TextureType
+    {
+        DIFFUSE = 0,
+        SPECULAR,
+        NORMAL,
+        HEIGHT
+    };
+
     class Texture
     {
       public:
@@ -48,6 +57,9 @@ namespace Dionysen
         virtual void SetData(void* data, uint32_t size) = 0;
 
         virtual void Bind(uint32_t slot = 0) const = 0;
+
+        virtual void        SetType(TextureType type) = 0;
+        virtual TextureType GetType() const           = 0;
 
         virtual bool IsLoaded() const = 0;
 

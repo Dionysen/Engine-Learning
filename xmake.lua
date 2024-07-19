@@ -2,7 +2,7 @@ add_rules("mode.debug", "mode.release")
 add_rules("plugin.vsxmake.autoupdate")
 
 -- requires
-add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
+add_requires("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp","assimp")
 -- add_requires("mono", "qt5widgets", "qt5core", "qt5gui")
 -- set c++
 set_languages("cxx20")

@@ -1,6 +1,8 @@
 #pragma once
 #include "Event.h"
+#include "Framebuffer.h"
 #include "Layer.h"
+#include "OrthographicCameraController.h"
 #include "Shader.h"
 #include "TimeStep.h"
 #include "VertexArray.h"

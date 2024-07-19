@@ -4,7 +4,6 @@
 
 #include "Shader.h"
 #include "Base.h"
-#include "Log.h"
 #include "Renderer.h"
 #include "RendererAPI.h"
 #include "OpenGLShader.h"
@@ -25,6 +24,22 @@ namespace Dionysen
         DION_CORE_ASSERT(false, "Unknown RendererAPI!");
         return nullptr;
     }
+
+    Ref<Dionysen::Shader> Dionysen::Shader::Create(const std::string& vertPath, const std::string& fragPath)
+    {
+        switch (Renderer::GetAPI())
+        {
+        case RendererAPI::API::None:
+            DION_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
+            return nullptr;
+        case RendererAPI::API::OpenGL:
+            return CreateRef<OpenGLShader>(vertPath, fragPath);
+        }
+
+        DION_CORE_ASSERT(false, "Unknown RendererAPI!");
+        return nullptr;
+    }
+
     Ref<Dionysen::Shader> Dionysen::Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
     {
         switch (Renderer::GetAPI())

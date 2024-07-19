@@ -132,6 +132,41 @@ namespace Dionysen
         m_Name         = filepath.substr(lastSlash, count);
     }
 
+    OpenGLShader::OpenGLShader(const std::string& vertexPath, const std::string& fragmentPath)
+    {
+        Utils::CreateCacheDirectoryIfNeeded();
+
+        std::unordered_map<GLenum, std::string> shaderSources;
+
+        std::string vertexSource                               = ReadFile(vertexPath);
+        shaderSources[Utils::ShaderTypeFromString("vertex")]   = vertexSource;
+        std::string fragmentSource                             = ReadFile(fragmentPath);
+        shaderSources[Utils::ShaderTypeFromString("fragment")] = fragmentSource;
+
+        Timer timer;
+        if (m_EnableVulkan)
+        {
+            CompileOrGetVulkanBinaries(shaderSources);
+            CompileOrGetOpenGLBinaries();
+            CreateProgram();
+            if (m_IsLogShader)
+                DION_CORE_WARN("SPIR-V Shader creation took {0} ms", timer.ElapsedMillis());
+        }
+        else
+        {
+            CompileGLSL(shaderSources);
+            if (m_IsLogShader)
+                DION_CORE_WARN("OpenGL Shader creation took {0} ms", timer.ElapsedMillis());
+        }
+
+        // Extract name from filepath
+        auto lastSlash = vertexPath.find_last_of("/\\");
+        lastSlash      = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+        auto lastDot   = vertexPath.rfind('.');
+        auto count     = lastDot == std::string::npos ? vertexPath.size() - lastSlash : lastDot - lastSlash;
+        m_Name         = vertexPath.substr(lastSlash, count);
+    }
+
     OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
         : m_Name(name)
     {

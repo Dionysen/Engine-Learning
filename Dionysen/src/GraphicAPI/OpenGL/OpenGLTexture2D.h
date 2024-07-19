@@ -56,6 +56,16 @@ namespace Dionysen
             return m_RendererID == other.GetRendererID();
         }
 
+        virtual TextureType GetType() const override
+        {
+            return m_Type;
+        }
+
+        virtual void SetType(TextureType type) override
+        {
+            m_Type = type;
+        }
+
       private:
         TextureSpecification m_Specification;
 
@@ -64,6 +74,8 @@ namespace Dionysen
         uint32_t    m_Width, m_Height;
         uint32_t    m_RendererID;
         GLenum      m_InternalFormat, m_DataFormat;
+
+        TextureType m_Type;
     };
 }  // namespace Dionysen
 

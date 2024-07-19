@@ -16,7 +16,7 @@ add_deps("imguizmo")
 includes("./vendor/msdf-atlas-gen/xmake.lua")
 add_deps("msdf-atlas-gen")
 
-add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp")
+add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp")
 
 -- src
 add_includedirs(
