@@ -38,6 +38,7 @@
 #include "UniformBuffer.h"
 #include "Texture.h"
 #include "VertexArray.h"
+#include "Model.h"
 
 #include "OrthographicCamera.h"
 

@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Model.h"
-#include <string>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <cstdint>
 #include "Base.h"
 #include "Texture.h"
 #include "VertexArray.h"
@@ -38,7 +38,7 @@ namespace Dionysen
       public:
         // mesh Data
         std::vector<Vertex>         vertices;
-        std::vector<unsigned int>   indices;
+        std::vector<uint32_t>       indices;
         std::vector<Ref<Texture2D>> textures;
 
         Ref<VertexArray>  m_MeshVAO;
@@ -46,10 +46,10 @@ namespace Dionysen
         Ref<IndexBuffer>  m_MeshIBO;
 
         // constructor
-        OpenGLMesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Ref<Texture2D>> textures);
+        OpenGLMesh(std::vector<Vertex> vertices, std::vector<uint32_t> indices, std::vector<Ref<Texture2D>> textures);
 
         // render the mesh
-        virtual void Draw(Shader& shader);
+        virtual void Draw(const Ref<Shader>& shader);
 
       private:
         // initializes all the buffer objects/arrays
@@ -60,11 +60,11 @@ namespace Dionysen
     class OpenGLModel : public Model
     {
       public:
-        OpenGLModel(std::string& filePath);
+        OpenGLModel(std::string filePath);
         ~OpenGLModel() = default;
 
-        virtual void loadModel(std::string const& path) override;
-        virtual void Draw(Shader& shader) override;
+        virtual void loadModel(std::string const path) override;
+        virtual void Draw(const Ref<Shader>& shader) override;
 
         OpenGLMesh processMesh(aiMesh* mesh, const aiScene* scene);
         void       processNode(aiNode* node, const aiScene* scene);

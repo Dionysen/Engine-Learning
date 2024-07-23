@@ -1,7 +1,7 @@
 #include "EditorLayer.h"
 #include "Application.h"
 #include "RenderCommand.h"
-#include "Texture.h"
+#include "Shader.h"
 #include "glm/fwd.hpp"
 #include "imgui.h"
 
@@ -22,12 +22,8 @@ namespace Dionysen
 
     void EditorLayer::OnAttach()
     {
-        m_WallTexture = Texture2D::Create("OpenGL/assets/textures/container2_specular.png");
-        m_FaceTexture = Texture2D::Create("OpenGL/assets/textures/container2.png");
-
-        m_CubeShader  = Shader::Create("OpenGL/assets/shaders/multilight.vert", "OpenGL/assets/shaders/multilight.frag");
-        m_LightShader = Shader::Create("OpenGL/assets/shaders/light.glsl");
-
+        m_CubeShader = Shader::Create("OpenGL/assets/shaders/nanosuit.glsl");
+        m_Model      = Model::Create("OpenGL/assets/models/nanosuit/nanosuit.obj");
         Application::Get().GetWindow().ResizeWindow(800, 600);
     }
 
@@ -39,8 +35,14 @@ namespace Dionysen
     {
         m_Camera.OnUpdate(ts);
 
-        RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+        RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
         RenderCommand::Clear();
+
+        m_CubeShader->Bind();
+        m_CubeShader->SetMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
+        m_CubeShader->SetMat4("u_Transform", glm::mat4(1.0f));
+
+        m_Model->Draw(m_CubeShader);
     }
     void EditorLayer::OnImGuiRender()
     {

@@ -6,7 +6,6 @@
 #define ENGINE_LEARNING_SHADER_H
 
 #include "string"
-#include "glm/glm.hpp"
 #include "Base.h"
 #include "dspch.h"
 namespace Dionysen

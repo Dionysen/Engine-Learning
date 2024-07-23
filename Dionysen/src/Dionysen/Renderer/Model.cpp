@@ -3,11 +3,11 @@
 #include "Renderer.h"
 #include "RendererAPI.h"
 #include "OpenGLModel.h"
-#include <string>
+
 
 namespace Dionysen
 {
-    Ref<Model> Model::Create(std::string& filePath)
+    Ref<Model> Model::Create(std::string filePath)
     {
         switch (Renderer::GetAPI())
         {

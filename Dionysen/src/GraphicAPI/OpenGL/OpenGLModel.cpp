@@ -1,10 +1,9 @@
 
-#include "Log.h"
-
-#include "Texture.h"
-#include <string>
 #include "OpenGLModel.h"
 #include "RenderCommand.h"
+#include "VertexArray.h"
+#include <cstdint>
+
 
 namespace Dionysen
 {
@@ -51,16 +50,20 @@ namespace Dionysen
         this->indices  = indices;
         this->textures = textures;
 
+        // std::cout << "Create OpenGLMesh: " << "\tvertices:" << this->vertices.size() << "\tindices:" << this->indices.size()
+        //           << "\ttextures:" << this->textures.size() << std::endl;
+
         SetupMesh();
     }
 
-    void OpenGLMesh::Draw(Shader& shader)
+    void OpenGLMesh::Draw(const Ref<Shader>& shader)
     {
         // bind appropriate textures
         unsigned int diffuseNr  = 1;
         unsigned int specularNr = 1;
         unsigned int normalNr   = 1;
         unsigned int heightNr   = 1;
+
         for (unsigned int i = 0; i < textures.size(); i++)
         {
             glActiveTexture(GL_TEXTURE0 + i);  // active proper texture unit before binding
@@ -77,7 +80,7 @@ namespace Dionysen
                 number = std::to_string(heightNr++);  // transfer unsigned int to string
 
             // now set the sampler to the correct texture unit
-            shader.SetInt((TextureTypeToString(name) + number).c_str(), i);
+            shader->SetInt((TextureTypeToString(name) + number).c_str(), i);
             // and finally bind the texture
             glBindTexture(GL_TEXTURE_2D, textures[i]->GetRendererID());
         }
@@ -91,19 +94,24 @@ namespace Dionysen
 
     void OpenGLMesh::SetupMesh()
     {
-        m_MeshVBO = VertexBuffer::Create(vertices.size());
-        m_MeshVBO->SetData(&vertices[0], vertices.size() * sizeof(Vertex));
+        std::cout << "SetupMesh: "
+                  << "\tvertices:" << this->vertices.size() << "\tindices:" << this->indices.size() << "\ttextures:" << this->textures.size()
+                  << std::endl;
+
+
+        m_MeshVBO = VertexBuffer::Create(reinterpret_cast<float*>((&vertices[0])), vertices.size() * sizeof(Vertex));
 
         BufferLayout layout = {
             { ShaderDataType::Float3, "a_Position" }, { ShaderDataType::Float3, "a_Normal" },    { ShaderDataType::Float2, "a_TexCoords" },
-            { ShaderDataType::Float3, "a_Tangent" },  { ShaderDataType::Float3, "a_Bitangent" }, { ShaderDataType::Float4, "a_BoneIDs" },
-            { ShaderDataType::Float4, "a_Weights" },
+            { ShaderDataType::Float3, "a_Tangent" },  { ShaderDataType::Float3, "a_Bitangent" }, { ShaderDataType::Int4, "a_BoneIDs" },
+            { ShaderDataType::Int4, "a_Weights" },
         };
         m_MeshVBO->SetLayout(layout);
 
-        m_MeshIBO = IndexBuffer::Create(&indices[0], indices.size() * sizeof(unsigned int));
-
+        m_MeshVAO = VertexArray::Create();
         m_MeshVAO->AddVertexBuffer(m_MeshVBO);
+
+        m_MeshIBO = IndexBuffer::Create((uint32_t*)&indices[0], indices.size() * sizeof(uint32_t));
         m_MeshVAO->SetIndexBuffer(m_MeshIBO);
     }
 
@@ -112,12 +120,12 @@ namespace Dionysen
     // ==================================================================================
 
 
-    OpenGLModel::OpenGLModel(std::string& filePath)
+    OpenGLModel::OpenGLModel(std::string filePath)
     {
         loadModel(filePath);
     }
 
-    void OpenGLModel::Draw(Shader& shader)
+    void OpenGLModel::Draw(const Ref<Shader>& shader)
     {
         for (unsigned int i = 0; i < m_Meshes.size(); i++)
             m_Meshes[i].Draw(shader);
@@ -158,11 +166,11 @@ namespace Dionysen
     OpenGLMesh OpenGLModel::processMesh(aiMesh* mesh, const aiScene* scene)
     {  // data to fill
         std::vector<Vertex>         vertices;
-        std::vector<unsigned int>   indices;
+        std::vector<uint32_t>       indices;
         std::vector<Ref<Texture2D>> textures;
 
         // walk through each of the mesh's vertices
-        for (unsigned int i = 0; i < mesh->mNumVertices; i++)
+        for (uint32_t i = 0; i < mesh->mNumVertices; i++)
         {
             Vertex    vertex;
             glm::vec3 vector;  // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3
@@ -236,7 +244,6 @@ namespace Dionysen
         textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
         // return a mesh object created from the extracted mesh data
-
         return OpenGLMesh(vertices, indices, textures);
     }
     void OpenGLModel::processNode(aiNode* node, const aiScene* scene)
@@ -255,7 +262,7 @@ namespace Dionysen
         }
     }
 
-    void OpenGLModel::loadModel(std::string const& path)
+    void OpenGLModel::loadModel(std::string const path)
     {  // read file via ASSIMP
         Assimp::Importer importer;
         const aiScene*   scene =

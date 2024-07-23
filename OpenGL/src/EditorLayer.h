@@ -1,6 +1,8 @@
 #pragma once
+#include "Base.h"
 #include "Event.h"
 #include "Layer.h"
+#include "Model.h"
 #include "Shader.h"
 #include "TimeStep.h"
 #include "VertexArray.h"
@@ -23,6 +25,9 @@ namespace Dionysen
 
       private:
         FPSCamera m_Camera;
+
+        Ref<Model> m_Model;
+
 
         Ref<VertexArray> m_CubeVA;
         Ref<IndexBuffer> m_IndexTriangle;

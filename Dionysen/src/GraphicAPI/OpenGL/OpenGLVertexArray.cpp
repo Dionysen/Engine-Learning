@@ -119,8 +119,6 @@ namespace Dionysen
 
     void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
     {
-
-
         glBindVertexArray(m_RendererID);
         indexBuffer->Bind();
 
