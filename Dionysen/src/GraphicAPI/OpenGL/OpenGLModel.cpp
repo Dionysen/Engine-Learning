@@ -111,7 +111,7 @@ namespace Dionysen
         m_MeshVAO = VertexArray::Create();
         m_MeshVAO->AddVertexBuffer(m_MeshVBO);
 
-        m_MeshIBO = IndexBuffer::Create((uint32_t*)&indices[0], indices.size() * sizeof(uint32_t));
+        m_MeshIBO = IndexBuffer::Create((uint32_t*)&indices[0], indices.size());
         m_MeshVAO->SetIndexBuffer(m_MeshIBO);
     }
 
