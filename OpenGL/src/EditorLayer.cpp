@@ -1,5 +1,6 @@
 #include "EditorLayer.h"
 #include "Application.h"
+#include "FPSCamera.h"
 #include "RenderCommand.h"
 #include "Shader.h"
 #include "glm/ext/matrix_transform.hpp"
@@ -16,7 +17,6 @@ namespace Dionysen
     {
         auto& app = Application::Get();
         glfwSetInputMode(static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow()), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
 
     }  // namespace Dionysen
 
@@ -82,6 +82,7 @@ namespace Dionysen
         glStencilFunc(GL_ALWAYS, 0, 0xFF);
         glEnable(GL_DEPTH_TEST);
     }
+
     void EditorLayer::OnImGuiRender()
     {
         ImGui::Begin("Press \"C\" to switch the cursor's visibility.");
@@ -99,6 +100,7 @@ namespace Dionysen
 
         ImGui::End();
     }
+
     void EditorLayer::OnEvent(Event& e)
     {
         m_Camera.OnEvent(e);
