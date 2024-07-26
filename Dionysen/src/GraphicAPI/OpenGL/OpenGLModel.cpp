@@ -3,11 +3,8 @@
 #include "Log.h"
 #include "RenderCommand.h"
 #include "VertexArray.h"
-#include "OpenGLDebug.h"
 #include <cstdint>
 #include <string>
-#include <fstream>
-
 
 namespace Dionysen
 {

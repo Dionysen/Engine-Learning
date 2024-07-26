@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "RenderCommand.h"
 #include "Shader.h"
+#include "glm/ext/matrix_transform.hpp"
 #include "glm/fwd.hpp"
 #include "imgui.h"
 
@@ -24,7 +25,9 @@ namespace Dionysen
 
     void EditorLayer::OnAttach()
     {
-        m_CubeShader = Shader::Create("OpenGL/assets/shaders/unnormmapping.glsl");
+
+        m_SingleColorShader = Shader::Create("OpenGL/assets/shaders/single_color.glsl");
+        m_CubeShader        = Shader::Create("OpenGL/assets/shaders/unnormmapping.glsl");
         // m_CubeShader = Shader::Create("OpenGL/assets/shaders/nanosuit.glsl");
         m_Model = Model::Create("OpenGL/assets/models/cyborg/cyborg.obj");
         // m_Model = Model::Create("OpenGL/assets/models/nanosuit/nanosuit.obj");
@@ -54,7 +57,7 @@ namespace Dionysen
         m_CubeShader->SetFloat3("u_Light.specular", { 1.0f, 1.0f, 1.0f });
 
         glm::mat4 model = glm::mat4(1.0f);
-        model           = glm::scale(model, glm::vec3(0.1f));
+        model           = glm::scale(model, glm::vec3(0.5f));
         model           = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
         m_CubeShader->SetMat4("u_Transform", model);
 
@@ -63,7 +66,25 @@ namespace Dionysen
         else
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+
+        glStencilFunc(GL_ALWAYS, 1, 0xFF);
+        glStencilMask(0xFF);
         m_Model->Draw(m_CubeShader);
+
+        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+        glStencilMask(0x00);
+        glDisable(GL_DEPTH_TEST);
+        m_SingleColorShader->Bind();
+        float scale = 1.0f;
+        model       = glm::scale(model, glm::vec3(scale, scale, scale));
+        m_SingleColorShader->SetMat4("model", model);
+        m_SingleColorShader->SetMat4("view", m_Camera.GetViewMatrix());
+        m_SingleColorShader->SetMat4("projection", m_Camera.GetProjectionMatrix());
+        m_SingleColorShader->SetFloat3("u_ViewPos", m_Camera.GetPosition());
+        m_Model->Draw(m_SingleColorShader);
+        glStencilMask(0xFF);
+        glStencilFunc(GL_ALWAYS, 0, 0xFF);
+        glEnable(GL_DEPTH_TEST);
     }
     void EditorLayer::OnImGuiRender()
     {

@@ -38,6 +38,7 @@ namespace Dionysen
 
         Ref<Shader> m_CubeShader;
         Ref<Shader> m_LightShader;
+        Ref<Shader> m_SingleColorShader;
 
         Ref<VertexArray> m_LightVA;
 
