@@ -28,8 +28,9 @@ namespace Dionysen
 
         Ref<Model> m_Model;
 
-        bool isLine          = false;
-        bool m_NormalMapping = false;
+        bool m_isLine          = false;
+        bool m_isNormalMapping = true;
+        bool m_isVSync         = true;
 
         Ref<VertexArray> m_CubeVA;
         Ref<IndexBuffer> m_IndexTriangle;

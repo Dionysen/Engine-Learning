@@ -15,7 +15,6 @@ namespace Dionysen
         , m_Camera({ 0.0f, 0.0f, 1.0f })
     {
         auto& app = Application::Get();
-        app.GetWindow().SetVSync(true);
         glfwSetInputMode(static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow()), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 
@@ -50,7 +49,7 @@ namespace Dionysen
 
         m_CubeShader->SetFloat3("u_ViewPos", m_Camera.GetPosition());
 
-        m_CubeShader->SetInt("u_NormalMapping", m_NormalMapping);
+        m_CubeShader->SetInt("u_NormalMapping", m_isNormalMapping);
         m_CubeShader->SetFloat3("u_LightPos", m_LightPos);
         m_CubeShader->SetFloat3("u_Light.ambient", { 0.2f, 0.2f, 0.2f });
         m_CubeShader->SetFloat3("u_Light.diffuse", { 0.5f, 0.5f, 0.5f });
@@ -61,11 +60,10 @@ namespace Dionysen
         model           = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
         m_CubeShader->SetMat4("u_Transform", model);
 
-        if (isLine)
+        if (m_isLine)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         else
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
 
         glStencilFunc(GL_ALWAYS, 1, 0xFF);
         glStencilMask(0xFF);
@@ -75,8 +73,6 @@ namespace Dionysen
         glStencilMask(0x00);
         glDisable(GL_DEPTH_TEST);
         m_SingleColorShader->Bind();
-        float scale = 1.0f;
-        model       = glm::scale(model, glm::vec3(scale, scale, scale));
         m_SingleColorShader->SetMat4("model", model);
         m_SingleColorShader->SetMat4("view", m_Camera.GetViewMatrix());
         m_SingleColorShader->SetMat4("projection", m_Camera.GetProjectionMatrix());
@@ -88,12 +84,18 @@ namespace Dionysen
     }
     void EditorLayer::OnImGuiRender()
     {
-        ImGui::Begin("FPS");
+        ImGui::Begin("Press \"C\" to switch the cursor's visibility.");
+
         ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
-        ImGui::Checkbox("Line Mode", &isLine);
+        ImGui::Checkbox("Line Mode", &m_isLine);
         ImGui::DragFloat3("Light pos", glm::value_ptr(m_LightPos));
-        ImGui::Checkbox("Normal Mapping", &m_NormalMapping);
+        ImGui::Checkbox("VSync", &m_isVSync);
+
+        auto& app = Application::Get();
+        app.GetWindow().SetVSync(m_isVSync);
+
+        ImGui::Checkbox("Normal Mapping", &m_isNormalMapping);
 
         ImGui::End();
     }

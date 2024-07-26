@@ -2,7 +2,6 @@
 #include "dspch.h"
 #include "Input.h"
 #include "KeyCodes.h"
-#include "MouseCodes.h"
 #include <GLFW/glfw3.h>
 #include "Application.h"
 
@@ -73,7 +72,7 @@ namespace Dionysen
     bool FPSCamera::OnKeyReleased(KeyReleasedEvent& e)
     {
         Application& app = Application::Get();
-        if (Input::IsKeyPressed(Key::LeftAlt) && e.GetKeyCode() == Key::C)
+        if (e.GetKeyCode() == Key::C)
         {
             if (!m_IsControlEnabled)
             {
@@ -179,9 +178,9 @@ namespace Dionysen
         front.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
         m_Front = glm::normalize(front);
         // also re-calculate the Right and Up vector
-        m_Right = glm::normalize(glm::cross(m_Front,
-                                            m_WorldUp));  // normalize the vectors, because their length gets closer to 0 the more you look up or down
-                                                          // which results in slower movement.
+        m_Right = glm::normalize(glm::cross(m_Front, m_WorldUp));
+        // normalize the vectors, because their length gets closer to 0 the more you look up or down
+        // which results in slower movement.
         m_Up = glm::normalize(glm::cross(m_Right, m_Front));
     }
 

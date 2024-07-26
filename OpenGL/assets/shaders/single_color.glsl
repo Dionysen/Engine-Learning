@@ -14,17 +14,15 @@ uniform mat4 projection;
 
 uniform vec3 u_ViewPos;
 
-
 out vec3 Normal;
-void     main()
+
+void main()
 {
     Normal      = mat3(transpose(inverse(model))) * aNormal;
     TexCoords   = aTexCoords;
     float dis   = distance(u_ViewPos, vec3(0.0, 0.0, 0.0));
-    gl_Position = projection * view * (model * vec4(aPos, 1.0) + vec4(0.1 / dis * Normal, 0));
+    gl_Position = projection * view * (model * vec4(aPos, 1.0) + vec4(0.01 * Normal, 0));
 }
-
-
 
 #type fragment
 

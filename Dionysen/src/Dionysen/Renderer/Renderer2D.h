@@ -5,7 +5,6 @@
 #ifndef ENGINE_LEARNING_RENDERER2D_H
 #define ENGINE_LEARNING_RENDERER2D_H
 
-#include "glm/glm.hpp"
 #include "Camera.h"
 #include "EditorCamera.h"
 #include "Texture.h"

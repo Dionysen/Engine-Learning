@@ -4,7 +4,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/glm.hpp>
 #include <GL/glew.h>
-#include <vector>
 #include "Camera.h"
 #include "TimeStep.h"
 #include "ApplicationEvent.h"
