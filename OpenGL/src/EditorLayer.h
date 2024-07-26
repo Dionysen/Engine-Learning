@@ -28,6 +28,8 @@ namespace Dionysen
 
         Ref<Model> m_Model;
 
+        bool isLine          = false;
+        bool m_NormalMapping = false;
 
         Ref<VertexArray> m_CubeVA;
         Ref<IndexBuffer> m_IndexTriangle;
@@ -40,6 +42,6 @@ namespace Dionysen
         Ref<VertexArray> m_LightVA;
 
         glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
-        glm::vec3 m_LightPos    = { 1.2f, 1.0f, 2.0f };
+        glm::vec3 m_LightPos    = { 1.2f, 100.0f, 250.0f };
     };
 }  // namespace Dionysen

@@ -33,7 +33,7 @@ namespace Dionysen
 
         ImGui::StyleColorsDark();
 
-        float fontSize = 21.0f;  // *2.0f;
+        float fontSize = 18.0f;  // *2.0f;
         io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf", fontSize);
         io.FontDefault = io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf", fontSize);
 

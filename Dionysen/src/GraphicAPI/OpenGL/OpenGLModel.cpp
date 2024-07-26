@@ -1,8 +1,12 @@
 
 #include "OpenGLModel.h"
+#include "Log.h"
 #include "RenderCommand.h"
 #include "VertexArray.h"
+#include "OpenGLDebug.h"
 #include <cstdint>
+#include <string>
+#include <fstream>
 
 
 namespace Dionysen
@@ -44,20 +48,18 @@ namespace Dionysen
     }
 
 
-    OpenGLMesh::OpenGLMesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Ref<Texture2D>> textures)
+    OpenGLMesh::OpenGLMesh(std::vector<Vertex> vertices, std::vector<uint32_t> indices, std::vector<Ref<Texture2D>> textures)
     {
         this->vertices = vertices;
         this->indices  = indices;
         this->textures = textures;
-
-        // std::cout << "Create OpenGLMesh: " << "\tvertices:" << this->vertices.size() << "\tindices:" << this->indices.size()
-        //           << "\ttextures:" << this->textures.size() << std::endl;
 
         SetupMesh();
     }
 
     void OpenGLMesh::Draw(const Ref<Shader>& shader)
     {
+        shader->Bind();
         // bind appropriate textures
         unsigned int diffuseNr  = 1;
         unsigned int specularNr = 1;
@@ -66,7 +68,6 @@ namespace Dionysen
 
         for (unsigned int i = 0; i < textures.size(); i++)
         {
-            glActiveTexture(GL_TEXTURE0 + i);  // active proper texture unit before binding
             // retrieve texture number (the N in diffuse_textureN)
             std::string number;
             TextureType name = textures[i]->GetType();
@@ -80,25 +81,22 @@ namespace Dionysen
                 number = std::to_string(heightNr++);  // transfer unsigned int to string
 
             // now set the sampler to the correct texture unit
-            shader->SetInt((TextureTypeToString(name) + number).c_str(), i);
+            std::string textureName = (TextureTypeToString(name) + number);
+            // DION_INFO("Bind texture: {0}, {1}", textureName, i);
+            shader->SetInt(textureName, i);
+
             // and finally bind the texture
-            glBindTexture(GL_TEXTURE_2D, textures[i]->GetRendererID());
+            textures[i]->Bind(static_cast<uint32_t>(i));  // error
         }
 
         // draw mesh
-        RenderCommand::DrawIndexed(m_MeshVAO, static_cast<unsigned int>(indices.size()));
-
+        RenderCommand::DrawIndexed(m_MeshVAO, static_cast<uint32_t>(indices.size()));
         // always good practice to set everything back to defaults once configured.
-        glActiveTexture(GL_TEXTURE0);
+        // glActiveTexture(GL_TEXTURE0);
     }
 
     void OpenGLMesh::SetupMesh()
     {
-        std::cout << "SetupMesh: "
-                  << "\tvertices:" << this->vertices.size() << "\tindices:" << this->indices.size() << "\ttextures:" << this->textures.size()
-                  << std::endl;
-
-
         m_MeshVBO = VertexBuffer::Create(reinterpret_cast<float*>((&vertices[0])), vertices.size() * sizeof(Vertex));
 
         BufferLayout layout = {
@@ -113,6 +111,8 @@ namespace Dionysen
 
         m_MeshIBO = IndexBuffer::Create((uint32_t*)&indices[0], indices.size());
         m_MeshVAO->SetIndexBuffer(m_MeshIBO);
+        /*  DION_CORE_TRACE("Mesh::Setuped - Number");
+          DION_CORE_TRACE("      vertices:{0}\tindices:{1}\ttextures:{2}", this->vertices.size(), this->indices.size(), this->textures.size());*/
     }
 
     // ==================================================================================
@@ -122,27 +122,58 @@ namespace Dionysen
 
     OpenGLModel::OpenGLModel(std::string filePath)
     {
+
         loadModel(filePath);
+        DION_CORE_TRACE("------ Loaded Model ------");
+
+        for (auto& i : m_Meshes)
+        {
+            DION_CORE_TRACE("  Meshs:");
+            DION_CORE_TRACE("    vertices: {0}\t\tindices: {1}\ttextures: {2}", i.vertices.size(), i.indices.size(), i.textures.size());
+
+            for (auto& j : i.textures)
+            {
+                TextureType type = j->GetType();
+                DION_CORE_TRACE("    Textures:");
+                DION_CORE_TRACE("      ID:    \t{0}", j->GetRendererID());
+                DION_CORE_TRACE("      Type:  \t{0}", TextureTypeToString(type));
+                DION_CORE_TRACE("      Path:  \t{0}", j->GetPath());
+                DION_CORE_TRACE("      Loaded:\t{0}", j->IsLoaded());
+            }
+        }
     }
 
     void OpenGLModel::Draw(const Ref<Shader>& shader)
     {
+
         for (unsigned int i = 0; i < m_Meshes.size(); i++)
+        {
             m_Meshes[i].Draw(shader);
+        }
     }
 
     std::vector<Ref<Texture2D>> OpenGLModel::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName)
     {
         std::vector<Ref<Texture2D>> textures;
+        // DION_INFO("texture count: {0}", mat->GetTextureCount(type));
+
+
         for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
         {
             aiString str;
+
             mat->GetTexture(type, i, &str);
+
+            std::string texturePath = this->m_Directory + '/' + static_cast<std::string>(str.C_Str());
+
+            // std::string stdStr = str.C_Str();
+            // DION_INFO("texture get str: {0}, type: {1}", stdStr, typeName);
+
             // check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
             bool skip = false;
             for (unsigned int j = 0; j < m_TextureLoaded.size(); j++)
             {
-                if (std::strcmp(m_TextureLoaded[j]->GetPath().data(), str.C_Str()) == 0)
+                if (std::strcmp(m_TextureLoaded[j]->GetPath().data(), texturePath.c_str()) == 0)
                 {
                     textures.push_back(m_TextureLoaded[j]);
                     skip = true;  // a texture with the same filepath has already been loaded, continue to next one. (optimization)
@@ -151,9 +182,10 @@ namespace Dionysen
             }
             if (!skip)
             {  // if texture hasn't been loaded already, load it
-                Ref<Texture2D> texture = Texture2D::Create(str.C_Str());
-                texture->SetType(StringToTextureType(typeName));
 
+
+                Ref<Texture2D> texture = Texture2D::Create(texturePath);
+                texture->SetType(StringToTextureType(typeName));
                 textures.push_back(texture);
                 m_TextureLoaded.push_back(
                     texture);  // store it as texture loaded for entire model, to ensure we won't unnecessary load duplicate textures.
@@ -173,8 +205,8 @@ namespace Dionysen
         for (uint32_t i = 0; i < mesh->mNumVertices; i++)
         {
             Vertex    vertex;
-            glm::vec3 vector;  // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3
-                               // class so we transfer the data to this placeholder glm::vec3 first.
+            glm::vec3 vector;  // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's
+                               // vec3 class so we transfer the data to this placeholder glm::vec3 first.
             // positions
             vector.x        = mesh->mVertices[i].x;
             vector.y        = mesh->mVertices[i].y;
@@ -209,7 +241,9 @@ namespace Dionysen
                 vertex.Bitangent = vector;
             }
             else
+            {
                 vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+            }
 
             vertices.push_back(vertex);
         }
@@ -223,6 +257,7 @@ namespace Dionysen
         }
         // process materials
         aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+
         // we assume a convention for sampler names in the shaders. Each diffuse texture should be named
         // as 'texture_diffuseN' where N is a sequential number ranging from 1 to MAX_SAMPLER_NUMBER.
         // Same applies to other texture as the following list summarizes:
@@ -263,7 +298,9 @@ namespace Dionysen
     }
 
     void OpenGLModel::loadModel(std::string const path)
-    {  // read file via ASSIMP
+    {
+
+        // read file via ASSIMP
         Assimp::Importer importer;
         const aiScene*   scene =
             importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
@@ -276,7 +313,6 @@ namespace Dionysen
         // retrieve the directory path of the filepath
         m_Directory = path.substr(0, path.find_last_of('/'));
 
-        // process ASSIMP's root node recursively
         processNode(scene->mRootNode, scene);
     }
 }  // namespace Dionysen

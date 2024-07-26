@@ -97,7 +97,7 @@ namespace Dionysen
 
     }  // namespace Utils
 
-    bool OpenGLShader::m_IsLogShader  = false;
+    bool OpenGLShader::m_IsLogShader  = true;
     bool OpenGLShader::m_EnableVulkan = false;
 
     OpenGLShader::OpenGLShader(const std::string& filepath)
@@ -121,7 +121,9 @@ namespace Dionysen
         {
             CompileGLSL(shaderSources);
             if (m_IsLogShader)
+            {
                 DION_CORE_WARN("OpenGL Shader creation took {0} ms", timer.ElapsedMillis());
+            }
         }
 
         // Extract name from filepath

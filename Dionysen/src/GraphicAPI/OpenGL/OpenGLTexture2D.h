@@ -17,6 +17,7 @@ namespace Dionysen
       public:
         OpenGLTexture2D(const TextureSpecification& specification);
         OpenGLTexture2D(const std::string& path);
+        // OpenGLTexture2D();
         virtual ~OpenGLTexture2D();
 
         virtual const TextureSpecification& GetSpecification() const override

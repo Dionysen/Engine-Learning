@@ -65,6 +65,7 @@ add_files(
     "./src/Dionysen/Math/*.cpp",
     "./src/Dionysen/Scripting/*.cpp",
     "./src/Dionysen/Project/*.cpp",
+    "./src/Dionysen/Debug/*.cpp",
     "./src/GraphicAPI/OpenGL/*.cpp",
     "./src/Platform/Linux/*.cpp",
     "./src/Platform/Windows/*.cpp",

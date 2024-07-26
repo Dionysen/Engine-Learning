@@ -77,7 +77,7 @@ namespace Dionysen
         : m_Path(path)
     {
         int width, height, channels;
-        stbi_set_flip_vertically_on_load(1);
+        stbi_set_flip_vertically_on_load(false);
         stbi_uc* data = nullptr;
         {
             data = stbi_load(path.c_str(), &width, &height, &channels, 0);
@@ -133,6 +133,11 @@ namespace Dionysen
             glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
 #endif
             stbi_image_free(data);
+            // DION_CORE_INFO("Create a texture2D: {0} {1} {2}", m_RendererID, m_Path, m_IsLoaded);
+        }
+        else
+        {
+            DION_CORE_ERROR("ERROR::TEXTURE2D::CREATE_FAILED - ID:{0}, Can't read data from file, please check file path.", m_RendererID);
         }
     }
 

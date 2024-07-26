@@ -1,6 +1,5 @@
 #include <GL/glew.h>
 #include "OpenGLContext.h"
-#include "Base.h"
 #include "Log.h"
 
 namespace Dionysen
