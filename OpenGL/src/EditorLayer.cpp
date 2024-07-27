@@ -6,7 +6,6 @@
 #include "glm/ext/matrix_transform.hpp"
 #include "glm/fwd.hpp"
 #include "imgui.h"
-
 #include <glm/gtc/type_ptr.hpp>
 
 namespace Dionysen
@@ -24,7 +23,6 @@ namespace Dionysen
 
     void EditorLayer::OnAttach()
     {
-
         m_SingleColorShader = Shader::Create("OpenGL/assets/shaders/single_color.glsl");
         m_CubeShader        = Shader::Create("OpenGL/assets/shaders/unnormmapping.glsl");
         // m_CubeShader = Shader::Create("OpenGL/assets/shaders/nanosuit.glsl");
