@@ -1,6 +1,7 @@
 #include "OpenGLTextureCubemap.h"
 #include "GL/glew.h"
 #include "stb_image.h"
+#include <string>
 #define STB_IMAGE_IMPLEMENTATION
 
 namespace Dionysen
@@ -54,7 +55,37 @@ namespace Dionysen
 
         m_TextureCubemap = TextureCubemap::Create(path);
 
-        m_CubemapShader = Shader::Create("Dionysen/assets/shaders/Cubemap.glsl");
+        std::string vertexShaderStr = R"(
+            #version 330 core
+            layout (location = 0) in vec3 aPosition;
+
+            out vec3 TexCoords;
+
+            uniform mat4 u_ViewProjection;
+
+            void main()
+            {
+                TexCoords = aPosition;
+                vec4 pos = u_ViewProjection * vec4(aPosition, 1.0);
+                gl_Position = pos.xyww; 
+            }
+        )";
+
+        std::string fragmentShaderStr = R"(
+            #version 330 core
+            out vec4 FragColor;
+
+            in vec3 TexCoords;
+
+            uniform samplerCube skybox;
+
+            void main()
+            {    
+                FragColor = texture(skybox, TexCoords);
+            }
+        )";
+
+        m_CubemapShader = Shader::Create("cubmapShader", vertexShaderStr, fragmentShaderStr);
         m_CubemapShader->Bind();
         m_CubemapShader->SetInt("skybox", 0);
 

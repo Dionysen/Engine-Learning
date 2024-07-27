@@ -10,7 +10,6 @@
 #include "Base.h"
 #include <string>
 #include "FPSCamera.h"
-#include "Shader.h"
 
 namespace Dionysen
 {
@@ -86,7 +85,7 @@ namespace Dionysen
       public:
         /*
         @brief
-        For creating cubetexture easily, from GL_TEXTURE_CUBE_MAP_POSITIVE_X to GL_TEXTURE_CUBE_MAP_POSITIVE_X+5. The order is "Right, Left,
+        For creating cubetexture easily, from GL_TEXTURE_CUBE_MAP_POSITIVE_X to GL_TEXTURE_CUBE_MAP_POSITIVE_X + 5, the order is "Right, Left,
         Top, Bottom, Front, Back".
         */
         static Ref<Skybox> Create(const std::vector<std::string>& path);
@@ -94,7 +93,5 @@ namespace Dionysen
         virtual void Submit(FPSCamera& camera) = 0;
     };
 }  // namespace Dionysen
-
-
 
 #endif  // ENGINE_LEARNING_TEXTURE_H

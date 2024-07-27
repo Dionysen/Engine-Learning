@@ -32,6 +32,7 @@ namespace Dionysen
         m_Model = Model::Create("OpenGL/assets/models/cyborg/cyborg.obj");
         // m_Model = Model::Create("OpenGL/assets/models/nanosuit/nanosuit.obj");
         Application::Get().GetWindow().ResizeWindow(1280, 720);
+
         std::vector<std::string> skyboxPath = {
             "OpenGL/assets/textures/skybox/right.jpg",  "OpenGL/assets/textures/skybox/left.jpg",  "OpenGL/assets/textures/skybox/top.jpg",
             "OpenGL/assets/textures/skybox/bottom.jpg", "OpenGL/assets/textures/skybox/front.jpg", "OpenGL/assets/textures/skybox/back.jpg",
