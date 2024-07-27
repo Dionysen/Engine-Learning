@@ -4,6 +4,7 @@
 #include "Layer.h"
 #include "Model.h"
 #include "Shader.h"
+#include "Texture.h"
 #include "TimeStep.h"
 #include "VertexArray.h"
 #include <Dionysen.h>
@@ -36,6 +37,8 @@ namespace Dionysen
         Ref<IndexBuffer> m_IndexTriangle;
         Ref<Texture2D>   m_WallTexture;
         Ref<Texture2D>   m_FaceTexture;
+
+        Ref<Skybox> m_Skybox;
 
         Ref<Shader> m_CubeShader;
         Ref<Shader> m_LightShader;

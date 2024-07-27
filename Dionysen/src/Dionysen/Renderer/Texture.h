@@ -84,8 +84,14 @@ namespace Dionysen
     class Skybox
     {
       public:
+        /*
+        @brief
+        For creating cubetexture easily, from GL_TEXTURE_CUBE_MAP_POSITIVE_X to GL_TEXTURE_CUBE_MAP_POSITIVE_X+5. The order is "Right, Left,
+        Top, Bottom, Front, Back".
+        */
         static Ref<Skybox> Create(const std::vector<std::string>& path);
-        virtual void       Submit(FPSCamera& camera) = 0;
+
+        virtual void Submit(FPSCamera& camera) = 0;
     };
 }  // namespace Dionysen
 

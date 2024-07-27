@@ -3,10 +3,13 @@
 #include "FPSCamera.h"
 #include "RenderCommand.h"
 #include "Shader.h"
+#include "Texture.h"
 #include "glm/ext/matrix_transform.hpp"
 #include "glm/fwd.hpp"
 #include "imgui.h"
 #include <glm/gtc/type_ptr.hpp>
+#include <string>
+#include <vector>
 
 namespace Dionysen
 {
@@ -29,6 +32,11 @@ namespace Dionysen
         m_Model = Model::Create("OpenGL/assets/models/cyborg/cyborg.obj");
         // m_Model = Model::Create("OpenGL/assets/models/nanosuit/nanosuit.obj");
         Application::Get().GetWindow().ResizeWindow(1280, 720);
+        std::vector<std::string> skyboxPath = {
+            "OpenGL/assets/textures/skybox/right.jpg",  "OpenGL/assets/textures/skybox/left.jpg",  "OpenGL/assets/textures/skybox/top.jpg",
+            "OpenGL/assets/textures/skybox/bottom.jpg", "OpenGL/assets/textures/skybox/front.jpg", "OpenGL/assets/textures/skybox/back.jpg",
+        };
+        m_Skybox = Skybox::Create(skyboxPath);
     }
 
     void EditorLayer::OnDetach()
@@ -41,6 +49,8 @@ namespace Dionysen
 
         RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
         RenderCommand::Clear();
+
+        m_Skybox->Submit(m_Camera);
 
         m_CubeShader->Bind();
         m_CubeShader->SetMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
