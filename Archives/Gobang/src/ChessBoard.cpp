@@ -1,12 +1,8 @@
 #include "ChessBoard.h"
 #include "Chess.h"
-#include "Log.h"
 #include "Renderer2D.h"
 #include "imgui.h"
-#include <algorithm>
-#include <iostream>
 #include <string>
-
 
 void ChessBoard::Init()
 {

@@ -473,7 +473,7 @@ void GameLayer::CalculateCameraPosition()
     // normalize, devide w
     worldPos /= worldPos.w;
     m_CameraPosition   = worldPos;
-    m_CameraPosition.z = 0.5f;
+    m_CameraPosition.z = 0.0f;
 
     m_Camera->SetPosition(m_CameraPosition);
 }
