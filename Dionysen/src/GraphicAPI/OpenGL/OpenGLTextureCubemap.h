@@ -1,7 +1,7 @@
 
 #include "Texture.h"
 #include "VertexArray.h"
-
+#include "Shader.h"
 
 namespace Dionysen
 {

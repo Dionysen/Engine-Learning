@@ -4,6 +4,7 @@
 #include <filesystem>
 
 #include "Base.h"
+#include "DionAssert.h"
 
 namespace Dionysen
 {
