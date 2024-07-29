@@ -78,10 +78,10 @@ namespace Dionysen
         // opengl setting
         glEnable(GL_DEPTH_TEST);
         // For stencil test
-        glDepthFunc(GL_LESS);
-        glEnable(GL_STENCIL_TEST);
-        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        // glDepthFunc(GL_LESS);
+        // glEnable(GL_STENCIL_TEST);
+        // glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+        // glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
 #ifdef DION_DEBUG
         glDebugMessageCallback(GLDebugCallback, nullptr);

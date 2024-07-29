@@ -147,11 +147,27 @@ namespace Dionysen
             if (Input::IsKeyPressed(Key::D))
                 m_Position += m_Right * velocity;
 
-            // Up and Down
-            if (Input::IsKeyPressed(Key::Space))
-                m_Position += m_Up * velocity;
-            if (Input::IsKeyPressed(Key::LeftControl))
-                m_Position -= m_Up * velocity;
+            if (m_SimulatingHumans)
+            {
+                m_Position.y = 1.0f;
+                // Jump and Down
+                if (Input::IsKeyPressed(Key::Space))
+                {
+                    float transitionSpeed = 0.5f;
+                    m_Position.y          = glm::mix(m_Position.y, 2.0f, transitionSpeed);
+                }
+                if (Input::IsKeyPressed(Key::LeftControl))
+                    m_Position.y = 0.5f;
+            }
+            else
+            {
+                // Up and Down
+                if (Input::IsKeyPressed(Key::Space))
+                    m_Position += m_Up * velocity;
+                if (Input::IsKeyPressed(Key::LeftControl))
+                    m_Position -= m_Up * velocity;
+            }
+
 
             // Faster
             if (Input::IsKeyPressed(Key::LeftShift) && Input::IsKeyPressed(Key::W))

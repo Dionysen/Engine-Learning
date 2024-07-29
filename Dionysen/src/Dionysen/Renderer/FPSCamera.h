@@ -74,6 +74,8 @@ namespace Dionysen
         void MovePosition(float velocity);
 
       private:
+        bool m_SimulatingHumans = true;
+
         float m_FOV = 45.0f, m_AspectRatio = 1.778f, m_NearClip = 0.1f, m_FarClip = 1000.0f;
 
         // camera Attributes
