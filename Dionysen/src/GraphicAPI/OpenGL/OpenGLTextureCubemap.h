@@ -1,4 +1,5 @@
 
+#include "Base.h"
 #include "Texture.h"
 #include "VertexArray.h"
 #include "Shader.h"
@@ -23,7 +24,8 @@ namespace Dionysen
       public:
         OpenGLSkybox(const std::vector<std::string>& path);
         ~OpenGLSkybox();
-        virtual void Submit(FPSCamera& camera) override;
+        virtual void                Submit(FPSCamera& camera) override;
+        virtual Ref<TextureCubemap> GetTexture() override;
 
       private:
         float m_SkyboxVertices[36 * 3] = {

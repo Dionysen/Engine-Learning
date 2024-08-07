@@ -90,6 +90,8 @@ namespace Dionysen
         */
         static Ref<Skybox> Create(const std::vector<std::string>& path);
 
+        virtual Ref<TextureCubemap> GetTexture() = 0;
+
         virtual void Submit(FPSCamera& camera) = 0;
     };
 }  // namespace Dionysen

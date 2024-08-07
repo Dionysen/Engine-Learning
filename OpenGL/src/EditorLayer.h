@@ -35,7 +35,9 @@ namespace Dionysen
         bool  m_isVSync         = true;
         float m_LightRotate     = 0.0f;
         int   m_Effect          = 0;
+        int   m_Mode            = 0;
 
+        const char* m_ModeArray[4]   = { "Normal Mapping", "Unmormal Mapping", "Reflect", "Refract" };
         const char* m_EffectArray[6] = { "None", "Inversion", "Grayscale", "Sharpen", "Blur", "Edge-detection" };
 
         Ref<Texture2D> m_FloorTex;

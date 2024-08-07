@@ -11,6 +11,7 @@ layout(location = 4) in vec3 a_Bitangent;
 
 
 out vec3 o_Normal;
+out vec3 o_Position;
 out vec3 o_FragPosition;
 out vec2 o_TexCoord;
 out vec3 o_TangentLightPos;
@@ -28,8 +29,10 @@ uniform mat4 u_Transform;
 
 void main()
 {
-    o_Normal       = a_Normal;
-    o_TexCoord     = a_TexCoord;
+    o_TexCoord = a_TexCoord;
+    o_Normal   = mat3(transpose(inverse(u_Transform))) * a_Normal;
+    o_Position = vec3(u_ViewProjection * u_Transform * vec4(a_Position, 1.0));
+
     o_FragPosition = vec3(u_Transform * vec4(a_Position, 1.0));
     gl_Position    = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
 
@@ -69,6 +72,7 @@ in vec3 o_TangentViewPos;
 in vec3 o_TangentFragPos;
 in vec3 o_LightPos;
 in vec3 o_ViewPos;
+in vec3 o_Position;
 
 struct Light
 {
@@ -77,13 +81,16 @@ struct Light
     vec3 specular;
 };
 
-uniform bool u_NormalMapping;
-
 uniform Light u_Light;
 
 uniform sampler2D texture_diffuse1;
 uniform sampler2D texture_normal1;
 uniform sampler2D texture_specular1;
+
+uniform samplerCube texture_skybox;
+
+uniform vec3 u_CameraPos;
+uniform int  u_Mode;
 
 out vec4 color;
 
@@ -98,56 +105,68 @@ float LinearizeDepth(float depth)
 
 void main()
 {
-    if (u_NormalMapping)
+    // if (u_Mode == 0)
+    // {
+    //     // env light
+    //     float ambientStrength = 0.1;
+    //     vec3  ambient         = ambientStrength * u_Light.ambient * texture(texture_diffuse1, o_TexCoord).rgb;
+
+    //     // diffuse
+    //     vec3 normal = texture(texture_normal1, o_TexCoord).rgb;
+    //     vec3 norm   = normalize(normal * 2.0 - 1.0);
+
+    //     vec3 lightDir = normalize(o_TangentLightPos - o_TangentFragPos);
+
+    //     float diff    = max(dot(norm, lightDir), 0.0);
+    //     vec3  diffuse = diff * u_Light.diffuse * texture(texture_diffuse1, o_TexCoord).rgb;
+
+    //     // specular
+    //     float specularStrength = 0.5;
+    //     vec3  viewDir          = normalize(o_TangentViewPos - o_TangentFragPos);
+    //     vec3  reflectDir       = reflect(-lightDir, norm);
+    //     vec3  halfwayDir       = normalize(lightDir + viewDir);
+
+    //     float spec     = pow(max(dot(norm, halfwayDir), 0.0), 64);
+    //     vec3  specular = specularStrength * spec * u_Light.specular * texture(texture_specular1, o_TexCoord).rgb;
+
+    //     // result
+    //     vec3 result = ambient + diffuse + specular;
+    //     color       = vec4(result, 1.0);
+    // }
+    //     if (u_Mode == 1)
+    //     {
+    //         float ambientStrength = 0.1;
+    //         vec3  ambient         = ambientStrength * u_Light.ambient * texture(texture_diffuse1, o_TexCoord).rgb;
+
+    //         vec3 norm     = normalize(o_Normal);
+    //         vec3 lightDir = normalize(o_LightPos - o_FragPosition);
+
+    //         float diff    = max(dot(norm, lightDir), 0.0);
+    //         vec3  diffuse = diff * u_Light.diffuse * texture(texture_diffuse1, o_TexCoord).rgb;
+
+    //         float specularStrength = 0.5;
+    //         vec3  viewDir          = normalize(o_ViewPos - o_FragPosition);
+    //         vec3  reflectDir       = reflect(-lightDir, norm);
+    //         float spec             = pow(max(dot(viewDir, reflectDir), 0.0), 64);
+    //         vec3  specular         = specularStrength * spec * u_Light.specular * texture(texture_specular1, o_TexCoord).rgb;
+
+    //         // float depth = LinearizeDepth(gl_FragCoord.z) / far;  // 为了演示除以 far
+    //         // color       = vec4(vec3(depth), 1.0);
+
+    //         vec3 result = ambient + diffuse + specular;
+    //         color       = vec4(result, 1.0);
+    //     }
+    //     if (u_Mode == 2)
+    //     {
+    //         vec3 I = normalize(o_Position - u_CameraPos);
+    //         vec3 R = reflect(I, normalize(o_Normal));
+    //         color  = vec4(texture(texture_skybox, R).rgb, 1.0);
+    //     }
+    if (u_Mode == 3)
     {
-        // env light
-        float ambientStrength = 0.1;
-        vec3  ambient         = ambientStrength * u_Light.ambient * texture(texture_diffuse1, o_TexCoord).rgb;
-
-        // diffuse
-        vec3 normal = texture(texture_normal1, o_TexCoord).rgb;
-        vec3 norm   = normalize(normal * 2.0 - 1.0);
-
-        vec3 lightDir = normalize(o_TangentLightPos - o_TangentFragPos);
-
-        float diff    = max(dot(norm, lightDir), 0.0);
-        vec3  diffuse = diff * u_Light.diffuse * texture(texture_diffuse1, o_TexCoord).rgb;
-
-        // specular
-        float specularStrength = 0.5;
-        vec3  viewDir          = normalize(o_TangentViewPos - o_TangentFragPos);
-        vec3  reflectDir       = reflect(-lightDir, norm);
-        vec3  halfwayDir       = normalize(lightDir + viewDir);
-
-        float spec     = pow(max(dot(norm, halfwayDir), 0.0), 64);
-        vec3  specular = specularStrength * spec * u_Light.specular * texture(texture_specular1, o_TexCoord).rgb;
-
-        // result
-        vec3 result = ambient + diffuse + specular;
-        color       = vec4(result, 1.0);
-    }
-    else
-    {
-        float ambientStrength = 0.1;
-        vec3  ambient         = ambientStrength * u_Light.ambient * texture(texture_diffuse1, o_TexCoord).rgb;
-
-
-        vec3 norm     = normalize(o_Normal);
-        vec3 lightDir = normalize(o_LightPos - o_FragPosition);
-
-        float diff    = max(dot(norm, lightDir), 0.0);
-        vec3  diffuse = diff * u_Light.diffuse * texture(texture_diffuse1, o_TexCoord).rgb;
-
-        float specularStrength = 0.5;
-        vec3  viewDir          = normalize(o_ViewPos - o_FragPosition);
-        vec3  reflectDir       = reflect(-lightDir, norm);
-        float spec             = pow(max(dot(viewDir, reflectDir), 0.0), 64);
-        vec3  specular         = specularStrength * spec * u_Light.specular * texture(texture_specular1, o_TexCoord).rgb;
-
-
-        // float depth = LinearizeDepth(gl_FragCoord.z) / far;  // 为了演示除以 far
-        // color       = vec4(vec3(depth), 1.0);
-        vec3 result = ambient + diffuse + specular;
-        color       = vec4(result, 1.0);
+        float ratio = 1.00 / 1.52;
+        vec3  I     = normalize(o_Position - u_CameraPos);
+        vec3  R     = refract(I, normalize(o_Normal), ratio);
+        color       = vec4(texture(texture_skybox, R).rgb, 1.0);
     }
 }

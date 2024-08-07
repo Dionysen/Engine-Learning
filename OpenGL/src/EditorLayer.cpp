@@ -4,7 +4,6 @@
 #include "Buffer.h"
 #include "FPSCamera.h"
 #include "Framebuffer.h"
-#include "OpenGLFramebuffer.h"
 #include "RenderCommand.h"
 #include "Renderer2D.h"
 #include "Shader.h"
@@ -19,6 +18,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "OpenGLDebug.h"
 
 namespace Dionysen
 {
@@ -50,7 +50,7 @@ namespace Dionysen
         };
         m_Skybox = Skybox::Create(skyboxPath);
 
-        m_FloorTex  = Texture2D::Create("OpenGL/assets/textures/metal.png");
+        m_FloorTex  = Texture2D::Create("OpenGL/assets/textures/floor.jpg");
         m_GrassTex  = Texture2D::Create("OpenGL/assets/textures/grass.png");
         m_LightTex  = Texture2D::Create("OpenGL/assets/textures/light.png");
         m_WindowTex = Texture2D::Create("OpenGL/assets/textures/window.png");
@@ -150,21 +150,28 @@ namespace Dionysen
         }
 
 
-        // m_Skybox->Submit(m_Camera);
+        m_Skybox->Submit(m_Camera);
 
         glEnable(GL_CULL_FACE);
         glCullFace(GL_BACK);
         glFrontFace(GL_CCW);
         m_ModelShader->Bind();
+        m_ModelShader->SetInt("u_Mode", m_Mode);
+
         m_ModelShader->SetMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
 
         m_ModelShader->SetFloat3("u_ViewPos", m_Camera.GetPosition());
 
-        m_ModelShader->SetInt("u_NormalMapping", m_isNormalMapping);
+        // m_ModelShader->SetInt("u_NormalMapping", m_isNormalMapping);
         m_ModelShader->SetFloat3("u_LightPos", m_LightPos);
         m_ModelShader->SetFloat3("u_Light.ambient", { 0.2f, 0.2f, 0.2f });
         m_ModelShader->SetFloat3("u_Light.diffuse", { 0.5f, 0.5f, 0.5f });
         m_ModelShader->SetFloat3("u_Light.specular", { 1.0f, 1.0f, 1.0f });
+
+        m_ModelShader->SetFloat3("u_CameraPos", m_Camera.GetPosition());
+        m_ModelShader->SetInt("texture_skybox", 0);
+
+        m_Skybox->GetTexture()->Bind();
 
         glm::mat4 model = glm::mat4(1.0f);
         model           = glm::scale(model, glm::vec3(0.5f));
@@ -178,6 +185,7 @@ namespace Dionysen
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
         m_Model->Draw(m_ModelShader);
+        glCheckError();
         glDisable(GL_CULL_FACE);
 
 
@@ -199,21 +207,24 @@ namespace Dionysen
     void EditorLayer::OnImGuiRender()
     {
         ImGui::Begin("Press \"C\" to switch the cursor's visibility.");
+        {
+            ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
-        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+            ImGui::Checkbox("Line Mode", &m_isLine);
+            ImGui::DragFloat3("Light pos", glm::value_ptr(m_LightPos));
+            ImGui::DragFloat("Light rotate", &m_LightRotate);
+            ImGui::Checkbox("VSync", &m_isVSync);
 
-        ImGui::Checkbox("Line Mode", &m_isLine);
-        ImGui::DragFloat3("Light pos", glm::value_ptr(m_LightPos));
-        ImGui::DragFloat("Light rotate", &m_LightRotate);
-        ImGui::Checkbox("VSync", &m_isVSync);
+            ImGui::Combo("Mode", &m_Mode, m_ModeArray, IM_ARRAYSIZE(m_ModeArray));
 
-        auto& app = Application::Get();
-        app.GetWindow().SetVSync(m_isVSync);
+            auto& app = Application::Get();
+            app.GetWindow().SetVSync(m_isVSync);
 
-        ImGui::Checkbox("Normal Mapping", &m_isNormalMapping);
+            ImGui::Checkbox("Normal Mapping", &m_isNormalMapping);
 
-        ImGui::Text("Using FrameBuffer.");
-        ImGui::Combo("Post-processing", &m_Effect, m_EffectArray, IM_ARRAYSIZE(m_EffectArray));
+            ImGui::Text("Using FrameBuffer.");
+            ImGui::Combo("Post-processing", &m_Effect, m_EffectArray, IM_ARRAYSIZE(m_EffectArray));
+        }
         ImGui::End();
     }
 

@@ -94,6 +94,12 @@ namespace Dionysen
     OpenGLSkybox::~OpenGLSkybox()
     {
     }
+
+    Ref<TextureCubemap> OpenGLSkybox::GetTexture()
+    {
+        return m_TextureCubemap;
+    }
+
     void OpenGLSkybox::Submit(FPSCamera& camera)
     {
         glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
