@@ -54,6 +54,7 @@ namespace Dionysen
 
             ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
             ImGui::Begin("DockSpace Demo", &dockspaceOpen, window_flags);
+
             ImGui::PopStyleVar();
 
             if (opt_fullscreen)
@@ -119,8 +120,11 @@ namespace Dionysen
                 if (ImGui::MenuItem("Open")) {}
                 if (ImGui::MenuItem("Save")) {}
                 if (ImGui::MenuItem("Save As")) {}
-                // recent files
-                if (ImGui::MenuItem("Recent Files")) {}
+                if (ImGui::BeginMenu("Recent Files"))
+                {
+                    if (ImGui::MenuItem("ds")) {}
+                    ImGui::EndMenu();
+                }
                 if (ImGui::MenuItem("Exit"))
                     Application::Get().Close();
                 ImGui::EndMenu();
