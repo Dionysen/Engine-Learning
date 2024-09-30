@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <cstdlib>
 namespace Dionysen
 {
@@ -23,13 +24,12 @@ namespace Dionysen
 
 namespace std
 {
-    // template <typename T> struct hash;
-
+    template <typename T> struct hash;
     template <> struct hash<Dionysen::UUID>
     {
         std::size_t operator()(const Dionysen::UUID& uuid) const
         {
-            return (uint64_t)uuid;
+            return static_cast<std::size_t>(uuid);
         }
     };
 
