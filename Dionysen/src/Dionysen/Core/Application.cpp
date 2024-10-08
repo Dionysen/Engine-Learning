@@ -7,7 +7,7 @@
 #include "Layer.h"
 #include "Log.h"
 #include "PlatformUtils.h"
-#include "WindowsWindow.h"
+#include "Window.h"
 #include "Event.h"
 #include "Renderer.h"
 #include "OpenGLShader.h"

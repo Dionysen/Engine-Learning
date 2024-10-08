@@ -4,15 +4,13 @@ Hover:
   ShowAKA: Yes
 
 Diagnostics:
-  UnusedIncludes: Strict
+  UnusedIncludes: Ignore
 
 InlayHints:
   Designators: Yes
   Enabled: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
-
-
 # CompileFlags:
 #   Add: [-Wno-implicit-function-declaration, -Wno-int-conversion, -ferror-limit=500]
 

@@ -82,13 +82,14 @@ target("Dionysen")
     set_pcxxheader("./src/dspch.h")
     add_includedirs("./src")
 
+    add_defines("GLFW_WINDOW")
+
     -- plat
     if is_plat("windows") then
         add_defines(
             "DION_PLATFORM_WINDOWS",
             "DION_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
-            -- "GLFW_WINDOW"
         )
 
         add_links("opengl32", "comdlg32")

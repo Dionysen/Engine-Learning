@@ -9,7 +9,10 @@ set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
-includes("IFCEditor/xmake.lua")
+includes("Archives/Gobang/xmake.lua")
+
+-- Test target
+-- includes("Test/win32_opengl/xmake.lua")
 
 -- for easyer
 set_rundir(".")

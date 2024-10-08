@@ -1,10 +1,12 @@
 #pragma once
 
+
 #ifndef GLFW_WINDOW
 
 #include "Window.h"
 #include "GraphicsContext.h"
 #include "imgui_impl_win32.h"
+
 namespace Dionysen
 {
     class WindowsWindow : public Window

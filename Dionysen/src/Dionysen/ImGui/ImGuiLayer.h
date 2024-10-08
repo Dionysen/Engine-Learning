@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Layer.h"
-#include "MouseEvent.h"
-#include "KeyEvent.h"
 
 namespace Dionysen
 {

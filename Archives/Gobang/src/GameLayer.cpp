@@ -32,11 +32,21 @@ GameLayer::GameLayer()
     unsigned char* image = stbi_load("./Archives/Gobang/assets/gobang.png", &width, &height, &channels, 4);
     if (image)
     {
+#ifdef GLFW_WINDOW
         GLFWimage images[1]{};
         images[0].width  = width;
         images[0].height = height;
         images[0].pixels = image;
         glfwSetWindowIcon((GLFWwindow*)window.GetNativeWindow(), 1, images);
+#else
+#ifdef DION_PLATFORM_WINDOWS
+        HICON hIcon = (HICON)LoadImage(NULL, "./Archives/Gobang/assets/gobang.png", IMAGE_ICON, 0, 0, LR_LOADFROMFILE);
+        if (hIcon)
+        {
+            SendMessage((HWND)window.GetNativeWindow(), WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
+        }
+#endif
+#endif
         stbi_image_free(image);
     }
     else

@@ -196,7 +196,7 @@ namespace Dionysen
 #endif
 
         glfwPollEvents();
-        m_Context->SwapBuffers();
+        m_Context->DionSwapBuffers();
     }
 
     void GLFWWindow::SetVSync(bool enabled)
