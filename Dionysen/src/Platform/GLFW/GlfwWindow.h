@@ -1,5 +1,7 @@
 #pragma once
 
+#ifdef GLFW_WINDOW
+
 #include "GLFW/glfw3.h"
 #include "GraphicsContext.h"
 #include "Window.h"
@@ -7,12 +9,11 @@
 
 namespace Dionysen
 {
-
-    class WindowsWindow : public Window
+    class GLFWWindow : public Window
     {
       public:
-        explicit WindowsWindow(const WindowProps& props);
-        ~WindowsWindow() override;
+        explicit GLFWWindow(const WindowProps& props);
+        ~GLFWWindow() override;
 
         void OnUpdate() override;
 
@@ -59,3 +60,5 @@ namespace Dionysen
         WindowData m_Data;
     };
 }  // namespace Dionysen
+
+#endif

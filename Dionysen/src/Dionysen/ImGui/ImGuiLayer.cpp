@@ -1,9 +1,16 @@
 #include "ImGuiLayer.h"
-#include "ApplicationEvent.h"
 #include "dspch.h"
 #include "imgui.h"
+
+#ifdef GLFW_WINDOW
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"
+#else
+#ifdef DION_PLATFORM_WINDOWS
+#include "imgui_impl_win32.h"
+#endif
+#endif
+
 #include "imgui_impl_opengl3.h"
 #include "imgui_impl_opengl3_loader.h"
 #include "Application.h"
@@ -46,23 +53,44 @@ namespace Dionysen
 
         SetDarkThemeColors();
 
+#ifdef GLFW_WINDOW
         Application& app    = Application::Get();
         auto*        window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
         ImGui_ImplGlfw_InitForOpenGL(window, true);
+#else
+#ifdef DION_PLATFORM_WINDOWS
+        Application& app    = Application::Get();
+        auto*        window = static_cast<HWND>(app.GetWindow().GetNativeWindow());
+        ImGui_ImplWin32_Init(window);
+#endif
+#endif
         ImGui_ImplOpenGL3_Init(glsl_version);
     }
 
     void ImGuiLayer::OnDetach()
     {
         ImGui_ImplOpenGL3_Shutdown();
+#ifdef GLFW_WINDOW
         ImGui_ImplGlfw_Shutdown();
+#else
+#ifdef DION_PLATFORM_WINDOWS
+        ImGui_ImplWin32_Shutdown();
+#endif
+#endif
         ImGui::DestroyContext();
     }
 
     void ImGuiLayer::Begin()
     {
         ImGui_ImplOpenGL3_NewFrame();
+
+#ifdef GLFW_WINDOW
         ImGui_ImplGlfw_NewFrame();
+#else
+#ifdef DION_PLATFORM_WINDOWS
+        ImGui_ImplWin32_NewFrame();
+#endif
+#endif
         ImGui::NewFrame();
         ImGuizmo::BeginFrame();
     }
@@ -79,10 +107,19 @@ namespace Dionysen
 
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {
+#ifdef GLFW_WINDOW
             GLFWwindow* backup_current_context = glfwGetCurrentContext();
             ImGui::UpdatePlatformWindows();
             ImGui::RenderPlatformWindowsDefault();
             glfwMakeContextCurrent(backup_current_context);
+#else
+#ifdef DION_PLATFORM_WINDOWS
+            HWND backup_current_context = GetActiveWindow();
+            ImGui::UpdatePlatformWindows();
+            ImGui::RenderPlatformWindowsDefault();
+            SetActiveWindow(backup_current_context);
+#endif
+#endif
         }
     }
 

@@ -1,3 +1,4 @@
+#ifndef GLFW_WINDOW
 #include "Window.h"
 #include "ApplicationEvent.h"
 #include "Base.h"
@@ -7,13 +8,33 @@
 #include "MouseEvent.h"
 #include "OpenGLContext.h"
 #include "WindowsWindow.h"
-#include <string>
 #include <windows.h>
 
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 namespace Dionysen
 {
-    static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    LRESULT CALLBACK WindowsWindow::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
+        if (ImGui_ImplWin32_WndProcHandler(hwnd, uMsg, wParam, lParam))
+            return true;
+
+        WindowData* data = nullptr;
+        if (uMsg == WM_NCCREATE)
+        {
+            CREATESTRUCT* pCreate = (CREATESTRUCT*)lParam;
+            WindowData*   data    = (WindowData*)pCreate->lpCreateParams;
+            SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)data);
+        }
+        else
+        {
+            data = (WindowData*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+        }
+
+        if (!data || !data->EventCallback)
+        {
+            return DefWindowProc(hwnd, uMsg, wParam, lParam);
+        }
+
         switch (uMsg)
         {
         case WM_CLOSE: {
@@ -90,15 +111,14 @@ namespace Dionysen
         return 0;
     }
 
+#ifdef DION_PLATFORM_WINDOWS
+#ifndef GLFW_WINDOW
     Scope<Window> Window::Create(const WindowProps& props)
     {
-#ifdef DION_PLATFORM_WINDOWS
         return CreateScope<WindowsWindow>(props);
-#else
-        // DION_CORE_ASSERT(false, "Unknown platform!");
-        return CreateScope<WindowsWindow>(props);
-#endif
     }
+#endif
+#endif
 
     WindowsWindow::WindowsWindow(const WindowProps& props)
     {
@@ -122,17 +142,18 @@ namespace Dionysen
         wc.cbSize        = sizeof(WNDCLASSEX);
         wc.lpfnWndProc   = WindowProc;
         wc.hInstance     = GetModuleHandle(NULL);
-        wc.lpszClassName = L"DionysenWindowClass";
+        wc.lpszClassName = "DionysenWindowClass";
         RegisterClassEx(&wc);
 
-        m_Window = CreateWindowEx(0, L"DionysenWindowClass", m_Data.Title.c_str(), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, m_Data.Width,
-                                  m_Data.Height, NULL, NULL, wc.hInstance, NULL);
-        ShowWindow(m_Window, SW_SHOW);
+        m_Window = CreateWindowEx(0, "DionysenWindowClass", m_Data.Title.c_str(), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, m_Data.Width,
+                                  m_Data.Height, NULL, NULL, wc.hInstance, &m_Data);
 
-        m_Context = new OpenGLContext(m_Window);
+        m_Context = new OpenGLContext(m_Window, m_Hdc, m_Hglrc);
         m_Context->Init();
 
-        SetWindowLongPtr(m_Window, GWLP_USERDATA, (LONG_PTR)&m_Data);
+        ShowWindow(m_Window, SW_SHOW);
+        UpdateWindow(m_Window);
+
         SetVSync(true);
 
         // opengl setting
@@ -157,13 +178,26 @@ namespace Dionysen
     void WindowsWindow::OnUpdate()
     {
         MSG msg;
-        while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
+            if (msg.message == WM_QUIT)
+            {
+                return;
+            }
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+        // 获取窗口大小
+        RECT clientRect;
+        GetClientRect(m_Window, &clientRect);
+        int clientWidth  = clientRect.right - clientRect.left;
+        int clientHeight = clientRect.bottom - clientRect.top;
 
-        m_Context->SwapBuffers();
+        // 设置视口
+        glViewport(0, 0, clientWidth, clientHeight);
+
+        // 交换缓冲区
+        m_Context->DionSwapBuffers();
     }
 
     void WindowsWindow::SetVSync(bool enabled)
@@ -182,5 +216,6 @@ namespace Dionysen
         m_Data.Height = height;
         SetWindowPos(m_Window, NULL, 0, 0, width, height, SWP_NOMOVE | SWP_NOZORDER);
     }
-
 }  // namespace Dionysen
+
+#endif

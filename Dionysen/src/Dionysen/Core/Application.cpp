@@ -1,10 +1,7 @@
 #include <GL/glew.h>
-#include <iostream>
-
 #include "Application.h"
 #include "ApplicationEvent.h"
 #include "Base.h"
-#include "Input.h"
 #include "KeyCodes.h"
 #include "KeyEvent.h"
 #include "Layer.h"
@@ -14,7 +11,7 @@
 #include "Event.h"
 #include "Renderer.h"
 #include "OpenGLShader.h"
-#include <filesystem>
+
 namespace Dionysen
 {
     Application* Application::s_Instance = nullptr;

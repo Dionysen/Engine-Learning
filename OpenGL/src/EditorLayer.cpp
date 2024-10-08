@@ -19,6 +19,7 @@
 #include <string>
 #include <vector>
 #include "OpenGLDebug.h"
+#include <GLFW/glfw3.h>
 
 namespace Dionysen
 {

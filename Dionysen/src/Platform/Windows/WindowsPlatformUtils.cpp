@@ -13,7 +13,7 @@ namespace Dionysen
 {
     float Time::GetTime()
     {
-        return glfwGetTime();
+        return GetTickCount64();
     }
 
     std::string FileDialogs::OpenFile(const char* filter)

@@ -1,7 +1,10 @@
 #pragma once
+
+#ifndef GLFW_WINDOW
+
 #include "Window.h"
 #include "GraphicsContext.h"
-
+#include "imgui_impl_win32.h"
 namespace Dionysen
 {
     class WindowsWindow : public Window
@@ -41,10 +44,13 @@ namespace Dionysen
         virtual void Init(const WindowProps& props);
         virtual void Shutdown();
 
+        static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
       private:
         HWND             m_Window;
         GraphicsContext* m_Context;
-
+        HDC              m_Hdc;
+        HGLRC            m_Hglrc;
         struct WindowData
         {
             std::string     Title;
@@ -52,6 +58,9 @@ namespace Dionysen
             bool            VSync;
             EventCallbackFn EventCallback;
         };
+
         WindowData m_Data;
     };
 }  // namespace Dionysen
+
+#endif

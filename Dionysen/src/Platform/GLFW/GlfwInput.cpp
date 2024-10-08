@@ -1,3 +1,5 @@
+#ifdef GLFW_WINDOW
+
 #include "dspch.h"
 #include "Input.h"
 
@@ -49,3 +51,5 @@ namespace Dionysen
     }
 
 }  // namespace Dionysen
+
+#endif

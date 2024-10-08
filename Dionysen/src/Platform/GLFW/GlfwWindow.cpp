@@ -1,3 +1,5 @@
+
+#ifdef GLFW_WINDOW
 #include "Window.h"
 #include "ApplicationEvent.h"
 #include "Base.h"
@@ -25,27 +27,27 @@ namespace Dionysen
         DION_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
     }
 
+
+#ifdef DION_PLATFORM_WINDOWS
+#ifdef GLFW_WINDOW
     Scope<Window> Window::Create(const WindowProps& props)
     {
-#ifdef DION_PLATFORM_WINDOWS
-        return CreateScope<WindowsWindow>(props);
-#else
-        // DION_CORE_ASSERT(false, "Unknown platform!");
-        return CreateScope<WindowsWindow>(props);
-#endif
+        return CreateScope<GLFWWindow>(props);
     }
+#endif
+#endif
 
-    WindowsWindow::WindowsWindow(const WindowProps& props)
+    GLFWWindow::GLFWWindow(const WindowProps& props)
     {
         Init(props);
     }
 
-    WindowsWindow::~WindowsWindow()
+    GLFWWindow::~GLFWWindow()
     {
         Shutdown();
     }
 
-    void WindowsWindow::Init(const WindowProps& props)
+    void GLFWWindow::Init(const WindowProps& props)
     {
 
         m_Data.Title  = props.Title;
@@ -173,7 +175,7 @@ namespace Dionysen
         //});
     }
 
-    void WindowsWindow::Shutdown()
+    void GLFWWindow::Shutdown()
     {
         glfwDestroyWindow(m_Window);
         --s_GLFWWindowCount;
@@ -184,7 +186,7 @@ namespace Dionysen
         }
     }
 
-    void WindowsWindow::OnUpdate()
+    void GLFWWindow::OnUpdate()
     {
 
 #ifdef DION_PLATFORM_MACOSX
@@ -197,7 +199,7 @@ namespace Dionysen
         m_Context->SwapBuffers();
     }
 
-    void WindowsWindow::SetVSync(bool enabled)
+    void GLFWWindow::SetVSync(bool enabled)
     {
         if (enabled)
             glfwSwapInterval(1);
@@ -207,12 +209,12 @@ namespace Dionysen
         m_Data.VSync = enabled;
     }
 
-    bool WindowsWindow::IsVSync() const
+    bool GLFWWindow::IsVSync() const
     {
         return m_Data.VSync;
     }
 
-    void WindowsWindow::ResizeWindow(uint32_t width, uint32_t height)
+    void GLFWWindow::ResizeWindow(uint32_t width, uint32_t height)
     {
         m_Data.Width  = width;
         m_Data.Height = height;
@@ -220,3 +222,5 @@ namespace Dionysen
     }
 
 }  // namespace Dionysen
+
+#endif
