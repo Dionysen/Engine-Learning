@@ -3,8 +3,6 @@
 
 #include <random>
 
-#include <unordered_map>
-
 namespace Dionysen
 {
 

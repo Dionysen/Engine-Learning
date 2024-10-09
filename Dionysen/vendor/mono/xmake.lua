@@ -1,0 +1,10 @@
+target("mono")
+    set_kind("library")
+    set_group("vendor")
+    set_basename("mono")
+    set_kind("headeronly")
+    add_headerfiles("include/**.h")
+    add_includedirs("include", { public = true })
+
+    add_linkdirs("lib/Debug", { public = true })
+    add_links("libmono-2.0")

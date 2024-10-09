@@ -1,90 +1,76 @@
+-- ===============================================
+-- ================== FUNCTIONS ==================
+-- ===============================================
+
+-- Recursively traverse all folders and their subfolders. If .h or .hpp files are found, add the folder to the project.
+function add_includedirs_recursively(dir)
+    local has_header_files = false
+    for _, file in ipairs(os.files(path.join(dir, "*.h"))) do
+        has_header_files = true
+        break
+    end
+    for _, file in ipairs(os.files(path.join(dir, "*.hpp"))) do
+        has_header_files = true
+        break
+    end
+    if has_header_files then
+        add_includedirs(dir, { public = true })
+        add_headerfiles(dir .. "/*.h", { public = true })
+    end
+    
+    for _, subdir in ipairs(os.dirs(path.join(dir, "*"))) do
+        add_includedirs_recursively(subdir)
+    end
+end 
+
+
+-- Recursively traverse all folders under the folder, find .cpp files and add them to the project.
+function add_files_recursively(dir)
+    for _, filepath in ipairs(os.files(path.join(dir, "**.cpp"))) do
+        add_files(filepath)
+    end
+    -- Recursively traverse subfolders
+    for _, subdir in ipairs(os.dirs(path.join(dir, "*"))) do
+        add_files_recursively(subdir)
+    end
+end
+
+-- Include all deps under the folder
+function include_deps(dir)
+    for _, file in ipairs(os.files(path.join(dir, "*/xmake.lua"))) do
+        local folder_name = path.basename(path.directory(file))
+        includes(file)
+    end
+end
+
+
+
+-- ============================================
+-- ================== TARGET ==================
+-- ============================================
+
 target("Dionysen")
+    -- Set the target type to static library
     set_kind("static")
 
-    -- deps
+    -- add dependencies
+    include_deps("vendor")
+    add_deps("entt", "spdlog", "mono", "imgui-docking", "imguizmo", "msdf-atlas-gen", "stb_image")
 
-    includes("./vendor/spdlog/xmake.lua")
-    add_deps("spdlog")
-
-    includes("./vendor/imgui-docking/xmake.lua")
-    add_deps("imgui-docking")
-
-    includes("./vendor/stb_image/xmake.lua")
-    add_deps("stb_image")
-
-    includes("./vendor/imguizmo/xmake.lua")
-    add_deps("imguizmo")
-
-    includes("./vendor/msdf-atlas-gen/xmake.lua")
-    add_deps("msdf-atlas-gen")
-
+    -- add packages
     add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp")
 
-    -- src
-    add_includedirs(
-        "src",
-        "vendor/entt/include",
-        "src/Dionysen/Core",
-        "src/Dionysen/Event",
-        "src/Dionysen/ImGui",
-        "src/Dionysen/Utils",
-        "src/Dionysen/Renderer",
-        "src/Dionysen/Scene",
-        "src/Dionysen/Math",
-        "src/Dionysen/Scripting",
-        "src/Dionysen/Physics",
-        "src/Dionysen/Project",
-        "src/Dionysen/UI",
-        "src/Dionysen/Debug",
-        "src/Platform/Windows",
-        "src/GraphicAPI/OpenGL",
-        "vendor/mono/include",
-        "src/Platform/GLFW",
-        { public = true }
-    )
-    -- for vs solution
-    add_headerfiles(
-        "src/*.h",
-        "src/Dionysen/Core/*.h",
-        "src/Dionysen/Event/*.h",
-        "src/Dionysen/ImGui/*.h",
-        "src/Dionysen/Utils/*.h",
-        "src/Dionysen/Renderer/*.h",
-        "src/Dionysen/Scene/*.h",
-        "src/Dionysen/Math/*.h",
-        "src/Dionysen/Scripting/*.h",
-        "src/Dionysen/Physics/*.h",
-        "src/Dionysen/Project/*.h",
-        "src/Dionysen/UI/*.h",
-        "src/Dionysen/Debug/*.h",
-        "src/Platform/Windows/*.h",
-        "src/GraphicAPI/OpenGL/*.h",
-        "src/Platform/GLFW/*.h"
-        )
+    -- add source files
+    add_includedirs_recursively("src")
+    add_files_recursively("src")
 
-    add_files(
-        "src/Dionysen/Core/*.cpp",
-        "src/Dionysen/ImGui/*.cpp",
-        "src/Dionysen/Renderer/*.cpp",
-        "src/Dionysen/Scene/*.cpp",
-        "src/Dionysen/Math/*.cpp",
-        "src/Dionysen/Scripting/*.cpp",
-        "src/Dionysen/Project/*.cpp",
-        "src/Dionysen/Debug/*.cpp",
-        "src/GraphicAPI/OpenGL/*.cpp",
-        "src/Platform/Linux/*.cpp",
-        "src/Platform/Windows/*.cpp",
-        "src/Platform/MacOS/*.cpp",
-        "src/Platform/GLFW/*.cpp"
-    )
-
-    -- pch
-    set_pcxxheader("./src/dspch.h")
-    add_includedirs("./src")
-
+    -- add precompiled header
+    set_pcxxheader("src/dspch.h")
+    
+    -- Define GLFW_WINDOW
     add_defines("GLFW_WINDOW")
 
-    -- plat
+    -- platform
     if is_plat("windows") then
         add_defines(
             "DION_PLATFORM_WINDOWS",
@@ -97,6 +83,7 @@ target("Dionysen")
 
         add_linkdirs("./vendor/mono/lib/Debug")
         add_links("mono-2.0-sgen")
+
     elseif is_plat("linux") then
         add_defines(
             "DION_PLATFORM_LINUX"
@@ -107,6 +94,7 @@ target("Dionysen")
             "/usr/include/qt",
             "/usr/include/qt/QtCore"
         )
+
     elseif is_plat("macosx") then
         add_defines(
             "DION_PLATFORM_MACOSX"
