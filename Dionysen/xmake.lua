@@ -58,7 +58,7 @@ target("Dionysen")
     add_deps("entt", "spdlog", "mono", "imgui-docking", "imguizmo", "msdf-atlas-gen", "stb_image")
 
     -- add packages
-    add_packages("glfw", "glew", "glm", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp")
+    add_packages("glfw", "glew", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp", "glm", "gtest")
 
     -- add source files
     add_includedirs_recursively("src")

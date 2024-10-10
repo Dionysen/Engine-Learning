@@ -11,6 +11,7 @@
 #include "Event.h"
 #include "Renderer.h"
 #include "OpenGLShader.h"
+#include <gtest/gtest.h>
 
 namespace Dionysen
 {
@@ -21,6 +22,18 @@ namespace Dionysen
     {
         DION_CORE_ASSERT(!s_Instance, "Application already exists!")
         s_Instance = this;
+
+        // Run tests if the flag is set
+        if (m_Specification.RunTests)
+        {
+            DION_CORE_INFO("Running tests...");
+            int argc = specification.CommandLineArgs.Count;
+            ::testing::InitGoogleTest(&argc, specification.CommandLineArgs.Args);
+            int res = RUN_ALL_TESTS();
+            if (res != 0)
+                DION_CORE_ERROR("Failed to run tests");
+            return;
+        }
 
         // Set working directory here
         // if (!m_Specification.WorkingDirectory.empty())
@@ -68,6 +81,8 @@ namespace Dionysen
 
     void Application::Run()
     {
+        if (m_Specification.RunTests)
+            return;
         DION_CORE_INFO("Application::{0} is running!", m_Specification.Name);
         while (m_Running)
         {

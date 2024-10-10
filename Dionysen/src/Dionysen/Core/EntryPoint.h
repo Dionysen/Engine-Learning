@@ -1,8 +1,7 @@
 #pragma once
 #include "Application.h"
-#include "Log.h"
 #include "dspch.h"
-#include <iostream>
+#include "Log.h"
 
 extern Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandLineArgs args);
 
@@ -13,4 +12,5 @@ int main(int argc, char* argv[])
     auto app = Dionysen::CreateApplication({ argc, argv });  // Second
     app->Run();
     delete app;
+    return 0;
 }

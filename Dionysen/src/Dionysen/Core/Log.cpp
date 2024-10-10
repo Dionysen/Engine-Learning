@@ -1,6 +1,7 @@
 #include "Log.h"
 #include "dspch.h"
-
+#include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/spdlog.h"
 namespace Dionysen
 {
     std::shared_ptr<spdlog::logger> Log::s_CoreLogger;

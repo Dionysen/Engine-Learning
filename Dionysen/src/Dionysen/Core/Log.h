@@ -1,17 +1,11 @@
 #pragma once
 #include "Base.h"
 
-
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/gtx/string_cast.hpp"
 
-// This ignores all warnings raised inside External headers
-#pragma warning(push, 0)
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
-#include "spdlog/sinks/stdout_color_sinks.h"
-#include "spdlog/spdlog.h"
-#pragma warning(pop)
 
 namespace Dionysen
 {

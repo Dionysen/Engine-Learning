@@ -30,6 +30,7 @@ namespace Dionysen
         std::string                Name = "Dionysen Application";
         std::string                WorkingDirectory;
         ApplicationCommandLineArgs CommandLineArgs;
+        bool                       RunTests = false;
     };
 
     class DION_API Application
