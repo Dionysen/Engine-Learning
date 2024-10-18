@@ -14,7 +14,7 @@
 
 namespace Dionysen
 {
-    class Renderer
+    class DION_API Renderer
     {
       public:
         static void Init();

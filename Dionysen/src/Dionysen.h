@@ -26,6 +26,7 @@
 // #include "Entity.h"
 // #include "ScriptableEntity.h"
 #include "Components.h"
+#include "Project.h"
 
 // ---Renderer------------------------
 #include "Renderer.h"

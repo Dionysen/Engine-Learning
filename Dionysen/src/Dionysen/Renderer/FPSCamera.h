@@ -36,7 +36,7 @@ namespace Dionysen
     const float SENSITIVITY = 0.2f;
 
     // An abstract camera class that processes input and calculates the corresponding Euler Angles, Vectors and Matrices for use in OpenGL
-    class FPSCamera : public Camera
+    class DION_API FPSCamera : public Camera
     {
       public:
         // constructor with vectors

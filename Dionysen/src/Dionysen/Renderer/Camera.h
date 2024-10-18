@@ -5,10 +5,11 @@
 #ifndef ENGINE_LEARNING_CAMERA_H
 #define ENGINE_LEARNING_CAMERA_H
 
+#include "Base.h"
 #include "glm/glm.hpp"
 namespace Dionysen
 {
-    class Camera
+    class DION_API Camera
     {
       public:
         Camera() = default;

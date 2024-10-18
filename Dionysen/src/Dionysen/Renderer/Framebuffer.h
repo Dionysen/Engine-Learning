@@ -53,7 +53,7 @@ namespace Dionysen
         bool SwapChainTarget = false;
     };
 
-    class Framebuffer
+    class DION_API Framebuffer
     {
       public:
         virtual ~Framebuffer() = default;

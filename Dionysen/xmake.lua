@@ -74,7 +74,7 @@ target("Dionysen")
     if is_plat("windows") then
         add_defines(
             "DION_PLATFORM_WINDOWS",
-            "DION_BUILD_DLL",
+            -- "DION_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         )
 

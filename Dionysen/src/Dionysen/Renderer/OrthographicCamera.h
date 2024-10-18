@@ -8,11 +8,10 @@
 #pragma once
 
 #include <glm/glm.hpp>
-
+#include "Base.h"
 namespace Dionysen
 {
-
-    class OrthographicCamera
+    class DION_API OrthographicCamera
     {
       public:
         OrthographicCamera(float left, float right, float bottom, float top);

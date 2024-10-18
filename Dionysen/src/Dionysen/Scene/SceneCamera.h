@@ -4,7 +4,6 @@
 
 namespace Dionysen
 {
-
     class SceneCamera : public Camera
     {
       public:

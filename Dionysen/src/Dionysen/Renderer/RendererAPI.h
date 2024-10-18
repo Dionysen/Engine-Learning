@@ -14,7 +14,7 @@
 namespace Dionysen
 {
 
-    class RendererAPI
+    class DION_API RendererAPI
     {
       public:
         enum class API

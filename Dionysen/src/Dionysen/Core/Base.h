@@ -7,7 +7,7 @@
 #ifdef DION_BUILD_DLL
 #define DION_API __declspec(dllexport)
 #else
-#define DION_API __declspec(dllimport)
+#define DION_API
 #endif
 #else
 #define DION_API __attribute__((visibility("default")))

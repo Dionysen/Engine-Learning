@@ -9,7 +9,7 @@
 
 namespace Dionysen
 {
-    class Model
+    class DION_API Model
     {
       public:
         virtual ~Model() = default;

@@ -14,7 +14,7 @@
 
 namespace Dionysen
 {
-    class EditorCamera : public Camera
+    class DION_API EditorCamera : public Camera
     {
       public:
         EditorCamera() = default;

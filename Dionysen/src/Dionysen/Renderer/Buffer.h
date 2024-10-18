@@ -116,7 +116,7 @@ namespace Dionysen
         }
     };
 
-    class BufferLayout
+    class DION_API BufferLayout
     {
       public:
         BufferLayout()
@@ -173,7 +173,7 @@ namespace Dionysen
         uint32_t                   m_Stride = 0;
     };
 
-    class VertexBuffer
+    class DION_API VertexBuffer
     {
       public:
         virtual ~VertexBuffer() = default;
@@ -191,7 +191,7 @@ namespace Dionysen
     };
 
     // Currently Dionysen only supports 32-bit index buffers
-    class IndexBuffer
+    class DION_API IndexBuffer
     {
       public:
         virtual ~IndexBuffer() = default;

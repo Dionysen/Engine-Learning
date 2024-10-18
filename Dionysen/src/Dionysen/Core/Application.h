@@ -103,6 +103,6 @@ namespace Dionysen
     };
 
     // To be defined in CLIENT
-    Application* CreateApplication(ApplicationCommandLineArgs args);
+    DION_API Application* CreateApplication(ApplicationCommandLineArgs args);
 
 }  // namespace Dionysen

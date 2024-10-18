@@ -13,7 +13,7 @@
 namespace Dionysen
 {
     struct MSDFData;
-    class Font
+    class DION_API Font
     {
       public:
         Font(const std::filesystem::path& font);

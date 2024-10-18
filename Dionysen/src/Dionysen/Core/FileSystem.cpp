@@ -11,9 +11,9 @@ namespace Dionysen
         if (!stream)
         {
             // Failed to open the file
+            DION_CORE_ERROR("Failed to open file: {0}", filepath.string());
             return {};
         }
-
 
         std::streampos end = stream.tellg();
         stream.seekg(0, std::ios::beg);
@@ -22,6 +22,7 @@ namespace Dionysen
         if (size == 0)
         {
             // File is empty
+            DION_CORE_ERROR("File is empty: {0}", filepath.string());
             return {};
         }
 

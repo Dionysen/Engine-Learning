@@ -40,7 +40,7 @@ namespace Dionysen
         HEIGHT
     };
 
-    class Texture
+    class DION_API Texture
     {
       public:
         virtual ~Texture() = default;
@@ -65,14 +65,14 @@ namespace Dionysen
         virtual bool operator==(const Texture& other) const = 0;
     };
 
-    class Texture2D : public Texture
+    class DION_API Texture2D : public Texture
     {
       public:
         static Ref<Texture2D> Create(const TextureSpecification& specification);
         static Ref<Texture2D> Create(const std::string& path);
     };
 
-    class TextureCubemap
+    class DION_API TextureCubemap
     {
       public:
         virtual void Bind() = 0;
@@ -80,7 +80,7 @@ namespace Dionysen
         static Ref<TextureCubemap> Create(const std::vector<std::string>& path);
     };
 
-    class Skybox
+    class DION_API Skybox
     {
       public:
         /*

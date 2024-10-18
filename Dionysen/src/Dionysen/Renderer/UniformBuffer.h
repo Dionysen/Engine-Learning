@@ -5,7 +5,7 @@
 namespace Dionysen
 {
 
-    class UniformBuffer
+    class DION_API UniformBuffer
     {
       public:
         virtual ~UniformBuffer()

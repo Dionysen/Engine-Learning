@@ -10,7 +10,7 @@
 
 namespace Dionysen
 {
-    class VertexArray
+    class DION_API VertexArray
     {
       public:
         virtual ~VertexArray() = default;

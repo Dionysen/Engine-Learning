@@ -2,7 +2,6 @@
 
 #include <Dionysen.h>
 #include <EntryPoint.h>
-#include <Base.h>
 
 TEST(TestSuite, TestName)
 {

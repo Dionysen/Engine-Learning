@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BaseBuffer.h"
+#include <filesystem>
 
 namespace Dionysen
 {

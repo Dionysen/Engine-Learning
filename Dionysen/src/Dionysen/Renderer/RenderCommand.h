@@ -10,7 +10,7 @@
 
 namespace Dionysen
 {
-    class RenderCommand
+    class DION_API RenderCommand
     {
       public:
         static void Init()

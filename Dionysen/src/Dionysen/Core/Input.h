@@ -10,7 +10,7 @@
 
 namespace Dionysen
 {
-    class Input
+    class DION_API Input
     {
       public:
         static bool      IsKeyPressed(KeyCode key);
