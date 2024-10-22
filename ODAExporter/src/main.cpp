@@ -9,27 +9,24 @@
 #include <ExSystemServices.h>
 #include <iostream>
 
-// #include "DbHostAppServices.h"
-// #include "DbSymUtl.h"
-// #include "DbLayout.h"
-// #include "DbViewportTable.h"
-// #include "DbViewportTableRecord.h"
-
 // Define a Custom Services class that has functionality of ExSystemServices and ExHostAppServices.
-class MyServices : public ExSystemServices, public ExHostAppServices
+class MyServices
+    : public ExSystemServices
+    , public ExHostAppServices
 {
-protected:
-	ODRX_USING_HEAP_OPERATORS(ExSystemServices);
+  protected:
+    ODRX_USING_HEAP_OPERATORS(ExSystemServices);
 };
 
-int wmain(int argc, wchar_t* argv[])
+int WriteDwg()
 {
-	// 创建主应用服务
-	OdRxObjectImpl<MyServices> svcs;           // Services
-	// 初始化服务
-	odInitialize(&svcs);                       // Initialization
+    // 创建主应用服务
+    OdRxObjectImpl<MyServices> svcs;  // Services
+    // 初始化服务
+    odInitialize(&svcs);  // Initialization
 
-	try {
+    try
+    {
         // 使用智能指针创建数据库对象
         OdDbDatabasePtr pDb = svcs.createDatabase(true, OdDb::kEnglish);
 
@@ -49,16 +46,17 @@ int wmain(int argc, wchar_t* argv[])
         pText->setTextString(L"Hello, DWG! Hello World!");
         pMs->appendOdDbEntity(pText);
 
-		OdDb3dSolidPtr pSolid = OdDb3dSolid::createObject();
+        OdDb3dSolidPtr pSolid = OdDb3dSolid::createObject();
 
         // 保存数据库到dwg文件中
-        pDb->writeFile(L"example.dwg", OdDb::kDwg, OdDb::vAC27); // Choose the DWG version
-	}
-	catch (const OdError& e) {
-		// Handle any exceptions
-		OdString errorMessage = e.description();
+        pDb->writeFile(L"example.dwg", OdDb::kDwg, OdDb::vAC27);  // Choose the DWG version
+    }
+    catch (const OdError& e)
+    {
+        // Handle any exceptions
+        OdString errorMessage = e.description();
         std::cout << errorMessage.c_str() << std::endl;
-	}
-	odUninitialize();                          // Termination
-	return 0;
+    }
+    odUninitialize();  // Termination
+    return 0;
 }

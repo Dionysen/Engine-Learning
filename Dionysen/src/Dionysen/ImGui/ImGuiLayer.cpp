@@ -35,10 +35,11 @@ namespace Dionysen
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
         ImGuiIO& io = ImGui::GetIO();
+        (void)io;
 
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
-        // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;      // Enable Docking
 
+        // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;      // Enable Docking
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
         ImGui::StyleColorsDark();
@@ -50,8 +51,8 @@ namespace Dionysen
         ImGuiStyle& style = ImGui::GetStyle();
         // if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         // {
-        //     style.WindowRounding              = 0.0f;
-        //     style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        style.WindowRounding              = 0.0f;
+        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
         // }
 
         SetDarkThemeColors();
@@ -104,9 +105,12 @@ namespace Dionysen
         Application& app = Application::Get();
         io.DisplaySize   = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
-        //         // Rendering
-        //         ImGui::Render();
-        //         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        // Rendering
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        GLFWwindow* backup_current_context = glfwGetCurrentContext();
+        glfwMakeContextCurrent(backup_current_context);
 
         //         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         //         {

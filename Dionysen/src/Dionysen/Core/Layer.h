@@ -2,7 +2,6 @@
 
 #include "Event.h"
 #include "TimeStep.h"
-#include <sstream>
 #include <string>
 
 namespace Dionysen
