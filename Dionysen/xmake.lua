@@ -55,7 +55,7 @@ target("Dionysen")
 
     -- add dependencies
     include_deps("vendor")
-    add_deps("entt", "mono", "imguizmo", "msdf-atlas-gen")
+    add_deps("entt", "mono", "msdf-atlas-gen")
 
     -- add packages
     add_packages("glfw", "spdlog",  "glew", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp", "glm", "gtest", "imgui")

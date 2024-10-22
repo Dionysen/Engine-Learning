@@ -3,7 +3,7 @@
 #include "dspch.h"
 #include "Log.h"
 
-extern Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandLineArgs args);
+extern DION_API Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandLineArgs args);
 
 int main(int argc, char* argv[])
 {

@@ -86,4 +86,4 @@ target("oda-test")
         add_includedirs("/opt/local/include")
     end
 
-    add_packages("glfw", "glm", "glew", "spdlog")
+    add_packages("glfw", "glm", "glew", "spdlog", "imgui")

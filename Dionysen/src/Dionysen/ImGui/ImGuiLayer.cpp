@@ -17,7 +17,7 @@
 #include "imgui_impl_opengl3_loader.h"
 #include "Application.h"
 #include <imgui_internal.h>
-#include "ImGuizmo.h"
+
 
 namespace Dionysen
 {
@@ -95,7 +95,7 @@ namespace Dionysen
 #endif
 #endif
         ImGui::NewFrame();
-        ImGuizmo::BeginFrame();
+        // ImGuizmo::BeginFrame();
     }
 
     void ImGuiLayer::End()

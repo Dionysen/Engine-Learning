@@ -1,6 +1,6 @@
 #include "ODAExporterLayer.h"
 #include "RenderCommand.h"
-// #include "imgui.h"
+#include "imgui.h"
 namespace Dionysen
 {
     ODAExporterLayer::ODAExporterLayer()
@@ -27,9 +27,9 @@ namespace Dionysen
 
     void ODAExporterLayer::OnImGuiRender()
     {
-        // ImGui::Begin("Settings");
-
-        // ImGui::End();
+        ImGui::Begin("Settings");
+        ImGui::Text("Hello World");
+        ImGui::End();
     }
 
     void ODAExporterLayer::OnEvent(Event& e)
