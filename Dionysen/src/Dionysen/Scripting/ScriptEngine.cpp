@@ -19,6 +19,27 @@
 
 #include "Project.h"
 
+#include <filesystem>
+#include "UUID.h"
+
+
+// 为 std::filesystem::path 添加格式化支持
+template <> struct fmt::formatter<std::filesystem::path> : formatter<string_view>
+{
+    template <typename FormatContext> auto format(const std::filesystem::path& p, FormatContext& ctx)
+    {
+        return formatter<string_view>::format(p.string(), ctx);
+    }
+};
+
+// 为 Dionysen::UUID 添加格式化支持
+template <> struct fmt::formatter<Dionysen::UUID> : formatter<uint64_t>
+{
+    template <typename FormatContext> auto format(const Dionysen::UUID& uuid, FormatContext& ctx)
+    {
+        return formatter<uint64_t>::format(uuid, ctx);
+    }
+};
 namespace Dionysen
 {
 

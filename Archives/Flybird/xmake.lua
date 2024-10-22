@@ -31,4 +31,4 @@ target("Flybird")
         add_includedirs("/opt/local/include")
     end
 
-    add_packages("glfw", "glm", "glew")
+    add_packages("glfw", "glm", "glew", "spdlog")

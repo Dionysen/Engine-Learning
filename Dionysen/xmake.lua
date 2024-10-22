@@ -51,14 +51,14 @@ end
 
 target("Dionysen")
     -- Set the target type to static library
-    set_kind("static")
+    set_kind("shared")
 
     -- add dependencies
     include_deps("vendor")
-    add_deps("entt", "spdlog", "mono", "imgui-docking", "imguizmo", "msdf-atlas-gen", "stb_image")
+    add_deps("entt", "mono", "imguizmo","imgui-docking", "msdf-atlas-gen", "stb_image")
 
     -- add packages
-    add_packages("glfw", "glew", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp", "glm", "gtest")
+    add_packages("glfw", "spdlog",  "glew", "shaderc", "spirv-cross", "box2d", "yaml-cpp", "assimp", "glm", "gtest")
 
     -- add source files
     add_includedirs_recursively("src")
@@ -70,11 +70,14 @@ target("Dionysen")
     -- Define GLFW_WINDOW
     add_defines("GLFW_WINDOW")
 
+    set_runtimes("MDd")
+    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
+    
     -- platform
     if is_plat("windows") then
         add_defines(
             "DION_PLATFORM_WINDOWS",
-            -- "DION_BUILD_DLL",
+            "DION_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         )
 

@@ -1,5 +1,5 @@
 target("imguizmo")
-	set_kind("static")
+	set_kind("shared")
 
 	add_packages("glfw")
     includes("../imgui-docking/xmake.lua")
@@ -7,3 +7,6 @@ target("imguizmo")
 
 	add_includedirs(".", {public = true})
 	add_files("./*.cpp")
+
+	set_runtimes("MDd")
+    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
