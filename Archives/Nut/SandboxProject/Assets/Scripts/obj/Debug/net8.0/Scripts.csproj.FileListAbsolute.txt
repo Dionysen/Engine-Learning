@@ -1,5 +1,0 @@
-D:\Engine\Nut\SandboxProject\Assets\Scripts\obj\Debug\net8.0\Scripts.GeneratedMSBuildEditorConfig.editorconfig
-D:\Engine\Nut\SandboxProject\Assets\Scripts\obj\Debug\net8.0\Scripts.AssemblyInfoInputs.cache
-D:\Engine\Nut\SandboxProject\Assets\Scripts\obj\Debug\net8.0\Scripts.AssemblyInfo.cs
-D:\Engine\Nut\SandboxProject\Assets\Scripts\obj\Debug\net8.0\Scripts.csproj.CoreCompileInputs.cache
-D:\Engine\Nut\SandboxProject\Assets\Scripts\obj\Debug\net8.0\Scripts.sourcelink.json
