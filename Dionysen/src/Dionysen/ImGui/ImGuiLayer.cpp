@@ -1,5 +1,7 @@
 #include "ImGuiLayer.h"
 #include "dspch.h"
+
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui.h"
 
 #ifdef GLFW_WINDOW
@@ -35,7 +37,7 @@ namespace Dionysen
         ImGuiIO& io = ImGui::GetIO();
 
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
-        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;      // Enable Docking
+        // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;      // Enable Docking
 
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
@@ -46,11 +48,11 @@ namespace Dionysen
         io.FontDefault = io.Fonts->AddFontFromFileTTF("Dionysen/assets/fonts/open-sans/OpenSans-Regular.ttf", fontSize);
 
         ImGuiStyle& style = ImGui::GetStyle();
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-            style.WindowRounding              = 0.0f;
-            style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-        }
+        // if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        // {
+        //     style.WindowRounding              = 0.0f;
+        //     style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        // }
 
         SetDarkThemeColors();
 
@@ -102,26 +104,26 @@ namespace Dionysen
         Application& app = Application::Get();
         io.DisplaySize   = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
-        // Rendering
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        //         // Rendering
+        //         ImGui::Render();
+        //         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-#ifdef GLFW_WINDOW
-            GLFWwindow* backup_current_context = glfwGetCurrentContext();
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            glfwMakeContextCurrent(backup_current_context);
-#else
-#ifdef DION_PLATFORM_WINDOWS
-            HWND backup_current_context = GetActiveWindow();
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            SetActiveWindow(backup_current_context);
-#endif
-#endif
-        }
+        //         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        //         {
+        // #ifdef GLFW_WINDOW
+        //             GLFWwindow* backup_current_context = glfwGetCurrentContext();
+        //             ImGui::UpdatePlatformWindows();
+        //             ImGui::RenderPlatformWindowsDefault();
+        //             glfwMakeContextCurrent(backup_current_context);
+        // #else
+        // #ifdef DION_PLATFORM_WINDOWS
+        //             HWND backup_current_context = GetActiveWindow();
+        //             ImGui::UpdatePlatformWindows();
+        //             ImGui::RenderPlatformWindowsDefault();
+        //             SetActiveWindow(backup_current_context);
+        // #endif
+        // #endif
+        //         }
     }
 
     void ImGuiLayer::OnEvent(Event& event)

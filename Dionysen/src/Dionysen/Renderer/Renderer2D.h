@@ -9,7 +9,6 @@
 #include "EditorCamera.h"
 #include "Texture.h"
 #include "Font.h"
-#include "Components.h"
 #include "OrthographicCamera.h"
 
 namespace Dionysen
@@ -60,7 +59,7 @@ namespace Dionysen
         static void DrawRect(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color, int entityID = -1);
         static void DrawRect(const glm::mat4& transform, const glm::vec4& color, int entityID = -1);
 
-        static void DrawSprite(const glm::mat4& transform, SpriteRendererComponent& src, int entityID);
+        // static void DrawSprite(const glm::mat4& transform, SpriteRendererComponent& src, int entityID);
 
         struct TextParams
         {
@@ -74,7 +73,7 @@ namespace Dionysen
         static void DrawString(const std::string& string, Ref<Font> font, const glm::vec3& position, const glm::vec2& size,
                                const TextParams& textParams, int entityID = -1);
 
-        static void DrawString(const std::string& string, const glm::mat4& transform, const TextComponent& component, int entityID = -1);
+        // static void DrawString(const std::string& string, const glm::mat4& transform, const TextComponent& component, int entityID = -1);
 
         static float GetLineWidth();
         static void  SetLineWidth(float width);

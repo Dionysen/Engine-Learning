@@ -5,16 +5,14 @@ add_rules("plugin.vsxmake.autoupdate")
 add_requires("glfw", "glew", "glm", "spirv-cross", "box2d 2.4.2", "yaml-cpp", "assimp", "gtest", {configs = {shared = true, runtimes = "MDd"}})
 
 add_requires("shaderc", "spdlog")
+add_requires("imgui", {configs = {shared = true, runtimes = "MDd", glfw = true, opengl3 = true, win32 = true}})
+
 -- set c++
 set_languages("cxx20")
 
 -- include child target's xmake.lua
 includes("Dionysen/xmake.lua")
 includes("ODAExporter/xmake.lua")
-
--- includes("Archives/Flybird/xmake.lua")
--- Test target
--- includes("Test/win32_opengl/xmake.lua")
 
 -- for easyer
 set_rundir(".")

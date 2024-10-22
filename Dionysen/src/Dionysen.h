@@ -20,12 +20,6 @@
 #include "FPSCamera.h"
 // --- ImGui
 #include "ImGuiLayer.h"
-
-// --- Scene
-// #include "Scene.h"
-// #include "Entity.h"
-// #include "ScriptableEntity.h"
-#include "Components.h"
 #include "Project.h"
 
 // ---Renderer------------------------

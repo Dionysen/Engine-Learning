@@ -53,10 +53,6 @@ target("oda-test")
     set_runtimes("MDd")
     add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
 
-
-    includes("../Dionysen/vendor/imgui-docking")
-    add_deps("imgui-docking")
-
     add_linkdirs("Teigha/lib/vc14_amd64dlldbg", "Teigha/exe/vc14_amd64dlldbg")
     add_links(
         "ACCAMERA",
@@ -79,10 +75,7 @@ target("oda-test")
     includes("../Dionysen")
     add_deps("Dionysen")
     add_includedirs("../Dionysen")
-
-    includes("../Dionysen/vendor/imgui")
-    add_deps("imgui")
-
+    
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS", "WIN32")
         add_links("opengl32")

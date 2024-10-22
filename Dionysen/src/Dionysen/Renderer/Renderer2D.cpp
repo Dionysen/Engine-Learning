@@ -553,13 +553,13 @@ namespace Dionysen
         DrawLine(lineVertices[3], lineVertices[0], color, entityID);
     }
 
-    void Renderer2D::DrawSprite(const glm::mat4& transform, SpriteRendererComponent& src, int entityID)
-    {
-        if (src.Texture)
-            DrawQuad(transform, src.Texture, src.TilingFactor, src.Color, entityID);
-        else
-            DrawQuad(transform, src.Color, entityID);
-    }
+    // void Renderer2D::DrawSprite(const glm::mat4& transform, SpriteRendererComponent& src, int entityID)
+    // {
+    //     if (src.Texture)
+    //         DrawQuad(transform, src.Texture, src.TilingFactor, src.Color, entityID);
+    //     else
+    //         DrawQuad(transform, src.Color, entityID);
+    // }
 
     void Renderer2D::DrawString(const std::string& string, Ref<Font> font, const glm::mat4& transform, const TextParams& textParams, int entityID)
     {
@@ -682,10 +682,10 @@ namespace Dionysen
         DrawString(string, font, transform, textParams);
     }
 
-    void Renderer2D::DrawString(const std::string& string, const glm::mat4& transform, const TextComponent& component, int entityID)
-    {
-        DrawString(string, component.FontAsset, transform, { component.Color, component.Kerning, component.LineSpacing }, entityID);
-    }
+    // void Renderer2D::DrawString(const std::string& string, const glm::mat4& transform, const TextComponent& component, int entityID)
+    // {
+    //     DrawString(string, component.FontAsset, transform, { component.Color, component.Kerning, component.LineSpacing }, entityID);
+    // }
 
     float Renderer2D::GetLineWidth()
     {
