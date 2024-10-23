@@ -1,9 +1,10 @@
 #pragma once
-#include "Application.h"
 #include "dspch.h"
-#include "Log.h"
-
-extern DION_API Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandLineArgs args);
+#include "Application.h"
+namespace Dionysen
+{
+    extern Application* CreateApplication(ApplicationCommandLineArgs args);
+}
 
 int main(int argc, char* argv[])
 {
