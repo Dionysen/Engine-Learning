@@ -48,6 +48,13 @@ end
 -- ============================================
 -- ================== TARGET ==================
 -- ============================================
+-- requires
+add_requires("glfw", "glew", "glm", "spirv-cross", "box2d 2.4.2", "yaml-cpp", "assimp", "gtest", {configs = {shared = true, runtimes = "MDd"}})
+
+add_requires("shaderc", "spdlog")
+
+add_requires("imgui", {configs = {shared = true, runtimes = "MDd", glfw = true, opengl3 = true}})
+add_requireconfs("imgui.glfw", {configs = {shared = true}})
 
 target("Dionysen")
     -- Set the target type to static library
@@ -69,10 +76,6 @@ target("Dionysen")
     
     -- Define GLFW_WINDOW
     add_defines("GLFW_WINDOW")
-
-    set_runtimes("MDd")
-    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
-
 
     -- platform
     if is_plat("windows") then

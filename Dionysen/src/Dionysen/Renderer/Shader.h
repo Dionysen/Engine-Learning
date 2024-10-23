@@ -11,7 +11,7 @@
 namespace Dionysen
 {
 
-    class Shader
+    class DION_API Shader
     {
 
       public:

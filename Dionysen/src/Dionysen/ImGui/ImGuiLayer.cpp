@@ -35,8 +35,6 @@ namespace Dionysen
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
         ImGuiIO& io = ImGui::GetIO();
-        (void)io;
-
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
 
         // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;      // Enable Docking
@@ -51,8 +49,8 @@ namespace Dionysen
         ImGuiStyle& style = ImGui::GetStyle();
         // if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         // {
-        style.WindowRounding              = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        // style.WindowRounding              = 0.0f;
+        // style.Colors[ImGuiCol_WindowBg].w = 1.0f;
         // }
 
         SetDarkThemeColors();

@@ -1,5 +1,5 @@
 #include <Dionysen.h>
-#include "ODAExporterLayer.h"
+#include "ExporterLayer.h"
 #include <EntryPoint.h>
 #include <Base.h>
 class ODAExporter : public Dionysen::Application
@@ -21,5 +21,6 @@ Dionysen::Application* Dionysen::CreateApplication(Dionysen::ApplicationCommandL
     spec.Name             = "ODAExporter";
     spec.WorkingDirectory = ".";
     spec.CommandLineArgs  = args;
+    spec.RunTests         = true;
     return new ODAExporter(spec);
 }

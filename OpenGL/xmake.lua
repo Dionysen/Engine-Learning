@@ -5,9 +5,6 @@ target("OpenGL")
     includes("../Dionysen")
     add_includedirs("../Dionysen")
 
-    includes("../Dionysen/vendor/imgui-docking")
-    add_deps("imgui-docking")
-
     add_includedirs(
         "./src"
     )
@@ -19,7 +16,6 @@ target("OpenGL")
     add_files(
         "./src/*.cpp"
     )
-
 
     if is_plat("windows") then
         add_defines("DION_PLATFORM_WINDOWS", "WIN32","DION_DEBUG")
@@ -33,4 +29,4 @@ target("OpenGL")
         add_includedirs("/opt/local/include")
     end
     
-    add_packages("glfw", "glm", "glew", "msdf-atlas-gen")
+    add_packages("glfw", "glm", "glew", "msdf-atlas-gen", "imgui", "spdlog")
