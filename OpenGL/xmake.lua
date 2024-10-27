@@ -5,9 +5,6 @@ target("OpenGL")
     includes("../Dionysen")
     add_includedirs("../Dionysen")
 
-    includes("../Dionysen/vendor/imgui-docking")
-    add_deps("imgui-docking")
-
     add_includedirs(
         "./src"
     )
@@ -29,8 +26,8 @@ target("OpenGL")
 
     -- libraries
     if is_plat("macosx") then
-        add_linkdirs("/opt/local/lib")
-        add_includedirs("/opt/local/include")
+        -- add_linkdirs("/opt/local/lib")
+        -- add_includedirs("/opt/local/include")
     end
     
-    add_packages("glfw", "glm", "glew", "msdf-atlas-gen")
+    add_packages("glfw", "glm", "glew", "msdf-atlas-gen", "spdlog", "imgui")

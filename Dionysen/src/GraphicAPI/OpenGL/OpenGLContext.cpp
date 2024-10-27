@@ -1,9 +1,11 @@
 #include <GL/glew.h>
 #include "OpenGLContext.h"
 #include "Log.h"
+
+#ifdef DION_PLATFORM_WINDOWS
 #include <wingdi.h>
 #include <Windows.h>
-
+#endif
 namespace Dionysen
 {
 #ifdef GLFW_WINDOW

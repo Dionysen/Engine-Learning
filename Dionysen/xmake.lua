@@ -71,7 +71,7 @@ target("Dionysen")
     add_defines("GLFW_WINDOW")
 
     set_runtimes("MDd")
-    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
+    -- add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
 
 
     -- platform
@@ -104,9 +104,9 @@ target("Dionysen")
             "DION_PLATFORM_MACOSX"
         )
         add_packages("qt5widgets", "qt5core", "qt5gui")
-        add_linkdirs("/usr/local/opt/mono/lib")
-        add_links("monosgen-2.0")
+        -- add_linkdirs("/usr/local/opt/mono/lib")
+        -- add_links("monosgen-2.0")
 
-        add_linkdirs("/opt/local/lib")
-        add_includedirs("/opt/local/include")
+        -- add_linkdirs("/opt/local/lib")
+        -- add_includedirs("/opt/local/include")
     end
