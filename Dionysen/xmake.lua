@@ -76,16 +76,10 @@ target("Dionysen")
     
     -- Define GLFW_WINDOW
     add_defines("GLFW_WINDOW")
-
-<<<<<<< Updated upstream
+    
     set_runtimes("MDd")
     -- add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
 
-
-=======
-    add_cxflags("/MD")
-    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=0")
->>>>>>> Stashed changes
     -- platform
     if is_plat("windows") then
         add_defines(
