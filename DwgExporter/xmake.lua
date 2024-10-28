@@ -47,30 +47,22 @@ target("oda-test")
     set_kind("binary")
     -- add source files
     add_includedirs_recursively("src")
-    add_includedirs_recursively("Teigha/include")
+    add_includedirs_recursively("Teigha/vc14/include")
     add_files_recursively("src")
-    
-    set_runtimes("MDd")
-    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
 
-    add_linkdirs("Teigha/lib/vc14_amd64dlldbg", "Teigha/exe/vc14_amd64dlldbg")
-    add_links(
-        "ACCAMERA",
-        "TD_AcisBuilder",
-        "TD_Key",
-        "TD_DbCore",
-        "TD_Db",
-        "TD_DbRoot",
-        "TD_DbEntities",
-        "TD_ExamplesCommon",
-        "TD_Root",
-        "TD_Gs",
-        "TD_Gi",
-        "TD_Ge",
-        "TD_Alloc",
-        "TD_DrawingsExamplesCommon",
-        "TD_DbIO")
-        
+    set_runtimes("MD")
+
+    add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=0")
+
+    add_linkdirs("Teigha/vc14/lib/vc14_amd64dll", "Teigha/vc14/exe/vc14_amd64dll")
+ 
+    -- 自动包含 `libs` 目录下的所有 `.lib` 文件
+    for _, lib in ipairs(os.files("Teigha/vc14/lib/vc14_amd64dll/*.lib")) do
+        -- 只获取文件名（去掉路径和后缀）
+        local libname = path.basename(lib)
+        add_links(libname)
+    end
+ 
     -- For Dionysen
     includes("../Dionysen")
     add_deps("Dionysen")

@@ -1,5 +1,7 @@
-
+#pragma pack(push, 8)
+#include <iostream>
 #include "DWGExporter.h"
+#pragma pack(pop)
 
 int WriteDwg()
 {
