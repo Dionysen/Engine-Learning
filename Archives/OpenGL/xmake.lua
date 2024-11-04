@@ -2,10 +2,10 @@ target("OpenGL")
     set_kind("binary")
     add_deps("Dionysen")
 
-    includes("../Dionysen")
-    add_includedirs("../Dionysen")
+    includes("../../Dionysen")
+    add_includedirs("../../Dionysen")
 
-    includes("../Dionysen/vendor/imgui-docking")
+    includes("../../Dionysen/vendor/imgui-docking")
     add_deps("imgui-docking")
 
     add_includedirs(
