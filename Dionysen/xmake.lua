@@ -43,16 +43,13 @@ function include_deps(dir)
     end
 end
 
-
-
 -- ============================================
 -- ================== TARGET ==================
 -- ============================================
 -- requires
+
 add_requires("glfw", "glew", "glm", "spirv-cross", "box2d 2.4.2", "yaml-cpp", "assimp", "gtest", {configs = {shared = true, runtimes = "MD"}})
-
 add_requires("shaderc", "spdlog", {configs = {runtimes = "MD"}})
-
 add_requires("imgui", {configs = {shared = true, runtimes = "MD", glfw = true, opengl3 = true}})
 add_requireconfs("imgui.glfw", {configs = {shared = true, runtimes = "MD"}})
 
@@ -76,10 +73,12 @@ target("Dionysen")
     
     -- Define GLFW_WINDOW
     add_defines("GLFW_WINDOW")
+    if (is_mode("release")) then
+        set_runtimes("MD")
+    else
+        set_runtimes("MDd")
+    end
     
-    set_runtimes("MDd")
-    -- add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=2")
-
     -- platform
     if is_plat("windows") then
         add_defines(
@@ -110,9 +109,4 @@ target("Dionysen")
             "DION_PLATFORM_MACOSX"
         )
         add_packages("qt5widgets", "qt5core", "qt5gui")
-        -- add_linkdirs("/usr/local/opt/mono/lib")
-        -- add_links("monosgen-2.0")
-
-        -- add_linkdirs("/opt/local/lib")
-        -- add_includedirs("/opt/local/include")
     end
