@@ -88,7 +88,7 @@ namespace Dionysen
         // atlasPacker.setDimensionsConstraint()
         atlasPacker.setPixelRange(2.0);
         atlasPacker.setMiterLimit(1.0);
-        atlasPacker.setPadding(0);
+        // atlasPacker.setPadding(0);
         atlasPacker.setScale(emSize);
         int remaining = atlasPacker.pack(m_Data->Glyphs.data(), (int)m_Data->Glyphs.size());
         DION_CORE_ASSERT(remaining == 0);

@@ -1,32 +1,23 @@
-add_requires("freetype", "tinyxml2")
-if is_plat("linux") then
-    add_requires("freetype2")
-end
+includes(os.projectdir() .. "/Scripts/base/recursive.lua")
+
 target("msdf-atlas-gen")
-set_kind("static")
-add_packages("freetype", "tinyxml2")
+set_kind("library")
+set_group("vendor")
+set_basename("msdf-atlas-gen")
 
-add_includedirs(
-    ".",
-    "msdfgen",
-    "msdf-atlas-gen",
-    "msdfgen/core",
-    "msdfgen/ext",
-    "artery-font-format",
-    { public = true }
-)
+add_includedirs_recursively("include", {
+    public = true
+})
 
-if is_plat("linux") then
-    add_packages("freetype2")
-    add_includedirs("/usr/include/freetype2")
+if is_mode("debug") then
+    add_linkdirs("lib/Debug", {
+        public = true
+    })
+else
+    add_linkdirs("lib/Release", {
+        public = true
+    })
 end
-add_cxflags("/MD")
-add_cxflags("/utf-8", "/wd4828", "/wd4251", "/D_ITERATOR_DEBUG_LEVEL=0")
-add_files(
-    "msdfgen/*.cpp",
-    "msdfgen/core/*.cpp",
-    "msdfgen/ext/*.cpp",
-    "msdf-atlas-gen/*.cpp"
-)
+add_defines("MSDFGEN_PUBLIC")
 
-set_languages("cxx20")
+add_links("msdf-atlas-gen")
